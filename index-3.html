@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Plus International — Remote NSW Nursing Specialists</title>
+<meta name="description" content="Australia's remote NSW nursing labour hire specialists. AHPRA verified nurses for Far West, Western NSW, Murrumbidgee and beyond.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{--teal:#0B6B6E;--teal-l:#0D8589;--teal-pale:#E1F5EE;--teal-mid:#9FE1CB;--navy:#1B3A5C;--navy-d:#0D1F33;--white:#fff;--off:#F7F8F6;--border:rgba(11,107,110,0.13);--text:#1A1A1A;--text-m:#4A5568;--text-l:#718096}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.07);height:68px;padding:0 3rem;display:flex;align-items:center;justify-content:space-between}
+.nlogo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nlogo svg{width:34px;height:34px}
+.nlt span:first-child{display:block;font-size:14px;font-weight:700;color:var(--teal);letter-spacing:.5px}
+.nlt span:last-child{display:block;font-size:8.5px;font-weight:600;color:var(--navy);letter-spacing:3px}
+.nlinks{display:flex;align-items:center;gap:2rem;list-style:none}
+.nlinks a{font-size:13px;font-weight:600;color:var(--text-m);text-decoration:none;transition:color .2s}
+.nlinks a:hover{color:var(--teal)}
+.ncta{background:var(--teal)!important;color:#fff!important;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:700!important}
+.ncta:hover{background:var(--teal-l)!important}
+@media(max-width:880px){nav{padding:0 1.5rem}.nlinks{display:none}}
+.hero{padding-top:68px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{padding:6rem 3.5rem 4rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--white)}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:var(--teal-pale);border:1px solid rgba(11,107,110,0.2);padding:6px 14px;border-radius:100px;width:fit-content;margin-bottom:2rem}
+.hero-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-pill span{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--teal)}
+.hero h1{font-size:clamp(2.2rem,3.8vw,3.5rem);font-weight:800;line-height:1.08;letter-spacing:-.8px;color:var(--navy);margin-bottom:1.25rem}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero-sub{font-size:16px;color:var(--text-m);line-height:1.75;max-width:440px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{background:var(--teal);color:#fff;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid var(--teal);transition:all .2s}
+.btn-primary:hover{background:var(--teal-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(11,107,110,0.3)}
+.btn-outline{background:transparent;color:var(--navy);padding:14px 28px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;border:2px solid rgba(27,58,92,0.2);transition:all .2s}
+.btn-outline:hover{border-color:var(--navy);transform:translateY(-2px)}
+.hero-trust{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--text-l)}
+.trust-dot{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.hero-right{position:relative;overflow:hidden;background:var(--off);display:grid;grid-template-rows:1fr 1fr;gap:4px}
+.hero-img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-img-wrap{overflow:hidden;position:relative}
+.hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,107,110,0.15),transparent)}
+.hero-badge{position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.95);border-radius:10px;padding:10px 14px;backdrop-filter:blur(8px);box-shadow:0 4px 20px rgba(0,0,0,0.12)}
+.hero-badge h4{font-size:13px;font-weight:700;color:var(--navy)}
+.hero-badge p{font-size:11px;color:var(--text-l);margin-top:1px}
+@media(max-width:880px){.hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:5rem 1.5rem 3rem}}
+.stats{background:var(--teal);display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-i{padding:2.2rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,0.15)}
+.stat-i:last-child{border-right:none}
+.sn{font-size:2rem;font-weight:800;color:#fff;line-height:1}
+.sl{font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.6);margin-top:5px}
+@media(max-width:640px){.stats{grid-template-columns:1fr 1fr}.stat-i{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1)}}
+.sec{padding:6rem 4rem}
+.lbl{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--teal);margin-bottom:.8rem}
+.h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.15;color:var(--navy);letter-spacing:-.3px;margin-bottom:1rem}
+.lead{font-size:16px;color:var(--text-m);line-height:1.75;max-width:580px}
+@media(max-width:640px){.sec{padding:4rem 1.5rem}}
+.why{background:var(--off)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:3rem}
+.why-card{background:var(--white);border-radius:14px;padding:2rem;border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.why-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(11,107,110,0.1)}
+.why-icon{width:48px;height:48px;border-radius:12px;background:var(--teal-pale);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1.2rem}
+.why-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.why-card p{font-size:14px;color:var(--text-m);line-height:1.65}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr}}
+.photo-strip{position:relative;height:400px;overflow:hidden;background:var(--navy-d)}
+.photo-strip-bg{width:100%;height:100%;object-fit:cover;opacity:.4;display:block}
+.photo-strip-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.photo-strip-overlay h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.5px;margin-bottom:1rem}
+.photo-strip-overlay h2 em{font-style:normal;color:var(--teal-mid)}
+.photo-strip-overlay p{font-size:16px;color:rgba(255,255,255,0.65);max-width:540px;line-height:1.7}
+.map-sec{background:var(--white)}
+.map-layout{display:grid;grid-template-columns:320px 1fr;height:560px;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,.07);margin-top:3rem}
+.map-side{background:var(--off);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+.ms-head{padding:1.2rem 1.4rem;border-bottom:1px solid var(--border);flex-shrink:0}
+.ms-head h3{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.ms-head p{font-size:11px;color:var(--text-l)}
+.ms-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center}
+.ms-empty .ico{font-size:2.5rem;opacity:.25;margin-bottom:1rem}
+.ms-empty p{font-size:12px;color:var(--text-l);line-height:1.6}
+.ms-info{display:none;flex-direction:column;flex:1;overflow-y:auto}
+.ms-info.on{display:flex}
+.ri-hero{padding:1.3rem 1.4rem;background:linear-gradient(135deg,rgba(11,107,110,0.08),rgba(11,107,110,0.02));border-bottom:1px solid var(--border);flex-shrink:0}
+.ri-tag{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--teal);margin-bottom:6px}
+.ri-name{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.ri-pill{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px}
+.p-crit{background:rgba(220,38,38,0.1);color:#DC2626}
+.p-sev{background:rgba(234,88,12,0.1);color:#EA580C}
+.p-high{background:rgba(202,138,4,0.1);color:#CA8A04}
+.p-mod{background:rgba(11,107,110,0.1);color:var(--teal)}
+.ri-body{padding:1.2rem 1.4rem;flex:1}
+.sec-t{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--text-l);margin-bottom:8px}
+.ri-s{margin-bottom:1.1rem}
+.towns{display:flex;flex-wrap:wrap;gap:5px}
+.town{font-size:10px;font-weight:600;color:var(--text-m);background:var(--white);border:1px solid var(--border);padding:3px 9px;border-radius:100px}
+.srow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+.srow:last-child{border-bottom:none}
+.sl2{font-size:11px;color:var(--text-l)}.sr2{font-size:11px;font-weight:700;color:var(--navy)}
+.ptype{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text-m);padding:6px 9px;border-radius:7px;background:var(--teal-pale);border:1px solid rgba(11,107,110,0.12);margin-bottom:5px}
+.ptype::before{content:'✓';color:var(--teal);font-weight:700;font-size:10px}
+.ri-cta{display:block;margin:0 1.4rem 1.4rem;text-align:center;background:var(--teal);color:#fff;padding:11px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;transition:background .2s;flex-shrink:0}
+.ri-cta:hover{background:var(--teal-l)}
+#map{width:100%;height:100%}
+@media(max-width:880px){.map-layout{grid-template-columns:1fr;height:auto}.map-side{display:none}#map{height:60vmin;min-height:360px}}
+.rtabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.5rem}
+.rtab{padding:8px 16px;border-radius:100px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:var(--white);color:var(--text-m);transition:all .2s;font-family:'Montserrat',sans-serif}
+.rtab:hover{background:var(--teal-pale);color:var(--teal);border-color:rgba(11,107,110,0.3)}
+.rtab.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+.how{background:var(--off)}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:3.5rem;position:relative}
+.how-steps::before{content:'';position:absolute;top:27px;left:12.5%;right:12.5%;border-top:2px dashed var(--border)}
+.how-step{text-align:center;position:relative;z-index:1}
+.step-num{width:54px;height:54px;border-radius:50%;background:var(--teal);color:#fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;box-shadow:0 0 0 8px var(--teal-pale)}
+.how-step h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.how-step p{font-size:13px;color:var(--text-m);line-height:1.6}
+@media(max-width:768px){.how-steps{grid-template-columns:1fr 1fr;gap:2rem}.how-steps::before{display:none}}
+.sourcing{background:var(--navy-d);position:relative;overflow:hidden;padding:6rem 4rem}
+.sourcing::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(11,107,110,0.2),transparent 70%)}
+.sourcing .lbl{color:var(--teal-mid)}
+.sourcing .h2{color:#fff}
+.sourcing .lead{color:rgba(255,255,255,0.55);max-width:600px}
+.sourcing-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem}
+.countries{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem}
+.cpill{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px 14px}
+.flag{font-size:20px}
+.cpill h5{font-size:12px;font-weight:700;color:#fff}
+.cpill span{font-size:10px;color:rgba(255,255,255,.4)}
+.cnote{background:rgba(11,107,110,0.2);border:1px solid rgba(11,107,110,0.3);border-radius:10px;padding:14px 18px;font-size:13px;color:var(--teal-mid);font-weight:600;line-height:1.6}
+.pipe{display:flex;flex-direction:column}
+.pipe-step{display:flex;gap:16px;padding-bottom:24px;position:relative}
+.pipe-step:not(:last-child)::before{content:'';position:absolute;left:17px;top:36px;bottom:0;width:1px;background:rgba(255,255,255,0.1)}
+.pnum{width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pcontent h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.pcontent p{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6}
+@media(max-width:880px){.sourcing-grid{grid-template-columns:1fr}.countries{grid-template-columns:1fr}.sourcing{padding:4rem 1.5rem}}
+.register{background:var(--off);padding:6rem 4rem}
+.reg-inner{max-width:860px;margin:0 auto}
+.form-tabs{display:flex;background:var(--white);border-radius:10px;padding:4px;gap:4px;margin:2rem 0;border:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,.07)}
+.ftab{flex:1;padding:11px;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;background:transparent;border:none;color:var(--text-l);font-family:'Montserrat',sans-serif;transition:all .2s}
+.ftab.active{background:var(--teal);color:#fff}
+.fpanel{display:none}
+.fpanel.active{display:block}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:11px;font-weight:700;color:var(--navy);letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{padding:12px 16px;border:1.5px solid var(--border);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:14px;color:var(--text);background:var(--white);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--teal)}
+.fg textarea{resize:vertical;min-height:90px}
+.fsubmit{width:100%;margin-top:8px;background:var(--navy);color:#fff;padding:15px;border:none;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:background .2s,transform .15s}
+.fsubmit:hover{background:var(--teal);transform:translateY(-1px)}
+.fnote{text-align:center;font-size:12px;color:var(--text-l);margin-top:10px}
+.success-box{display:none;background:var(--teal-pale);border:2px solid var(--teal);border-radius:12px;padding:3rem;text-align:center}
+.success-box h3{font-size:1.3rem;color:var(--teal);margin-bottom:8px}
+.success-box p{font-size:14px;color:var(--text-m)}
+@media(max-width:640px){.fgrid{grid-template-columns:1fr}.register{padding:4rem 1.5rem}}
+footer{background:var(--navy-d);color:rgba(255,255,255,.5);padding:3rem 4rem 2rem}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.fb p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.4);margin-top:.8rem;max-width:340px}
+.fc h4{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--teal-mid);margin-bottom:1rem}
+.fc a{display:block;font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.fc a:hover{color:#fff}
+.fb-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fb-bottom p,.fb-bottom a{font-size:12px;color:rgba(255,255,255,.35)}
+.fb-bottom a{color:var(--teal-mid);text-decoration:none}
+@media(max-width:768px){.ft{grid-template-columns:1fr;gap:2rem}footer{padding:2.5rem 1.5rem}}
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.in{opacity:1;transform:translateY(0)}
+.lhd-tt{background:#fff!important;border:1px solid var(--border)!important;border-radius:7px!important;color:var(--navy)!important;font-family:'Montserrat',sans-serif!important;font-size:11px!important;font-weight:700!important;padding:5px 10px!important;box-shadow:0 4px 16px rgba(0,0,0,.12)!important}
+.lhd-tt::before{display:none!important}
+.leaflet-control-zoom a{background:#fff!important;color:var(--navy)!important;border-color:var(--border)!important}
+.leaflet-control-zoom a:hover{background:var(--teal-pale)!important;color:var(--teal)!important}
+.leaflet-control-attribution{font-size:9px!important}
+.leaflet-popup-content-wrapper{border-radius:10px!important}
+.leaflet-popup-content{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--navy)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nlogo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="57" fill="#0B6B6E"/>
+      <ellipse cx="70" cy="47" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="93" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="70" rx="21" ry="57" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <line x1="13" y1="70" x2="127" y2="70" stroke="white" stroke-width="1" opacity="0.45"/>
+      <rect x="62" y="44" width="17" height="52" rx="3" fill="white"/>
+      <rect x="44" y="62" width="52" height="17" rx="3" fill="white"/>
+    </svg>
+    <div class="nlt"><span>HEALTH PLUS</span><span>INTERNATIONAL</span></div>
+  </a>
+  <ul class="nlinks">
+    <li><a href="#map-sec">Regions</a></li>
+    <li><a href="services-remote.html">Services</a></li>
+    <li><a href="#sourcing">Overseas Nurses</a></li>
+    <li><a href="#register" class="ncta">Register Now</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-pill fade-up"><div class="hero-pill-dot"></div><span>REMOTE NSW NURSING SPECIALISTS</span></div>
+    <h1 class="fade-up" style="transition-delay:.1s">Remote NSW<br>deserves<br><em>great nurses.</em></h1>
+    <p class="hero-sub fade-up" style="transition-delay:.2s">We are the only nursing labour hire agency built specifically for remote and rural NSW. AHPRA verified nurses placed into the communities that need them most.</p>
+    <div class="hero-btns fade-up" style="transition-delay:.3s">
+      <a href="#register" class="btn-primary">Source a Nurse</a>
+      <a href="#map-sec" class="btn-outline">See Our Regions</a>
+    </div>
+    <div class="hero-trust fade-up" style="transition-delay:.4s">
+      <div class="trust-item"><div class="trust-dot"></div>AHPRA Verified</div>
+      <div class="trust-item"><div class="trust-dot"></div>Labour Hire Supplier</div>
+      <div class="trust-item"><div class="trust-dot"></div>NSW Health Focus</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img class="hero-img" src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?auto=format&fit=crop&w=900&q=80" alt="Remote Australian outback" onerror="this.parentElement.style.background='linear-gradient(135deg,#0B6B6E,#1B3A5C)'">
+      <div class="hero-badge"><h4>Far West NSW</h4><p>Critical nursing shortage — we specialise here</p></div>
+    </div>
+    <div class="hero-img-wrap">
+      <img class="hero-img" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=80" alt="Nurse in clinical setting" onerror="this.parentElement.style.background='linear-gradient(135deg,#1B3A5C,#0B6B6E)'">
+      <div class="hero-badge"><h4>AHPRA Registered</h4><p>Every nurse verified before placement</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-i"><div class="sn">6</div><div class="sl">REMOTE LHDs COVERED</div></div>
+  <div class="stat-i"><div class="sn">FIFO</div><div class="sl">FLY-IN FLY-OUT READY</div></div>
+  <div class="stat-i"><div class="sn">AHPRA</div><div class="sl">VERIFIED EVERY NURSE</div></div>
+  <div class="stat-i"><div class="sn">24hr</div><div class="sl">REMOTE RESPONSE TIME</div></div>
+</div>
+
+<section class="sec why">
+  <p class="lbl fade-up">Why we exist</p>
+  <h2 class="h2 fade-up">The agencies that could help<br>aren't focused on remote.</h2>
+  <p class="lead fade-up">Metro agencies treat remote placements as an afterthought. We built Health Plus International to do the opposite.</p>
+  <div class="why-grid">
+    <div class="why-card fade-up">
+      <div class="why-icon">🌏</div>
+      <h3>We go where others don't</h3>
+      <p>Broken Hill. Wilcannia. Bourke. We actively source nurses who want to work in these communities — not ones being pushed reluctantly.</p>
+    </div>
+    <div class="why-card fade-up" style="transition-delay:.1s">
+      <div class="why-icon">✅</div>
+      <h3>We are the employer</h3>
+      <p>As a labour hire supplier, we employ the nurse. You pay one all-inclusive rate. We handle payroll, super, workers comp, and compliance.</p>
+    </div>
+    <div class="why-card fade-up" style="transition-delay:.2s">
+      <div class="why-icon">🌐</div>
+      <h3>International pipeline for remote</h3>
+      <p>Nurses from the Philippines and India actively want to live in rural Australia. We match this motivation with your vacancy — properly.</p>
+    </div>
+  </div>
+</section>
+
+<div class="photo-strip">
+  <img class="photo-strip-bg" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1920&q=80" alt="Australian outback" onerror="this.style.display='none'">
+  <div class="photo-strip-overlay">
+    <h2>The outback is not<br>a <em>staffing afterthought.</em></h2>
+    <p>Remote NSW communities deserve the same quality of nursing care as any metropolitan hospital. That's the problem we're solving.</p>
+  </div>
+</div>
+
+<section class="sec map-sec" id="map-sec">
+  <p class="lbl fade-up">Interactive map</p>
+  <h2 class="h2 fade-up">Click a region to explore<br>nursing shortage data.</h2>
+  <div class="rtabs fade-up">
+    <button class="rtab active" onclick="zoomAll(this)">All NSW</button>
+    <button class="rtab" onclick="focusRegion('farwest',this)">Far West</button>
+    <button class="rtab" onclick="focusRegion('western',this)">Western NSW</button>
+    <button class="rtab" onclick="focusRegion('murrumbidgee',this)">Murrumbidgee</button>
+    <button class="rtab" onclick="focusRegion('hne',this)">Hunter New England</button>
+    <button class="rtab" onclick="focusRegion('northern',this)">Northern NSW</button>
+    <button class="rtab" onclick="focusRegion('mnc',this)">Mid North Coast</button>
+  </div>
+  <div class="map-layout fade-up">
+    <div class="map-side">
+      <div class="ms-head"><h3>Region Details</h3><p>Click a highlighted region</p></div>
+      <div class="ms-empty" id="ms-empty"><div class="ico">🗺️</div><p>Select a remote LHD to see nursing shortage data and placement options.</p></div>
+      <div class="ms-info" id="ms-info">
+        <div class="ri-hero"><div class="ri-tag">REMOTE LHD · NSW HEALTH</div><div class="ri-name" id="ri-name"></div><div class="ri-pill" id="ri-pill"></div></div>
+        <div class="ri-body">
+          <div class="ri-s"><div class="sec-t">KEY TOWNS</div><div class="towns" id="ri-towns"></div></div>
+          <div class="ri-s"><div class="sec-t">STAFFING DATA</div><div id="ri-stats"></div></div>
+          <div class="ri-s"><div class="sec-t">WE CAN PLACE</div><div id="ri-types"></div></div>
+        </div>
+        <a class="ri-cta" id="ri-cta" href="#register">Enquire About This Region →</a>
+      </div>
+    </div>
+    <div id="map"></div>
+  </div>
+</section>
+
+<section class="sec how">
+  <p class="lbl fade-up" style="text-align:center">Simple process</p>
+  <h2 class="h2 fade-up" style="text-align:center;margin:0 auto .5rem">Four steps to a placed nurse</h2>
+  <p class="lead fade-up" style="text-align:center;margin:0 auto">We handle everything. You get a nurse.</p>
+  <div class="how-steps">
+    <div class="how-step fade-up"><div class="step-num">1</div><h4>Tell us what you need</h4><p>Location, role, timeframe. We respond within 24 hours for all remote facility enquiries.</p></div>
+    <div class="how-step fade-up" style="transition-delay:.1s"><div class="step-num">2</div><h4>We match and verify</h4><p>AHPRA confirmed, police check done, immunisations sighted, working rights verified before any offer.</p></div>
+    <div class="how-step fade-up" style="transition-delay:.2s"><div class="step-num">3</div><h4>Labour hire agreement</h4><p>We sign a labour hire agreement. We are the employer — you receive one all-inclusive invoice.</p></div>
+    <div class="how-step fade-up" style="transition-delay:.3s"><div class="step-num">4</div><h4>Nurse arrives, ready</h4><p>Pre-briefed on your community. Supported by our team throughout the placement.</p></div>
+  </div>
+</section>
+
+<section class="sourcing" id="sourcing">
+  <p class="lbl fade-up">International pipeline</p>
+  <h2 class="h2 fade-up">Overseas nurses who<br><em style="color:var(--teal-mid);font-style:normal">actually want to go remote.</em></h2>
+  <p class="lead fade-up">Many internationally trained nurses are actively motivated to live in rural Australia. We find them, credential them, and place them where they're needed most.</p>
+  <div class="sourcing-grid">
+    <div>
+      <div class="countries">
+        <div class="cpill fade-up"><div class="flag">🇵🇭</div><div><h5>Philippines</h5><span>Largest overseas source for Australia</span></div></div>
+        <div class="cpill fade-up" style="transition-delay:.08s"><div class="flag">🇮🇳</div><div><h5>India</h5><span>Strong English, large RN pool</span></div></div>
+        <div class="cpill fade-up" style="transition-delay:.12s"><div class="flag">🇬🇧</div><div><h5>United Kingdom</h5><span>Fast AHPRA pathway</span></div></div>
+        <div class="cpill fade-up" style="transition-delay:.16s"><div class="flag">🇮🇪</div><div><h5>Ireland</h5><span>Strong Australia migration interest</span></div></div>
+      </div>
+      <div class="cnote fade-up">All overseas nurses are AHPRA registered and hold valid Australian working rights before any placement offer is made to your facility.</div>
+    </div>
+    <div class="pipe">
+      <div class="pipe-step fade-up"><div class="pnum">1</div><div class="pcontent"><h4>Sourced and assessed overseas</h4><p>We partner with nursing associations in source countries to find motivated candidates.</p></div></div>
+      <div class="pipe-step fade-up" style="transition-delay:.08s"><div class="pnum">2</div><div class="pcontent"><h4>AHPRA application supported</h4><p>We guide the nurse through overseas-trained registration including skills assessment.</p></div></div>
+      <div class="pipe-step fade-up" style="transition-delay:.12s"><div class="pnum">3</div><div class="pcontent"><h4>Visa and working rights confirmed</h4><p>VEVO check completed. We advise on visa pathways — 485, TSS 482, or skilled migration.</p></div></div>
+      <div class="pipe-step fade-up" style="transition-delay:.16s"><div class="pnum">4</div><div class="pcontent"><h4>On-hired to your facility</h4><p>We are the employer. You receive a fully credentialed nurse, all payroll managed by us.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="register" id="register">
+  <div class="reg-inner">
+    <p class="lbl fade-up" style="text-align:center">Get started</p>
+    <h2 class="h2 fade-up" style="text-align:center">Register your interest</h2>
+    <p class="lead fade-up" style="text-align:center;margin:0 auto">Facility or nurse — we respond within 24 hours.</p>
+    <div class="form-tabs">
+      <button class="ftab active" onclick="switchTab('fac',this)">I manage a facility</button>
+      <button class="ftab" onclick="switchTab('nur',this)">I'm a nurse</button>
+    </div>
+    <div id="success-box" class="success-box"><div style="font-size:2.5rem;margin-bottom:12px">✅</div><h3>Thank you — we'll be in touch within 24 hours.</h3><p>Your submission has been received.</p></div>
+    <div id="panel-fac" class="fpanel active">
+      <form action="https://formspree.io/f/REPLACE_ME" method="POST" onsubmit="submitForm(event,'fac')">
+        <input type="hidden" name="_subject" value="New Facility Enquiry — Health Plus International">
+        <div class="fgrid">
+          <div class="fg"><label>CONTACT NAME *</label><input type="text" name="name" placeholder="Full name" required></div>
+          <div class="fg"><label>ROLE / TITLE *</label><input type="text" name="role" placeholder="e.g. Nurse Unit Manager" required></div>
+          <div class="fg"><label>FACILITY NAME *</label><input type="text" name="facility" placeholder="Hospital or health service" required></div>
+          <div class="fg"><label>REGION *</label><select name="region" required><option value="">Select LHD...</option><option>Far West LHD</option><option>Western NSW LHD</option><option>Murrumbidgee LHD</option><option>Hunter New England LHD</option><option>Northern NSW LHD</option><option>Mid North Coast LHD</option><option>Other</option></select></div>
+          <div class="fg"><label>EMAIL *</label><input type="email" name="email" placeholder="your@email.com" required></div>
+          <div class="fg"><label>PHONE</label><input type="tel" name="phone" placeholder="02 xxxx xxxx"></div>
+          <div class="fg full"><label>WHAT DO YOU NEED?</label><textarea name="message" placeholder="Role type, timeframe, number of nurses, FIFO or accommodation-based..."></textarea></div>
+        </div>
+        <button type="submit" class="fsubmit">Submit Facility Enquiry →</button>
+        <p class="fnote">We respond to all remote facility enquiries within 24 hours.</p>
+      </form>
+    </div>
+    <div id="panel-nur" class="fpanel">
+      <form action="https://formspree.io/f/REPLACE_ME" method="POST" onsubmit="submitForm(event,'nur')">
+        <input type="hidden" name="_subject" value="New Nurse Registration — Health Plus International">
+        <div class="fgrid">
+          <div class="fg"><label>FULL NAME *</label><input type="text" name="name" placeholder="First and last name" required></div>
+          <div class="fg"><label>PHONE *</label><input type="tel" name="phone" placeholder="+61 or country code" required></div>
+          <div class="fg"><label>EMAIL *</label><input type="email" name="email" placeholder="your@email.com" required></div>
+          <div class="fg"><label>QUALIFICATION *</label><select name="qualification" required><option value="">Select...</option><option>Registered Nurse (RN)</option><option>Enrolled Nurse (EN)</option><option>Nurse Practitioner</option><option>Midwife</option><option>Mental Health Nurse</option></select></div>
+          <div class="fg"><label>AHPRA STATUS *</label><select name="ahpra" required><option value="">Select...</option><option>Currently AHPRA registered</option><option>Application in progress</option><option>Need guidance</option></select></div>
+          <div class="fg"><label>OPEN TO REMOTE?</label><select name="remote"><option>Yes — I want to go remote</option><option>Yes — FIFO preferred</option><option>Yes — longer posting preferred</option><option>Open to discussion</option></select></div>
+          <div class="fg full"><label>YOUR EXPERIENCE</label><textarea name="experience" placeholder="Years of experience, specialisations, any remote or rural experience..."></textarea></div>
+        </div>
+        <button type="submit" class="fsubmit">Register as a Nurse →</button>
+        <p class="fnote">We'll match you with remote opportunities across NSW.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div class="fb">
+      <div style="display:flex;align-items:center;gap:12px">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="38"><circle cx="70" cy="70" r="57" fill="#0B6B6E"/><ellipse cx="70" cy="47" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.5"/><ellipse cx="70" cy="93" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.5"/><ellipse cx="70" cy="70" rx="21" ry="57" fill="none" stroke="white" stroke-width="1" opacity="0.5"/><line x1="13" y1="70" x2="127" y2="70" stroke="white" stroke-width="1" opacity="0.5"/><rect x="62" y="44" width="17" height="52" rx="3" fill="white"/><rect x="44" y="62" width="52" height="17" rx="3" fill="white"/></svg>
+        <div><div style="font-size:14px;font-weight:700;color:#fff">HEALTH PLUS</div><div style="font-size:8px;font-weight:600;color:#9FE1CB;letter-spacing:3px">INTERNATIONAL</div></div>
+      </div>
+      <p>Nursing labour hire specialists for remote and rural NSW. AHPRA verified nurses — domestic and internationally sourced.</p>
+    </div>
+    <div class="fc"><h4>FOR FACILITIES</h4><a href="#map-sec">Regions</a><a href="services-remote.html">Services</a><a href="#register">Submit Enquiry</a></div>
+    <div class="fc"><h4>FOR NURSES</h4><a href="#register">Register Now</a><a href="#sourcing">Overseas Nurses</a><a href="#how">How It Works</a></div>
+  </div>
+  <div class="fb-bottom"><p>&copy; 2025 Health Plus International Pty Ltd · Sydney, NSW</p><a href="mailto:info@healthplusint.com.au">info@healthplusint.com.au</a></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const REGS={farwest:{name:'Far West LHD',shortage:'Critical',pc:'p-crit',towns:['Broken Hill','Wilcannia','Bourke','Cobar','White Cliffs','Tibooburra'],stats:[{l:'Vacancy rate (RN)',v:'~34%'},{l:'Health facilities',v:'12 sites'},{l:'Response time',v:'Same day'},{l:'Distance from Sydney',v:'1,100+ km'}],types:['FIFO rotations (2–4 week blocks)','Accommodation-based contracts','Emergency casual cover'],center:[-31.5,143.0],zoom:7},western:{name:'Western NSW LHD',shortage:'Severe',pc:'p-sev',towns:['Dubbo','Orange','Bathurst','Parkes','Forbes','Mudgee','Bourke'],stats:[{l:'Vacancy rate (RN)',v:'~22%'},{l:'Health facilities',v:'22 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'380–900 km'}],types:['Fixed-term 3–12 month contracts','Casual rotation cover','International nurse pipeline'],center:[-32.5,148.2],zoom:7},murrumbidgee:{name:'Murrumbidgee LHD',shortage:'High',pc:'p-high',towns:['Wagga Wagga','Griffith','Albury','Deniliquin','Tumut','Gundagai'],stats:[{l:'Vacancy rate (RN)',v:'~18%'},{l:'Health facilities',v:'18 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'450–650 km'}],types:['6–12 month rural contracts','Drive-in/drive-out rotations','Casual cover'],center:[-35.2,146.8],zoom:7},hne:{name:'Hunter New England LHD',shortage:'High',pc:'p-high',towns:['Tamworth','Armidale','Moree','Inverell','Gunnedah','Narrabri'],stats:[{l:'Vacancy rate (RN)',v:'~20%'},{l:'Health facilities',v:'28 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'300–700 km'}],types:['Contract placements','Casual rotation cover','International nurse sourcing'],center:[-30.5,150.5],zoom:7},northern:{name:'Northern NSW LHD',shortage:'Moderate',pc:'p-mod',towns:['Lismore','Grafton','Ballina','Casino','Kyogle','Tweed Heads'],stats:[{l:'Vacancy rate (RN)',v:'~15%'},{l:'Health facilities',v:'14 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'700–900 km'}],types:['Casual shift cover','Contract placements','Permanent on-hire'],center:[-29.0,152.8],zoom:8},mnc:{name:'Mid North Coast LHD',shortage:'Moderate',pc:'p-mod',towns:['Port Macquarie','Coffs Harbour','Kempsey','Taree','Nambucca'],stats:[{l:'Vacancy rate (RN)',v:'~16%'},{l:'Health facilities',v:'11 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'380–550 km'}],types:['Casual cover','Contract placements','Permanent on-hire'],center:[-31.0,152.7],zoom:8}};
+const GEO={type:'FeatureCollection',features:[{type:'Feature',properties:{id:'farwest',remote:true},geometry:{type:'Polygon',coordinates:[[[141.00,-29.05],[145.00,-29.05],[145.90,-29.50],[146.10,-30.80],[145.80,-32.00],[144.50,-33.20],[143.10,-33.90],[141.80,-34.10],[141.00,-34.00],[141.00,-29.05]]]}},{type:'Feature',properties:{id:'western',remote:true},geometry:{type:'Polygon',coordinates:[[[145.00,-29.05],[150.10,-29.05],[150.50,-29.60],[150.80,-30.80],[150.40,-31.80],[150.10,-32.80],[149.70,-33.80],[149.10,-34.70],[148.00,-35.10],[146.90,-35.30],[146.40,-34.60],[145.80,-33.80],[145.50,-33.20],[145.80,-32.00],[146.10,-30.80],[145.90,-29.50],[145.00,-29.05]]]}},{type:'Feature',properties:{id:'murrumbidgee',remote:true},geometry:{type:'Polygon',coordinates:[[[143.10,-33.90],[145.50,-33.20],[145.80,-33.80],[146.40,-34.60],[146.90,-35.30],[148.00,-35.10],[149.10,-35.30],[149.50,-36.20],[149.50,-37.05],[147.50,-37.05],[146.00,-37.05],[144.50,-36.80],[143.50,-36.30],[142.50,-35.40],[142.00,-34.80],[141.80,-34.10],[143.10,-33.90]]]}},{type:'Feature',properties:{id:'hne',remote:true},geometry:{type:'Polygon',coordinates:[[[150.10,-29.05],[152.30,-29.05],[152.70,-29.40],[153.10,-30.00],[153.20,-30.50],[152.90,-31.00],[152.60,-31.50],[152.00,-32.20],[151.80,-32.80],[151.50,-33.20],[151.20,-33.50],[150.80,-33.60],[150.40,-33.40],[150.10,-32.80],[150.40,-31.80],[150.80,-30.80],[150.50,-29.60],[150.10,-29.05]]]}},{type:'Feature',properties:{id:'northern',remote:true},geometry:{type:'Polygon',coordinates:[[[152.30,-28.20],[153.65,-28.20],[153.65,-30.80],[153.20,-30.50],[153.10,-30.00],[152.70,-29.40],[152.30,-29.05],[152.30,-28.20]]]}},{type:'Feature',properties:{id:'mnc',remote:true},geometry:{type:'Polygon',coordinates:[[[151.50,-30.80],[153.20,-30.80],[153.65,-30.80],[153.65,-33.10],[152.80,-33.10],[152.00,-32.80],[151.80,-32.80],[151.50,-33.20],[151.20,-33.50],[151.50,-30.80]]]}},{type:'Feature',properties:{id:'metro',remote:false},geometry:{type:'Polygon',coordinates:[[[149.50,-33.20],[151.65,-33.00],[151.65,-33.55],[153.65,-33.10],[153.65,-37.50],[149.50,-37.05],[149.50,-33.20]]]}},{type:'Feature',properties:{id:'nbm',remote:false},geometry:{type:'Polygon',coordinates:[[[149.70,-33.20],[150.10,-32.80],[150.40,-33.40],[150.80,-33.60],[150.80,-33.20],[151.65,-33.00],[151.65,-33.55],[150.30,-34.30],[149.80,-34.00],[149.50,-33.80],[149.70,-33.20]]]}}]};
+const map=L.map('map',{center:[-32.5,147.0],zoom:6,minZoom:5,maxZoom:13});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'© <a href="https://openstreetmap.org">OpenStreetMap</a> © <a href="https://carto.com">CARTO</a>'}).addTo(map);
+function bS(f){return f.properties.remote?{fillColor:'#0B6B6E',fillOpacity:.25,color:'#0B6B6E',weight:1.5}:{fillColor:'rgba(0,0,0,.02)',fillOpacity:.5,color:'rgba(0,0,0,.07)',weight:.6}}
+function hS(f){return f.properties.remote?{fillColor:'#0B6B6E',fillOpacity:.5,color:'#0B6B6E',weight:2.5}:{fillColor:'rgba(0,0,0,.05)',fillOpacity:.5,color:'rgba(0,0,0,.12)',weight:1}}
+let sel=null,gl;
+gl=L.geoJSON(GEO,{style:bS,onEachFeature(f,l){
+  if(REGS[f.properties.id])l.bindTooltip(REGS[f.properties.id].name,{className:'lhd-tt',direction:'center'});
+  l.on({mouseover(){if(l!==sel)l.setStyle(hS(f))},mouseout(){if(l!==sel)gl.resetStyle(l)},click(){if(sel&&sel!==l)gl.resetStyle(sel);sel=l;l.setStyle(hS(f));l.bringToFront();if(f.properties.remote&&REGS[f.properties.id]){showInfo(f.properties.id);setTab(f.properties.id);}else l.bindPopup('<b style="color:#4A5568">Metro / Other LHD</b>').openPopup();}});
+}}).addTo(map);
+function showInfo(id){const d=REGS[id];if(!d)return;document.getElementById('ms-empty').style.display='none';document.getElementById('ms-info').classList.add('on');document.getElementById('ri-name').textContent=d.name;const p=document.getElementById('ri-pill');p.className='ri-pill '+d.pc;p.innerHTML=`<span style="width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0"></span> Shortage: ${d.shortage}`;document.getElementById('ri-towns').innerHTML=d.towns.map(t=>`<span class="town">${t}</span>`).join('');document.getElementById('ri-stats').innerHTML=d.stats.map(s=>`<div class="srow"><span class="sl2">${s.l}</span><span class="sr2">${s.v}</span></div>`).join('');document.getElementById('ri-types').innerHTML=d.types.map(t=>`<div class="ptype">${t}</div>`).join('');document.getElementById('ri-cta').textContent=`Enquire — ${d.name} →`;}
+function setTab(id){document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));const b=document.querySelector(`.rtab[onclick*="${id}"]`);if(b)b.classList.add('active');}
+function focusRegion(id,btn){const d=REGS[id];if(!d)return;document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));if(btn)btn.classList.add('active');map.flyTo(d.center,d.zoom,{duration:1.2});gl.eachLayer(l=>{if(!l.feature)return;if(l.feature.properties.id===id){if(sel&&sel!==l)gl.resetStyle(sel);sel=l;l.setStyle(hS(l.feature));l.bringToFront();}else if(l!==sel)gl.resetStyle(l);});showInfo(id);}
+function zoomAll(btn){document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));if(btn)btn.classList.add('active');map.flyTo([-32.5,147.0],6,{duration:1.2});if(sel){gl.resetStyle(sel);sel=null;}document.getElementById('ms-empty').style.display='';document.getElementById('ms-info').classList.remove('on');}
+function switchTab(type,btn){document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.fpanel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById('panel-'+type).classList.add('active');}
+function submitForm(e,type){const form=e.target;if(form.action.includes('REPLACE_ME')){e.preventDefault();document.getElementById('panel-'+type).style.display='none';document.querySelector('.form-tabs').style.display='none';document.getElementById('success-box').style.display='block';}}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
