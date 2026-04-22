@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHPRA Nurse Verification — Health Plus International</title>
+<meta name="description" content="Instantly verify any nurse's AHPRA registration status. Free tool by Health Plus International.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:#1a1a1a;background:#F7F8F6;-webkit-font-smoothing:antialiased;min-height:100vh}
+:root{--teal:#0B6B6E;--teal-d:#085558;--teal-pale:#E1F5EE;--teal-mid:#9FE1CB;--navy:#1B3A5C;--navy-d:#0D1F33;--border:rgba(11,107,110,0.12);--muted:#5a6a7a}
+
+/* NAV */
+nav{background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.07);height:66px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo svg{width:32px;height:32px}
+.logo-text span:first-child{display:block;font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.5px}
+.logo-text span:last-child{display:block;font-size:8px;font-weight:600;color:var(--navy);letter-spacing:3px}
+.nav-back{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--teal)}
+
+/* PAGE */
+.page{max-width:800px;margin:0 auto;padding:3rem 2rem 5rem}
+
+/* HERO CARD */
+.hero-card{background:var(--navy-d);border-radius:18px;padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(11,107,110,0.25),transparent 70%)}
+.hero-tag{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal-mid);margin-bottom:1rem}
+.hero-card h1{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.4px;margin-bottom:.75rem}
+.hero-card h1 em{font-style:normal;color:var(--teal-mid)}
+.hero-card p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;max-width:480px}
+
+/* SEARCH CARD */
+.search-card{background:#fff;border-radius:16px;padding:2rem;border:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,.05);margin-bottom:1.5rem}
+.search-card h2{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.search-card .sub{font-size:13px;color:var(--muted);margin-bottom:1.75rem;line-height:1.5}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:10px;font-weight:700;color:var(--navy);letter-spacing:.5px}
+.fg input,.fg select{
+  padding:12px 14px;border:1.5px solid var(--border);border-radius:9px;
+  font-family:'Montserrat',sans-serif;font-size:14px;color:#1a1a1a;
+  background:#fff;outline:none;transition:border-color .2s,box-shadow .2s;
+}
+.fg input:focus,.fg select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(11,107,110,0.1)}
+.fg input::placeholder{color:#aab}
+
+.btn-verify{
+  width:100%;padding:14px;
+  background:var(--teal);color:#fff;
+  border:none;border-radius:9px;
+  font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.btn-verify:hover{background:var(--teal-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(11,107,110,.3)}
+.btn-verify .icon{font-size:18px}
+
+/* RESULT CARD */
+.result-card{display:none;background:#fff;border-radius:16px;border:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,.05);overflow:hidden;margin-bottom:1.5rem}
+.result-card.show{display:block}
+
+.result-header{padding:1.25rem 1.75rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.result-header h3{font-size:14px;font-weight:700;color:var(--navy)}
+.status-badge{display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;font-size:11px;font-weight:700}
+.status-badge.live{background:rgba(22,163,74,.1);color:#16A34A}
+.status-badge.live::before{content:'';width:6px;height:6px;border-radius:50%;background:#16A34A;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.result-body{padding:1.75rem}
+.result-info{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:1.5rem}
+.info-item{background:var(--teal-pale);border-radius:10px;padding:1rem 1.25rem;border:1px solid rgba(11,107,110,.1)}
+.info-item .info-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--teal);margin-bottom:4px}
+.info-item .info-value{font-size:14px;font-weight:700;color:var(--navy)}
+.info-item.full{grid-column:1/-1}
+
+.ahpra-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:14px;
+  background:var(--navy);color:#fff;
+  border:none;border-radius:9px;
+  font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;
+  cursor:pointer;text-decoration:none;transition:all .2s;
+}
+.ahpra-btn:hover{background:var(--teal);transform:translateY(-1px)}
+
+.result-note{padding:1rem 1.75rem;background:#FFF9EC;border-top:1px solid rgba(202,138,4,.15);display:flex;align-items:flex-start;gap:10px}
+.result-note .note-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.result-note p{font-size:12px;color:#92400E;line-height:1.6}
+
+/* HOW IT WORKS */
+.how-card{background:#fff;border-radius:16px;padding:2rem;border:1px solid var(--border);margin-bottom:1.5rem}
+.how-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:1.25rem}
+.how-steps{display:flex;flex-direction:column;gap:12px}
+.how-step{display:flex;align-items:flex-start;gap:14px}
+.how-num{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.how-step h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.how-step p{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* DISCLAIMER */
+.disclaimer{background:rgba(11,107,110,.06);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.disclaimer p{font-size:12px;color:var(--muted);line-height:1.7}
+.disclaimer strong{color:var(--navy)}
+
+/* PIE CTA */
+.pie-card{background:var(--navy-d);border-radius:14px;padding:1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.pie-card h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:.25rem}
+.pie-card p{font-size:12px;color:rgba(255,255,255,.45);line-height:1.6}
+.pie-btn{background:var(--teal);color:#fff;padding:10px 20px;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s}
+.pie-btn:hover{background:var(--teal-d)}
+
+@media(max-width:600px){
+  .form-grid,.result-info{grid-template-columns:1fr}
+  .info-item.full{grid-column:1}
+  .hero-card{padding:2rem}
+  .pie-card{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="57" fill="#0B6B6E"/>
+      <ellipse cx="70" cy="47" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="93" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="70" rx="21" ry="57" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <line x1="13" y1="70" x2="127" y2="70" stroke="white" stroke-width="1" opacity="0.45"/>
+      <rect x="62" y="44" width="17" height="52" rx="3" fill="white"/>
+      <rect x="44" y="62" width="52" height="17" rx="3" fill="white"/>
+    </svg>
+    <div class="logo-text"><span>HEALTH PLUS</span><span>INTERNATIONAL</span></div>
+  </a>
+  <a href="index.html" class="nav-back">← Back to home</a>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero-card">
+    <p class="hero-tag">FREE VERIFICATION TOOL</p>
+    <h1>Check any nurse's<br><em>AHPRA registration</em><br>instantly.</h1>
+    <p>Enter the nurse's details below and we'll open the official AHPRA national register with their information pre-searched — always live, always accurate.</p>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-card">
+    <h2>Verify AHPRA Registration</h2>
+    <p class="sub">Enter the practitioner's name or registration number. You'll be taken directly to their official AHPRA record.</p>
+
+    <div class="form-grid">
+      <div class="fg">
+        <label>FIRST NAME</label>
+        <input type="text" id="fname" placeholder="e.g. Sarah">
+      </div>
+      <div class="fg">
+        <label>LAST NAME</label>
+        <input type="text" id="lname" placeholder="e.g. Johnson">
+      </div>
+      <div class="fg">
+        <label>PROFESSION</label>
+        <select id="profession">
+          <option value="NUR">Nursing &amp; Midwifery</option>
+          <option value="MED">Medical</option>
+          <option value="PHY">Physiotherapy</option>
+          <option value="OCC">Occupational Therapy</option>
+          <option value="PSY">Psychology</option>
+          <option value="DEN">Dental</option>
+          <option value="OPT">Optometry</option>
+          <option value="PHA">Pharmacy</option>
+          <option value="POD">Podiatry</option>
+          <option value="CHI">Chinese Medicine</option>
+          <option value="CHR">Chiropractic</option>
+          <option value="OSTx">Osteopathy</option>
+          <option value="SLP">Speech Pathology</option>
+          <option value="ABO">Aboriginal &amp; Torres Strait Islander Health</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>REGISTRATION NUMBER (OPTIONAL)</label>
+        <input type="text" id="regnum" placeholder="e.g. NMW0001234567">
+      </div>
+    </div>
+
+    <button class="btn-verify" onclick="verifyAHPRA()">
+      <span class="icon">🔍</span>
+      Verify on AHPRA Register
+    </button>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-card" id="result-card">
+    <div class="result-header">
+      <h3 id="result-name">Searching AHPRA Register...</h3>
+      <div class="status-badge live">Live AHPRA Data</div>
+    </div>
+    <div class="result-body">
+      <div class="result-info">
+        <div class="info-item">
+          <div class="info-label">SEARCHED NAME</div>
+          <div class="info-value" id="res-name">—</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">PROFESSION</div>
+          <div class="info-value" id="res-profession">—</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">REGISTRATION NUMBER</div>
+          <div class="info-value" id="res-regnum">—</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">DATA SOURCE</div>
+          <div class="info-value">AHPRA National Register</div>
+        </div>
+        <div class="info-item full">
+          <div class="info-label">NEXT STEP</div>
+          <div class="info-value">Click below to view full registration details, conditions, endorsements and expiry on the official AHPRA website</div>
+        </div>
+      </div>
+      <a id="ahpra-link" href="#" target="_blank" class="ahpra-btn">
+        🔗 View Full Registration on AHPRA.gov.au →
+      </a>
+    </div>
+    <div class="result-note">
+      <span class="note-icon">⚠️</span>
+      <p><strong>Important:</strong> This tool opens the official AHPRA national register. Always verify the registration status, expiry date, any conditions or notations, and confirm the practitioner's identity matches before placement. Registration status can change — check immediately before each engagement.</p>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-card">
+    <h3>How this tool works</h3>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div><h4>Enter the nurse's details</h4><p>Type the practitioner's name and select their profession. Adding the registration number makes the search more precise.</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div><h4>We open the AHPRA register</h4><p>You're taken directly to the official AHPRA National Register of Practitioners with the search pre-filled — no copying and pasting.</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div><h4>Confirm their registration status</h4><p>Check their registration is current, note any conditions or notations, verify the expiry date, and confirm their identity matches.</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <div><h4>Document your check</h4><p>Record the date and result of the verification. For placements, always re-verify immediately before each engagement — registration status can change.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT TO CHECK -->
+  <div class="how-card">
+    <h3>What to look for on the AHPRA register</h3>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num" style="background:#16A34A">✓</div>
+        <div><h4>Registration status: Registered</h4><p>Must show "Registered" — not "Suspended", "Cancelled" or "No longer registered".</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num" style="background:#16A34A">✓</div>
+        <div><h4>Registration expiry date</h4><p>Nursing &amp; Midwifery registration renews annually on 31 May. Confirm it hasn't lapsed.</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num" style="background:#CA8A04">!</div>
+        <div><h4>Conditions or notations</h4><p>Any conditions on practice must be reviewed before placement. Some conditions restrict clinical settings or supervision requirements.</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num" style="background:#CA8A04">!</div>
+        <div><h4>Endorsements</h4><p>Check endorsements match the clinical role — e.g. Nurse Practitioner, Scheduled Medicines, or Midwifery endorsements.</p></div>
+      </div>
+      <div class="how-step">
+        <div class="how-num" style="background:#DC2626">✗</div>
+        <div><h4>Name matches photo ID</h4><p>AHPRA shows the registered legal name. Cross-check against the nurse's government-issued photo ID before placement.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p><strong>Disclaimer:</strong> This tool opens the official AHPRA public register and does not store, record or transmit any personal information you enter. Health Plus International does not guarantee the accuracy or currency of AHPRA register data — always verify directly on <a href="https://www.ahpra.gov.au" target="_blank" style="color:var(--teal)">ahpra.gov.au</a> and maintain your own compliance records. This tool is provided as a convenience only and does not constitute legal or compliance advice.</p>
+  </div>
+
+  <!-- PIE CTA -->
+  <div class="pie-card">
+    <div>
+      <h3>Need bulk or automated AHPRA verification?</h3>
+      <p>AHPRA's Practitioner Information Exchange (PIE) allows approved employers to verify multiple registrations automatically. Suitable for healthcare organisations placing large numbers of nurses.</p>
+    </div>
+    <a href="https://www.ahpra.gov.au/Registration/Employer-Services/External-data-exchange-services.aspx" target="_blank" class="pie-btn">Apply for PIE Access →</a>
+  </div>
+
+</div>
+
+<script>
+const PROFESSIONS = {
+  NUR:'Nursing & Midwifery', MED:'Medical', PHY:'Physiotherapy',
+  OCC:'Occupational Therapy', PSY:'Psychology', DEN:'Dental',
+  OPT:'Optometry', PHA:'Pharmacy', POD:'Podiatry',
+  CHI:'Chinese Medicine', CHR:'Chiropractic', OSTx:'Osteopathy',
+  SLP:'Speech Pathology', ABO:'Aboriginal & Torres Strait Islander Health'
+};
+
+function verifyAHPRA() {
+  const fname   = document.getElementById('fname').value.trim();
+  const lname   = document.getElementById('lname').value.trim();
+  const prof    = document.getElementById('profession').value;
+  const regnum  = document.getElementById('regnum').value.trim();
+
+  if (!fname && !lname && !regnum) {
+    alert('Please enter at least a name or registration number to search.');
+    return;
+  }
+
+  // Build AHPRA search URL
+  // AHPRA public register search URL
+  let url = 'https://www.ahpra.gov.au/Registration/Registers-of-Practitioners.aspx';
+  const params = new URLSearchParams();
+  if (fname)  params.set('firstname', fname);
+  if (lname)  params.set('lastname', lname);
+  if (prof)   params.set('profession', prof);
+  if (regnum) params.set('registrationNumber', regnum);
+  url = url + '?' + params.toString();
+
+  // Show result card
+  const card = document.getElementById('result-card');
+  card.classList.add('show');
+
+  const displayName = [fname, lname].filter(Boolean).join(' ') || regnum || 'Practitioner';
+  document.getElementById('result-name').textContent = `Search ready: ${displayName}`;
+  document.getElementById('res-name').textContent = displayName;
+  document.getElementById('res-profession').textContent = PROFESSIONS[prof] || prof;
+  document.getElementById('res-regnum').textContent = regnum || 'Not provided — name search only';
+
+  // Set link
+  const link = document.getElementById('ahpra-link');
+  link.href = url;
+
+  // Scroll to result
+  card.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// Allow Enter key to trigger search
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter') verifyAHPRA();
+});
+</script>
+</body>
+</html>
