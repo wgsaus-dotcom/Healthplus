@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allied Health Labour Hire — Remote NSW | Health Plus International</title>
+<meta name="description" content="AHPRA verified allied health professionals for remote and rural NSW. Physiotherapy, OT, Psychology, Podiatry, Paramedicine and more.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:#1a1a1a;background:#F7F8F6;-webkit-font-smoothing:antialiased}
+:root{--teal:#0B6B6E;--teal-d:#085558;--teal-pale:#E1F5EE;--teal-mid:#9FE1CB;--navy:#1B3A5C;--navy-d:#0D1F33;--off:#F7F8F6;--border:rgba(11,107,110,0.12);--muted:#5a6a7a}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.07)}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo svg{width:32px;height:32px}
+.logo-text span:first-child{display:block;font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.5px}
+.logo-text span:last-child{display:block;font-size:8px;font-weight:600;color:var(--navy);letter-spacing:3px}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-btn{background:var(--navy);color:#fff!important;padding:9px 20px;border-radius:6px;font-weight:700!important}
+.nav-btn:hover{background:var(--teal)!important}
+@media(max-width:768px){nav{padding:0 1.25rem}.nav-links{display:none}}
+
+/* HERO */
+.hero{margin-top:66px;background:var(--navy-d);padding:4rem 4rem 3rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(11,107,110,0.2),transparent 70%)}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.hero-tag{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal-mid);margin-bottom:1rem}
+.hero h1{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.5px;margin-bottom:1rem}
+.hero h1 em{font-style:normal;color:var(--teal-mid)}
+.hero p{font-size:15px;color:rgba(255,255,255,.5);line-height:1.75;max-width:600px;margin-bottom:2rem}
+.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.hstat{text-align:left}
+.hstat .n{font-size:1.8rem;font-weight:800;color:var(--teal-mid);line-height:1}
+.hstat .l{font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.35);margin-top:4px}
+@media(max-width:768px){.hero{padding:3rem 1.5rem 2.5rem}.hero-stats{gap:1.5rem}}
+
+/* SECTIONS */
+.sec{padding:5rem 4rem;max-width:1100px;margin:0 auto}
+@media(max-width:768px){.sec{padding:3.5rem 1.5rem}}
+.label{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal);margin-bottom:.8rem}
+.h2{font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;line-height:1.15;color:var(--navy);letter-spacing:-.3px;margin-bottom:1rem}
+.lead{font-size:15px;color:var(--muted);line-height:1.75;max-width:600px}
+
+/* PROFESSIONS GRID */
+.prof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.5rem}
+@media(max-width:900px){.prof-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.prof-grid{grid-template-columns:1fr}}
+
+.prof-card{background:#fff;border-radius:14px;padding:1.5rem;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.prof-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(11,107,110,.08)}
+.prof-card.remote-focus::after{content:'REMOTE PRIORITY';position:absolute;top:12px;right:12px;font-size:8px;font-weight:700;letter-spacing:1.5px;color:var(--teal);background:var(--teal-pale);padding:3px 8px;border-radius:100px}
+.prof-icon{font-size:28px;margin-bottom:.9rem}
+.prof-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.prof-card .reg{font-size:10px;font-weight:600;color:var(--teal);letter-spacing:1px;margin-bottom:.5rem}
+.prof-card p{font-size:12px;color:var(--muted);line-height:1.6}
+.prof-card .roles{display:flex;flex-wrap:wrap;gap:4px;margin-top:.75rem}
+.role-tag{font-size:10px;font-weight:600;color:var(--navy);background:var(--off);border:1px solid var(--border);padding:2px 8px;border-radius:100px}
+
+/* REMOTE SECTION */
+.remote-sec{background:var(--navy-d);padding:5rem 4rem}
+.remote-inner{max-width:1100px;margin:0 auto}
+.remote-sec .label{color:var(--teal-mid)}
+.remote-sec .h2{color:#fff}
+.remote-sec .lead{color:rgba(255,255,255,.5)}
+.remote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2.5rem}
+@media(max-width:768px){.remote-grid{grid-template-columns:1fr}.remote-sec{padding:3.5rem 1.5rem}}
+.remote-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:1.25rem}
+.remote-card h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:.4rem}
+.remote-card p{font-size:12px;color:rgba(255,255,255,.45);line-height:1.6}
+.remote-card .shortage{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.5px;padding:3px 8px;border-radius:100px;margin-bottom:.6rem}
+.s-crit{background:rgba(220,38,38,.2);color:#FCA5A5}
+.s-high{background:rgba(202,138,4,.2);color:#FCD34D}
+.s-mod{background:rgba(11,107,110,.2);color:var(--teal-mid)}
+
+/* HOW */
+.how-sec{background:var(--off);padding:5rem 4rem}
+.how-inner{max-width:1100px;margin:0 auto}
+@media(max-width:768px){.how-sec{padding:3.5rem 1.5rem}}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:2.5rem;position:relative}
+.steps::before{content:'';position:absolute;top:24px;left:12%;right:12%;border-top:2px dashed var(--border)}
+.step{text-align:center;position:relative;z-index:1}
+.step-n{width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto .9rem;box-shadow:0 0 0 7px var(--teal-pale)}
+.step h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.step p{font-size:12px;color:var(--muted);line-height:1.6}
+@media(max-width:768px){.steps{grid-template-columns:1fr 1fr;gap:1.5rem}.steps::before{display:none}}
+
+/* REGISTER */
+.register{padding:5rem 4rem;background:#fff}
+.reg-inner{max-width:800px;margin:0 auto}
+@media(max-width:768px){.register{padding:3.5rem 1.5rem}}
+.ftabs{display:flex;background:var(--off);border-radius:9px;padding:4px;gap:4px;margin:1.75rem 0;border:1px solid var(--border)}
+.ftab{flex:1;padding:10px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;background:transparent;border:none;color:var(--muted);font-family:'Montserrat',sans-serif;transition:all .2s}
+.ftab.active{background:var(--teal);color:#fff}
+.fpanel{display:none}.fpanel.active{display:block}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:10px;font-weight:700;color:var(--navy);letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{padding:11px 14px;border:1.5px solid var(--border);border-radius:7px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--text,#1a1a1a);background:#fff;outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--teal)}
+.fg textarea{resize:vertical;min-height:80px}
+.fsub{width:100%;margin-top:8px;background:var(--navy);color:#fff;padding:13px;border:none;border-radius:7px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s}
+.fsub:hover{background:var(--teal)}
+.fnote{text-align:center;font-size:11px;color:var(--muted);margin-top:9px}
+.success{display:none;background:var(--teal-pale);border:2px solid var(--teal);border-radius:12px;padding:2.5rem;text-align:center}
+.success h3{font-size:1.2rem;color:var(--teal);margin-bottom:6px}
+.success p{font-size:13px;color:var(--muted)}
+
+/* FOOTER */
+footer{background:var(--navy-d);padding:2.5rem 4rem}
+.fb-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fb-bot p,.fb-bot a{font-size:11px;color:rgba(255,255,255,.3)}
+.fb-bot a{color:var(--teal-mid);text-decoration:none}
+.ack{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:flex-start;gap:10px}
+.ack-bar{width:4px;min-height:38px;background:linear-gradient(to bottom,#E8A020,#CC3300,#000);border-radius:2px;flex-shrink:0;margin-top:2px}
+.ack p{font-size:10.5px;color:rgba(255,255,255,.3);line-height:1.7;font-weight:500}
+@media(max-width:768px){footer{padding:2rem 1.5rem}}
+
+.fade{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="57" fill="#0B6B6E"/>
+      <ellipse cx="70" cy="47" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="93" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="70" rx="21" ry="57" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <line x1="13" y1="70" x2="127" y2="70" stroke="white" stroke-width="1" opacity="0.45"/>
+      <rect x="62" y="44" width="17" height="52" rx="3" fill="white"/>
+      <rect x="44" y="62" width="52" height="17" rx="3" fill="white"/>
+    </svg>
+    <div class="logo-text"><span>HEALTH PLUS</span><span>INTERNATIONAL</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#map-sec">Regions</a></li>
+    <li><a href="services-remote.html">Nursing</a></li>
+    <li><a href="allied-health.html" style="color:var(--teal)">Allied Health</a></li>
+    <li><a href="ahpra-verify.html">AHPRA Check</a></li>
+    <li><a href="index.html#register" class="nav-btn">Register Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-tag">ALLIED HEALTH · REMOTE NSW</p>
+    <h1>Allied health professionals<br>for <em>remote communities</em><br>that need them most.</h1>
+    <p>We extend our remote NSW labour hire expertise beyond nursing to place AHPRA-registered allied health professionals in the rural and remote communities with the greatest need.</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="n">13</div><div class="l">AHPRA PROFESSIONS</div></div>
+      <div class="hstat"><div class="n">6</div><div class="l">REMOTE LHDs COVERED</div></div>
+      <div class="hstat"><div class="n">FIFO</div><div class="l">FLY-IN FLY-OUT READY</div></div>
+      <div class="hstat"><div class="n">24hr</div><div class="l">REMOTE RESPONSE</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFESSIONS -->
+<div style="background:#F7F8F6;padding:5rem 4rem">
+<div style="max-width:1100px;margin:0 auto">
+  <p class="label fade">What we place</p>
+  <h2 class="h2 fade">AHPRA-registered allied health<br>professionals for remote NSW</h2>
+  <p class="lead fade">Every professional we place is AHPRA verified, fully credentialed, and specifically screened for willingness to work in remote and rural settings.</p>
+  <div class="prof-grid">
+
+    <div class="prof-card remote-focus fade">
+      <div class="prof-icon">🦽</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Physiotherapy</h3>
+      <p>Remote and rural communities have high rates of musculoskeletal injury from physical labour, farming and mining. Physios are critically needed.</p>
+      <div class="roles"><span class="role-tag">Musculoskeletal</span><span class="role-tag">Aged Care</span><span class="role-tag">Paediatric</span><span class="role-tag">FIFO</span></div>
+    </div>
+
+    <div class="prof-card remote-focus fade">
+      <div class="prof-icon">🧠</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Occupational Therapy</h3>
+      <p>OTs in remote areas support aged care, disability, and post-injury return to work — critical roles in communities far from metro OT services.</p>
+      <div class="roles"><span class="role-tag">Aged Care</span><span class="role-tag">NDIS</span><span class="role-tag">Paediatric</span><span class="role-tag">Mental Health</span></div>
+    </div>
+
+    <div class="prof-card remote-focus fade">
+      <div class="prof-icon">💬</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Psychology</h3>
+      <p>Mental health crisis in remote NSW is severe. Psychologists, including those endorsed for rural and remote practice, are urgently needed.</p>
+      <div class="roles"><span class="role-tag">Clinical</span><span class="role-tag">Aboriginal Health</span><span class="role-tag">Telehealth</span></div>
+    </div>
+
+    <div class="prof-card remote-focus fade">
+      <div class="prof-icon">🚑</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Paramedicine</h3>
+      <p>Paramedics working in extended care roles and remote area settings — essential for communities where the nearest hospital is hours away.</p>
+      <div class="roles"><span class="role-tag">Extended Care</span><span class="role-tag">Remote Area</span><span class="role-tag">FIFO</span></div>
+    </div>
+
+    <div class="prof-card fade">
+      <div class="prof-icon">🦵</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Podiatry</h3>
+      <p>Diabetes-related foot complications are disproportionately common in remote communities. Podiatrists play a vital role in preventing amputations.</p>
+      <div class="roles"><span class="role-tag">Diabetes Care</span><span class="role-tag">Aged Care</span><span class="role-tag">Aboriginal Health</span></div>
+    </div>
+
+    <div class="prof-card fade">
+      <div class="prof-icon">🦷</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Dental</h3>
+      <p>Dental health in remote NSW is significantly below metro averages. Dentists, dental therapists and oral health therapists for remote clinics.</p>
+      <div class="roles"><span class="role-tag">General Dental</span><span class="role-tag">Oral Health</span><span class="role-tag">Paediatric</span></div>
+    </div>
+
+    <div class="prof-card fade">
+      <div class="prof-icon">👁️</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Optometry</h3>
+      <p>Vision health in remote communities, including trachoma screening and management in Aboriginal communities across western NSW.</p>
+      <div class="roles"><span class="role-tag">General</span><span class="role-tag">Paediatric</span><span class="role-tag">Aboriginal Health</span></div>
+    </div>
+
+    <div class="prof-card fade">
+      <div class="prof-icon">🗣️</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Speech Pathology</h3>
+      <p>Speech pathologists for paediatric developmental services, aged care, and Aboriginal community programs in remote NSW.</p>
+      <div class="roles"><span class="role-tag">Paediatric</span><span class="role-tag">Aged Care</span><span class="role-tag">Dysphagia</span></div>
+    </div>
+
+    <div class="prof-card fade">
+      <div class="prof-icon">🌿</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Aboriginal &amp; Torres Strait Islander Health</h3>
+      <p>AHPRA-registered Aboriginal and Torres Strait Islander Health Practitioners for culturally safe care in remote community health settings.</p>
+      <div class="roles"><span class="role-tag">Community Health</span><span class="role-tag">Cultural Safety</span><span class="role-tag">Primary Care</span></div>
+    </div>
+
+    <div class="prof-card fade">
+      <div class="prof-icon">🧬</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Medical Radiation Practice</h3>
+      <p>Radiographers and radiation therapists for remote hospitals and multipurpose health services with on-site imaging capabilities.</p>
+      <div class="roles"><span class="role-tag">Radiography</span><span class="role-tag">Sonography</span><span class="role-tag">Nuclear Medicine</span></div>
+    </div>
+
+    <div class="prof-card fade">
+      <div class="prof-icon">🍎</div>
+      <div class="reg">DIETITIANS AUSTRALIA</div>
+      <h3>Dietetics &amp; Nutrition</h3>
+      <p>Dietitians for chronic disease management, diabetes programs, and community nutrition in remote NSW where diet-related illness is high.</p>
+      <div class="roles"><span class="role-tag">Chronic Disease</span><span class="role-tag">Diabetes</span><span class="role-tag">Community</span></div>
+    </div>
+
+    <div class="prof-card fade">
+      <div class="prof-icon">💪</div>
+      <div class="reg">AHPRA REGISTERED</div>
+      <h3>Exercise Physiology</h3>
+      <p>Accredited Exercise Physiologists for chronic disease management, cardiac rehab, and disability services in remote communities.</p>
+      <div class="roles"><span class="role-tag">Chronic Disease</span><span class="role-tag">Cardiac Rehab</span><span class="role-tag">NDIS</span></div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- REMOTE NEED -->
+<div class="remote-sec">
+  <div class="remote-inner">
+    <p class="label fade">The remote allied health crisis</p>
+    <h2 class="h2 fade">Remote NSW has the need.<br><em style="color:var(--teal-mid);font-style:normal">We have the professionals.</em></h2>
+    <p class="lead fade">Allied health shortages in remote NSW are often worse than nursing shortages — yet they receive far less attention. These gaps have direct consequences for community health outcomes.</p>
+    <div class="remote-grid">
+      <div class="remote-card fade">
+        <div class="shortage s-crit">CRITICAL</div>
+        <h4>Mental Health — Far West</h4>
+        <p>Psychologist-to-population ratio in Far West NSW is among the lowest in Australia. Wait times exceed 12 months in many communities.</p>
+      </div>
+      <div class="remote-card fade">
+        <div class="shortage s-crit">CRITICAL</div>
+        <h4>Podiatry — Western NSW</h4>
+        <p>Diabetes rates in remote Aboriginal communities are 3× higher than metro. Podiatry access is essential to prevent avoidable amputations.</p>
+      </div>
+      <div class="remote-card fade">
+        <div class="shortage s-high">HIGH</div>
+        <h4>Physiotherapy — Murrumbidgee</h4>
+        <p>Farming and physical labour injuries are common, yet physio access is severely limited. Many residents travel 3+ hours for treatment.</p>
+      </div>
+      <div class="remote-card fade">
+        <div class="shortage s-high">HIGH</div>
+        <h4>OT — Hunter New England</h4>
+        <p>Aged care and NDIS participants in rural HNE LHD face long delays for OT assessments essential to home modifications and equipment funding.</p>
+      </div>
+      <div class="remote-card fade">
+        <div class="shortage s-high">HIGH</div>
+        <h4>Speech Pathology — Remote</h4>
+        <p>Childhood language delays in Aboriginal communities often go undetected without speech pathology services. Long-term educational impacts.</p>
+      </div>
+      <div class="remote-card fade">
+        <div class="shortage s-mod">MODERATE</div>
+        <h4>Paramedicine — Far West</h4>
+        <p>Extended care paramedics reduce unnecessary hospital transfers in remote settings — a critical workforce for distributed communities.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-sec">
+  <div class="how-inner">
+    <p class="label fade" style="text-align:center">How it works</p>
+    <h2 class="h2 fade" style="text-align:center;margin:0 auto .5rem">Same compliance. Same remote focus.</h2>
+    <p class="lead fade" style="text-align:center;margin:0 auto">Our allied health placement process mirrors our nursing model — we are the employer, we manage compliance, you get a work-ready professional.</p>
+    <div class="steps">
+      <div class="step fade"><div class="step-n">1</div><h4>Tell us your need</h4><p>Profession, location, hours, timeframe. We respond within 24 hours for remote facilities.</p></div>
+      <div class="step fade"><div class="step-n">2</div><h4>We verify credentials</h4><p>AHPRA or professional body registration confirmed, police check, working rights, professional indemnity.</p></div>
+      <div class="step fade"><div class="step-n">3</div><h4>Labour hire agreement</h4><p>We are the employer. One all-inclusive invoice. We handle payroll, super, and compliance obligations.</p></div>
+      <div class="step fade"><div class="step-n">4</div><h4>Professional on-site</h4><p>Pre-briefed on your community. FIFO or accommodation-based. Supported throughout the placement.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER -->
+<div class="register" id="register">
+  <div class="reg-inner">
+    <p class="label fade" style="text-align:center">Get started</p>
+    <h2 class="h2 fade" style="text-align:center">Register your interest</h2>
+    <p class="lead fade" style="text-align:center;margin:0 auto">Facility or allied health professional — we respond within 24 hours.</p>
+    <div class="ftabs">
+      <button class="ftab active" onclick="switchTab('fac',this)">I manage a facility</button>
+      <button class="ftab" onclick="switchTab('pro',this)">I'm an allied health professional</button>
+    </div>
+    <div id="success" class="success"><div style="font-size:2rem;margin-bottom:10px">✅</div><h3>Thank you — we'll be in touch within 24 hours.</h3><p>Your submission has been received.</p></div>
+
+    <div id="panel-fac" class="fpanel active">
+      <form onsubmit="submitForm(event,'fac')">
+        <div class="fgrid">
+          <div class="fg"><label>CONTACT NAME *</label><input type="text" placeholder="Full name" required></div>
+          <div class="fg"><label>ROLE / TITLE *</label><input type="text" placeholder="e.g. Service Manager" required></div>
+          <div class="fg"><label>ORGANISATION *</label><input type="text" placeholder="Hospital, health service or NDIS provider" required></div>
+          <div class="fg"><label>REGION *</label>
+            <select required>
+              <option value="">Select LHD...</option>
+              <option>Far West LHD</option><option>Western NSW LHD</option><option>Murrumbidgee LHD</option>
+              <option>Hunter New England LHD</option><option>Northern NSW LHD</option><option>Mid North Coast LHD</option><option>Other</option>
+            </select>
+          </div>
+          <div class="fg"><label>PROFESSION NEEDED *</label>
+            <select required>
+              <option value="">Select...</option>
+              <option>Physiotherapy</option><option>Occupational Therapy</option><option>Psychology</option>
+              <option>Paramedicine</option><option>Podiatry</option><option>Dental</option>
+              <option>Optometry</option><option>Speech Pathology</option>
+              <option>Aboriginal & Torres Strait Islander Health</option>
+              <option>Medical Radiation Practice</option><option>Dietetics & Nutrition</option>
+              <option>Exercise Physiology</option><option>Multiple / Other</option>
+            </select>
+          </div>
+          <div class="fg"><label>EMAIL *</label><input type="email" placeholder="your@email.com" required></div>
+          <div class="fg full"><label>WHAT DO YOU NEED?</label><textarea placeholder="Role details, hours, timeframe, FIFO or accommodation-based, any special requirements..."></textarea></div>
+        </div>
+        <button type="submit" class="fsub">Submit Facility Enquiry →</button>
+        <p class="fnote">We respond to all remote facility enquiries within 24 hours.</p>
+      </form>
+    </div>
+
+    <div id="panel-pro" class="fpanel">
+      <form onsubmit="submitForm(event,'pro')">
+        <div class="fgrid">
+          <div class="fg"><label>FULL NAME *</label><input type="text" placeholder="First and last name" required></div>
+          <div class="fg"><label>PHONE *</label><input type="tel" placeholder="+61 or country code" required></div>
+          <div class="fg"><label>EMAIL *</label><input type="email" placeholder="your@email.com" required></div>
+          <div class="fg"><label>PROFESSION *</label>
+            <select required>
+              <option value="">Select...</option>
+              <option>Physiotherapy</option><option>Occupational Therapy</option><option>Psychology</option>
+              <option>Paramedicine</option><option>Podiatry</option><option>Dental</option>
+              <option>Optometry</option><option>Speech Pathology</option>
+              <option>Aboriginal & Torres Strait Islander Health</option>
+              <option>Medical Radiation Practice</option><option>Dietetics & Nutrition</option>
+              <option>Exercise Physiology</option>
+            </select>
+          </div>
+          <div class="fg"><label>REGISTRATION STATUS *</label>
+            <select required>
+              <option value="">Select...</option>
+              <option>Currently registered / accredited</option>
+              <option>Application in progress</option><option>Need guidance</option>
+            </select>
+          </div>
+          <div class="fg"><label>OPEN TO REMOTE?</label>
+            <select>
+              <option>Yes — I want to go remote</option><option>Yes — FIFO preferred</option>
+              <option>Yes — longer posting preferred</option><option>Open to discussion</option>
+            </select>
+          </div>
+          <div class="fg full"><label>YOUR EXPERIENCE</label><textarea placeholder="Years of experience, specialisations, any remote or rural experience, preferred locations..."></textarea></div>
+        </div>
+        <button type="submit" class="fsub">Register as an Allied Health Professional →</button>
+        <p class="fnote">We'll match you with remote opportunities across NSW.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fb-bot">
+    <p>© 2026 Health Plus International Pty Ltd · ABN 13 155 901 723 · Sydney, NSW</p>
+    <a href="mailto:connect@healthplusint.com.au">connect@healthplusint.com.au</a>
+  </div>
+  <div class="ack">
+    <div class="ack-bar"></div>
+    <p>Health Plus International acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Aboriginal and Torres Strait Islander peoples, and to Elders past, present and emerging.</p>
+  </div>
+</footer>
+
+<script>
+function switchTab(type,btn){
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.fpanel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+type).classList.add('active');
+}
+function submitForm(e,type){
+  e.preventDefault();
+  document.getElementById('panel-'+type).style.display='none';
+  document.querySelector('.ftabs').style.display='none';
+  document.getElementById('success').style.display='block';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});},{threshold:0.08});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
