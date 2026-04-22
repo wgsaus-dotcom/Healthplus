@@ -23,8 +23,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 .ncta{background:var(--navy)!important;color:#fff!important;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:700!important}
 .ncta:hover{background:var(--teal)!important}
 @media(max-width:880px){nav{padding:0 1.5rem}.nlinks{display:none}}
-.hero{padding-top:68px;height:420px;display:grid;grid-template-columns:55% 45%;overflow:hidden}
-.hero-left{padding:2rem 2.5rem 2rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--white)}
+.hero{padding-top:68px;height:420px;display:grid;grid-template-columns:55% 45%;overflow:hidden;width:100%}
+.hero-left{padding:2rem 2.5rem 2rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--white);min-width:0;overflow:hidden}
 .hero-pill{display:inline-flex;align-items:center;gap:8px;background:var(--teal-pale);border:1px solid rgba(11,107,110,0.2);padding:6px 14px;border-radius:100px;width:fit-content;margin-bottom:2rem}
 .hero-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
@@ -40,8 +40,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 .hero-trust{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
 .trust-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--text-l)}
 .trust-dot{width:6px;height:6px;border-radius:50%;background:var(--teal)}
-.hero-right{position:relative;overflow:hidden;background:var(--off)}
-.hero-img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
+.hero-right{position:relative;overflow:hidden;background:var(--off);min-width:0}
+.hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center top}
 .hero-img-wrap{overflow:hidden;position:relative}
 .hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,107,110,0.15),transparent)}
 .hero-badge{position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.95);border-radius:10px;padding:10px 14px;backdrop-filter:blur(8px);box-shadow:0 4px 20px rgba(0,0,0,0.12)}
