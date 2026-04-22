@@ -23,7 +23,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(255,255,255,
 .ncta{background:var(--navy)!important;color:#fff!important;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:700!important}
 .ncta:hover{background:var(--teal)!important}
 @media(max-width:880px){nav{padding:0 1.5rem}.nlinks{display:none}}
-.hero{padding-top:0;min-height:calc(100vh - 126px);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero{padding-top:68px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
 .hero-left{padding:6rem 3.5rem 4rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--white)}
 .hero-pill{display:inline-flex;align-items:center;gap:8px;background:var(--teal-pale);border:1px solid rgba(11,107,110,0.2);padding:6px 14px;border-radius:100px;width:fit-content;margin-bottom:2rem}
 .hero-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
@@ -202,13 +202,6 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.5);padding:3rem 4rem 2re
   </ul>
 </nav>
 
-<!-- ACKNOWLEDGEMENT OF COUNTRY -->
-<div style="background:#1B3A5C;padding:10px 3rem;display:flex;align-items:center;gap:12px;position:relative;z-index:499;margin-top:68px">
-  <div style="width:4px;height:36px;background:linear-gradient(to bottom,#E8A020,#CC3300,#000);border-radius:2px;flex-shrink:0"></div>
-  <p style="font-family:'Montserrat',sans-serif;font-size:11.5px;color:rgba(255,255,255,0.75);line-height:1.6;font-weight:500">
-    Health Plus International acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Aboriginal and Torres Strait Islander peoples, and to Elders past, present and emerging.
-  </p>
-</div>
   <div class="hero-left">
     <div class="hero-pill fade-up"><div class="hero-pill-dot"></div><span>REMOTE NSW NURSING SPECIALISTS</span></div>
     <h1 class="fade-up" style="transition-delay:.1s">Remote NSW<br>deserves<br><em>great nurses.</em></h1>
@@ -396,6 +389,10 @@ footer{background:var(--navy-d);color:rgba(255,255,255,.5);padding:3rem 4rem 2re
     <div class="fc"><h4>FOR NURSES</h4><a href="#register">Register Now</a><a href="#sourcing">Overseas Nurses</a><a href="#how">How It Works</a></div>
   </div>
   <div class="fb-bottom"><p>&copy; 2026 Health Plus International Pty Ltd · ABN 13 155 901 723 · Sydney, NSW</p><a href="mailto:info@healthplusint.com.au">info@healthplusint.com.au</a></div>
+  <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:flex-start;gap:12px">
+    <div style="width:4px;min-height:40px;background:linear-gradient(to bottom,#E8A020,#CC3300,#000);border-radius:2px;flex-shrink:0;margin-top:2px"></div>
+    <p style="font-size:11px;color:rgba(255,255,255,0.4);line-height:1.7;font-weight:500">Health Plus International acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Aboriginal and Torres Strait Islander peoples, and to Elders past, present and emerging.</p>
+  </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
