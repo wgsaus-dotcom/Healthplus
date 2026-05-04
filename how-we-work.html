@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How We Work | Health Plus International</title>
+<meta name="description" content="Health Plus International is the employer of record. We source, credential, and deploy AHPRA-verified nurses and allied health professionals to remote NSW facilities — you manage the clinical work, we manage everything else.">
+<link rel="canonical" href="https://healthplusint.com.au/how-we-work.html">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased}
+:root{
+  --teal:#0B6B6E;--teal-d:#085558;--teal-pale:#E1F5EE;--teal-mid:#9FE1CB;
+  --navy:#1B3A5C;--navy-d:#0D1F33;
+  --off:#F7F8F6;--border:rgba(11,107,110,0.12);
+  --text:#1a1a1a;--muted:#5a6a7a;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.07)}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo svg{width:32px;height:32px}
+.logo-text span:first-child{display:block;font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.5px}
+.logo-text span:last-child{display:block;font-size:8px;font-weight:600;color:var(--navy);letter-spacing:3px}
+.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:600;color:#5a6a7a;text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-btn{background:var(--navy);color:#fff!important;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:700!important;transition:background .2s!important}
+.nav-btn:hover{background:var(--teal)!important}
+.nav-phone{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--teal);text-decoration:none;white-space:nowrap;padding:6px 14px;border:1.5px solid var(--teal);border-radius:100px;transition:all .2s;margin-left:8px}
+.nav-phone:hover{background:var(--teal);color:#fff}
+@media(max-width:900px){.nav-links{display:none}.nav-phone{font-size:11px;padding:5px 10px}}
+
+/* SHARED */
+.label{font-size:10px;font-weight:700;letter-spacing:2.5px;color:var(--teal);text-transform:uppercase;margin-bottom:.6rem}
+.h2{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:.75rem}
+.lead{font-size:15px;color:var(--muted);line-height:1.75;max-width:600px}
+.btn-teal{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s}
+.btn-teal:hover{background:var(--teal-d)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--teal);padding:13px 26px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid var(--teal);transition:all .2s}
+.btn-ghost:hover{background:var(--teal-pale)}
+section{padding:5rem 4rem}
+@media(max-width:768px){section{padding:3rem 1.5rem}}
+
+/* HERO */
+.page-hero{background:var(--navy-d);padding:7rem 4rem 5rem;position:relative;overflow:hidden;margin-top:66px}
+.page-hero::before{content:'';position:absolute;top:-80px;right:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(11,107,110,.22),transparent 70%)}
+.page-hero::after{content:'';position:absolute;bottom:-60px;left:10%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(27,58,92,.4),transparent 70%)}
+.hero-inner{position:relative;z-index:2;max-width:680px}
+.page-hero .label{color:var(--teal-mid)}
+.page-hero .h2{color:#fff;font-size:clamp(2rem,4vw,3rem)}
+.page-hero .lead{color:rgba(255,255,255,.55);max-width:540px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:2rem}
+@media(max-width:768px){.page-hero{padding:5rem 1.5rem 3.5rem}}
+
+/* EOR EXPLAINER */
+.eor-section{background:#fff}
+.eor-card{background:var(--off);border:1px solid var(--border);border-radius:16px;padding:2.5rem;margin-bottom:1.5rem}
+.eor-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:3rem}
+.eor-col{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.eor-col-hdr{padding:1.25rem 1.75rem;font-size:12px;font-weight:700;letter-spacing:1.5px}
+.eor-col.facility .eor-col-hdr{background:var(--navy);color:#fff}
+.eor-col.hpi .eor-col-hdr{background:var(--teal);color:#fff}
+.eor-col-body{padding:1.5rem 1.75rem}
+.eor-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.eor-item:last-child{border-bottom:none}
+.eor-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.eor-col.facility .eor-dot{background:var(--navy)}
+.eor-col.hpi .eor-dot{background:var(--teal)}
+.eor-item p{font-size:13px;color:#333;line-height:1.55}
+@media(max-width:768px){.eor-grid{grid-template-columns:1fr}}
+
+/* 4-STEP PROCESS */
+.process-section{background:var(--off)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;position:relative}
+.steps::before{content:'';position:absolute;top:36px;left:13%;right:13%;border-top:2px dashed var(--border);z-index:0}
+.step{position:relative;z-index:1;text-align:center}
+.step-n{width:72px;height:72px;border-radius:50%;background:var(--teal);color:#fff;font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;box-shadow:0 0 0 8px var(--teal-pale)}
+.step h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:.5rem;line-height:1.35}
+.step p{font-size:12px;color:var(--muted);line-height:1.65}
+.step-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.5px;padding:3px 9px;border-radius:100px;background:var(--teal-pale);color:var(--teal);margin-bottom:.75rem}
+@media(max-width:768px){.steps{grid-template-columns:1fr 1fr;gap:1.75rem}.steps::before{display:none}}
+
+/* WHAT YOU DONT MANAGE */
+.removed-section{background:var(--navy-d);padding:5rem 4rem;position:relative;overflow:hidden}
+.removed-section::before{content:'';position:absolute;top:-100px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(11,107,110,.15),transparent 70%)}
+.removed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+.removed-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:1.5rem 1.25rem;position:relative;z-index:1}
+.removed-card .ico{font-size:26px;margin-bottom:.75rem}
+.removed-card h4{font-size:12px;font-weight:700;color:#fff;margin-bottom:.4rem}
+.removed-card p{font-size:11.5px;color:rgba(255,255,255,.45);line-height:1.65}
+.removed-card .strike{font-size:10px;font-weight:700;color:rgba(255,255,255,.2);text-decoration:line-through;letter-spacing:.5px;margin-bottom:.4rem;display:block}
+@media(max-width:768px){.removed-section{padding:3rem 1.5rem}.removed-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.removed-grid{grid-template-columns:1fr}}
+
+/* COMPLIANCE STRIP */
+.compliance-strip{background:var(--teal-pale);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 4rem}
+.compliance-items{display:flex;gap:2.5rem;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:1.25rem}
+.comp-item{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:700;color:var(--navy)}
+.comp-item::before{content:'✓';background:var(--teal);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+@media(max-width:768px){.compliance-strip{padding:2rem 1.5rem}}
+
+/* WHO IS THIS FOR */
+.who-section{background:#fff}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.who-card{border:1px solid var(--border);border-radius:14px;padding:2rem 1.75rem}
+.who-card h3{font-size:15px;font-weight:700;color:var(--navy);margin:1rem 0 .5rem}
+.who-card p{font-size:13px;color:var(--muted);line-height:1.65}
+.who-card .tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1.5px;padding:3px 9px;border-radius:100px;background:var(--teal-pale);color:var(--teal)}
+@media(max-width:768px){.who-grid{grid-template-columns:1fr}}
+
+/* CTA BLOCK */
+.cta-block{background:var(--teal);padding:4.5rem 4rem;text-align:center}
+.cta-block h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:#fff;margin-bottom:.75rem}
+.cta-block p{font-size:15px;color:rgba(255,255,255,.7);margin-bottom:2rem}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--teal);padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:opacity .2s}
+.btn-white:hover{opacity:.9}
+.btn-outline-white{background:transparent;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid rgba(255,255,255,.5);transition:all .2s}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+
+/* FOOTER */
+footer{background:var(--navy-d);padding:3rem 4rem 2rem}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3.5rem;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.fb p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.35);margin-top:.75rem;max-width:320px}
+.fc h4{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--teal-mid);margin-bottom:.9rem}
+.fc a{display:block;font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;margin-bottom:7px;transition:color .2s}
+.fc a:hover{color:#fff}
+.fb-bot{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem}
+.fb-bot p,.fb-bot a{font-size:11px;color:rgba(255,255,255,.3)}
+.fb-bot a{color:var(--teal-mid);text-decoration:none}
+.ack{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:flex-start;gap:10px}
+.ack-bar{width:4px;min-height:38px;background:linear-gradient(to bottom,#E8A020,#CC3300,#000);border-radius:2px;flex-shrink:0;margin-top:2px}
+.ack p{font-size:10.5px;color:rgba(255,255,255,.3);line-height:1.7;font-weight:500}
+@media(max-width:768px){.ft{grid-template-columns:1fr;gap:2rem}footer{padding:2.5rem 1.5rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="57" fill="#0B6B6E"/>
+      <ellipse cx="70" cy="47" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="93" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="70" rx="21" ry="57" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <line x1="13" y1="70" x2="127" y2="70" stroke="white" stroke-width="1" opacity="0.45"/>
+      <rect x="62" y="44" width="17" height="52" rx="3" fill="white"/>
+      <rect x="44" y="62" width="52" height="17" rx="3" fill="white"/>
+    </svg>
+    <div class="logo-text"><span>HEALTH PLUS</span><span>INTERNATIONAL</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#map-sec">Regions</a></li>
+    <li><a href="services-remote.html">Nursing</a></li>
+    <li><a href="allied-health.html">Allied Health</a></li>
+    <li><a href="how-we-work.html" class="active">How We Work</a></li>
+    <li><a href="ahpra-verify.html">AHPRA Check</a></li>
+    <li><a href="submit-a-request.html" class="nav-btn">Submit a Request</a></li>
+  </ul>
+  <a href="tel:+61411459755" class="nav-phone">📞 +61 411 459 755</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="label">THE EMPLOYER OF RECORD MODEL</div>
+    <h2 class="h2">You get the workforce.<br>We manage the employment.</h2>
+    <p class="lead">Health Plus International is the legal employer of every practitioner we place. Your facility gets an AHPRA-verified clinician, ready to work — without taking on a single employment obligation.</p>
+    <div class="hero-btns">
+      <a href="submit-a-request.html" class="btn-teal">Submit a Workforce Request</a>
+      <a href="tel:+61411459755" class="btn-ghost" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3)">📞 +61 411 459 755</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS EOR -->
+<section class="eor-section">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="label">WHAT THIS MEANS IN PRACTICE</div>
+    <h2 class="h2">The employer of record model, plainly explained</h2>
+    <p class="lead">Most agencies introduce a worker and walk away. Health Plus International remains the employer throughout the entire engagement — handling every employment obligation from day one to last shift.</p>
+
+    <div class="eor-grid">
+      <div class="eor-col facility">
+        <div class="eor-col-hdr">YOUR FACILITY IS RESPONSIBLE FOR</div>
+        <div class="eor-col-body">
+          <div class="eor-item"><div class="eor-dot"></div><p>Defining the clinical role, scope, and roster hours</p></div>
+          <div class="eor-item"><div class="eor-dot"></div><p>Providing clinical supervision and workplace induction</p></div>
+          <div class="eor-item"><div class="eor-dot"></div><p>Approving timesheets and raising invoices for payment</p></div>
+          <div class="eor-item"><div class="eor-dot"></div><p>Maintaining your own OH&amp;S and facility-specific protocols</p></div>
+          <div class="eor-item"><div class="eor-dot"></div><p>Clinical governance and quality standards within your service</p></div>
+        </div>
+      </div>
+      <div class="eor-col hpi">
+        <div class="eor-col-hdr">HEALTH PLUS INTERNATIONAL MANAGES</div>
+        <div class="eor-col-body">
+          <div class="eor-item"><div class="eor-dot"></div><p>Sourcing and credentialling AHPRA-registered practitioners</p></div>
+          <div class="eor-item"><div class="eor-dot"></div><p>Employment contracts, Fair Work compliance, and Award obligations</p></div>
+          <div class="eor-item"><div class="eor-dot"></div><p>Payroll, superannuation, and leave entitlements</p></div>
+          <div class="eor-item"><div class="eor-dot"></div><p>Workers' compensation and professional indemnity insurance</p></div>
+          <div class="eor-item"><div class="eor-dot"></div><p>Pre-placement screening: National Police Check, WWC, references</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE STRIP -->
+<div class="compliance-strip">
+  <div style="text-align:center">
+    <div class="label" style="text-align:center">EVERY PLACEMENT INCLUDES</div>
+    <div class="compliance-items">
+      <div class="comp-item">AHPRA Registration Verified</div>
+      <div class="comp-item">National Police Check</div>
+      <div class="comp-item">Professional Indemnity Insurance</div>
+      <div class="comp-item">Workers' Compensation Cover</div>
+      <div class="comp-item">Fair Work Compliant Contract</div>
+      <div class="comp-item">Working With Children Check</div>
+    </div>
+  </div>
+</div>
+
+<!-- 4-STEP PROCESS -->
+<section class="process-section">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="label">FROM ENQUIRY TO PLACEMENT</div>
+    <h2 class="h2">How a placement works</h2>
+    <p class="lead">Four steps from your initial request to a credentialled clinician on the floor.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-tag">SAME DAY</div>
+        <h4>Submit a Workforce Request</h4>
+        <p>Tell us the role, discipline, location, and roster dates. We respond within one business day — typically the same day for urgent requests.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-tag">2–5 DAYS</div>
+        <h4>We Source &amp; Credential</h4>
+        <p>We identify AHPRA-registered practitioners with documented rural experience. All pre-placement checks are completed before we present a candidate profile.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-tag">YOUR APPROVAL</div>
+        <h4>You Confirm the Placement</h4>
+        <p>Review the practitioner profile and approve. We manage the employment contract, logistics, and any travel arrangements from that point forward.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-tag">ONGOING</div>
+        <h4>We Stay the Employer</h4>
+        <p>You manage clinical operations. We handle payroll, compliance, and practitioner support for the full duration of the engagement — one invoice, no surprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT FACILITIES DON'T MANAGE -->
+<section class="removed-section">
+  <div style="max-width:1000px;margin:0 auto;position:relative;z-index:1">
+    <div class="label" style="color:var(--teal-mid)">REMOVED FROM YOUR PLATE</div>
+    <h2 class="h2" style="color:#fff">Every obligation you hand to us</h2>
+    <p class="lead" style="color:rgba(255,255,255,.5)">Remote facility managers carry significant operational load. Here is exactly what Health Plus International takes off your desk.</p>
+    <div class="removed-grid">
+      <div class="removed-card">
+        <div class="ico">📋</div>
+        <span class="strike">YOUR RESPONSIBILITY</span>
+        <h4>Employment Contracts</h4>
+        <p>We prepare, issue, and retain all employment documentation. You never touch a contract.</p>
+      </div>
+      <div class="removed-card">
+        <div class="ico">💰</div>
+        <span class="strike">YOUR RESPONSIBILITY</span>
+        <h4>Payroll &amp; Superannuation</h4>
+        <p>Weekly payroll, super contributions, PAYG withholding — all managed. You receive one all-inclusive invoice.</p>
+      </div>
+      <div class="removed-card">
+        <div class="ico">🛡️</div>
+        <span class="strike">YOUR RESPONSIBILITY</span>
+        <h4>Workers' Compensation</h4>
+        <p>NSW WorkCover compliance sits with us as the employer. Your facility is not exposed.</p>
+      </div>
+      <div class="removed-card">
+        <div class="ico">⚖️</div>
+        <span class="strike">YOUR RESPONSIBILITY</span>
+        <h4>Fair Work Compliance</h4>
+        <p>Award interpretation, penalty rates, leave entitlements, and enterprise agreement obligations — our domain, not yours.</p>
+      </div>
+      <div class="removed-card">
+        <div class="ico">🔍</div>
+        <span class="strike">YOUR RESPONSIBILITY</span>
+        <h4>Pre-Placement Screening</h4>
+        <p>AHPRA verification, police checks, reference checks, and working with children clearances all done before day one.</p>
+      </div>
+      <div class="removed-card">
+        <div class="ico">🌏</div>
+        <span class="strike">YOUR RESPONSIBILITY</span>
+        <h4>International Registration</h4>
+        <p>For internationally-sourced practitioners, we manage the AHPRA pathway, skills assessment, and English proficiency requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section class="who-section">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="label">WHO WE SERVE</div>
+    <h2 class="h2">Built for remote NSW health facilities</h2>
+    <p class="lead">Health Plus International works exclusively with health facilities in remote and regional NSW. If you manage workforce in any of the following settings, we can help.</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <div style="font-size:32px">🏥</div>
+        <div class="tag">NURSING &amp; ALLIED HEALTH</div>
+        <h3>Rural Referral &amp; District Hospitals</h3>
+        <p>Emergency, ward, theatre, and ICU nursing. Urgent surge cover and extended placements for facilities managing chronic workforce gaps across remote LHDs.</p>
+      </div>
+      <div class="who-card">
+        <div style="font-size:32px">🏘️</div>
+        <div class="tag">ALLIED HEALTH</div>
+        <h3>Community Health Services</h3>
+        <p>Physiotherapy, occupational therapy, psychology, speech pathology, and nine other disciplines for community health centres and outreach services.</p>
+      </div>
+      <div class="who-card">
+        <div style="font-size:32px">🤝</div>
+        <div class="tag">NURSING</div>
+        <h3>Aboriginal Medical Services &amp; MPS</h3>
+        <p>Culturally informed placements for Aboriginal Medical Services and Multi-Purpose Services, with practitioners experienced in rural and remote community health.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-block">
+  <h2>Ready to submit your first workforce request?</h2>
+  <p>One form, one business day response, one all-inclusive invoice. No lock-in contracts.</p>
+  <div class="cta-btns">
+    <a href="submit-a-request.html" class="btn-white">Submit a Workforce Request</a>
+    <a href="tel:+61411459755" class="btn-outline-white">📞 +61 411 459 755</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="fb">
+      <div style="display:flex;align-items:center;gap:11px">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="34">
+          <circle cx="70" cy="70" r="57" fill="#0B6B6E"/>
+          <ellipse cx="70" cy="47" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.5"/>
+          <ellipse cx="70" cy="93" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.5"/>
+          <ellipse cx="70" cy="70" rx="21" ry="57" fill="none" stroke="white" stroke-width="1" opacity="0.5"/>
+          <line x1="13" y1="70" x2="127" y2="70" stroke="white" stroke-width="1" opacity="0.5"/>
+          <rect x="62" y="44" width="17" height="52" rx="3" fill="white"/>
+          <rect x="44" y="62" width="52" height="17" rx="3" fill="white"/>
+        </svg>
+        <div><div style="font-size:13px;font-weight:700;color:#fff">HEALTH PLUS</div><div style="font-size:8px;font-weight:600;color:#9FE1CB;letter-spacing:3px">INTERNATIONAL</div></div>
+      </div>
+      <p>Strategic placing of essential healthcare staff in regional and remote NSW. AHPRA-verified nurses and allied health professionals — we are the employer of record.</p>
+    </div>
+    <div class="fc"><h4>FOR FACILITIES</h4><a href="tel:+61411459755">+61 411 459 755</a><a href="submit-a-request.html">Submit a Request</a><a href="how-we-work.html">How We Work</a><a href="index.html#map-sec">Regions</a></div>
+    <div class="fc"><h4>FOR CLINICIANS</h4><a href="index.html#register">Register Now</a><a href="allied-health.html">Allied Health</a><a href="services-remote.html">Nursing</a><a href="ahpra-verify.html">AHPRA Check</a></div>
+  </div>
+  <div class="fb-bot">
+    <p>© 2026 Health Plus International Pty Ltd · ABN 13 155 901 723 · Sydney, NSW</p>
+    <a href="mailto:connect@healthplusint.com.au">connect@healthplusint.com.au</a>
+    <a href="tel:+61411459755">+61 411 459 755</a>
+  </div>
+  <div class="ack">
+    <div class="ack-bar"></div>
+    <p>Health Plus International acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Aboriginal and Torres Strait Islander peoples, and to Elders past, present and emerging.</p>
+  </div>
+</footer>
+
+</body>
+</html>
