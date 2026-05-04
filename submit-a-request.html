@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Submit a Workforce Request | Health Plus International</title>
+<meta name="description" content="Submit a workforce request for AHPRA-verified nurses and allied health professionals for your remote NSW health facility. We respond within one business day.">
+<link rel="canonical" href="https://healthplusint.com.au/submit-a-request.html">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased}
+:root{
+  --teal:#0B6B6E;--teal-d:#085558;--teal-pale:#E1F5EE;--teal-mid:#9FE1CB;
+  --navy:#1B3A5C;--navy-d:#0D1F33;
+  --off:#F7F8F6;--border:rgba(11,107,110,0.12);
+  --text:#1a1a1a;--muted:#5a6a7a;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.07)}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo svg{width:32px;height:32px}
+.logo-text span:first-child{display:block;font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.5px}
+.logo-text span:last-child{display:block;font-size:8px;font-weight:600;color:var(--navy);letter-spacing:3px}
+.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:600;color:#5a6a7a;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-btn{background:var(--navy);color:#fff!important;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:700!important;transition:background .2s!important}
+.nav-btn:hover,.nav-btn.active{background:var(--teal)!important}
+.nav-phone{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--teal);text-decoration:none;white-space:nowrap;padding:6px 14px;border:1.5px solid var(--teal);border-radius:100px;transition:all .2s;margin-left:8px}
+.nav-phone:hover{background:var(--teal);color:#fff}
+@media(max-width:900px){.nav-links{display:none}.nav-phone{font-size:11px;padding:5px 10px}}
+
+/* PAGE LAYOUT */
+.page-wrap{display:grid;grid-template-columns:1fr 380px;min-height:100vh;margin-top:66px}
+@media(max-width:960px){.page-wrap{grid-template-columns:1fr}}
+
+/* LEFT — FORM */
+.form-side{padding:4rem;background:#fff}
+.form-side h1{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--navy);margin-bottom:.5rem;line-height:1.15}
+.form-side .sub{font-size:14px;color:var(--muted);margin-bottom:2.5rem;line-height:1.65}
+.label-tag{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:.5rem}
+
+/* FORM GROUPS */
+.form-section{margin-bottom:2.25rem;padding-bottom:2.25rem;border-bottom:1px solid var(--border)}
+.form-section:last-of-type{border-bottom:none}
+.section-title{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--navy);text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';display:block;width:20px;height:2px;background:var(--teal)}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:1rem}
+.fg label{font-size:11px;font-weight:700;color:var(--navy);letter-spacing:.3px}
+.fg input,.fg select,.fg textarea{font-family:'Montserrat',sans-serif;font-size:13px;color:#1a1a1a;border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;background:#fff;transition:border-color .2s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--teal);background:var(--teal-pale)}
+.fg textarea{resize:vertical;min-height:90px;line-height:1.6}
+.fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6a7a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.fg .hint{font-size:10.5px;color:var(--muted);line-height:1.5}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.fg-row{grid-template-columns:1fr}}
+
+/* CHECKBOXES */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.check-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s;font-size:12px;font-weight:600;color:#333}
+.check-item input[type="checkbox"]{width:16px;height:16px;accent-color:var(--teal);cursor:pointer;flex-shrink:0}
+.check-item:has(input:checked){border-color:var(--teal);background:var(--teal-pale);color:var(--teal)}
+@media(max-width:600px){.check-grid{grid-template-columns:1fr}}
+
+/* URGENCY TOGGLE */
+.urgency-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem}
+.urg-btn{padding:10px 8px;border:1.5px solid var(--border);border-radius:8px;text-align:center;cursor:pointer;transition:all .2s}
+.urg-btn input{display:none}
+.urg-btn .urg-label{font-size:11px;font-weight:700;display:block}
+.urg-btn .urg-sub{font-size:10px;color:var(--muted);margin-top:2px;display:block}
+.urg-btn:has(input:checked){border-color:var(--teal);background:var(--teal-pale)}
+.urg-btn:has(input:checked) .urg-label{color:var(--teal)}
+
+/* SUBMIT */
+.submit-btn{width:100%;padding:15px;background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:background .2s;margin-top:.5rem}
+.submit-btn:hover{background:var(--teal-d)}
+.privacy-note{font-size:10.5px;color:var(--muted);text-align:center;margin-top:.75rem;line-height:1.5}
+
+/* SUCCESS STATE */
+.success-msg{display:none;background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:12px;padding:2rem;text-align:center;margin-top:1.5rem}
+.success-msg.show{display:block}
+.success-msg h3{font-size:16px;font-weight:700;color:var(--teal);margin-bottom:.4rem}
+.success-msg p{font-size:13px;color:var(--muted)}
+
+/* RIGHT — INFO PANEL */
+.info-side{background:var(--navy-d);padding:4rem 2.5rem;position:relative;overflow:hidden}
+.info-side::before{content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(11,107,110,.2),transparent 70%)}
+.info-inner{position:relative;z-index:1}
+.info-side h2{font-size:18px;font-weight:800;color:#fff;margin-bottom:1.5rem}
+.info-block{margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.info-block:last-child{border-bottom:none}
+.info-block h4{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--teal-mid);text-transform:uppercase;margin-bottom:.75rem}
+.info-block p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7}
+.promise-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:.75rem}
+.promise-check{width:20px;height:20px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:800;flex-shrink:0;margin-top:1px}
+.promise-item p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.55}
+.phone-block{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:1.25rem;margin-top:1.5rem;text-align:center}
+.phone-block p{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:.4rem}
+.phone-block a{font-size:18px;font-weight:800;color:#fff;text-decoration:none}
+.phone-block a:hover{color:var(--teal-mid)}
+.phone-block span{display:block;font-size:10px;color:rgba(255,255,255,.3);margin-top:.25rem}
+.lhd-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:.75rem}
+.lhd-tag{font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px;background:rgba(11,107,110,.2);color:var(--teal-mid);border:1px solid rgba(11,107,110,.3)}
+
+/* FOOTER */
+footer{background:var(--navy-d);padding:3rem 4rem 2rem;border-top:1px solid rgba(255,255,255,.04)}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3.5rem;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.fb p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.35);margin-top:.75rem;max-width:320px}
+.fc h4{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--teal-mid);margin-bottom:.9rem}
+.fc a{display:block;font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;margin-bottom:7px;transition:color .2s}
+.fc a:hover{color:#fff}
+.fb-bot{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem}
+.fb-bot p,.fb-bot a{font-size:11px;color:rgba(255,255,255,.3)}
+.fb-bot a{color:var(--teal-mid);text-decoration:none}
+.ack{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:flex-start;gap:10px}
+.ack-bar{width:4px;min-height:38px;background:linear-gradient(to bottom,#E8A020,#CC3300,#000);border-radius:2px;flex-shrink:0;margin-top:2px}
+.ack p{font-size:10.5px;color:rgba(255,255,255,.3);line-height:1.7;font-weight:500}
+@media(max-width:768px){.ft{grid-template-columns:1fr;gap:2rem}footer{padding:2.5rem 1.5rem}}
+@media(max-width:960px){.info-side{padding:3rem 1.5rem}.form-side{padding:3rem 1.5rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r="57" fill="#0B6B6E"/>
+      <ellipse cx="70" cy="47" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="93" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <ellipse cx="70" cy="70" rx="21" ry="57" fill="none" stroke="white" stroke-width="1" opacity="0.45"/>
+      <line x1="13" y1="70" x2="127" y2="70" stroke="white" stroke-width="1" opacity="0.45"/>
+      <rect x="62" y="44" width="17" height="52" rx="3" fill="white"/>
+      <rect x="44" y="62" width="52" height="17" rx="3" fill="white"/>
+    </svg>
+    <div class="logo-text"><span>HEALTH PLUS</span><span>INTERNATIONAL</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#map-sec">Regions</a></li>
+    <li><a href="services-remote.html">Nursing</a></li>
+    <li><a href="allied-health.html">Allied Health</a></li>
+    <li><a href="how-we-work.html">How We Work</a></li>
+    <li><a href="ahpra-verify.html">AHPRA Check</a></li>
+    <li><a href="submit-a-request.html" class="nav-btn active">Submit a Request</a></li>
+  </ul>
+  <a href="tel:+61411459755" class="nav-phone">📞 +61 411 459 755</a>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- FORM SIDE -->
+  <div class="form-side">
+    <span class="label-tag">FACILITY WORKFORCE REQUEST</span>
+    <h1>Submit a Workforce Request</h1>
+    <p class="sub">Complete this form to request an AHPRA-verified nurse or allied health professional for your remote NSW facility. We respond within one business day — usually the same day.</p>
+
+    <form id="requestForm" action="https://formspree.io/f/REPLACE_ME" method="POST">
+
+      <!-- SECTION 1: FACILITY -->
+      <div class="form-section">
+        <div class="section-title">Your Facility</div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Facility Name *</label>
+            <input type="text" name="facility_name" placeholder="e.g. Broken Hill Hospital" required>
+          </div>
+          <div class="fg">
+            <label>Local Health District *</label>
+            <select name="lhd" required>
+              <option value="" disabled selected>Select LHD</option>
+              <option>Far West NSW LHD</option>
+              <option>Western NSW LHD</option>
+              <option>Murrumbidgee LHD</option>
+              <option>Hunter New England LHD</option>
+              <option>Northern NSW LHD</option>
+              <option>Mid North Coast LHD</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Facility Town / Location *</label>
+          <input type="text" name="location" placeholder="e.g. Broken Hill, Bourke, Dubbo" required>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Your Name *</label>
+            <input type="text" name="contact_name" placeholder="Director of Nursing / Facility Manager" required>
+          </div>
+          <div class="fg">
+            <label>Your Title / Role</label>
+            <input type="text" name="contact_role" placeholder="e.g. Director of Nursing">
+          </div>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Phone *</label>
+            <input type="tel" name="phone" placeholder="02 xxxx xxxx" required>
+          </div>
+          <div class="fg">
+            <label>Email *</label>
+            <input type="email" name="email" placeholder="you@facility.health.nsw.gov.au" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: ROLE DETAILS -->
+      <div class="form-section">
+        <div class="section-title">Role Required</div>
+        <div class="fg">
+          <label>Discipline / Profession *</label>
+          <select name="discipline" required>
+            <option value="" disabled selected>Select discipline</option>
+            <optgroup label="Nursing">
+              <option>Registered Nurse (General)</option>
+              <option>Registered Nurse (Emergency)</option>
+              <option>Registered Nurse (ICU / Critical Care)</option>
+              <option>Registered Nurse (Theatre / Perioperative)</option>
+              <option>Registered Nurse (Midwifery)</option>
+              <option>Enrolled Nurse</option>
+            </optgroup>
+            <optgroup label="Allied Health">
+              <option>Physiotherapist</option>
+              <option>Occupational Therapist</option>
+              <option>Psychologist</option>
+              <option>Paramedic</option>
+              <option>Podiatrist</option>
+              <option>Dentist / Dental Therapist</option>
+              <option>Optometrist</option>
+              <option>Speech Pathologist</option>
+              <option>Aboriginal &amp; Torres Strait Islander Health Practitioner</option>
+              <option>Medical Radiation Practitioner</option>
+              <option>Dietitian / Nutritionist</option>
+              <option>Exercise Physiologist</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option>Other (specify in notes)</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Number of Practitioners Required</label>
+          <select name="headcount">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 or more</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Specific clinical experience required (if any)</label>
+          <textarea name="clinical_experience" placeholder="e.g. Remote area nursing experience, paediatric oncology, community mental health..."></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 3: DATES & ROSTER -->
+      <div class="form-section">
+        <div class="section-title">Dates &amp; Roster</div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Start Date *</label>
+            <input type="date" name="start_date" required>
+          </div>
+          <div class="fg">
+            <label>End Date / Duration</label>
+            <input type="date" name="end_date">
+            <span class="hint">Leave blank if ongoing or ongoing-with-review</span>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Arrangement Type</label>
+          <select name="arrangement_type">
+            <option>Short-term relief (days to 2 weeks)</option>
+            <option>Medium placement (2 weeks to 3 months)</option>
+            <option>Extended rotational placement (3+ months)</option>
+            <option>Ongoing retained arrangement</option>
+            <option>Unsure — discuss with Health Plus</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Roster / Shift Pattern</label>
+          <input type="text" name="roster" placeholder="e.g. 5 days on / 2 off, Monday–Friday, 7-day rotating...">
+        </div>
+      </div>
+
+      <!-- SECTION 4: URGENCY -->
+      <div class="form-section">
+        <div class="section-title">Urgency</div>
+        <div class="urgency-row">
+          <label class="urg-btn">
+            <input type="radio" name="urgency" value="urgent" required>
+            <span class="urg-label">🚨 Urgent</span>
+            <span class="urg-sub">Within 48 hours</span>
+          </label>
+          <label class="urg-btn">
+            <input type="radio" name="urgency" value="soon">
+            <span class="urg-label">⚡ Soon</span>
+            <span class="urg-sub">Within 2 weeks</span>
+          </label>
+          <label class="urg-btn">
+            <input type="radio" name="urgency" value="planned">
+            <span class="urg-label">📅 Planned</span>
+            <span class="urg-sub">2+ weeks away</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- SECTION 5: ACCOMMODATION -->
+      <div class="form-section">
+        <div class="section-title">Accommodation &amp; Travel</div>
+        <div class="check-grid">
+          <label class="check-item"><input type="checkbox" name="accom" value="Facility accommodation available"> Facility accommodation available</label>
+          <label class="check-item"><input type="checkbox" name="accom" value="Assistance finding accommodation"> Assistance finding accommodation</label>
+          <label class="check-item"><input type="checkbox" name="travel" value="Travel allowance provided"> Travel allowance provided</label>
+          <label class="check-item"><input type="checkbox" name="travel" value="Vehicle provided on site"> Vehicle provided on site</label>
+        </div>
+        <div class="fg">
+          <label>Additional accommodation / travel notes</label>
+          <textarea name="accom_notes" placeholder="Any details that would help a practitioner understand the arrangement..."></textarea>
+        </div>
+      </div>
+
+      <!-- SECTION 6: OTHER NOTES -->
+      <div class="form-section">
+        <div class="section-title">Anything Else</div>
+        <div class="fg">
+          <label>Additional information for Health Plus International</label>
+          <textarea name="notes" rows="4" placeholder="Community demographics, cultural considerations, specific equipment, reporting structure, or anything else relevant to the role..."></textarea>
+        </div>
+        <div class="fg">
+          <label>How did you hear about us?</label>
+          <select name="source">
+            <option value="" disabled selected>Select one</option>
+            <option>Google Search</option>
+            <option>NSW Health network / referral</option>
+            <option>LHD recommendation</option>
+            <option>LinkedIn</option>
+            <option>Conference or event</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Workforce Request →</button>
+      <p class="privacy-note">Your information is handled in accordance with our privacy policy and the Privacy Act 1988 (Cth). We will never share your details with third parties without your consent.</p>
+
+      <div class="success-msg" id="successMsg">
+        <div style="font-size:32px;margin-bottom:.75rem">✅</div>
+        <h3>Request received — thank you.</h3>
+        <p>A member of our team will contact you within one business day, usually sooner for urgent requests. In the meantime, call us directly on <a href="tel:+61411459755" style="color:var(--teal);font-weight:700">+61 411 459 755</a>.</p>
+      </div>
+    </form>
+  </div>
+
+  <!-- INFO SIDE -->
+  <div class="info-side">
+    <div class="info-inner">
+      <h2>What happens next</h2>
+
+      <div class="info-block">
+        <h4>Our commitment to you</h4>
+        <div class="promise-item"><div class="promise-check">1</div><p>We review your request and respond within one business day — same day for urgent requests</p></div>
+        <div class="promise-item"><div class="promise-check">2</div><p>We identify AHPRA-registered candidates with documented rural experience</p></div>
+        <div class="promise-item"><div class="promise-check">3</div><p>We present a practitioner profile before any commitment is made</p></div>
+        <div class="promise-item"><div class="promise-check">4</div><p>We manage all employment documentation, payroll, and compliance — one invoice</p></div>
+      </div>
+
+      <div class="info-block">
+        <h4>We serve these LHDs</h4>
+        <div class="lhd-tags">
+          <span class="lhd-tag">Far West NSW</span>
+          <span class="lhd-tag">Western NSW</span>
+          <span class="lhd-tag">Murrumbidgee</span>
+          <span class="lhd-tag">Hunter New England</span>
+          <span class="lhd-tag">Northern NSW</span>
+          <span class="lhd-tag">Mid North Coast</span>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <h4>Every placement includes</h4>
+        <p style="margin-bottom:.5rem">✓ AHPRA registration verified<br>✓ National Police Check<br>✓ Working With Children Check<br>✓ Professional indemnity insurance<br>✓ Workers' compensation cover<br>✓ Fair Work compliant employment</p>
+      </div>
+
+      <div class="info-block">
+        <h4>No lock-in contracts</h4>
+        <p>We work on placement-by-placement arrangements. No retainer fees, no minimum spend, no lock-in. Pay only for what you use.</p>
+      </div>
+
+      <div class="phone-block">
+        <p>Prefer to speak directly?</p>
+        <a href="tel:+61411459755">+61 411 459 755</a>
+        <span>Mon–Fri · Urgent after-hours available</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="fb">
+      <div style="display:flex;align-items:center;gap:11px">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="34">
+          <circle cx="70" cy="70" r="57" fill="#0B6B6E"/>
+          <ellipse cx="70" cy="47" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.5"/>
+          <ellipse cx="70" cy="93" rx="41" ry="14" fill="none" stroke="white" stroke-width="1" opacity="0.5"/>
+          <ellipse cx="70" cy="70" rx="21" ry="57" fill="none" stroke="white" stroke-width="1" opacity="0.5"/>
+          <line x1="13" y1="70" x2="127" y2="70" stroke="white" stroke-width="1" opacity="0.5"/>
+          <rect x="62" y="44" width="17" height="52" rx="3" fill="white"/>
+          <rect x="44" y="62" width="52" height="17" rx="3" fill="white"/>
+        </svg>
+        <div><div style="font-size:13px;font-weight:700;color:#fff">HEALTH PLUS</div><div style="font-size:8px;font-weight:600;color:#9FE1CB;letter-spacing:3px">INTERNATIONAL</div></div>
+      </div>
+      <p>Strategic placing of essential healthcare staff in regional and remote NSW. AHPRA-verified nurses and allied health professionals — we are the employer of record.</p>
+    </div>
+    <div class="fc"><h4>FOR FACILITIES</h4><a href="tel:+61411459755">+61 411 459 755</a><a href="submit-a-request.html">Submit a Request</a><a href="how-we-work.html">How We Work</a><a href="index.html#map-sec">Regions</a></div>
+    <div class="fc"><h4>FOR CLINICIANS</h4><a href="index.html#register">Register Now</a><a href="allied-health.html">Allied Health</a><a href="services-remote.html">Nursing</a><a href="ahpra-verify.html">AHPRA Check</a></div>
+  </div>
+  <div class="fb-bot">
+    <p>© 2026 Health Plus International Pty Ltd · ABN 13 155 901 723 · Sydney, NSW</p>
+    <a href="mailto:connect@healthplusint.com.au">connect@healthplusint.com.au</a>
+    <a href="tel:+61411459755">+61 411 459 755</a>
+  </div>
+  <div class="ack">
+    <div class="ack-bar"></div>
+    <p>Health Plus International acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Aboriginal and Torres Strait Islander peoples, and to Elders past, present and emerging.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('requestForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      this.style.display = 'none';
+      document.getElementById('successMsg').classList.add('show');
+    } else {
+      btn.textContent = 'Submit Workforce Request →';
+      btn.disabled = false;
+      alert('Something went wrong. Please call us directly on +61 411 459 755.');
+    }
+  } catch {
+    btn.textContent = 'Submit Workforce Request →';
+    btn.disabled = false;
+    alert('Network error. Please call us directly on +61 411 459 755.');
+  }
+});
+</script>
+
+</body>
+</html>
