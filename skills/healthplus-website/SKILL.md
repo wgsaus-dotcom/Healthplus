@@ -33,21 +33,21 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 
 ### GitHub
 - **Repo:** `wgsaus-dotcom/Healthplus`
-- **Token:** `GH_TOKEN_IN_CLAUDE_MEMORY`
+- **Token:** `${{ secrets.GH_TOKEN }}`
 - **Branch:** `main` → auto-deploys via Cloudflare Pages
 
 ### Cloudflare Pages (website hosting)
 - **Project:** `healthplus` → `healthplus-3gy.pages.dev` → healthplusint.com.au
-- **Zone ID:** `ZONE_ID_IN_CLAUDE_MEMORY`
-- **Account ID:** `ACCOUNT_ID_IN_CLAUDE_MEMORY`
-- **API Token:** `CF_PAGES_TOKEN_IN_CLAUDE_MEMORY`
+- **Zone ID:** `${{ secrets.CF_ZONE_ID }}`
+- **Account ID:** `${{ secrets.CF_ACCOUNT_ID }}`
+- **API Token:** `${{ secrets.CF_PAGES_TOKEN }}`
 
 ### Cloudflare Worker (onboarding) ✅ DEPLOYED
 - **Name:** `hpi-onboarding`
 - **URL:** `https://hpi-onboarding.wgs-aus.workers.dev`
-- **API Token:** `CF_WORKER_TOKEN_IN_CLAUDE_MEMORY`
+- **API Token:** `${{ secrets.CF_WORKER_TOKEN }}`
 - **R2 bucket:** `hpi-candidate-docs` ✅
-- **KV namespace:** `HPI_ONBOARDING_KV` | ID: `KV_ID_IN_CLAUDE_MEMORY` ✅
+- **KV namespace:** `HPI_ONBOARDING_KV` | ID: `${{ secrets.KV_NAMESPACE_ID }}` ✅
 - **Email:** MailChannels (built into CF — no external service needed)
   - Candidate → branded HTML from `connect@healthplusint.com.au`
   - Abhay → plain text to `wgs.aus@gmail.com` with all details + reply-to candidate
@@ -57,6 +57,23 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 - **Used in:** submit-a-request.html, urgent modal (index.html), allied-health.html
 - **Account:** wgs.aus@gmail.com
 
+
+---
+
+## GitHub Secrets (Settings → Secrets → Actions)
+
+All sensitive credentials are stored as encrypted GitHub Actions secrets:
+
+| Secret Name | Used for |
+|-------------|----------|
+| `CF_WORKER_TOKEN` | Deploy hpi-onboarding Cloudflare Worker |
+| `CF_PAGES_TOKEN` | Cloudflare Pages + DNS management |
+| `CF_ACCOUNT_ID` | Cloudflare account ID |
+| `CF_ZONE_ID` | healthplusint.com.au zone |
+| `KV_NAMESPACE_ID` | HPI_ONBOARDING_KV namespace |
+
+Reference in GitHub Actions workflows as `${{ secrets.CF_WORKER_TOKEN }}` etc.
+
 ---
 
 ## Deployment Code
@@ -65,7 +82,7 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 ```python
 import base64, json, urllib.request, time
 
-TOKEN = "GH_TOKEN_IN_CLAUDE_MEMORY"
+TOKEN = "${{ secrets.GH_TOKEN }}"
 REPO = "wgsaus-dotcom/Healthplus"
 
 def deploy(filename, commit_msg):
@@ -100,9 +117,9 @@ for f in ["index.html", "allied-health.html", "services-remote.html"]:
 ```python
 import urllib.request, json
 
-CF_TOKEN = "CF_WORKER_TOKEN_IN_CLAUDE_MEMORY"
-ACCOUNT_ID = "ACCOUNT_ID_IN_CLAUDE_MEMORY"
-KV_ID = "KV_ID_IN_CLAUDE_MEMORY"
+CF_TOKEN = "${{ secrets.CF_WORKER_TOKEN }}"
+ACCOUNT_ID = "${{ secrets.CF_ACCOUNT_ID }}"
+KV_ID = "${{ secrets.KV_NAMESPACE_ID }}"
 
 with open('/home/claude/hpi-worker/worker.js', 'r') as f:
     script = f.read()
@@ -137,8 +154,8 @@ with urllib.request.urlopen(req) as r:
 ### Alternative: Deploy worker via wrangler CLI
 ```bash
 cd /home/claude/hpi-worker
-CLOUDFLARE_API_TOKEN="CF_WORKER_TOKEN_IN_CLAUDE_MEMORY" \
-CLOUDFLARE_ACCOUNT_ID="ACCOUNT_ID_IN_CLAUDE_MEMORY" \
+CLOUDFLARE_API_TOKEN="${{ secrets.CF_WORKER_TOKEN }}" \
+CLOUDFLARE_ACCOUNT_ID="${{ secrets.CF_ACCOUNT_ID }}" \
 wrangler deploy
 ```
 
@@ -147,7 +164,7 @@ wrangler deploy
 name = "hpi-onboarding"
 main = "worker.js"
 compatibility_date = "2024-01-01"
-account_id = "ACCOUNT_ID_IN_CLAUDE_MEMORY"
+account_id = "${{ secrets.CF_ACCOUNT_ID }}"
 
 [[r2_buckets]]
 binding = "HPI_CANDIDATE_DOCS"
@@ -155,7 +172,7 @@ bucket_name = "hpi-candidate-docs"
 
 [[kv_namespaces]]
 binding = "HPI_ONBOARDING_KV"
-id = "KV_ID_IN_CLAUDE_MEMORY"
+id = "${{ secrets.KV_NAMESPACE_ID }}"
 ```
 
 ---
