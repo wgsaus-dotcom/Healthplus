@@ -13,19 +13,19 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 **Email:** connect@healthplusint.com.au
 **Director:** Abhay J Kumar | wgs.aus@gmail.com | +61 411 459 755
 **Address:** Unit 4, 44–46 Keeler Street, Carlingford NSW 2118
-**Founded:** 2026, Sydney NSW
-**Model:** Labour hire employer of record — regional and remote NSW
 **Tagline:** People. Care. Compliance.
 
-**Staff types placed (in this order):**
-1. Healthcare Workers (AINs — Assistants in Nursing)
+**Staff types placed:**
+1. Healthcare Workers (AINs)
 2. Aged Care Workers
 3. Support Workers (community care — NOT NDIS)
-4. Allied Health (selected professions)
+4. Allied Health (11 professions — Dental removed)
 
-**NOT in scope:** Nurses/nursing, NDIS, mining, metro, UK/Ireland sourcing
+**NOT in scope:** Nurses, NDIS, mining, metro, UK/Ireland
 
 **International sourcing:** Philippines + India ONLY
+- HPI covers: visa costs, vetting, accommodation
+- Client pays: agreed hourly or negotiated rate only
 
 ---
 
@@ -33,27 +33,34 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 
 ### GitHub
 - **Repo:** `wgsaus-dotcom/Healthplus`
-- **Branch:** `main` — auto-deploys to Cloudflare Pages on push
-- **Token:** `stored-in-claude-memory`
+- **Token:** stored in Claude memory
+- **Branch:** `main` → auto-deploys via Cloudflare Pages
 
 ### Cloudflare Pages
-- **Project:** `healthplus` | **URL:** `healthplus-3gy.pages.dev`
-- **Custom domains:** `healthplusint.com.au` + `www.healthplusint.com.au`
-- **Zone ID:** `bf73fdbf81118998720438469aa1d19f`
+- **Project:** `healthplus` → `healthplus-3gy.pages.dev` → healthplusint.com.au
+- **Zone ID:** `stored-in-claude-memory`
 - **Account ID:** `d2586c55db329e1e12cbaf3285d32f1a`
-- **API Token:** `stored-in-claude-memory`
-- **Permissions:** Zone Read, DNS Edit, Pages Edit *(does NOT have Workers/R2/KV — needs separate token for worker deploy)*
+- **API Token (Pages/DNS):** stored in Claude memory
 
-### Cloudflare Worker (onboarding)
-- **Worker name:** `hpi-onboarding` *(script ready at `/home/claude/hpi-worker/worker.js` — NOT yet deployed)*
-- **R2 bucket:** `hpi-candidate-docs` ✅ created
-- **KV namespace:** `HPI_ONBOARDING_KV` | ID: `5ef5f19fa9f8421bbd4e6f391d0d9f94` ✅ created
-- **To deploy:** Create new CF API token with Workers Scripts Edit + R2 Storage Edit + Workers KV Storage Edit → `cd /home/claude/hpi-worker && wrangler deploy`
+### Cloudflare Worker — hpi-onboarding ✅ DEPLOYED
+- **URL:** `https://hpi-onboarding.wgs-aus.workers.dev`
+- **Routes:** `POST /api/onboard` | `GET /api/ping`
+- **R2 bucket:** `hpi-candidate-docs` ✅
+- **KV namespace:** `HPI_ONBOARDING_KV` | ID: `stored-in-claude-memory` ✅
+- **Worker token:** `stored-in-claude-memory`
+- **Email:** MailChannels (built into Cloudflare — no external service)
+  - Candidate receives: branded HTML confirmation from connect@healthplusint.com.au
+  - Abhay receives: plain text notification at wgs.aus@gmail.com
+
+### Formspree
+- **Endpoint:** `https://formspree.io/f/xpqbdonv`
+- **Used in:** submit-a-request.html, urgent modal (index.html), allied-health.html
+- **Account:** wgs.aus@gmail.com
 
 ### DNS
 - Root + www CNAME → `healthplus-3gy.pages.dev` (proxied)
-- 5× Google Workspace MX records live
-- Old VentraIP A record (110.232.143.170) deleted — do NOT re-add
+- Google Workspace MX records live
+- Old VentraIP A record deleted — do NOT re-add
 
 ---
 
@@ -61,51 +68,45 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 
 | File | Description |
 |------|-------------|
-| `index.html` | Homepage — hero, stats, dual entry cards, animated counters, map, how it works, workforce, sourcing, register, section CTAs |
-| `allied-health.html` | Allied health — 11 professions (Dental removed), shortage cards, registration form |
-| `services-remote.html` | Healthcare & Support Workers page (repurposed from nursing) |
-| `how-we-work.html` | EOR model, obligation cards (6 SVG icons), process steps, who we serve |
-| `submit-a-request.html` | Facility request form — multi-field |
-| `ahpra-verify.html` | AHPRA registration verification tool |
-| `about.html` | About Us — story, People.Care.Compliance. pillars, director bio, differentiators |
-| `join.html` | Multi-step healthcare worker onboarding — 3 steps, drag-drop uploads, Cloudflare Worker |
-| `images/logo-healthplus.png` | New HealthPlus logo — white background (use in nav/light surfaces) |
-| `images/logo-healthplus-transparent.png` | Transparent logo — use in footer/dark backgrounds |
+| `index.html` | Homepage |
+| `allied-health.html` | 11 allied health professions |
+| `services-remote.html` | Healthcare & Support Workers page |
+| `how-we-work.html` | EOR model, obligation cards |
+| `submit-a-request.html` | Facility request form → Formspree |
+| `ahpra-verify.html` | AHPRA lookup tool |
+| `about.html` | About Us |
+| `join.html` | Multi-step worker onboarding → Cloudflare Worker |
+| `images/logo-healthplus.png` | White bg — use in nav/light surfaces |
+| `images/logo-healthplus-transparent.png` | Transparent — use in footer/dark bg |
 
 ---
 
-## Logo
+## Forms Summary
 
-**The mark:** Dual medical cross — navy + teal overlapping crosses with curved flow lines. 3D rendered.
-**Wordmark:** `HealthPlus International` (one word, mixed case for brand; two words "Health Plus" in legal/ABN contexts)
-
-### Nav (all pages)
-```html
-<a href="index.html" class="nav-logo">
-  <img src="images/logo-healthplus.png" alt="HealthPlus International" style="height:54px;width:auto;display:block">
-</a>
-```
-
-### Footer (dark background — use transparent version)
-```html
-<img src="images/logo-healthplus-transparent.png" alt="HealthPlus International" style="height:52px;width:auto;display:block;margin-bottom:12px">
-```
-
-**NEVER** use `logo-healthplus.png` (white bg) in the footer — it creates a white box on dark navy.
+| Form | File | Backend | Auto-reply |
+|------|------|---------|------------|
+| Worker onboarding | join.html | Cloudflare Worker + R2 + KV | ✅ MailChannels to candidate + Abhay |
+| Facility request | submit-a-request.html | Formspree xpqbdonv | Configure in Formspree dashboard |
+| Urgent modal | index.html (FAB) | Formspree xpqbdonv | Configure in Formspree dashboard |
+| Allied health enquiry | allied-health.html | Formspree xpqbdonv | Configure in Formspree dashboard |
 
 ---
 
-## Navigation (standard across all pages)
+## Logo Rules
 
+- **Nav:** `logo-healthplus.png` at `height:54px` — NEVER transparent on white nav
+- **Footer:** `logo-healthplus-transparent.png` at `height:52px` — NEVER white-bg on dark footer
+
+## Nav HTML (standard)
 ```html
-<nav>
+<nav> <!-- height: 72-74px -->
   <a href="index.html" class="nav-logo">
     <img src="images/logo-healthplus.png" alt="HealthPlus International" style="height:54px;width:auto;display:block">
   </a>
   <ul class="nav-links">
     <li><a href="index.html#map-sec">Regions</a></li>
     <li><a href="allied-health.html">Allied Health</a></li>
-    <li><a href="services-remote.html">Healthcare & Support</a></li>
+    <li><a href="services-remote.html">Healthcare &amp; Support</a></li>
     <li><a href="how-we-work.html">How We Work</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="submit-a-request.html" class="nav-cta">Submit a Request</a></li>
@@ -117,106 +118,90 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 </nav>
 ```
 
-**Nav height:** 72–74px | **Mobile:** hide nav-links below 900px, show mobile bottom nav
+## Footer HTML (standard)
+```html
+<footer>
+  <div class="ft"> <!-- grid: 2fr 1fr 1fr -->
+    <div class="fb">
+      <img src="images/logo-healthplus-transparent.png" alt="HealthPlus International" style="height:52px;width:auto;display:block;margin-bottom:12px">
+      <p>Description...</p>
+      <div class="hpi-tagline">People. Care. Compliance.</div>
+    </div>
+  </div>
+</footer>
+```
+⚠️ CRITICAL: Never close `.fb` div before the `<p>` — stray `</div>` tags collapse the grid.
+Footer text: minimum `rgba(255,255,255,.55)` on dark navy.
 
 ---
 
 ## Design System
 
 ```css
---teal: #0B6B6E       /* Primary — buttons, links, accents */
---teal-d: #085558     /* Hover */
---teal-pale: #E1F5EE  /* Light highlight bg */
---teal-mid: #9FE1CB   /* Text on dark backgrounds */
---navy: #1B3A5C       /* Headings */
---navy-d: #0D1F33     /* Hero/footer/dark sections */
---off: #F7F8F6        /* Alternate section bg */
---border: rgba(11,107,110,0.12)
---muted: #5a6a7a
+--teal: #0B6B6E    --teal-d: #085558   --teal-pale: #E1F5EE
+--teal-mid: #9FE1CB  --navy: #1B3A5C   --navy-d: #0D1F33
+--off: #F7F8F6     --muted: #5a6a7a
 ```
-
-**Font:** Montserrat 400/500/600/700/800 via Google Fonts
-**Icons:** Thin-stroke SVG only — 1.6–1.65px stroke, no emojis anywhere
-**Readability override CSS:** Injected at end of every `<style>` block — WCAG AA minimum sizes for older readers (body 15px+, labels 12px+, inputs 15px, line-height 1.8)
+**Font:** Montserrat 400–800 | **Icons:** SVG stroke only — NO emojis
+**Readability CSS:** Injected in every page `<style>` block — WCAG AA (body 15px+, labels 12px+, inputs 15px, line-height 1.8)
 
 ---
 
 ## UX Features (all live)
 
-| Feature | Description |
-|---------|-------------|
-| **Trust bar** | Fixed below nav — dark navy, 6 trust signals with ✓ marks |
-| **Floating FAB** | "Request Staff Now" — teal pill, pulse dot, opens 3-field urgent modal |
-| **Urgent modal** | Role + Region + Timeframe + Email → Formspree |
-| **Mobile bottom nav** | SVG icons: Home / About / Request⚡ / Join / Call |
-| **Animated counters** | Stats bar counts up on scroll (IntersectionObserver) |
-| **Dual entry cards** | Below stats: "I need staff" → submit-a-request | "I'm a healthcare worker" → join.html |
-| **Section CTAs** | After Why / How It Works / Workforce / Sourcing — contextual CTAs |
-| **Map upgrade** | LHD sidebar shows role type pills per region |
-| **Multi-step onboarding** | join.html — 3 steps, drag-drop file uploads, posts to Cloudflare Worker |
+| Feature | Notes |
+|---------|-------|
+| Trust bar | Fixed below nav — 6 trust signals |
+| Floating FAB | "Request Staff Now" → urgent modal → Formspree |
+| Mobile bottom nav | SVG icons: Home/About/Request/Join/Call |
+| Animated counters | Stats bar counts up on scroll |
+| Dual entry cards | "I need staff" / "I'm a healthcare worker" |
+| Section CTAs | After Why / How It Works / Workforce / Sourcing |
+| Map role pills | LHD sidebar shows available role types |
+| Multi-step onboarding | join.html — 3 steps, file uploads, Worker + MailChannels |
 
 ---
 
-## Interactive Map (Leaflet.js)
+## Interactive Map LHD Data
 
-- **Library:** Leaflet 1.9.4 (cdnjs)
-- **Tiles:** CartoDB light — no API key needed
-- **Default:** centre `[-32.5, 147.0]` zoom 6
-- **LHD data includes:** `roles` array → rendered as teal pills in sidebar
-
-| ID | LHD | Shortage | Roles |
-|----|-----|----------|-------|
-| farwest | Far West LHD | Critical | Healthcare Workers, AINs, Support Workers, Allied Health |
-| western | Western NSW LHD | Severe | Healthcare Workers, AINs, Aged Care Workers, Allied Health |
-| murrumbidgee | Murrumbidgee LHD | High | Healthcare Workers, Support Workers, Aged Care Workers, Allied Health |
-| hne | Hunter New England LHD | High | Healthcare Workers, AINs, Support Workers, Allied Health |
-| northern | Northern NSW LHD | Moderate | Healthcare Workers, Support Workers, Allied Health |
-| mnc | Mid North Coast LHD | Moderate | Healthcare Workers, Aged Care Workers, Allied Health |
+| LHD | Shortage | Roles |
+|-----|----------|-------|
+| Far West | Critical | Healthcare Workers, AINs, Support Workers, Allied Health |
+| Western NSW | Severe | Healthcare Workers, AINs, Aged Care Workers, Allied Health |
+| Murrumbidgee | High | Healthcare Workers, Support Workers, Aged Care Workers, Allied Health |
+| Hunter New England | High | Healthcare Workers, AINs, Support Workers, Allied Health |
+| Northern NSW | Moderate | Healthcare Workers, Support Workers, Allied Health |
+| Mid North Coast | Moderate | Healthcare Workers, Aged Care Workers, Allied Health |
 
 ---
 
-## Content Rules — LOCKED
+## Content Rules
 
 ### NEVER say
-- Nurse / nursing / nurses / enrolled nurse / registered nurse
-- NDIS (not an NDIS provider)
-- Mining / resources
-- FIFO / fly-in fly-out
-- Staffing agency / nursing agency
-- Police Checked (say **National Police Clearance**)
-- "Cert III/IV" (say **"Cert III, Cert IV or equivalent"**)
-- UK / Ireland (removed from international sourcing)
-- Metro / city placements
+- Nurse / nursing / registered nurse / enrolled nurse
+- NDIS | Mining | FIFO | Staffing agency
+- Police Checked → **National Police Clearance**
+- Cert III/IV → **"Cert III, Cert IV or equivalent"**
+- UK / Ireland | Metro | was.aus@gmail.com → **wgs.aus@gmail.com**
 
 ### ALWAYS say
-- HealthPlus International (one word brand display)
+- HealthPlus International (one word brand)
 - Healthcare workers / AINs / support workers / allied health
 - Strategically place healthcare staff
 - Regional and remote NSW communities
-- Employer of record
+- Employer of record / one all-inclusive invoice
 - National Police Clearance
 - AHPRA verified (allied health only)
-- 24hr response
-- People. Care. Compliance.
-
-### International sourcing — ONLY
-- 🇵🇭 Philippines → healthcare workers + aged care workers
-- 🇮🇳 India → healthcare workers + aged care workers
-
-### International pipeline — HPI covers
-- Visa costs ✅
-- Vetting costs ✅
-- Accommodation ✅
-- Client pays only: agreed hourly or negotiated placement rate
+- 24hr response | People. Care. Compliance.
 
 ### Qualification wording
 - "Cert III, Cert IV or equivalent qualification"
-- "International qualifications are mapped to AQF Level 3 and gap training is organised prior to placement."
+- "International qualifications mapped to AQF Level 3 — gap training arranged prior to placement"
 
-### Pricing terms
-- Rotation cover: "Healthcare Worker Award rate + remote loading + margin"
+### Pricing
+- Rotation: "Healthcare Worker Award rate + remote loading + margin"
 - Sustained contract: "Negotiated rate"
-- International pipeline: "Ongoing negotiated rate"
+- International: "Ongoing negotiated rate"
 
 ---
 
@@ -225,50 +210,18 @@ Physiotherapy · Occupational Therapy · Psychology · Paramedicine · Podiatry 
 
 ---
 
-## Footer Structure (all pages)
-
-```html
-<footer>
-  <div class="ft">  <!-- grid: 2fr 1fr 1fr -->
-    <div class="fb">
-      <img src="images/logo-healthplus-transparent.png" alt="HealthPlus International" style="height:52px;width:auto;display:block;margin-bottom:12px">
-      <p>Description text</p>
-      <div class="hpi-tagline">People. Care. Compliance.</div>
-    </div>
-    <div class="fc"><h4>WORKFORCE</h4>...links...</div>
-    <div class="fc"><h4>COMPANY</h4>...links...</div>
-  </div>
-  <div class="fb-bot">...copyright + email + phone...</div>
-  <div class="ack"><div class="ack-bar"></div><p>Acknowledgement of Country</p></div>
-</footer>
-```
-
-**Critical:** `.fb` must contain logo + `<p>` + tagline all inside — never close `.fb` before the paragraph. Stray `</div>` tags break the grid completely.
-
-**Footer text colours:** minimum rgba(255,255,255,.55) on dark navy background.
-
----
-
-## Formspree
-- Action: `https://formspree.io/f/REPLACE_ME` (not yet activated)
-- Replace `REPLACE_ME` in: `index.html`, `allied-health.html`, `submit-a-request.html`
-- Urgent modal also uses Formspree — same endpoint
-
----
-
-## Pending / To Do
-1. ⏳ Wire up Formspree — replace `REPLACE_ME` with live endpoint
-2. ⏳ Deploy `hpi-onboarding` Worker — needs CF API token with Workers + R2 + KV permissions
-3. ⏳ Testimonials — need 2–3 real quotes from facility contacts or placed workers
-4. ⏳ WhatsApp link — add wa.me/+61411459755 alongside FAB
-5. ⏳ Image WebP conversion — hero images to WebP + lazy loading
-6. ⏳ Accessibility — WCAG 2.1 AA: ARIA labels on map, skip-to-content, keyboard nav
-7. ⏳ Google Workspace — activate connect@healthplusint.com.au
-8. ⏳ AHPRA PIE — apply when operational
-
----
-
-## Skills stored in GitHub repo (skills/ folder)
+## Skills in GitHub (skills/ folder)
 - `skills/healthplus-branding/SKILL.md`
 - `skills/healthplus-document-creator/SKILL.md`
 - `skills/healthplus-policy-procedure/SKILL.md`
+- `skills/healthplus-website/SKILL.md`
+
+---
+
+## Pending
+1. ⏳ Formspree auto-reply — configure in dashboard for facility request forms
+2. ⏳ Testimonials — need 2–3 real quotes from facility contacts or placed workers
+3. ⏳ WhatsApp — add wa.me/+61411459755 alongside FAB
+4. ⏳ Image WebP — convert heroes to WebP + lazy loading
+5. ⏳ Accessibility — ARIA labels on map, skip-to-content (before govt procurement)
+6. ⏳ Google Workspace — activate connect@healthplusint.com.au
