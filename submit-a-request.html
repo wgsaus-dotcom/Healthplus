@@ -132,6 +132,13 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem;border-top:1px solid rgba
   content:'';display:block;width:20px;height:1.5px;
   background:#0B6B6E;border-radius:1px;flex-shrink:0;
 }
+
+/* ── NAV CONTACT BLOCK ── */
+.nav-contact{display:flex;flex-direction:column;align-items:flex-end;gap:2px;margin-left:1.5rem}
+.nav-contact a{font-size:11px;font-weight:500;color:var(--muted,#5a6a7a);text-decoration:none;white-space:nowrap;line-height:1.4;transition:color .2s}
+.nav-contact a:hover{color:var(--teal,#0B6B6E)}
+.nav-contact a b{font-weight:700;color:var(--navy,#1B3A5C);margin-right:3px}
+@media(max-width:1100px){.nav-contact{display:none}}
 </style>
 </head>
 <body>
@@ -147,8 +154,8 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem;border-top:1px solid rgba
     <li><a href="submit-a-request.html" class="nav-btn active">Submit a Request</a></li>
   </ul>
   <div class="nav-contact">
-    <a href="tel:+61411459755"><span>Phone:</span> +61 411 459 755</a>
-    <a href="mailto:connect@healthplusint.com.au"><span>Email:</span> connect@healthplusint.com.au</a>
+    <a href="tel:+61411459755"><b>Phone:</b> +61 411 459 755</a>
+    <a href="mailto:connect@healthplusint.com.au"><b>Email:</b> connect@healthplusint.com.au</a>
   </div>
 </nav>
 
