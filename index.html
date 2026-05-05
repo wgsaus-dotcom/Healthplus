@@ -565,8 +565,7 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
 .trust-item{font-size:12px!important}
 
 /* Map sidebar */
-.sb-name,.sb-label,.sb-value,.remote-stat .val,
-.remote-stat .lbl-s{font-size:13px!important}
+.sb-name,.sb-label,.sb-value,.remote-stat .val,.remote-stat .lbl-s{font-size:13px!important}
 
 /* Steps */
 .step-n,.ps-circle{font-size:14px!important}
@@ -1075,14 +1074,29 @@ function showInfo(id){
   document.getElementById('msb-empty').style.display='none';
   document.getElementById('msb-info').classList.add('on');
   document.getElementById('ri-name').textContent=d.name;
+
+  // Shortage pill
   const p=document.getElementById('ri-pill');
   p.className='ri-pill '+d.pc;
-  p.innerHTML=`<span style="width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0"></span> Shortage: ${d.shortage}`;
-  if(d.roles){const rolesEl=el.querySelector('.sb-roles')||document.createElement('div');rolesEl.className='sb-roles';rolesEl.style.cssText='display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 0';rolesEl.innerHTML=d.roles.map(r=>`<span style="background:#E1F5EE;color:#0B6B6E;border-radius:20px;padding:2px 9px;font-size:10px;font-weight:600">${r}</span>`).join('');if(!el.querySelector('.sb-roles'))el.appendChild(rolesEl);}
+  const pillColour=d.shortage==='Critical'?'#DC2626':d.shortage==='Severe'?'#D97706':d.shortage==='High'?'#0B6B6E':'#5a6a7a';
+  p.innerHTML=`<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${pillColour};margin-right:5px;vertical-align:middle;flex-shrink:0"></span><strong style="color:${pillColour}">${d.shortage}</strong>&nbsp;Shortage`;
+
+  // Key towns
   document.getElementById('ri-towns').innerHTML=d.towns.map(t=>`<span class="town">${t}</span>`).join('');
-  document.getElementById('ri-stats').innerHTML=d.stats.map(s=>`<div class="srow"><span class="sl">${s.l}</span><span class="sr">${s.v}</span></div>`).join('');
-  document.getElementById('ri-types').innerHTML=d.types.map(t=>`<div class="pt">${t}</div>`).join('');
-  document.getElementById('ri-cta').textContent=`Enquire — ${d.name} →`;
+
+  // Stats — health facilities, response time, distance
+  document.getElementById('ri-stats').innerHTML=d.stats.map(s=>`
+    <div class="srow">
+      <span class="sl">${s.l}</span>
+      <span class="sr">${s.v}</span>
+    </div>`).join('');
+
+  // Roles we can place
+  const rolesHtml=d.roles?d.roles.map(r=>`<span style="background:#E1F5EE;color:#0B6B6E;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:600;display:inline-block;margin:2px 2px 2px 0">${r}</span>`).join(''):'';
+  document.getElementById('ri-types').innerHTML=rolesHtml;
+
+  document.getElementById('ri-cta').href='submit-a-request.html';
+  document.getElementById('ri-cta').textContent=`Request Staff — ${d.name} →`;
 }
 function setTab(id){
   document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
