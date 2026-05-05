@@ -189,5 +189,5 @@ Footer bar: `background:linear-gradient(to bottom,#E8A020,#CC3300,#000)`
 | Tagline | People. Care. Compliance. |
 | Phone | +61 411 459 755 |
 | Email | connect@healthplusint.com.au |
-| Director | Abhay J Kumar — was.aus@gmail.com |
+| Director | Abhay J Kumar — wgs.aus@gmail.com |
 | Address | Unit 4, 44–46 Keeler Street, Carlingford NSW 2118 |
