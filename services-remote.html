@@ -76,15 +76,15 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
-    padding: 0 2.5rem; height: 70px;
+    padding: 0 2.5rem; height: 74px;
     display: flex; align-items: center; justify-content: space-between;
   }
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .nav-logo svg { width: 34px; height: 34px; }
   .nav-logo-text span:first-child { display: block; font-size: 14px; font-weight: 700; color: var(--teal); letter-spacing: 0.5px; }
   .nav-logo-text span:last-child  { display: block; font-size: 8.5px; font-weight: 600; color: var(--navy); letter-spacing: 3px; }
-  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-  .nav-links a { font-size: 13px; font-weight: 600; color: var(--text-mid); text-decoration: none; transition: color .2s; }
+  .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-size: 12.5px; font-weight: 600; color: var(--text-mid); text-decoration: none; transition: color .2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--teal); }
   .nav-cta {
     background: var(--teal); color: white; padding: 9px 22px;
@@ -197,10 +197,10 @@
     color: var(--teal); text-transform: uppercase;
   }
   .svc-card-body { padding: 1.5rem 1.75rem; }
-  .svc-card-body p { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 1.2rem; }
+  .svc-card-body p { font-size: 15px; color: var(--text-mid); line-height: 1.75; margin-bottom: 1.2rem; }
   .svc-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
   .svc-features li {
-    font-size: 13px; color: var(--text);
+    font-size: 14px; color: var(--text);
     display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
   }
   .svc-features li::before {
@@ -238,8 +238,8 @@
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 10px; padding: 1rem 1.25rem;
   }
-  .check-item h4 { font-size: 13px; font-weight: 700; color: white; margin-bottom: 4px; }
-  .check-item p  { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+  .check-item h4 { font-size: 14px; font-weight: 700; color: white; margin-bottom: 5px; }
+  .check-item p  { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
 
   /* ── SPECIALISATIONS ── */
   .specs-section { padding: 6rem 5rem; background: var(--off-white); }
@@ -249,16 +249,17 @@
   }
   .spec-card {
     background: var(--white); border-radius: 12px;
-    padding: 1.25rem 1.4rem;
+    padding: 1.5rem 1.6rem;
     border: 1px solid var(--border);
     transition: border-color .2s, transform .2s;
   }
   .spec-card:hover { border-color: var(--teal); transform: translateY(-2px); }
-  .spec-card h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-  .spec-card p  { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+  .spec-card h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .spec-card p  { font-size: 13.5px; color: var(--text-light); line-height: 1.65; }
   .spec-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--teal); margin-bottom: 10px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--teal); margin-bottom: 14px;
+    box-shadow: 0 0 0 3px rgba(11,107,110,.15);
   }
 
   /* ── SOURCING PIPELINE ── */
@@ -283,8 +284,8 @@
     flex-shrink: 0;
   }
   .pipe-num.done { background: var(--teal-pale); color: var(--teal); }
-  .pipe-content h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-  .pipe-content p  { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+  .pipe-content h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+  .pipe-content p  { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
   .source-countries {
     display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
     margin-bottom: 1.5rem;
@@ -295,8 +296,8 @@
     border-radius: 10px; padding: 10px 14px;
   }
   .flag { font-size: 20px; }
-  .country-pill h5 { font-size: 13px; font-weight: 700; color: var(--navy); }
-  .country-pill span { font-size: 11px; color: var(--text-light); }
+  .country-pill h5 { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .country-pill span { font-size: 12.5px; color: var(--text-light); }
   .country-note {
     background: var(--teal-pale); border-radius: 10px;
     padding: 14px 18px; font-size: 13px; color: var(--teal);
@@ -330,16 +331,16 @@
     padding-bottom: 1.25rem;
     border-bottom: 1px solid var(--border);
   }
-  .price-fee .amount { font-size: 13px; color: var(--text-mid); }
+  .price-fee .amount { font-size: 14px; color: var(--text-mid); font-weight: 500; }
   .price-fee strong { font-size: 15px; color: var(--navy); }
   .price-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
   .price-list li {
-    font-size: 13px; color: var(--text);
+    font-size: 14px; color: var(--text);
     display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
   }
   .price-list li::before {
     content: '✓'; font-weight: 700; color: var(--teal);
-    font-size: 12px; margin-top: 1px;
+    font-size: 13px; margin-top: 1px;
   }
   .price-cta {
     margin: 1.25rem 1.75rem 1.5rem;
@@ -438,9 +439,9 @@
   .remote-stat .lbl-s { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5); letter-spacing: 1px; margin-top: 5px; }
   /* Spec card remote highlight */
   .spec-card-remote { border: 1px solid rgba(11,107,110,0.4); background: var(--teal-pale); grid-column: span 2; }
-  .spec-card-remote h4 { color: var(--teal); font-size: 14px; }
-  .spec-card-remote p  { color: var(--teal); opacity: 0.85; font-size: 12px; }
-  .spec-dot-remote { background: var(--teal); width: 10px; height: 10px; }
+  .spec-card-remote h4 { color: var(--teal); font-size: 15px; }
+  .spec-card-remote p  { color: var(--teal); opacity: 0.85; font-size: 13.5px; }
+  .spec-dot-remote { background: var(--teal); width: 10px; height: 10px; box-shadow: 0 0 0 3px rgba(11,107,110,.15); }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
@@ -482,7 +483,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo"><img src="images/logo-healthplus.png" alt="HealthPlus International" style="height:44px;width:auto;display:block"></a>
+  <a href="index.html" class="nav-logo"><img src="images/logo-healthplus.png" alt="HealthPlus International" style="height:52px;width:auto;display:block"></a>
   <ul class="nav-links">
     <li><a href="index.html#map-sec">Regions</a></li>
     <li><a href="services-remote.html" class="active">Healthcare &amp; Support</a></li>
