@@ -324,6 +324,103 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem}
   content:'';display:block;width:20px;height:1.5px;
   background:#0B6B6E;border-radius:1px;flex-shrink:0;
 }
+
+/* ── TRUST BAR ────────────────────────────────────────────────────────────── */
+.trust-bar{
+  position:fixed;top:64px;left:0;right:0;z-index:490;
+  background:var(--navy-d);border-bottom:1px solid rgba(11,107,110,.3);
+  height:34px;display:flex;align-items:center;justify-content:center;
+  gap:0;overflow:hidden;
+}
+.trust-item{
+  display:flex;align-items:center;gap:7px;padding:0 18px;
+  font-size:11px;font-weight:600;color:rgba(255,255,255,.5);
+  border-right:1px solid rgba(255,255,255,.07);white-space:nowrap;
+}
+.trust-item:last-child{border-right:none}
+.trust-icon{font-size:12px}
+.trust-item strong{color:var(--teal-mid)}
+@media(max-width:768px){
+  .trust-bar{gap:0;height:30px}
+  .trust-item{font-size:10px;padding:0 10px}
+  .trust-item:nth-child(n+4){display:none}
+}
+/* Adjust main content for trust bar */
+body.has-trust-bar main, body.has-trust-bar .hero,
+body.has-trust-bar section:first-of-type{margin-top:98px}
+
+/* ── URGENT MODAL ─────────────────────────────────────────────────────────── */
+.fab{
+  position:fixed;bottom:28px;right:28px;z-index:800;
+  background:var(--teal);color:#fff;border:none;cursor:pointer;
+  padding:14px 22px;border-radius:50px;
+  font-size:13px;font-weight:700;font-family:'Montserrat',sans-serif;
+  display:flex;align-items:center;gap:8px;
+  box-shadow:0 4px 24px rgba(11,107,110,.45);
+  transition:all .2s;
+}
+.fab:hover{background:var(--teal-d);transform:translateY(-2px);box-shadow:0 8px 32px rgba(11,107,110,.5)}
+.fab-dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:fabpulse 2s infinite}
+@keyframes fabpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+@media(max-width:768px){.fab{bottom:72px;right:16px;padding:12px 18px;font-size:12px}}
+
+.modal-overlay{
+  position:fixed;inset:0;z-index:900;background:rgba(13,31,51,.75);
+  backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:1rem;
+}
+.modal-overlay.open{display:flex}
+.modal-box{
+  background:#fff;border-radius:20px;padding:2.5rem;width:100%;max-width:440px;
+  position:relative;box-shadow:0 24px 80px rgba(0,0,0,.25);
+}
+.modal-close{
+  position:absolute;top:16px;right:16px;background:none;border:none;
+  font-size:22px;cursor:pointer;color:#888;line-height:1;padding:4px;
+}
+.modal-close:hover{color:#333}
+.modal-tag{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--teal);margin-bottom:.5rem}
+.modal-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:.25rem}
+.modal-sub{font-size:13px;color:var(--muted);margin-bottom:1.5rem;line-height:1.5}
+.modal-field{margin-bottom:1rem}
+.modal-field label{display:block;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--muted);margin-bottom:5px}
+.modal-field select,.modal-field input{
+  width:100%;padding:11px 14px;border:1.5px solid rgba(0,0,0,.12);border-radius:8px;
+  font-size:13.5px;font-family:'Montserrat',sans-serif;color:#1a1a1a;
+  transition:border-color .2s;appearance:none;background:#fff;
+}
+.modal-field select:focus,.modal-field input:focus{outline:none;border-color:var(--teal)}
+.modal-submit{
+  width:100%;padding:14px;background:var(--teal);color:#fff;border:none;cursor:pointer;
+  border-radius:8px;font-size:14px;font-weight:700;font-family:'Montserrat',sans-serif;
+  margin-top:.5rem;transition:background .2s;
+}
+.modal-submit:hover{background:var(--teal-d)}
+.modal-success{text-align:center;padding:1rem 0;display:none}
+.modal-success .tick{font-size:3rem;margin-bottom:.75rem}
+.modal-success h3{font-size:17px;font-weight:700;color:var(--navy)}
+.modal-success p{font-size:13px;color:var(--muted);margin-top:.4rem}
+
+/* ── MOBILE BOTTOM NAV ─────────────────────────────────────────────────────── */
+.mobile-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:700;
+  background:var(--navy-d);border-top:1px solid rgba(11,107,110,.3);
+  padding:8px 0 env(safe-area-inset-bottom,8px);
+}
+.mobile-nav-inner{display:flex;justify-content:space-around;align-items:center}
+.mnav-btn{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  background:none;border:none;cursor:pointer;padding:4px 12px;
+  font-family:'Montserrat',sans-serif;text-decoration:none;
+}
+.mnav-icon{font-size:18px;line-height:1}
+.mnav-label{font-size:9px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.5px;text-transform:uppercase}
+.mnav-btn.primary .mnav-label{color:var(--teal-mid)}
+.mnav-btn:hover .mnav-label,.mnav-btn.active .mnav-label{color:#fff}
+@media(max-width:768px){
+  .mobile-nav{display:block}
+  body{padding-bottom:60px}
+}
+
 </style>
 </head>
 <body>
@@ -340,6 +437,107 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem}
     <li><a href="submit-a-request.html" class="nav-btn">Submit a Request</a></li>
   </ul>
   <a href="tel:+61411459755" class="nav-phone">📞 +61 411 459 755</a>
+</nav>
+<!-- TRUST BAR -->
+<div class="trust-bar" id="trustBar">
+  <div class="trust-item"><span class="trust-icon">✓</span> <strong>AHPRA Verified</strong></div>
+  <div class="trust-item"><span class="trust-icon">✓</span> <strong>Police Checked</strong></div>
+  <div class="trust-item"><span class="trust-icon">✓</span> <strong>Employer of Record</strong></div>
+  <div class="trust-item"><span class="trust-icon">✓</span> <strong>Fair Work Compliant</strong></div>
+  <div class="trust-item"><span class="trust-icon">✓</span> <strong>20+ Yrs Labour Hire</strong></div>
+  <div class="trust-item"><span class="trust-icon">✓</span> <strong>24hr Response</strong></div>
+</div>
+
+
+<!-- FLOATING ACTION BUTTON -->
+<button class="fab" onclick="openModal()" aria-label="Request staff urgently">
+  <div class="fab-dot"></div>
+  Request Staff Now
+</button>
+
+<!-- URGENT REQUEST MODAL -->
+<div class="modal-overlay" id="urgentModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalForm">
+      <p class="modal-tag">URGENT WORKFORCE REQUEST</p>
+      <h2 class="modal-title">What do you need?</h2>
+      <p class="modal-sub">Three questions. We'll respond within 24 hours — usually sooner for urgent needs.</p>
+      <div class="modal-field">
+        <label>ROLE NEEDED</label>
+        <select id="mRole">
+          <option value="">Select role...</option>
+          <option>AIN (Assistant in Nursing)</option>
+          <option>Healthcare Worker</option>
+          <option>Support Worker (Community Care)</option>
+          <option>Aged Care Worker</option>
+          <option>Physiotherapist</option>
+          <option>Occupational Therapist</option>
+          <option>Psychologist</option>
+          <option>Allied Health Professional</option>
+        </select>
+      </div>
+      <div class="modal-field">
+        <label>REGION</label>
+        <select id="mRegion">
+          <option value="">Select region...</option>
+          <option>Far West LHD — Broken Hill, Bourke, Wilcannia</option>
+          <option>Western NSW LHD — Dubbo, Orange, Bathurst</option>
+          <option>Murrumbidgee LHD — Wagga Wagga, Griffith, Albury</option>
+          <option>Hunter New England LHD — Tamworth, Armidale, Moree</option>
+          <option>Northern NSW LHD — Lismore, Grafton, Ballina</option>
+          <option>Mid North Coast LHD — Port Macquarie, Coffs Harbour</option>
+          <option>Other regional NSW</option>
+        </select>
+      </div>
+      <div class="modal-field">
+        <label>TIMEFRAME</label>
+        <select id="mUrgency">
+          <option value="">Select urgency...</option>
+          <option>Within 24 hours — critical gap</option>
+          <option>Within 7 days</option>
+          <option>Within 2–4 weeks</option>
+          <option>Planning ahead — next month+</option>
+        </select>
+      </div>
+      <div class="modal-field">
+        <label>YOUR EMAIL</label>
+        <input type="email" id="mEmail" placeholder="your@email.com">
+      </div>
+      <button class="modal-submit" onclick="submitUrgent()">Send Request →</button>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="tick">✅</div>
+      <h3>Request received.</h3>
+      <p>We'll contact you within 24 hours.<br>For immediate needs call <a href="tel:+61411459755" style="color:var(--teal)">+61 411 459 755</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mnav-btn active">
+      <span class="mnav-icon">🏠</span>
+      <span class="mnav-label">Home</span>
+    </a>
+    <a href="about.html" class="mnav-btn">
+      <span class="mnav-icon">ℹ️</span>
+      <span class="mnav-label">About</span>
+    </a>
+    <button class="mnav-btn primary" onclick="openModal()">
+      <span class="mnav-icon" style="color:#9FE1CB">⚡</span>
+      <span class="mnav-label" style="color:#9FE1CB">Request</span>
+    </button>
+    <a href="index.html#register" class="mnav-btn">
+      <span class="mnav-icon">👤</span>
+      <span class="mnav-label">Join</span>
+    </a>
+    <a href="tel:+61411459755" class="mnav-btn">
+      <span class="mnav-icon">📞</span>
+      <span class="mnav-label">Call</span>
+    </a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -615,12 +813,12 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 const REGS={
-  farwest:{name:'Far West LHD',shortage:'Critical',pc:'pc',towns:['Broken Hill','Wilcannia','Bourke','Cobar','White Cliffs','Tibooburra'],stats:[{l:'Vacancy rate (RN)',v:'~34%'},{l:'Health facilities',v:'12 sites'},{l:'Response time',v:'Same day'},{l:'Distance from Sydney',v:'1,100+ km'}],types:['Rotational placements (2–4 week blocks)','Accommodation-based contracts','Emergency casual cover'],center:[-31.5,143.0],zoom:7},
-  western:{name:'Western NSW LHD',shortage:'Severe',pc:'ps',towns:['Dubbo','Orange','Bathurst','Parkes','Forbes','Mudgee'],stats:[{l:'Vacancy rate (RN)',v:'~22%'},{l:'Health facilities',v:'22 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'380–900 km'}],types:['Fixed-term 3–12 month contracts','Casual rotation cover','International healthcare pipeline'],center:[-32.5,148.2],zoom:7},
-  murrumbidgee:{name:'Murrumbidgee LHD',shortage:'High',pc:'ph',towns:['Wagga Wagga','Griffith','Albury','Deniliquin','Tumut'],stats:[{l:'Vacancy rate (RN)',v:'~18%'},{l:'Health facilities',v:'18 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'450–650 km'}],types:['6–12 month rural contracts','Drive-in/drive-out rotations','Casual cover'],center:[-35.2,146.8],zoom:7},
-  hne:{name:'Hunter New England LHD',shortage:'High',pc:'ph',towns:['Tamworth','Armidale','Moree','Inverell','Gunnedah'],stats:[{l:'Vacancy rate (RN)',v:'~20%'},{l:'Health facilities',v:'28 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'300–700 km'}],types:['Contract placements','Casual rotation cover','International healthcare sourcing'],center:[-30.5,150.5],zoom:7},
-  northern:{name:'Northern NSW LHD',shortage:'Moderate',pc:'pm',towns:['Lismore','Grafton','Ballina','Casino','Kyogle'],stats:[{l:'Vacancy rate (RN)',v:'~15%'},{l:'Health facilities',v:'14 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'700–900 km'}],types:['Casual shift cover','Contract placements','Permanent on-hire'],center:[-29.0,152.8],zoom:8},
-  mnc:{name:'Mid North Coast LHD',shortage:'Moderate',pc:'pm',towns:['Port Macquarie','Coffs Harbour','Kempsey','Taree'],stats:[{l:'Vacancy rate (RN)',v:'~16%'},{l:'Health facilities',v:'11 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'380–550 km'}],types:['Casual cover','Contract placements','Permanent on-hire'],center:[-31.0,152.7],zoom:8}
+  farwest:{name:'Far West LHD',shortage:'Critical',pc:'pc',towns:['Broken Hill','Wilcannia','Bourke','Cobar','White Cliffs','Tibooburra'],stats:[{l:'Workforce shortage',v:'Critical'},{l:'Health facilities',v:'12 sites'},{l:'Response time',v:'Same day'},{l:'Distance from Sydney',v:'1,100+ km'}],roles:['Healthcare Workers','AINs','Support Workers','Allied Health'],types:['Rotational placements (2–4 week blocks)','Accommodation-based contracts','Emergency casual cover'],center:[-31.5,143.0],zoom:7},
+  western:{name:'Western NSW LHD',shortage:'Severe',pc:'ps',towns:['Dubbo','Orange','Bathurst','Parkes','Forbes','Mudgee'],stats:[{l:'Workforce shortage',v:'Severe'},{l:'Health facilities',v:'22 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'380–900 km'}],roles:['Healthcare Workers','AINs','Aged Care Workers','Allied Health'],types:['Fixed-term 3–12 month contracts','Casual rotation cover','International healthcare pipeline'],center:[-32.5,148.2],zoom:7},
+  murrumbidgee:{name:'Murrumbidgee LHD',shortage:'High',pc:'ph',towns:['Wagga Wagga','Griffith','Albury','Deniliquin','Tumut'],stats:[{l:'Workforce shortage',v:'High'},{l:'Health facilities',v:'18 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'450–650 km'}],roles:['Healthcare Workers','Support Workers','Aged Care Workers','Allied Health'],types:['6–12 month rural contracts','Regional community placements','Casual cover'],center:[-35.2,146.8],zoom:7},
+  hne:{name:'Hunter New England LHD',shortage:'High',pc:'ph',towns:['Tamworth','Armidale','Moree','Inverell','Gunnedah'],stats:[{l:'Workforce shortage',v:'High'},{l:'Health facilities',v:'28 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'300–700 km'}],roles:['Healthcare Workers','AINs','Support Workers','Allied Health'],types:['Contract placements','Casual rotation cover','International healthcare sourcing'],center:[-30.5,150.5],zoom:7},
+  northern:{name:'Northern NSW LHD',shortage:'Moderate',pc:'pm',towns:['Lismore','Grafton','Ballina','Casino','Kyogle'],stats:[{l:'Workforce shortage',v:'Moderate'},{l:'Health facilities',v:'14 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'700–900 km'}],roles:['Healthcare Workers','Support Workers','Allied Health'],types:['Casual shift cover','Contract placements','Permanent on-hire'],center:[-29.0,152.8],zoom:8},
+  mnc:{name:'Mid North Coast LHD',shortage:'Moderate',pc:'pm',towns:['Port Macquarie','Coffs Harbour','Kempsey','Taree'],stats:[{l:'Workforce shortage',v:'Moderate'},{l:'Health facilities',v:'11 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'380–550 km'}],roles:['Healthcare Workers','Aged Care Workers','Allied Health'],types:['Casual cover','Contract placements','Permanent on-hire'],center:[-31.0,152.7],zoom:8}
 };
 const GEO={type:'FeatureCollection',features:[
   {type:'Feature',properties:{id:'farwest',remote:true},geometry:{type:'Polygon',coordinates:[[[141.00,-29.05],[145.00,-29.05],[145.90,-29.50],[146.10,-30.80],[145.80,-32.00],[144.50,-33.20],[143.10,-33.90],[141.80,-34.10],[141.00,-34.00],[141.00,-29.05]]]}},
@@ -660,6 +858,7 @@ function showInfo(id){
   const p=document.getElementById('ri-pill');
   p.className='ri-pill '+d.pc;
   p.innerHTML=`<span style="width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0"></span> Shortage: ${d.shortage}`;
+  if(d.roles){const rolesEl=el.querySelector('.sb-roles')||document.createElement('div');rolesEl.className='sb-roles';rolesEl.style.cssText='display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 0';rolesEl.innerHTML=d.roles.map(r=>`<span style="background:#E1F5EE;color:#0B6B6E;border-radius:20px;padding:2px 9px;font-size:10px;font-weight:600">${r}</span>`).join('');if(!el.querySelector('.sb-roles'))el.appendChild(rolesEl);}
   document.getElementById('ri-towns').innerHTML=d.towns.map(t=>`<span class="town">${t}</span>`).join('');
   document.getElementById('ri-stats').innerHTML=d.stats.map(s=>`<div class="srow"><span class="sl">${s.l}</span><span class="sr">${s.v}</span></div>`).join('');
   document.getElementById('ri-types').innerHTML=d.types.map(t=>`<div class="pt">${t}</div>`).join('');
@@ -706,6 +905,26 @@ function submitForm(e,type){
 }
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});},{threshold:0.1});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+function openModal(){document.getElementById('urgentModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('urgentModal').classList.remove('open');document.body.style.overflow='';setTimeout(()=>{document.getElementById('modalForm').style.display='block';document.getElementById('modalSuccess').style.display='none';},400);}
+async function submitUrgent(){
+  const role=document.getElementById('mRole').value;
+  const region=document.getElementById('mRegion').value;
+  const urgency=document.getElementById('mUrgency').value;
+  const email=document.getElementById('mEmail').value;
+  if(!role||!region||!urgency||!email){alert('Please complete all fields');return;}
+  const btn=document.querySelector('.modal-submit');
+  btn.textContent='Sending...';btn.disabled=true;
+  try{
+    await fetch('https://formspree.io/f/REPLACE_ME',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({role,region,urgency,email,type:'urgent-request',source:'floating-button'})});
+  }catch(e){}
+  document.getElementById('modalForm').style.display='none';
+  document.getElementById('modalSuccess').style.display='block';
+  btn.textContent='Send Request →';btn.disabled=false;
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
 </script>
 </body>
 </html>
