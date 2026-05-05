@@ -98,6 +98,15 @@ description: Build, generate, and maintain the complete policy and procedure lib
 | Aged care / AIN | Aged Care Award 2010 |
 | Allied Health | Health Professionals and Support Services Award 2020 (HPSS) |
 
+**⚠️ Important — overseas support workers and qualifications:**
+Australian Cert III/IV in Individual Support is NOT a mandatory prerequisite for overseas support workers. The *Aged Care Act 1997* and Aged Care Quality Standards require that workers have "appropriate skills, knowledge and experience" — overseas equivalent qualifications satisfy this requirement where competency can be demonstrated. HPI's position:
+- Overseas support workers with **equivalent overseas qualifications + demonstrated experience** can be placed in community and aged care support roles
+- Australian Cert III in Individual Support is required for **new personal care workers in residential aged care** (from July 2023 — Aged Care Act change)
+- Workers without formal qualifications can be engaged at a lower Award classification level and work toward Cert III while employed
+- Support workers (community care, non-residential) have **no mandatory qualification** — competency, references, and police check are the core requirements
+- **AHPRA registration is NOT required** for support workers or aged care workers — only for allied health professionals
+- HPI should document each overseas worker's qualification equivalency assessment in the Compliance Register
+
 ---
 
 ### POL-003 · Credentialling and Compliance Policy
@@ -106,13 +115,30 @@ description: Build, generate, and maintain the complete policy and procedure lib
 **Regulatory basis:** Aged Care Act 1997 (Cth); Aged Care Quality Standards; applicable AHPRA legislation; Working with Children legislation
 
 **Mandatory pre-placement checks (all workers):**
-1. ✅ National Police Check (NPC) — must be dated within 3 years; within 6 months for aged care placements
+1. ✅ National Police Check (NPC) — within 3 years; within 6 months for aged care placements
 2. ✅ VEVO — visa entitlement verification, Australian working rights confirmed
-3. ✅ Qualification verification — original certificates sighted and copied
-4. ✅ Reference checks — minimum 2 professional references
-6. ✅ Working with Children Check (WWCC) — where any placements involve persons under 18
-7. ✅ AHPRA registration verification — for allied health professionals only
-8. ✅ Right to work in Australia — confirmed document
+3. ✅ Qualification verification — original certificates sighted; overseas qualifications accepted where equivalent competency is demonstrated (see table below)
+4. ✅ Reference checks — minimum 2 professional references (professional, not personal)
+5. ✅ Working with Children Check (WWCC) — where any placements involve persons under 18
+6. ✅ AHPRA registration verification — for allied health professionals ONLY (NOT required for support workers or aged care workers)
+7. ✅ Right to work in Australia — confirmed via VEVO
+
+**Qualification requirements by role — including overseas workers:**
+| Role | Australian qual required? | Overseas qual accepted? | Notes |
+|------|--------------------------|------------------------|-------|
+| AIN (Assistant in Nursing) | Cert III Individual Support preferred | ✅ Yes | No AHPRA required. Document equivalency. |
+| Aged care worker (residential) | Cert III Individual Support (from Jul 2023) | ✅ Yes — equivalent accepted | Map overseas qual to Cert III competencies |
+| Aged care worker (community) | No mandatory qualification | ✅ Yes | Experience + references sufficient |
+| Support worker (community care) | No mandatory qualification | ✅ Yes | Police check + working rights + 2 refs = compliant |
+| Allied health professional | AHPRA registration required | ✅ Only once AHPRA registered | Overseas-trained registration pathway applies |
+
+**HPI compliance position for overseas support and aged care workers:**
+- HPI CAN and DOES recruit overseas support workers and aged care workers WITHOUT Australian Cert IV
+- The *Aged Care Quality Standards* require "appropriate skills, knowledge and experience" — overseas equivalent qualifications + experience satisfy this
+- For residential aged care: document overseas qualification, map to Cert III competencies, record in REG-001
+- For community support: NPC + VEVO + 2 references = compliant to place — no qualification mandatory
+- Workers can be engaged at a lower Award classification and work toward Cert III while employed
+- HPI must retain evidence of qualification equivalency assessment for each overseas worker in REG-001
 
 **Document retention:** All compliance records retained minimum 7 years
 **Expiry monitoring:** HPI maintains a Compliance Register (REG-001) with expiry dates
