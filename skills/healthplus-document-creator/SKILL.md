@@ -99,7 +99,7 @@ def draw_page(c, doc):
     c.rect(ML+bw*2, 8, bw, 5, fill=1, stroke=0)
     # y=20: Address + CONFIDENTIAL
     c.setFont('Helvetica', 7); c.setFillColor(MUTED)
-    c.drawString(ML, 20, 'Unit 4, 44-46 Keeler Street, Carlingford NSW 2118  |  was.aus@gmail.com')
+    c.drawString(ML, 20, 'Unit 4, 44-46 Keeler Street, Carlingford NSW 2118  |  wgs.aus@gmail.com')
     c.setFillColor(colors.Color(0.55,0.08,0.08,0.5))
     c.setFont('Helvetica-Bold', 7)
     c.drawRightString(W-MR, 20, 'CONFIDENTIAL')
@@ -340,7 +340,7 @@ COMPANY = {
     'phone':    '+61 411 459 755',
     'email':    'connect@healthplusint.com.au',
     'director': 'Abhay J Kumar',
-    'dir_email':'was.aus@gmail.com',
+    'dir_email':'wgs.aus@gmail.com',
     'address':  'Unit 4, 44-46 Keeler Street, Carlingford NSW 2118',
 }
 ```
