@@ -946,7 +946,7 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
     </div>
     <div id="success" class="success"><div style="width:48px;height:48px;border-radius:50%;background:var(--teal-pale);border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 10px"><svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:var(--teal);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><polyline points="20 6 9 17 4 12"/></svg></div><h3>Thank you — we'll be in touch within 24 hours.</h3><p>Your submission has been received.</p></div>
     <div id="panel-fac" class="fpanel active">
-      <form action="https://formspree.io/f/REPLACE_ME" method="POST" onsubmit="submitForm(event,'fac')">
+      <form action="https://formspree.io/f/xpqbdonv" method="POST" onsubmit="submitForm(event,'fac')">
         <input type="hidden" name="_subject" value="New Workforce Request — HealthPlus International">
         <div class="fgrid">
           <div class="fg"><label>CONTACT NAME *</label><input type="text" name="name" placeholder="Full name" required></div>
@@ -968,7 +968,7 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
       </form>
     </div>
     <div id="panel-nur" class="fpanel">
-      <form action="https://formspree.io/f/REPLACE_ME" method="POST" onsubmit="submitForm(event,'nur')">
+      <form action="https://formspree.io/f/xpqbdonv" method="POST" onsubmit="submitForm(event,'nur')">
         <input type="hidden" name="_subject" value="New Healthcare Worker Registration — HealthPlus International">
         <div class="fgrid">
           <div class="fg"><label>FULL NAME *</label><input type="text" name="name" placeholder="First and last name" required></div>
@@ -1116,7 +1116,7 @@ function switchTab(type,btn){
 }
 function submitForm(e,type){
   const form=e.target;
-  if(form.action.includes('REPLACE_ME')){
+  if(form.action.includes('https://formspree.io/f/xpqbdonv')){
     e.preventDefault();
     document.getElementById('panel-'+type).style.display='none';
     document.querySelector('.ftabs').style.display='none';
@@ -1137,7 +1137,7 @@ async function submitUrgent(){
   const btn=document.querySelector('.modal-submit');
   btn.textContent='Sending...';btn.disabled=true;
   try{
-    await fetch('https://formspree.io/f/REPLACE_ME',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({role,region,urgency,email,type:'urgent-request',source:'floating-button'})});
+    await fetch('https://formspree.io/f/xpqbdonv',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({role,region,urgency,email,type:'urgent-request',source:'floating-button'})});
   }catch(e){}
   document.getElementById('modalForm').style.display='none';
   document.getElementById('modalSuccess').style.display='block';
