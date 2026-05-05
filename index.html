@@ -421,6 +421,75 @@ body.has-trust-bar section:first-of-type{margin-top:98px}
   body{padding-bottom:60px}
 }
 
+
+/* ── ANIMATED COUNTERS ─────────────────────────────────────────────────────── */
+.stat-n{font-size:2.2rem;font-weight:800;color:#fff;line-height:1;transition:all .3s}
+.stat-n.counting{opacity:.8}
+@keyframes countPop{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+.stat-n.popped{animation:countPop .3s ease}
+
+/* ── DUAL ENTRY CARDS ──────────────────────────────────────────────────────── */
+.entry-cards{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;background:var(--navy-d);
+  border-top:3px solid var(--teal);
+}
+.entry-card{
+  padding:2.5rem 3rem;display:flex;flex-direction:column;align-items:flex-start;
+  text-decoration:none;transition:background .2s;
+  border-right:1px solid rgba(255,255,255,.07);
+  position:relative;overflow:hidden;
+}
+.entry-card:last-child{border-right:none}
+.entry-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  transform:scaleX(0);transition:transform .3s;transform-origin:left;
+}
+.entry-card.facility::before{background:var(--teal)}
+.entry-card.worker::before{background:var(--teal-mid)}
+.entry-card:hover{background:rgba(11,107,110,.08)}
+.entry-card:hover::before{transform:scaleX(1)}
+.entry-tag{font-size:9.5px;font-weight:700;letter-spacing:2.5px;margin-bottom:.6rem;text-transform:uppercase}
+.entry-card.facility .entry-tag{color:var(--teal-mid)}
+.entry-card.worker .entry-tag{color:rgba(255,255,255,.45)}
+.entry-card h3{font-size:1.35rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:.6rem;letter-spacing:-.2px}
+.entry-card p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:1.5rem;flex:1}
+.entry-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;padding:10px 20px;border-radius:7px;transition:all .2s}
+.entry-card.facility .entry-btn{background:var(--teal);color:#fff}
+.entry-card.facility .entry-btn:hover{background:var(--teal-d)}
+.entry-card.worker .entry-btn{background:transparent;color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.2)}
+.entry-card.worker .entry-btn:hover{border-color:rgba(255,255,255,.6);color:#fff}
+.entry-icon{font-size:2rem;margin-bottom:1rem;display:block}
+@media(max-width:640px){
+  .entry-cards{grid-template-columns:1fr}
+  .entry-card{padding:2rem 1.5rem;border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
+  .entry-card:last-child{border-bottom:none}
+}
+
+/* ── SECTION CTAs ──────────────────────────────────────────────────────────── */
+.sec-cta{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  padding:1.5rem 2rem;border-radius:14px;
+  margin-top:2.5rem;
+}
+.sec-cta.teal-pale{background:var(--teal-pale);border:1px solid rgba(11,107,110,.15)}
+.sec-cta.navy{background:var(--navy-d)}
+.sec-cta-text strong{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.sec-cta.navy .sec-cta-text strong{color:#fff}
+.sec-cta-text span{font-size:12.5px;color:var(--muted)}
+.sec-cta.navy .sec-cta-text span{color:rgba(255,255,255,.5)}
+.sec-cta-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.sc-btn-primary{background:var(--teal);color:#fff;padding:10px 20px;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s;white-space:nowrap}
+.sc-btn-primary:hover{background:var(--teal-d)}
+.sc-btn-ghost{background:transparent;color:var(--teal);padding:10px 20px;border-radius:7px;font-size:13px;font-weight:600;text-decoration:none;border:1.5px solid rgba(11,107,110,.25);transition:all .2s;white-space:nowrap}
+.sc-btn-ghost:hover{border-color:var(--teal);background:var(--teal-pale)}
+.sec-cta.navy .sc-btn-ghost{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)}
+.sec-cta.navy .sc-btn-ghost:hover{border-color:rgba(255,255,255,.6);color:#fff}
+@media(max-width:640px){
+  .sec-cta{padding:1.25rem;flex-direction:column;align-items:flex-start}
+}
+
 </style>
 </head>
 <body>
@@ -570,6 +639,24 @@ body.has-trust-bar section:first-of-type{margin-top:98px}
   <div class="stat"><div class="stat-n">24hr</div><div class="stat-l">WORKFORCE RESPONSE TIME</div></div>
 </div>
 
+<!-- DUAL ENTRY CARDS -->
+<div class="entry-cards">
+  <a href="submit-a-request.html" class="entry-card facility">
+    <span class="entry-icon">🏥</span>
+    <p class="entry-tag">For Facility &amp; Service Managers</p>
+    <h3>I need to place healthcare staff in my community.</h3>
+    <p>Healthcare workers, AINs, support workers and allied health — credentialled, employer-managed, deployed to your facility within 24 hours.</p>
+    <span class="entry-btn">Request Workforce →</span>
+  </a>
+  <a href="join.html" class="entry-card worker">
+    <span class="entry-icon">👤</span>
+    <p class="entry-tag">For Healthcare Workers</p>
+    <h3>I want to work in a regional or remote community.</h3>
+    <p>We employ you directly. All compliance managed. Placements across Far West, Western NSW, Murrumbidgee, Hunter New England and more.</p>
+    <span class="entry-btn">Join Our Care Network →</span>
+  </a>
+</div>
+
 <!-- WHY -->
 <section class="sec why">
   <p class="label fade">Why we exist</p>
@@ -590,6 +677,16 @@ body.has-trust-bar section:first-of-type{margin-top:98px}
       <div class="why-icon">✅</div>
       <h3>We carry the employment burden</h3>
       <p>We are the employer of record. Every credential verified, every compliance obligation met — one all-inclusive invoice. Your facility focuses on delivering care. We handle everything else.</p>
+    </div>
+
+  <div class="sec-cta teal-pale fade">
+    <div class="sec-cta-text">
+      <strong>Ready to connect your community with the care it deserves?</strong>
+      <span>Submit a request — we respond within 24 hours for all regional and remote facilities.</span>
+    </div>
+    <div class="sec-cta-btns">
+      <a href="submit-a-request.html" class="sc-btn-primary">Request Workforce</a>
+      <a href="how-we-work.html" class="sc-btn-ghost">How We Work</a>
     </div>
   </div>
 </section>
@@ -643,6 +740,15 @@ body.has-trust-bar section:first-of-type{margin-top:98px}
     <div class="how-step fade"><div class="step-n">2</div><h4>We match and verify</h4><p>AHPRA confirmed, police check done, immunisations and working rights verified.</p></div>
     <div class="how-step fade"><div class="step-n">3</div><h4>Labour hire agreement</h4><p>We sign a labour hire agreement — we are the employer, one all-inclusive invoice.</p></div>
     <div class="how-step fade"><div class="step-n">4</div><h4>Your hire arrives, ready</h4><p>Pre-briefed on your community and service. Supported throughout the placement.</p></div>
+
+  <div class="sec-cta teal-pale fade" style="max-width:900px;margin:2.5rem auto 0">
+    <div class="sec-cta-text">
+      <strong>Takes less than 2 minutes to submit a request.</strong>
+      <span>Tell us the role, region, and timeframe — we handle everything from there.</span>
+    </div>
+    <div class="sec-cta-btns">
+      <a href="submit-a-request.html" class="sc-btn-primary">Submit a Request →</a>
+    </div>
   </div>
 </section>
 
@@ -685,7 +791,17 @@ body.has-trust-bar section:first-of-type{margin-top:98px}
         </div>
       </div>
     </div>
+
     <a href="allied-health.html" style="display:inline-flex;align-items:center;gap:8px;background:#0B6B6E;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s">Explore Our Allied Health Workforce →</a>
+    <div class="sec-cta teal-pale fade" style="margin-top:1.5rem">
+      <div class="sec-cta-text">
+        <strong>Healthcare worker looking for a regional placement?</strong>
+        <span>Join our care network — overseas qualifications welcome.</span>
+      </div>
+      <div class="sec-cta-btns">
+        <a href="join.html" class="sc-btn-primary">Join Our Care Network →</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -702,6 +818,16 @@ body.has-trust-bar section:first-of-type{margin-top:98px}
         
       </div>
       <div class="cnote fade">All international healthcare workers are credentialled and hold valid Australian working rights before any deployment offer is made to your facility or service.</div>
+      <div class="sec-cta navy fade" style="margin-top:1.5rem">
+        <div class="sec-cta-text">
+          <strong>Sourcing from Philippines or India?</strong>
+          <span>We handle the full pipeline — qualification checks, working rights, deployment.</span>
+        </div>
+        <div class="sec-cta-btns">
+          <a href="submit-a-request.html" class="sc-btn-primary">Start a Request</a>
+          <a href="how-we-work.html" class="sc-btn-ghost">Learn how it works</a>
+        </div>
+      </div>
     </div>
     <div class="pipe">
       <div class="pipe-step fade"><div class="pn">1</div><div class="pc-text"><h4>Identified and assessed overseas</h4><p>We source healthcare workers through partner associations and networks in each country — targeting those motivated by regional Australian placement.</p></div></div>
@@ -924,6 +1050,40 @@ async function submitUrgent(){
   btn.textContent='Send Request →';btn.disabled=false;
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+
+// ── ANIMATED COUNTERS ────────────────────────────────────────────────────────
+(function(){
+  const counters=[
+    {el:null, target:6,  suffix:'',   selector:'.stat:nth-child(1) .stat-n'},
+    {el:null, target:5,  suffix:'',   selector:'.stat:nth-child(2) .stat-n'},
+    {el:null, target:20, suffix:'+',  selector:'.stat:nth-child(3) .stat-n', override:'EOR'},
+    {el:null, target:24, suffix:'hr', selector:'.stat:nth-child(4) .stat-n'},
+  ];
+  let ran=false;
+  function runCounters(){
+    if(ran)return; ran=true;
+    counters.forEach(ct=>{
+      const el=document.querySelector(ct.selector);
+      if(!el||ct.override)return;
+      let start=0; const dur=1200; const step=16;
+      const inc=ct.target/(dur/step);
+      const timer=setInterval(()=>{
+        start+=inc;
+        if(start>=ct.target){start=ct.target;clearInterval(timer);el.classList.add('popped');}
+        el.textContent=Math.floor(start)+(start>=ct.target?ct.suffix:'');
+      },step);
+    });
+  }
+  const statsEl=document.querySelector('.stats');
+  if(statsEl&&'IntersectionObserver' in window){
+    new IntersectionObserver(entries=>{
+      if(entries[0].isIntersecting)runCounters();
+    },{threshold:.5}).observe(statsEl);
+  } else {
+    window.addEventListener('load',runCounters);
+  }
+})();
 
 </script>
 </body>
