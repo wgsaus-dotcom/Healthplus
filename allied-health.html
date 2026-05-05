@@ -438,7 +438,7 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
     <div id="success" class="success"><div style="width:48px;height:48px;border-radius:50%;background:var(--teal-pale);border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 10px"><svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:var(--teal);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><polyline points="20 6 9 17 4 12"/></svg></div><h3>Thank you — we'll be in touch within 24 hours.</h3><p>Your submission has been received.</p></div>
 
     <div id="panel-fac" class="fpanel active">
-      <form onsubmit="submitForm(event,'fac')">
+      <form action="https://formspree.io/f/xpqbdonv" method="POST" onsubmit="submitForm(event,'fac')">
         <div class="fgrid">
           <div class="fg"><label>CONTACT NAME *</label><input type="text" placeholder="Full name" required></div>
           <div class="fg"><label>ROLE / TITLE *</label><input type="text" placeholder="e.g. Service Manager" required></div>
@@ -470,7 +470,7 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
     </div>
 
     <div id="panel-pro" class="fpanel">
-      <form onsubmit="submitForm(event,'pro')">
+      <form action="https://formspree.io/f/xpqbdonv" method="POST" onsubmit="submitForm(event,'pro')">
         <div class="fgrid">
           <div class="fg"><label>FULL NAME *</label><input type="text" placeholder="First and last name" required></div>
           <div class="fg"><label>PHONE *</label><input type="tel" placeholder="+61 or country code" required></div>
@@ -539,3 +539,4 @@ document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
+
