@@ -11,7 +11,7 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 **Trading name:** Health Plus International (legal) / HealthPlus International (brand)
 **Domain:** healthplusint.com.au
 **Email:** connect@healthplusint.com.au
-**Director:** Abhay J Kumar | was.aus@gmail.com | +61 411 459 755
+**Director:** Abhay J Kumar | wgs.aus@gmail.com | +61 411 459 755
 **Address:** Unit 4, 44–46 Keeler Street, Carlingford NSW 2118
 **Founded:** 2026, Sydney NSW
 **Model:** Labour hire employer of record — regional and remote NSW
