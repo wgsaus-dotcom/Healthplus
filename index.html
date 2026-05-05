@@ -312,6 +312,18 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem}
 .leaflet-control-zoom a{background:#fff!important;color:var(--navy)!important;border-color:var(--border)!important}
 .leaflet-control-zoom a:hover{background:var(--teal-pale)!important}
 .leaflet-control-attribution{font-size:9px!important}
+
+/* ── FOOTER TAGLINE ── */
+.hpi-tagline{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:1rem;
+  font-size:12px;font-weight:600;letter-spacing:1.5px;
+  color:#9FE1CB;
+}
+.hpi-tagline::before,.hpi-tagline::after{
+  content:'';display:block;width:20px;height:1.5px;
+  background:#0B6B6E;border-radius:1px;flex-shrink:0;
+}
 </style>
 </head>
 <body>
@@ -588,7 +600,8 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem}
       <div style="margin-bottom:8px"><img src="images/logo-healthplus.png" alt="HealthPlus International" style="height:52px;width:auto;display:block;margin-bottom:10px"></div>
       </div>
       </div>
-      <p>HealthPlus International strategically places enrolled nurses, aged care workers, AINs, support workers and allied health professionals in regional and remote NSW communities. We are the employer of record.<br><br><em style="color:#9FE1CB">People. Care. Compliance.</em></p>
+      <p>HealthPlus International strategically places enrolled nurses, aged care workers, AINs, support workers and allied health professionals in regional and remote NSW communities. We are the employer of record.</p>
+      <div class="hpi-tagline">People. Care. Compliance.</div>
     </div>
     <div class="fc"><h4>HEALTHCARE WORKFORCE</h4><a href="tel:+61411459755">+61 411 459 755</a><a href="submit-a-request.html">Submit a Workforce Request</a><a href="services-remote.html">Nursing</a><a href="allied-health.html">Allied Health</a><a href="services-remote.html#aged-care">Aged Care &amp; Support</a></div>
     <div class="fc"><h4>ABOUT</h4><a href="how-we-work.html">How We Work</a><a href="#register">Join Our Care Network</a><a href="ahpra-verify.html">AHPRA Check</a><a href="#map-sec">Regions We Serve</a></div>
