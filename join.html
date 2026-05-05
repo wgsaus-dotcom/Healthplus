@@ -685,6 +685,21 @@ async function submitApplication(){
     const data=await res.json();
 
     if(data.ok){
+      // Ping Formspree so candidate gets auto-reply email
+      const name = document.getElementById('fullName')?.value || '';
+      const email = document.getElementById('email')?.value || '';
+      const role = document.getElementById('roleType')?.value || '';
+      fetch('https://formspree.io/f/xpqbdonv', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          name, email, _replyto: email,
+          role, type: 'healthcare-worker-application',
+          applicationId: data.candidateId,
+          source: 'join.html'
+        })
+      }).catch(()=>{}); // silent — don't block success screen
+
       document.getElementById('progressBar').style.display='none';
       document.getElementById('step3').classList.remove('active');
       document.getElementById('successScreen').classList.add('show');
@@ -693,8 +708,15 @@ async function submitApplication(){
       throw new Error(data.error||'Submission failed');
     }
   } catch(err){
-    // Fallback: if Worker not yet deployed, show success anyway and note
     console.warn('Worker not available, showing fallback success:', err.message);
+    // Still ping Formspree for auto-reply on fallback
+    const email = document.getElementById('email')?.value || '';
+    const name = document.getElementById('fullName')?.value || '';
+    if(email) fetch('https://formspree.io/f/xpqbdonv', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ name, email, _replyto: email, type: 'healthcare-worker-application', source: 'join-fallback' })
+    }).catch(()=>{});
     document.getElementById('progressBar').style.display='none';
     document.getElementById('step3').classList.remove('active');
     document.getElementById('successScreen').classList.add('show');
