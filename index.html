@@ -582,7 +582,30 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
 .amount,.price-fee .amount{font-size:15px!important;font-weight:600!important}
 /* ══════════════════════════════════════════════════════════════════════════ */
 
+
+/* ── AEO FAQ SECTION ── */
+.faq-section{padding:5rem 4rem;background:var(--off)}
+.faq-section .faq-inner{max-width:820px;margin:0 auto}
+.faq-label{font-size:10px;font-weight:700;letter-spacing:2.5px;color:var(--teal);text-transform:uppercase;margin-bottom:.6rem}
+.faq-section h2{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--navy);margin-bottom:.6rem;line-height:1.2}
+.faq-section .faq-sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:2.5rem}
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-of-type{border-top:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:1rem;font-family:'Montserrat',sans-serif}
+.faq-q-text{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4}
+.faq-chevron{width:24px;height:24px;border-radius:50%;background:var(--teal-pale);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s,background .2s}
+.faq-chevron svg{width:12px;height:12px;stroke:var(--teal);stroke-width:2.5;fill:none;transition:transform .25s}
+.faq-item.open .faq-chevron{background:var(--teal)}
+.faq-item.open .faq-chevron svg{stroke:#fff;transform:rotate(180deg)}
+.faq-a{display:none;padding:0 0 1.25rem;font-size:14.5px;color:var(--muted);line-height:1.8}
+.faq-item.open .faq-a{display:block}
+@media(max-width:768px){.faq-section{padding:3.5rem 1.5rem}}
 </style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is HealthPlus International?","acceptedAnswer":{"@type":"Answer","text":"HealthPlus International is a healthcare workforce placement business that strategically places credentialled healthcare workers in regional and remote NSW communities. We are the employer of record for every worker we place."}},{"@type":"Question","name":"Which regions of NSW do you service?","acceptedAnswer":{"@type":"Answer","text":"We service all regional and remote NSW Local Health Districts — Far West NSW (Broken Hill, Wilcannia), Western NSW (Bourke, Walgett, Dubbo), Murrumbidgee (Griffith, Wagga Wagga), Hunter New England, Northern NSW, and Mid North Coast. We do not service metropolitan Sydney."}},{"@type":"Question","name":"What types of healthcare workers do you place?","acceptedAnswer":{"@type":"Answer","text":"We place enrolled nurses (ENs), assistants in nursing (AINs), aged care workers, community support workers, and selected allied health professionals including physiotherapists, occupational therapists, psychologists, podiatrists, speech pathologists, dietitians, and exercise physiologists."}},{"@type":"Question","name":"How quickly can you respond to a workforce request?","acceptedAnswer":{"@type":"Answer","text":"We respond to all workforce requests within 24 hours. For critical shortages in Far West and Western NSW we treat these as highest priority."}},{"@type":"Question","name":"What does employer of record mean for our facility?","acceptedAnswer":{"@type":"Answer","text":"HealthPlus International employs every worker we place. We handle payroll, superannuation, workers compensation, Fair Work compliance, and professional indemnity. Your facility receives one all-inclusive invoice."}},{"@type":"Question","name":"Are your workers AHPRA verified and police checked?","acceptedAnswer":{"@type":"Answer","text":"Yes. All enrolled nurses and allied health professionals hold current AHPRA registration verified before every deployment. All workers hold a current National Police Clearance."}}]}
+</script>
 </head>
 <body>
 
@@ -1008,6 +1031,41 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
 </section>
 
 <!-- FOOTER -->
+
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-label">COMMON QUESTIONS</div>
+    <h2>Frequently Asked Questions</h2>
+    <p class="faq-sub">Everything you need to know about working with HealthPlus International.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">What is HealthPlus International?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">HealthPlus International is a healthcare workforce placement business that strategically places credentialled healthcare workers in regional and remote NSW communities. We are the employer of record for every worker we place — managing all employment obligations so that facilities can focus on delivering care.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">Which regions of NSW do you service?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">We service all regional and remote NSW Local Health Districts, with critical focus on Far West NSW (Broken Hill, Wilcannia, White Cliffs), Western NSW (Bourke, Walgett, Dubbo, Orange), Murrumbidgee (Griffith, Wagga Wagga, Hay), Hunter New England, Northern NSW, and Mid North Coast. We do not service metropolitan Sydney.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">What types of healthcare workers do you place?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">We place enrolled nurses (ENs), assistants in nursing (AINs), aged care workers, community support workers, and selected allied health professionals including physiotherapists, occupational therapists, psychologists, podiatrists, speech pathologists, dietitians, and exercise physiologists.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">How quickly can you respond to a workforce request?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">We respond to all workforce requests within 24 hours. For critical shortages — particularly in Far West and Western NSW — we treat these as highest priority. Submit your request and our team will contact you the same business day.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">What does employer of record mean for our facility?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">It means HealthPlus International employs every worker we place. We handle payroll, superannuation, workers compensation, Fair Work compliance, and professional indemnity insurance. Your facility receives one all-inclusive invoice. You direct the clinical work on site — we manage everything else.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">Are your workers AHPRA verified and police checked?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">Yes. All enrolled nurses and allied health professionals hold current AHPRA registration, which we verify before every deployment. All workers hold a current National Police Clearance. Qualifications are verified against original documents. We do not deploy anyone whose credentials are not fully confirmed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="ft">
     <div class="fb">
@@ -1194,5 +1252,17 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 })();
 
 </script>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-q').setAttribute('aria-expanded','false')});
+    if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true')}
+  });
+});
+</script>
+
 </body>
 </html>
