@@ -420,7 +420,7 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem}
   <div class="map-wrap fade">
     <div class="map-sidebar">
       <div class="msb-head"><h3>Region Details</h3><p>Click a highlighted region</p></div>
-      <div class="msb-empty" id="msb-empty"><div class="ico">🗺️</div><p>Select a remote LHD to see nursing shortage data.</p></div>
+      <div class="msb-empty" id="msb-empty"><div class="ico">🗺️</div><p>Select a region to see healthcare workforce data.</p></div>
       <div class="msb-info" id="msb-info">
         <div class="ri-head"><div class="ri-tag">REMOTE LHD · NSW HEALTH</div><div class="ri-name" id="ri-name"></div><div class="ri-pill" id="ri-pill"></div></div>
         <div class="ri-body">
@@ -438,13 +438,13 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem}
 <!-- HOW IT WORKS -->
 <section class="sec how">
   <p class="label fade" style="text-align:center">Simple process</p>
-  <h2 class="h2 fade" style="text-align:center;margin:0 auto .5rem">Four steps to a placed nurse</h2>
-  <p class="lead fade" style="text-align:center;margin:0 auto">We handle everything. You get a nurse.</p>
+  <h2 class="h2 fade" style="text-align:center;margin:0 auto .5rem">Four steps to a placed healthcare worker</h2>
+  <p class="lead fade" style="text-align:center;margin:0 auto">We handle everything. You get the right person.</p>
   <div class="how-steps">
     <div class="how-step fade"><div class="step-n">1</div><h4>Tell us what you need</h4><p>Location, role, timeframe. We respond within 24 hours for remote facilities.</p></div>
     <div class="how-step fade"><div class="step-n">2</div><h4>We match and verify</h4><p>AHPRA confirmed, police check done, immunisations and working rights verified.</p></div>
     <div class="how-step fade"><div class="step-n">3</div><h4>Labour hire agreement</h4><p>We sign a labour hire agreement — we are the employer, one all-inclusive invoice.</p></div>
-    <div class="how-step fade"><div class="step-n">4</div><h4>Nurse arrives, ready</h4><p>Pre-briefed on your community. Supported throughout the placement.</p></div>
+    <div class="how-step fade"><div class="step-n">4</div><h4>Your hire arrives, ready</h4><p>Pre-briefed on your community and service. Supported throughout the placement.</p></div>
   </div>
 </section>
 
@@ -503,8 +503,8 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem}
       <div class="countries">
         <div class="cpill fade"><div class="flag">🇵🇭</div><div><h5>Philippines</h5><span>The Philippines is one of the world's leading sources of healthcare workers — enrolled nurses and aged care professionals who are purpose-driven, highly trained, and genuinely motivated to serve regional communities. Strong English proficiency, adaptability, and community-centred care are hallmarks of Filipino healthcare workers. Many actively seek regional Australian placements as both a career and a life experience.</span></div></div>
         <div class="cpill fade"><div class="flag">🇮🇳</div><div><h5>India</h5><span>India's healthcare workforce is among the largest and most academically rigorous in the world. Enrolled nurses and aged care workers from India bring deep clinical foundations, strong English communication, and a cultural commitment to community-based care. Regional and remote NSW placements align closely with the values and motivations of this workforce.</span></div></div>
-        <div class="cpill fade"><div class="flag">🇬🇧</div><div><h5>United Kingdom</h5><span>UK-trained nurses hold qualifications that closely align with Australian standards, enabling a more direct AHPRA registration pathway. Many are drawn to regional NSW for a meaningful change of environment — the space, the purpose, and the opportunity to practise in a genuinely community-centred setting rather than a pressured metropolitan system.</span></div></div>
-        <div class="cpill fade"><div class="flag">🇮🇪</div><div><h5>Ireland</h5><span>Irish healthcare workers bring world-class clinical training and an inherent warmth that is particularly well-suited to community-based care. With strong cultural ties to Australia and a natural affinity for rural life, Irish nurses integrate naturally into the close-knit communities of regional and remote NSW.</span></div></div>
+        <div class="cpill fade"><div class="flag">🇬🇧</div><div><h5>United Kingdom</h5><span>UK-trained healthcare workers hold qualifications that closely align with Australian standards, enabling a streamlined AHPRA registration pathway. Many are drawn to regional NSW for the lifestyle, the purpose, and the opportunity to practise in a genuinely community-centred environment.</span></div></div>
+        <div class="cpill fade"><div class="flag">🇮🇪</div><div><h5>Ireland</h5><span>Irish healthcare workers bring world-class clinical training and an inherent warmth that is particularly well-suited to community-based care. With strong cultural ties to Australia and a natural affinity for rural life, Irish healthcare workers integrate naturally into the close-knit communities of regional and remote NSW.</span></div></div>
       </div>
       <div class="cnote fade">All international healthcare workers are credentialled and hold valid Australian working rights before any deployment offer is made to your facility or service.</div>
     </div>
@@ -621,9 +621,9 @@ footer{background:var(--navy-d);padding:3rem 4rem 2rem}
 <script>
 const REGS={
   farwest:{name:'Far West LHD',shortage:'Critical',pc:'pc',towns:['Broken Hill','Wilcannia','Bourke','Cobar','White Cliffs','Tibooburra'],stats:[{l:'Vacancy rate (RN)',v:'~34%'},{l:'Health facilities',v:'12 sites'},{l:'Response time',v:'Same day'},{l:'Distance from Sydney',v:'1,100+ km'}],types:['Rotational placements (2–4 week blocks)','Accommodation-based contracts','Emergency casual cover'],center:[-31.5,143.0],zoom:7},
-  western:{name:'Western NSW LHD',shortage:'Severe',pc:'ps',towns:['Dubbo','Orange','Bathurst','Parkes','Forbes','Mudgee'],stats:[{l:'Vacancy rate (RN)',v:'~22%'},{l:'Health facilities',v:'22 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'380–900 km'}],types:['Fixed-term 3–12 month contracts','Casual rotation cover','International nurse pipeline'],center:[-32.5,148.2],zoom:7},
+  western:{name:'Western NSW LHD',shortage:'Severe',pc:'ps',towns:['Dubbo','Orange','Bathurst','Parkes','Forbes','Mudgee'],stats:[{l:'Vacancy rate (RN)',v:'~22%'},{l:'Health facilities',v:'22 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'380–900 km'}],types:['Fixed-term 3–12 month contracts','Casual rotation cover','International healthcare pipeline'],center:[-32.5,148.2],zoom:7},
   murrumbidgee:{name:'Murrumbidgee LHD',shortage:'High',pc:'ph',towns:['Wagga Wagga','Griffith','Albury','Deniliquin','Tumut'],stats:[{l:'Vacancy rate (RN)',v:'~18%'},{l:'Health facilities',v:'18 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'450–650 km'}],types:['6–12 month rural contracts','Drive-in/drive-out rotations','Casual cover'],center:[-35.2,146.8],zoom:7},
-  hne:{name:'Hunter New England LHD',shortage:'High',pc:'ph',towns:['Tamworth','Armidale','Moree','Inverell','Gunnedah'],stats:[{l:'Vacancy rate (RN)',v:'~20%'},{l:'Health facilities',v:'28 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'300–700 km'}],types:['Contract placements','Casual rotation cover','International nurse sourcing'],center:[-30.5,150.5],zoom:7},
+  hne:{name:'Hunter New England LHD',shortage:'High',pc:'ph',towns:['Tamworth','Armidale','Moree','Inverell','Gunnedah'],stats:[{l:'Vacancy rate (RN)',v:'~20%'},{l:'Health facilities',v:'28 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'300–700 km'}],types:['Contract placements','Casual rotation cover','International healthcare sourcing'],center:[-30.5,150.5],zoom:7},
   northern:{name:'Northern NSW LHD',shortage:'Moderate',pc:'pm',towns:['Lismore','Grafton','Ballina','Casino','Kyogle'],stats:[{l:'Vacancy rate (RN)',v:'~15%'},{l:'Health facilities',v:'14 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'700–900 km'}],types:['Casual shift cover','Contract placements','Permanent on-hire'],center:[-29.0,152.8],zoom:8},
   mnc:{name:'Mid North Coast LHD',shortage:'Moderate',pc:'pm',towns:['Port Macquarie','Coffs Harbour','Kempsey','Taree'],stats:[{l:'Vacancy rate (RN)',v:'~16%'},{l:'Health facilities',v:'11 sites'},{l:'Response time',v:'24 hours'},{l:'Distance from Sydney',v:'380–550 km'}],types:['Casual cover','Contract placements','Permanent on-hire'],center:[-31.0,152.7],zoom:8}
 };
