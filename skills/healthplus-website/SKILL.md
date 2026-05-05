@@ -38,7 +38,7 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 
 ### Cloudflare Pages
 - **Project:** `healthplus` → `healthplus-3gy.pages.dev` → healthplusint.com.au
-- **Zone ID:** `stored-in-claude-memory`
+- **Zone ID:** `see-claude-memory-#9`
 - **Account ID:** `d2586c55db329e1e12cbaf3285d32f1a`
 - **API Token (Pages/DNS):** stored in Claude memory
 
@@ -46,8 +46,8 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 - **URL:** `https://hpi-onboarding.wgs-aus.workers.dev`
 - **Routes:** `POST /api/onboard` | `GET /api/ping`
 - **R2 bucket:** `hpi-candidate-docs` ✅
-- **KV namespace:** `HPI_ONBOARDING_KV` | ID: `stored-in-claude-memory` ✅
-- **Worker token:** `stored-in-claude-memory`
+- **KV namespace:** `HPI_ONBOARDING_KV` | ID: `see-claude-memory-#9` ✅
+- **Worker token:** `see-claude-memory-#9`
 - **Email:** MailChannels (built into Cloudflare — no external service)
   - Candidate receives: branded HTML confirmation from connect@healthplusint.com.au
   - Abhay receives: plain text notification at wgs.aus@gmail.com
