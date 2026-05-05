@@ -271,7 +271,30 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
 .amount,.price-fee .amount{font-size:15px!important;font-weight:600!important}
 /* ══════════════════════════════════════════════════════════════════════════ */
 
+
+/* ── AEO FAQ SECTION ── */
+.faq-section{padding:5rem 4rem;background:var(--off)}
+.faq-section .faq-inner{max-width:820px;margin:0 auto}
+.faq-label{font-size:10px;font-weight:700;letter-spacing:2.5px;color:var(--teal);text-transform:uppercase;margin-bottom:.6rem}
+.faq-section h2{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--navy);margin-bottom:.6rem;line-height:1.2}
+.faq-section .faq-sub{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:2.5rem}
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-of-type{border-top:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:1rem;font-family:'Montserrat',sans-serif}
+.faq-q-text{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4}
+.faq-chevron{width:24px;height:24px;border-radius:50%;background:var(--teal-pale);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s,background .2s}
+.faq-chevron svg{width:12px;height:12px;stroke:var(--teal);stroke-width:2.5;fill:none;transition:transform .25s}
+.faq-item.open .faq-chevron{background:var(--teal)}
+.faq-item.open .faq-chevron svg{stroke:#fff;transform:rotate(180deg)}
+.faq-a{display:none;padding:0 0 1.25rem;font-size:14.5px;color:var(--muted);line-height:1.8}
+.faq-item.open .faq-a{display:block}
+@media(max-width:768px){.faq-section{padding:3.5rem 1.5rem}}
 </style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which allied health professions do you place in regional NSW?","acceptedAnswer":{"@type":"Answer","text":"We place physiotherapists, occupational therapists, psychologists, podiatrists, speech pathologists, dietitians, exercise physiologists, Aboriginal and Torres Strait Islander health practitioners, medical radiation practitioners, dental professionals, and optometrists."}},{"@type":"Question","name":"Do allied health workers need AHPRA registration?","acceptedAnswer":{"@type":"Answer","text":"Yes. All allied health professionals must hold current AHPRA registration, which we verify before every deployment."}},{"@type":"Question","name":"Can you place allied health workers in rural and remote communities?","acceptedAnswer":{"@type":"Answer","text":"Yes — this is our core focus. We place allied health professionals specifically in regional and remote NSW communities including Broken Hill, Walgett, Bourke, Griffith, Moree, and Tamworth."}},{"@type":"Question","name":"How are allied health workers employed when placed?","acceptedAnswer":{"@type":"Answer","text":"HealthPlus International is the employer of record. Allied health professionals are employed directly by us — we handle payroll, super, workers comp, and compliance. The facility receives a single all-inclusive invoice."}},{"@type":"Question","name":"How quickly can you source an allied health professional?","acceptedAnswer":{"@type":"Answer","text":"We respond to all requests within 24 hours. We maintain an active candidate network across all allied health disciplines we place."}}]}
+</script>
 </head>
 <body>
 
@@ -509,6 +532,37 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
 </div>
 
 <!-- FOOTER -->
+
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-label">COMMON QUESTIONS</div>
+    <h2>Allied Health Placement — FAQs</h2>
+    <p class="faq-sub">Questions about how we place allied health professionals in regional NSW.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">Which allied health professions do you place in regional NSW?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">We place physiotherapists, occupational therapists, psychologists, podiatrists, speech pathologists, dietitians, exercise physiologists, Aboriginal and Torres Strait Islander health practitioners, medical radiation practitioners, dental professionals, and optometrists. We focus on professions with the highest shortage burden in regional and remote NSW.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">Do allied health workers need AHPRA registration?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">Yes. All allied health professionals placed by HealthPlus International must hold current AHPRA registration in their relevant profession. We verify registration status before every deployment. Workers whose registration is lapsed, suspended, or conditional are not deployed.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">Can you place allied health workers in rural and remote communities?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">Yes — this is our core focus. We place allied health professionals specifically in regional and remote NSW communities including Broken Hill, Walgett, Bourke, Griffith, Moree, Tamworth, and surrounding areas. We do not operate in metropolitan Sydney.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">How are allied health workers employed when placed?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">HealthPlus International is the employer of record for all workers we place. Allied health professionals are employed directly by us — we handle payroll, superannuation, workers compensation, and compliance. The facility receives a single all-inclusive invoice and manages clinical work on site.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-text">How quickly can you source an allied health professional?</span><span class="faq-chevron"><svg viewBox="0 0 14 8"><polyline points="1,1 7,7 13,1"/></svg></span></button>
+        <div class="faq-a">We respond to all requests within 24 hours. Placement timelines for allied health vary by profession and region — physiotherapists and OTs typically have the fastest turnaround. We maintain an active candidate network across all allied health disciplines we place.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="fb-bot">
     <p>© 2026 HealthPlus International Pty Ltd · ABN 13 155 901 723 · Sydney, NSW</p>
@@ -537,6 +591,18 @@ function submitForm(e,type){
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});},{threshold:0.08});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 </script>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-q').setAttribute('aria-expanded','false')});
+    if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true')}
+  });
+});
+</script>
+
 </body>
 </html>
 
