@@ -10,7 +10,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 **Entity:** Westminster Green Solutions ABN 13 155 901 723 T/A Health Plus International
 **Model:** Labour hire employer of record — HPI employs all workers placed with client facilities
 **Jurisdiction:** New South Wales, Australia
-**Staff types placed:** Healthcare Workers (AINs), Support Workers (NDIS/community), Allied Health (selected)
+**Staff types placed:** Healthcare Workers (AINs), Support Workers (community care), Allied Health (selected)
 **International sourcing:** Philippines & India
 
 **Key regulatory frameworks that govern ALL HPI policies:**
@@ -18,8 +18,6 @@ description: Build, generate, and maintain the complete policy and procedure lib
 - *Work Health and Safety Act 2011* (NSW) — WHS obligations
 - *Privacy Act 1988* (Cth) + Australian Privacy Principles
 - *Disability Services Act 1986* (Cth) — support worker context
-- *NDIS Act 2013* (Cth) + NDIS Practice Standards
-- *NDIS Quality and Safeguards Commission* — worker screening
 - *Aged Care Act 1997* (Cth) + Aged Care Quality Standards
 - *Anti-Discrimination Act 1977* (NSW)
 - *Modern Slavery Act 2018* (Cth)
@@ -53,7 +51,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 ### POL-001 · Code of Conduct
 **Ref:** HPI-POL-001
 **Applies to:** All healthcare workers employed by HPI
-**Regulatory basis:** Fair Work Act 2009; NDIS Code of Conduct; Aged Care Code of Conduct
+**Regulatory basis:** Fair Work Act 2009; Aged Care Code of Conduct; Fair Work Act 2009
 
 **Sections:**
 1. Purpose and scope
@@ -70,8 +68,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 12. Acknowledgement (sign-off block)
 
 **Key content notes:**
-- Must reference NDIS Code of Conduct (8 elements) where applicable to support workers
-- Must reference Aged Care Code of Conduct (7 principles) where applicable
+- Must reference Aged Care Code of Conduct (7 principles) where applicable to aged care workers
 - Workers must sign acknowledgement before first placement
 - Language: plain English, direct, no jargon
 
@@ -97,7 +94,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 **Award reference table:**
 | Worker type | Applicable Award |
 |-------------|-----------------|
-| Support Workers (NDIS) | Social, Community, Home Care and Disability Services Industry Award 2010 (SCHADS) |
+| Support Workers | Social, Community, Home Care and Disability Services Industry Award 2010 (SCHADS) |
 | Aged care / AIN | Aged Care Award 2010 |
 | Allied Health | Health Professionals and Support Services Award 2020 (HPSS) |
 
@@ -106,14 +103,13 @@ description: Build, generate, and maintain the complete policy and procedure lib
 ### POL-003 · Credentialling and Compliance Policy
 **Ref:** HPI-POL-003
 **Applies to:** All workers prior to any placement
-**Regulatory basis:** NDIS Worker Screening Act; Aged Care Act; applicable AHPRA legislation
+**Regulatory basis:** Aged Care Act 1997 (Cth); Aged Care Quality Standards; applicable AHPRA legislation; Working with Children legislation
 
 **Mandatory pre-placement checks (all workers):**
-1. ✅ National Police Check (NPC) — must be dated within 3 years; within 6 months for NDIS
+1. ✅ National Police Check (NPC) — must be dated within 3 years; within 6 months for aged care placements
 2. ✅ VEVO — visa entitlement verification, Australian working rights confirmed
 3. ✅ Qualification verification — original certificates sighted and copied
 4. ✅ Reference checks — minimum 2 professional references
-5. ✅ NDIS Worker Screening Check — mandatory for all workers supporting NDIS participants
 6. ✅ Working with Children Check (WWCC) — where any placements involve persons under 18
 7. ✅ AHPRA registration verification — for allied health professionals only
 8. ✅ Right to work in Australia — confirmed document
@@ -122,7 +118,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 **Expiry monitoring:** HPI maintains a Compliance Register (REG-001) with expiry dates
 **International workers:** AHPRA assessment pathway documented per worker; no placement until registration confirmed
 
-**Compliance Register columns:** Worker name | Role | NPC date | NPC expiry | VEVO date | NDIS screening no. | WWCC no. | AHPRA no. (if applicable) | Qualifications sighted | Right to work doc | Placement-ready status
+**Compliance Register columns:** Worker name | Role | NPC date | NPC expiry | VEVO date | WWCC no. | AHPRA no. (if applicable) | Qualifications sighted | Right to work doc | Placement-ready status
 
 ---
 
@@ -177,7 +173,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 
 **Protected attributes:** Age, disability, race, sex, pregnancy, sexual orientation, gender identity, religion, political opinion, national origin, social origin
 **Zero tolerance for:** Discrimination, harassment, sexual harassment, bullying, victimisation
-**Reporting pathway:** Direct to Abhay J Kumar | escalation to Fair Work Commission or AHRC as applicable
+**Reporting pathway:** Direct to Abhay J Kumar | escalation to Fair Work Commission, AHRC, or Aged Care Quality and Safety Commission as applicable
 
 ---
 
@@ -211,7 +207,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 2. Informal resolution — direct discussion first
 3. Formal complaint procedure
 4. Timeframes: acknowledgement within 2 business days, resolution within 14 days
-5. Escalation — if unresolved: Fair Work Commission (workers), NDIS Commission (NDIS-related), Aged Care Quality and Safety Commission (aged care)
+5. Escalation — if unresolved: Fair Work Commission (workers), Aged Care Quality and Safety Commission (aged care workers), AHRC (discrimination matters)
 6. Confidentiality during process
 7. Record keeping
 
@@ -229,7 +225,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 3. Compliance checklist initiated (FORM-001)
 4. Documents collected and verified
 5. Reference checks completed
-6. NDIS screening / WWCC applied for (if applicable)
+6. WWCC applied for (if applicable)
 7. Employment contract issued and signed (AGR-001)
 8. Code of Conduct signed (POL-001 acknowledgement)
 9. Induction completed (PROC-002)
@@ -246,7 +242,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 - Code of Conduct review
 - WHS obligations and hazard reporting
 - Privacy and confidentiality briefing
-- NDIS/Aged Care Code of Conduct (as applicable)
+- Aged Care Code of Conduct (where applicable)
 - Placement expectations — arrival, uniform, communication
 - Emergency contact procedures
 - How to report incidents
@@ -273,19 +269,12 @@ description: Build, generate, and maintain the complete policy and procedure lib
 
 ### PROC-004 · Incident Reporting Procedure
 **Ref:** HPI-PROC-004
-**Regulatory basis:** WHS Act 2011 (NSW) s.35–38 (notifiable incidents); NDIS Commission reportable incidents; Aged Care serious incident response scheme
+**Regulatory basis:** WHS Act 2011 (NSW) s.35–38 (notifiable incidents); Aged Care serious incident response scheme
 
 **Notifiable incidents (report to SafeWork NSW immediately):**
 - Death of a worker
 - Serious injury or illness (hospitalisation, amputation, serious head/eye/spinal injury)
 - Dangerous incident (near miss with serious harm potential)
-
-**NDIS reportable incidents (report to NDIS Commission within 24 hours):**
-- Death of a participant
-- Serious injury of a participant
-- Abuse or neglect
-- Unlawful sexual or physical contact
-- Unauthorised use of restrictive practices
 
 **HPI incident report process:**
 1. Worker reports incident to HPI immediately by phone
@@ -348,7 +337,6 @@ description: Build, generate, and maintain the complete policy and procedure lib
 - Qualification(s) — type, institution, date, file reference
 - National Police Check — date, reference, expiry
 - VEVO check — date, visa type, work entitlement confirmed Y/N
-- NDIS Worker Screening — status, clearance number, expiry
 - WWCC — number, expiry, state
 - AHPRA registration — number, profession, expiry, conditions Y/N
 - Right to work document — type, document number
@@ -368,7 +356,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 - Code of Conduct acknowledged Y/N
 - WHS obligations understood Y/N
 - Privacy briefing received Y/N
-- NDIS/Aged Care code acknowledged (if applicable)
+- Aged Care Code acknowledged (if applicable)
 - Questions raised (free text)
 
 ---
@@ -385,7 +373,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 - Supervisor at facility
 - Applicable Award and classification level
 - All-inclusive rate ($ per hour inc. super, WC, margin)
-- Compliance summary: NPC ✅ | VEVO ✅ | NDIS screening ✅ | WWCC ✅
+- Compliance summary: NPC ✅ | VEVO ✅ | Qualifications verified ✅ | WWCC ✅
 - Signed by: HPI Director + Client facility authorised representative
 
 ---
@@ -401,7 +389,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 - Injuries or harm (if any)
 - Immediate action taken
 - Was it a notifiable incident under WHS Act? Y/N
-- Was it a reportable incident under NDIS/Aged Care? Y/N
+- Was it a serious incident under the Aged Care serious incident response scheme? Y/N
 - Regulatory body notified: Y/N — which one, when
 - Witnesses
 - Contributing factors
@@ -456,7 +444,7 @@ description: Build, generate, and maintain the complete policy and procedure lib
 **Ref:** HPI-REG-001
 **Format:** Spreadsheet (maintained in Google Sheets or Excel)
 **Columns:**
-Worker ID | Full Name | Role | DOB | Placement Status | NPC Date | NPC Expiry | VEVO Date | Visa Expiry | NDIS Screening No. | NDIS Screening Expiry | WWCC No. | WWCC Expiry | WWCC State | AHPRA No. | AHPRA Profession | AHPRA Expiry | AHPRA Conditions | Qualifications Sighted | Employment Contract Signed | Code of Conduct Signed | Last Review Date | Notes
+Worker ID | Full Name | Role | DOB | Placement Status | NPC Date | NPC Expiry | VEVO Date | Visa Expiry | WWCC No. | WWCC Expiry | WWCC State | AHPRA No. | AHPRA Profession | AHPRA Expiry | AHPRA Conditions | Qualifications Sighted | Employment Contract Signed | Code of Conduct Signed | Last Review Date | Notes
 
 **Alerts:** Flag any document expiring within 60 days
 
@@ -465,7 +453,7 @@ Worker ID | Full Name | Role | DOB | Placement Status | NPC Date | NPC Expiry | 
 ### REG-002 · Incident Register
 **Ref:** HPI-REG-002
 **Columns:**
-Ref No. | Date | Worker | Facility | Incident Type | Notifiable WHS? | Notifiable NDIS? | Notifiable Aged Care? | Authority Notified | Date Notified | Status | Corrective Action | Closed Date
+Ref No. | Date | Worker | Facility | Incident Type | Notifiable WHS? | Notifiable Aged Care SIRS? | Authority Notified | Authority Notified | Date Notified | Status | Corrective Action | Closed Date
 
 ---
 
@@ -574,8 +562,6 @@ control_table.setStyle(TableStyle([
 | Fair Work Act 2009 (Cth) | All employment, NES, Awards, termination |
 | WHS Act 2011 (NSW) | Dual duty — HPI and client both PCBUs |
 | Privacy Act 1988 (Cth) | Worker and client data handling |
-| NDIS Act 2013 (Cth) | Support worker deployments |
-| NDIS Practice Standards | Quality requirements for support worker services |
 | Aged Care Act 1997 (Cth) | Aged care placements |
 | Aged Care Quality Standards | Quality requirements for aged care services |
 | Modern Slavery Act 2018 (Cth) | International sourcing — Philippines, India |
@@ -597,9 +583,6 @@ control_table.setStyle(TableStyle([
 
 **Incident occurs on placement**
 → FORM-004 + PROC-004 + update REG-002
-
-**Preparing for NDIS registration**
-→ POL-001 + POL-003 + POL-005 + PROC-001 + PROC-004 + REG-001 + REG-002
 
 **International worker being placed**
 → PROC-005 + AGR-001 (with international addendum) + FORM-001
