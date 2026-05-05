@@ -19,11 +19,11 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 1. Healthcare Workers (AINs)
 2. Aged Care Workers
 3. Support Workers (community care — NOT NDIS)
-4. Allied Health (11 professions — Dental removed)
+4. Allied Health (7 professions remaining)
 
 **NOT in scope:** Nurses, NDIS, mining, metro, UK/Ireland
 
-**International sourcing:** Philippines + India ONLY
+**International sourcing:** Philippines, India + Eastern Europe
 - HPI covers: visa costs, vetting, accommodation
 - Client pays: agreed hourly or negotiated rate only
 
@@ -69,7 +69,7 @@ description: Complete build, update and deployment skill for the HealthPlus Inte
 | File | Description |
 |------|-------------|
 | `index.html` | Homepage |
-| `allied-health.html` | 11 allied health professions |
+| `allied-health.html` | 7 allied health professions |
 | `services-remote.html` | Healthcare & Support Workers page |
 | `how-we-work.html` | EOR model, obligation cards |
 | `submit-a-request.html` | Facility request form → Formspree |
@@ -205,8 +205,8 @@ Footer text: minimum `rgba(255,255,255,.55)` on dark navy.
 
 ---
 
-## Allied Health Professions (11 — Dental removed)
-Physiotherapy · Occupational Therapy · Psychology · Paramedicine · Podiatry · Optometry · Speech Pathology · Aboriginal & TSI Health · Medical Radiation Practice · Dietetics & Nutrition · Exercise Physiology
+## Allied Health Professions (7 remaining)
+Occupational Therapy · Psychology · Podiatry · Aboriginal & TSI Health · Medical Radiation Practice · Dietetics & Nutrition · Exercise Physiology
 
 ---
 
