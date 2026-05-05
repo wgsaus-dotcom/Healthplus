@@ -1,0 +1,23 @@
+# HealthPlus International — robots.txt
+# healthplusint.com.au
+
+User-agent: *
+Allow: /
+
+# Do not crawl internal assets
+Disallow: /images/
+Disallow: /regions/
+
+# Allow crawler to access key pages
+Allow: /index.html
+Allow: /services-remote.html
+Allow: /allied-health.html
+Allow: /how-we-work.html
+Allow: /about.html
+Allow: /ahpra-verify.html
+Allow: /submit-a-request.html
+Allow: /join.html
+Allow: /regions/far-west-nsw.html
+
+# Sitemap
+Sitemap: https://healthplusint.com.au/sitemap.xml
