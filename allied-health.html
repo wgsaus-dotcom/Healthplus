@@ -100,7 +100,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem
 .prof-card{background:#fff;border-radius:14px;padding:1.5rem;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
 .prof-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(11,107,110,.08)}
 .prof-card.remote-focus::after{content:'REMOTE PRIORITY';position:absolute;top:12px;right:12px;font-size:8px;font-weight:700;letter-spacing:1.5px;color:var(--teal);background:var(--teal-pale);padding:3px 8px;border-radius:100px}
-.prof-icon{font-size:28px;margin-bottom:.9rem}
+.prof-icon{width:40px;height:40px;border-radius:9px;background:var(--teal-pale);border:1px solid rgba(11,107,110,.15);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;flex-shrink:0}
+.prof-icon svg{width:19px;height:19px;stroke:var(--teal);stroke-width:1.65;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .prof-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:.3rem}
 .prof-card .reg{font-size:10px;font-weight:600;color:var(--teal);letter-spacing:1px;margin-bottom:.5rem}
 .prof-card p{font-size:12px;color:var(--muted);line-height:1.6}
@@ -222,7 +223,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
   <div class="prof-grid">
 
     <div class="prof-card remote-focus fade">
-      <div class="prof-icon">🦽</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M15.89 8.11L13 10v4l2.79 2.79A2 2 0 0 1 16 18.41V21a1 1 0 0 1-2 0v-2.59l-2-2V13l-2 2H8a1 1 0 0 1 0-2h1.5L12 9l3.89-2.89"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Physiotherapy</h3>
       <p>Regional communities have high rates of musculoskeletal conditions from physical work, agricultural activity, and chronic disease. Physiotherapists are a critical link between injury and recovery — and are among the most requested allied health workers in remote NSW.</p>
@@ -230,7 +231,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card remote-focus fade">
-      <div class="prof-icon">🧠</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="12" y2="16"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Occupational Therapy</h3>
       <p>OTs in remote areas support aged care, disability, and post-injury return to work — critical roles in communities far from metro OT services.</p>
@@ -238,7 +239,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card remote-focus fade">
-      <div class="prof-icon">💬</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/><line x1="12" y1="12" x2="12" y2="15"/><circle cx="12" cy="17" r=".5" fill="currentColor" stroke="none"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Psychology</h3>
       <p>Mental health crisis in remote NSW is severe. Psychologists, including those endorsed for rural and remote practice, are urgently needed.</p>
@@ -246,7 +247,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card remote-focus fade">
-      <div class="prof-icon">🚑</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Paramedicine</h3>
       <p>Paramedics working in extended care roles and remote area settings — essential for communities where the nearest hospital is hours away.</p>
@@ -254,7 +255,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card fade">
-      <div class="prof-icon">🦵</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/><path d="M12 8v4l3 3"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Podiatry</h3>
       <p>Diabetes-related foot complications are disproportionately common in remote communities. Podiatrists play a vital role in preventing amputations.</p>
@@ -262,15 +263,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card fade">
-      <div class="prof-icon">🦷</div>
-      <div class="reg">credentialled</div>
-      <h3>Dental</h3>
-      <p>Dental health in remote NSW is significantly below metro averages. Dentists, dental therapists and oral health therapists for remote clinics.</p>
-      <div class="roles"><span class="role-tag">General Dental</span><span class="role-tag">Oral Health</span><span class="role-tag">Paediatric</span></div>
-    </div>
-
-    <div class="prof-card fade">
-      <div class="prof-icon">👁️</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Optometry</h3>
       <p>Vision health in remote communities, including trachoma screening and management in Aboriginal communities across western NSW.</p>
@@ -278,7 +271,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card fade">
-      <div class="prof-icon">🗣️</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Speech Pathology</h3>
       <p>Speech pathologists for paediatric developmental services, aged care, and Aboriginal community programs in remote NSW.</p>
@@ -286,7 +279,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card fade">
-      <div class="prof-icon">🌿</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Aboriginal &amp; Torres Strait Islander Health</h3>
       <p>credentialled Aboriginal and Torres Strait Islander Health Practitioners for culturally safe care in remote community health settings.</p>
@@ -294,7 +287,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card fade">
-      <div class="prof-icon">🧬</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M9 8h6"/><path d="M9 12h4"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Medical Radiation Practice</h3>
       <p>Radiographers and radiation therapists for remote hospitals and multipurpose health services with on-site imaging capabilities.</p>
@@ -302,7 +295,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card fade">
-      <div class="prof-icon">🍎</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
       <div class="reg">DIETITIANS AUSTRALIA</div>
       <h3>Dietetics &amp; Nutrition</h3>
       <p>Dietitians for chronic disease management, diabetes programs, and community nutrition in remote NSW where diet-related illness is high.</p>
@@ -310,7 +303,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
     </div>
 
     <div class="prof-card fade">
-      <div class="prof-icon">💪</div>
+      <div class="prof-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
       <div class="reg">credentialled</div>
       <h3>Exercise Physiology</h3>
       <p>Accredited Exercise Physiologists for chronic disease management, cardiac rehab, and disability services in remote communities.</p>
@@ -406,7 +399,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
             <select required>
               <option value="">Select...</option>
               <option>Physiotherapy</option><option>Occupational Therapy</option><option>Psychology</option>
-              <option>Paramedicine</option><option>Podiatry</option><option>Dental</option>
+              <option>Paramedicine</option><option>Podiatry</option>
               <option>Optometry</option><option>Speech Pathology</option>
               <option>Aboriginal & Torres Strait Islander Health</option>
               <option>Medical Radiation Practice</option><option>Dietetics & Nutrition</option>
@@ -431,7 +424,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem}
             <select required>
               <option value="">Select...</option>
               <option>Physiotherapy</option><option>Occupational Therapy</option><option>Psychology</option>
-              <option>Paramedicine</option><option>Podiatry</option><option>Dental</option>
+              <option>Paramedicine</option><option>Podiatry</option>
               <option>Optometry</option><option>Speech Pathology</option>
               <option>Aboriginal & Torres Strait Islander Health</option>
               <option>Medical Radiation Practice</option><option>Dietetics & Nutrition</option>
