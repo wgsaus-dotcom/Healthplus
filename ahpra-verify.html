@@ -294,7 +294,7 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:1060px){
+
   .nav-hamburger{display:flex}
   .nav-links{display:none!important}
   .nav-links.mobile-open{
@@ -319,20 +319,48 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
   .nav-links a{font-size:11.5px;font-weight:600;white-space:nowrap}
 }
 /* ─────────────────────────────────────────────────────────── */
+
+/* ── MOBILE NAV ───────────────────────────────────── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:1.5px solid rgba(11,107,110,.25);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0;margin-left:.75rem}
+.nav-hamburger span{display:block;width:18px;height:2px;background:#0B6B6E;border-radius:2px;transition:transform .25s,opacity .2s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1080px){
+  .nav-hamburger{display:flex!important}
+  .nav-links{display:none!important}
+  .nav-links.mob-open{
+    display:flex!important;flex-direction:column;gap:0;list-style:none;
+    position:fixed;top:66px;left:0;right:0;bottom:0;z-index:9999;
+    background:#fff;overflow-y:auto;
+    padding:1rem 2rem 3rem;border-top:1px solid rgba(11,107,110,.1);
+  }
+  .nav-links.mob-open li{border-bottom:1px solid rgba(11,107,110,.07)}
+  .nav-links.mob-open a{display:block;padding:.9rem .1rem;font-size:16px!important;font-weight:600;color:#1B3A5C!important;text-decoration:none}
+  .nav-links.mob-open a:hover,.nav-links.mob-open a.active{color:#0B6B6E!important}
+  .nav-links.mob-open .nav-btn,.nav-links.mob-open .nav-cta{
+    display:block!important;margin-top:.75rem;padding:1rem!important;
+    background:#0B6B6E!important;color:#fff!important;border-radius:8px;
+    text-align:center;font-size:16px!important;font-weight:700!important;
+  }
+}
+@media(min-width:1081px){
+  .nav-hamburger{display:none!important}
+  .nav-links{display:flex!important;align-items:center;gap:.55rem;list-style:none;flex-wrap:nowrap}
+  .nav-links a{font-size:11px!important;font-weight:600;white-space:nowrap}
+  .nav-btn,.nav-cta{font-size:11px!important;padding:7px 14px!important}
+}
+/* ─────────────────────────────────────────────────── */
+
 </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo"><img src="images/logo-healthplus.png" alt="HealthPlus International" style="height:54px;width:auto;display:block"></a>
-  <div style="display:flex;align-items:center;gap:1rem"><a href="index.html" class="nav-back">← Back to home</a><a href="ain.html" style="font-size:13px;font-weight:600;color:var(--teal);text-decoration:none;margin-left:.5rem">AIN Placements</a><a href="allied-health.html" style="font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;margin-left:.75rem">Allied Health</a><a href="submit-a-request.html" style="font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;margin-left:.75rem">Submit a Request</a><div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-left:1.5rem;flex-shrink:0">
-    <a href="tel:+61411459755" style="font-family:inherit;font-size:11.5px;font-weight:500;color:#5a6a7a;text-decoration:none;white-space:nowrap;line-height:1.3"><strong style="font-weight:700;color:#1B3A5C;margin-right:3px">Phone:</strong>+61 411 459 755</a>
-    <a href="mailto:connect@healthplusint.com.au" style="font-family:inherit;font-size:11.5px;font-weight:500;color:#5a6a7a;text-decoration:none;white-space:nowrap;line-height:1.3"><strong style="font-weight:700;color:#1B3A5C;margin-right:3px">Email:</strong>connect@healthplusint.com.au</a>
-  </div></div>
+  <div style="display:flex;align-items:center;gap:1rem"><a href="index.html" class="nav-back">← Back to home</a><a href="ain.html" style="font-size:13px;font-weight:600;color:var(--teal);text-decoration:none;margin-left:.5rem">AIN Placements</a><a href="allied-health.html" style="font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;margin-left:.75rem">Allied Health</a><a href="submit-a-request.html" style="font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;margin-left:.75rem">Submit a Request</a></div>
 
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="page">
@@ -547,24 +575,24 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Enter') verifyAHPRA();
 });
 </script>
+
 <script>
 (function(){
-  var btn = document.getElementById('navHamburger');
-  var nav = document.querySelector('.nav-links');
-  if(!btn||!nav) return;
-  btn.addEventListener('click', function(){
-    var open = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+  var btn=document.getElementById('navHamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){
+    var o=nav.classList.toggle('mob-open');
+    btn.classList.toggle('open',o);
+    btn.setAttribute('aria-expanded',o);
+    document.body.style.overflow=o?'hidden':'';
   });
-  // close on link click
   nav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      nav.classList.remove('mobile-open');
+    a.addEventListener('click',function(){
+      nav.classList.remove('mob-open');
       btn.classList.remove('open');
       btn.setAttribute('aria-expanded','false');
-      document.body.style.overflow = '';
+      document.body.style.overflow='';
     });
   });
 })();
