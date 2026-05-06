@@ -201,6 +201,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem
   .nav-links.is-open a:hover,.nav-links.is-open a.active{color:#0B6B6E!important}
 }
 /* ═════════════════════════════════════════════════════════════════════════ */
+
+.nav-phone-item{display:none}
+@media(max-width:900px){
+  .nav-links.is-open .nav-phone-item{display:block;border-top:2px solid rgba(11,107,110,.15)!important;margin-top:.5rem;padding-top:.25rem}
+  .nav-links.is-open .nav-phone-item a{color:#0B6B6E!important;font-weight:700!important;font-size:15px!important;display:flex;align-items:center}
+}
 </style>
 </head>
 <body class="has-banner">
