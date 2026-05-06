@@ -15,6 +15,6 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CF_WORKER_TOKEN }}
-          accountId: d2586c55db329e1e12cbaf3285d32f1a
+          apiToken: ${{ secrets.CF_PAGES_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: pages deploy . --project-name=healthplus --commit-dirty=true
