@@ -51,13 +51,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden;max-width:100%}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;color:#1a1a1a;background:#F7F8F6;-webkit-font-smoothing:antialiased}
 :root{--teal:#0B6B6E;--teal-d:#085558;--teal-pale:#E1F5EE;--teal-mid:#9FE1CB;--navy:#1B3A5C;--navy-d:#0D1F33;--off:#F7F8F6;--border:rgba(11,107,110,0.12);--muted:#5a6a7a}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.07)}
-.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
 .logo svg{width:32px;height:32px}
 .logo-text span:first-child{display:block;font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.5px}
 .logo-text span:last-child{display:block;font-size:8px;font-weight:600;color:var(--navy);letter-spacing:3px}
