@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://healthplusint.com.au/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/"/>
@@ -12,15 +12,23 @@
 
   <url>
     <loc>https://healthplusint.com.au/services-remote.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/services-remote.html"/>
   </url>
 
+
+  <url>
+    <loc>https://healthplusint.com.au/ain.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/ain.html"/>
+  </url>
   <url>
     <loc>https://healthplusint.com.au/allied-health.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/allied-health.html"/>
@@ -28,7 +36,7 @@
 
   <url>
     <loc>https://healthplusint.com.au/how-we-work.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/how-we-work.html"/>
@@ -36,7 +44,7 @@
 
   <url>
     <loc>https://healthplusint.com.au/about.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/about.html"/>
@@ -44,7 +52,7 @@
 
   <url>
     <loc>https://healthplusint.com.au/ahpra-verify.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/ahpra-verify.html"/>
@@ -52,7 +60,7 @@
 
   <url>
     <loc>https://healthplusint.com.au/submit-a-request.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/submit-a-request.html"/>
@@ -60,7 +68,7 @@
 
   <url>
     <loc>https://healthplusint.com.au/join.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/join.html"/>
@@ -68,7 +76,7 @@
 
   <url>
     <loc>https://healthplusint.com.au/regions/far-west-nsw.html</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/regions/far-west-nsw.html"/>
