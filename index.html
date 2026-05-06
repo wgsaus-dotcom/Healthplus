@@ -608,7 +608,7 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:1060px){
+
   .nav-hamburger{display:flex}
   .nav-links{display:none!important}
   .nav-links.mobile-open{
@@ -633,6 +633,39 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
   .nav-links a{font-size:11.5px;font-weight:600;white-space:nowrap}
 }
 /* ─────────────────────────────────────────────────────────── */
+
+/* ── MOBILE NAV ───────────────────────────────────── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:1.5px solid rgba(11,107,110,.25);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0;margin-left:.75rem}
+.nav-hamburger span{display:block;width:18px;height:2px;background:#0B6B6E;border-radius:2px;transition:transform .25s,opacity .2s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1080px){
+  .nav-hamburger{display:flex!important}
+  .nav-links{display:none!important}
+  .nav-links.mob-open{
+    display:flex!important;flex-direction:column;gap:0;list-style:none;
+    position:fixed;top:66px;left:0;right:0;bottom:0;z-index:9999;
+    background:#fff;overflow-y:auto;
+    padding:1rem 2rem 3rem;border-top:1px solid rgba(11,107,110,.1);
+  }
+  .nav-links.mob-open li{border-bottom:1px solid rgba(11,107,110,.07)}
+  .nav-links.mob-open a{display:block;padding:.9rem .1rem;font-size:16px!important;font-weight:600;color:#1B3A5C!important;text-decoration:none}
+  .nav-links.mob-open a:hover,.nav-links.mob-open a.active{color:#0B6B6E!important}
+  .nav-links.mob-open .nav-btn,.nav-links.mob-open .nav-cta{
+    display:block!important;margin-top:.75rem;padding:1rem!important;
+    background:#0B6B6E!important;color:#fff!important;border-radius:8px;
+    text-align:center;font-size:16px!important;font-weight:700!important;
+  }
+}
+@media(min-width:1081px){
+  .nav-hamburger{display:none!important}
+  .nav-links{display:flex!important;align-items:center;gap:.55rem;list-style:none;flex-wrap:nowrap}
+  .nav-links a{font-size:11px!important;font-weight:600;white-space:nowrap}
+  .nav-btn,.nav-cta{font-size:11px!important;padding:7px 14px!important}
+}
+/* ─────────────────────────────────────────────────── */
+
 </style>
 
 <script type="application/ld+json">
@@ -656,7 +689,9 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
     <li><a href="contact.html">Contact Us</a></li>
     <li><a href="submit-a-request.html" class="nav-btn">Submit a Request</a></li>
   </ul>
-  </nav>
+  
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -1196,24 +1231,24 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
 });
 </script>
 
+
 <script>
 (function(){
-  var btn = document.getElementById('navHamburger');
-  var nav = document.querySelector('.nav-links');
-  if(!btn||!nav) return;
-  btn.addEventListener('click', function(){
-    var open = nav.classList.toggle('mobile-open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+  var btn=document.getElementById('navHamburger');
+  var nav=document.querySelector('.nav-links');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){
+    var o=nav.classList.toggle('mob-open');
+    btn.classList.toggle('open',o);
+    btn.setAttribute('aria-expanded',o);
+    document.body.style.overflow=o?'hidden':'';
   });
-  // close on link click
   nav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      nav.classList.remove('mobile-open');
+    a.addEventListener('click',function(){
+      nav.classList.remove('mob-open');
       btn.classList.remove('open');
       btn.setAttribute('aria-expanded','false');
-      document.body.style.overflow = '';
+      document.body.style.overflow='';
     });
   });
 })();
