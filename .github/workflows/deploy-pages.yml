@@ -21,7 +21,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
           wrangler pages deploy . \
-            --project-name=healthplus \
+            --project-name=healthplus-3gy \
             --branch=main \
             --commit-dirty=true
 
@@ -30,9 +30,8 @@ jobs:
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
           CF_PAGES_TOKEN: ${{ secrets.CF_PAGES_TOKEN }}
         run: |
-          curl -X POST \
+          curl -s -X POST \
             "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/purge_cache" \
             -H "Authorization: Bearer $CF_PAGES_TOKEN" \
             -H "Content-Type: application/json" \
-            --data '{"purge_everything":true}'
-          echo "Cache purged."
+            --data '{"purge_everything":true}' | python3 -c "import sys,json; d=json.load(sys.stdin); print('Cache purge:', 'SUCCESS' if d.get('success') else 'FAILED', d.get('errors',''))"
