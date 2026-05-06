@@ -98,12 +98,12 @@ nav{
 .logo svg{width:32px;height:32px}
 .logo-text span:first-child{display:block;font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.5px}
 .logo-text span:last-child{display:block;font-size:8px;font-weight:600;color:var(--navy);letter-spacing:3px}
-.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
-.nav-links a{font-size:13px;font-weight:600;color:#5a6a7a;text-decoration:none;transition:color .2s}
+.nav-links{display:flex;align-items:center;gap:.65rem;list-style:none;flex-wrap:nowrap}
+.nav-links a{font-size:11.5px;font-weight:600;color:#5a6a7a;text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--teal)}
 .nav-btn{background:var(--navy);color:#fff!important;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:700!important;transition:background .2s!important}
 .nav-btn:hover{background:var(--teal)!important}
-@media(max-width:768px){nav{padding:0 1.25rem}.nav-links{display:none}}
+
 
 /* ── HERO ── */
 .hero{
@@ -601,6 +601,38 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
 .faq-a{display:none;padding:0 0 1.25rem;font-size:14.5px;color:var(--muted);line-height:1.8}
 .faq-item.open .faq-a{display:block}
 @media(max-width:768px){.faq-section{padding:3.5rem 1.5rem}}
+
+/* ── HAMBURGER NAV ─────────────────────────────────────────── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:1.5px solid rgba(11,107,110,.2);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
+.nav-hamburger span{display:block;width:18px;height:2px;background:var(--teal,#0B6B6E);border-radius:2px;transition:transform .25s,opacity .25s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1060px){
+  .nav-hamburger{display:flex}
+  .nav-links{display:none!important}
+  .nav-links.mobile-open{
+    display:flex!important;flex-direction:column;align-items:stretch;gap:0;
+    position:fixed;top:66px;left:0;right:0;bottom:0;
+    background:rgba(255,255,255,.98);backdrop-filter:blur(12px);
+    padding:1.5rem 1.75rem 2rem;overflow-y:auto;z-index:499;
+    border-top:1px solid rgba(11,107,110,.1);
+  }
+  .nav-links.mobile-open li{border-bottom:.5px solid rgba(11,107,110,.08)}
+  .nav-links.mobile-open a{display:block;font-size:15px!important;font-weight:600;color:#1B3A5C!important;padding:1rem .25rem;text-decoration:none;transition:color .15s}
+  .nav-links.mobile-open a:hover{color:#0B6B6E!important}
+  .nav-links.mobile-open .nav-btn,.nav-links.mobile-open .nav-cta{
+    margin-top:1rem;background:#0B6B6E!important;color:#fff!important;
+    border-radius:8px;padding:1rem 1.25rem!important;text-align:center;
+    font-size:15px!important;border:none;
+  }
+  .nav-contact-block{display:none}
+}
+@media(min-width:1061px){
+  .nav-links{display:flex!important;align-items:center;gap:.65rem;list-style:none;flex-wrap:nowrap}
+  .nav-links a{font-size:11.5px;font-weight:600;white-space:nowrap}
+}
+/* ─────────────────────────────────────────────────────────── */
 </style>
 
 <script type="application/ld+json">
@@ -624,111 +656,7 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
     <li><a href="contact.html">Contact Us</a></li>
     <li><a href="submit-a-request.html" class="nav-btn">Submit a Request</a></li>
   </ul>
-  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-left:1.5rem;flex-shrink:0">
-    <a href="tel:+61411459755" style="font-family:inherit;font-size:11.5px;font-weight:500;color:#5a6a7a;text-decoration:none;white-space:nowrap;line-height:1.3"><strong style="font-weight:700;color:#1B3A5C;margin-right:3px">Phone:</strong>+61 411 459 755</a>
-    <a href="mailto:connect@healthplusint.com.au" style="font-family:inherit;font-size:11.5px;font-weight:500;color:#5a6a7a;text-decoration:none;white-space:nowrap;line-height:1.3"><strong style="font-weight:700;color:#1B3A5C;margin-right:3px">Email:</strong>connect@healthplusint.com.au</a>
-  </div>
-</nav>
-<!-- TRUST BAR -->
-<div class="trust-bar" id="trustBar">
-  <div class="trust-item"><span class="trust-icon">✓</span> <strong>AHPRA Verified</strong></div>
-  <div class="trust-item"><span class="trust-icon">✓</span> <strong>National Police Clearance</strong></div>
-  <div class="trust-item"><span class="trust-icon">✓</span> <strong>Employer of Record</strong></div>
-  <div class="trust-item"><span class="trust-icon">✓</span> <strong>Fair Work Compliant</strong></div>
-  <div class="trust-item"><span class="trust-icon">✓</span> <strong>20+ Yrs Labour Hire</strong></div>
-  <div class="trust-item"><span class="trust-icon">✓</span> <strong>24hr Response</strong></div>
-</div>
-
-
-<!-- FLOATING ACTION BUTTON -->
-<button class="fab" onclick="openModal()" aria-label="Request staff urgently">
-  <div class="fab-dot"></div>
-  Request Staff Now
-</button>
-
-<!-- URGENT REQUEST MODAL -->
-<div class="modal-overlay" id="urgentModal" onclick="if(event.target===this)closeModal()">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div id="modalForm">
-      <p class="modal-tag">URGENT WORKFORCE REQUEST</p>
-      <h2 class="modal-title">What do you need?</h2>
-      <p class="modal-sub">Three questions. We'll respond within 24 hours — usually sooner for urgent needs.</p>
-      <div class="modal-field">
-        <label>ROLE NEEDED</label>
-        <select id="mRole">
-          <option value="">Select role...</option>
-          <option>AIN (Assistant in Nursing)</option>
-          <option>Healthcare Worker</option>
-          <option>Support Worker (Community Care)</option>
-          <option>Aged Care Worker</option>
-                    <option>Occupational Therapist</option>
-          <option>Psychologist</option>
-          <option>Allied Health Professional</option>
-        </select>
-      </div>
-      <div class="modal-field">
-        <label>REGION</label>
-        <select id="mRegion">
-          <option value="">Select region...</option>
-          <option>Far West LHD — Broken Hill, Bourke, Wilcannia</option>
-          <option>Western NSW LHD — Dubbo, Orange, Bathurst</option>
-          <option>Murrumbidgee LHD — Wagga Wagga, Griffith, Albury</option>
-          <option>Hunter New England LHD — Tamworth, Armidale, Moree</option>
-          <option>Northern NSW LHD — Lismore, Grafton, Ballina</option>
-          <option>Mid North Coast LHD — Port Macquarie, Coffs Harbour</option>
-          <option>Other regional NSW</option>
-        </select>
-      </div>
-      <div class="modal-field">
-        <label>TIMEFRAME</label>
-        <select id="mUrgency">
-          <option value="">Select urgency...</option>
-          <option>Within 24 hours — critical gap</option>
-          <option>Within 7 days</option>
-          <option>Within 2–4 weeks</option>
-          <option>Planning ahead — next month+</option>
-        </select>
-      </div>
-      <div class="modal-field">
-        <label>YOUR EMAIL</label>
-        <input type="email" id="mEmail" placeholder="your@email.com">
-      </div>
-      <button class="modal-submit" onclick="submitUrgent()">Send Request →</button>
-    </div>
-    <div class="modal-success" id="modalSuccess">
-      <div class="tick"><svg viewBox="0 0 24 24" style="width:44px;height:44px;stroke:var(--teal);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-      <h3>Request received.</h3>
-      <p>We'll contact you within 24 hours.<br>For immediate needs call <a href="tel:+61411459755" style="color:var(--teal)">+61 411 459 755</a></p>
-    </div>
-  </div>
-</div>
-
-<!-- MOBILE BOTTOM NAV -->
-<nav class="mobile-nav" aria-label="Mobile navigation">
-  <div class="mobile-nav-inner">
-    <a href="index.html" class="mnav-btn active">
-      <span class="mnav-icon"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-      <span class="mnav-label">Home</span>
-    </a>
-    <a href="about.html" class="mnav-btn">
-      <span class="mnav-icon"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
-      <span class="mnav-label">About</span>
-    </a>
-    <button class="mnav-btn primary" onclick="openModal()">
-      <span class="mnav-icon" style="color:#9FE1CB"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:#9FE1CB;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
-      <span class="mnav-label" style="color:#9FE1CB">Request</span>
-    </button>
-    <a href="index.html#register" class="mnav-btn">
-      <span class="mnav-icon"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-      <span class="mnav-label">Join</span>
-    </a>
-    <a href="tel:+61411459755" class="mnav-btn">
-      <span class="mnav-icon"><svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.59a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-      <span class="mnav-label">Call</span>
-    </a>
-  </div>
-</nav>
+  </nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -1268,5 +1196,27 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
 });
 </script>
 
+<script>
+(function(){
+  var btn = document.getElementById('navHamburger');
+  var nav = document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  // close on link click
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+</script>
 </body>
 </html>
