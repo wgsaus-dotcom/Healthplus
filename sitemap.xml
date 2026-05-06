@@ -90,4 +90,12 @@
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/regions/far-west-nsw.html"/>
   </url>
 
+
+  <url>
+    <loc>https://healthplusint.com.au/contact.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/contact.html"/>
+  </url>
 </urlset>
