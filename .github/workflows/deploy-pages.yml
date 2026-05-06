@@ -1,0 +1,20 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_WORKER_TOKEN }}
+          accountId: d2586c55db329e1e12cbaf3285d32f1a
+          command: pages deploy . --project-name=healthplus --commit-dirty=true
