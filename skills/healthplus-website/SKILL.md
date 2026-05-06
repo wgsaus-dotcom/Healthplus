@@ -311,24 +311,47 @@ id = "e34cac0c7a584a3189714ed5b0220e8a"
 
 ---
 
-## Governance Documents (built May 2026)
+---
 
-| Document | Status | File |
-|----------|--------|------|
-| Company Constitution (14 parts) | ✅ Drafted — needs lawyer review + deed execution | HPI_Constitution_WestminsterGreenSolutions.pdf |
+## Governance Documents — R2 Storage
+
+All governance documents stored in `r2://hpi-candidate-docs/governance/`
+
+| File | Status | R2 Path |
+|------|--------|---------|
+| Company Constitution (14 parts) | ✅ Drafted — needs lawyer review + deed execution | `governance/HPI_Constitution_WestminsterGreenSolutions.pdf` |
+| Profit Sharing & Business Development Agreement | ✅ Drafted — needs agreed figures + lawyer review | `governance/HPI_ProfitSharing_Agreement_2026.pdf` |
+
+### Partnership Agreement Key Terms (HPI-PSA-2026-001)
+- **Party A:** Westminster Green Solutions Pty Ltd (Abhay J Kumar, Sole Director)
+- **Party B:** Reji Varghese — Business Development Consultant + Honorary Board Director (International Operations)
+- **Profit split:** 50% Net Profit each (Gross Revenue − Gross Expenses − Tax)
+- **Director salary:** Capped at agreed amount — cannot be exceeded without Reji's written consent
+- **Minimum draw:** Agreed monthly advance against profit share (non-recoverable if profit falls short)
+- **Monthly reporting:** P&L report within 15 days of month end, bank statements on request
+- **Retirement:** Reji retires → Passive Royalty (50% Net Profit) in perpetuity, no restraint
+- **Death:** Next of Kin receives payments for 10 years from date of death
+- **Sale:** Reji gets 50% of Net Sale Proceeds — 60 days notice required
+- **Termination for convenience:** Accrued profit share + 50% goodwill valuation
+- **Termination for cause:** Accrued profit share only — no goodwill, no royalty
+- **Full exit by Reji:** Goodwill valuation OR dissolution + 3-year restraint in NSW
+- **Reserved Matters (need both parties):** Sale, major contracts, capex, salary above cap, related-party transactions, debt, brand changes, new JVs
+- **Restraint:** 3 years NSW — applies equally to Abhay if he terminates for convenience
+- **Governing law:** NSW | **Dispute:** Mediation first, then NSW courts
+- **[INSERT BEFORE SIGNING]:** Director salary cap amount · Major contract threshold · Minimum monthly draw amount · Reji ABN/TFN · Reji email/phone
 
 ### Next governance documents to build:
 1. Board Charter
 2. Conflict of Interest Policy + Register
 3. Employment Contract — Healthcare Worker (Health Professionals Award)
 4. Employment Contract — Aged Care Worker (Aged Care Award)
-5. Employment Contract — Support Worker (SCHADS Award)
-6. On-Hire / Labour Hire Agreement
+5. Employment Contract — Support Worker (SCHADS Award — 3.5% increase from 1 July 2025)
+6. On-Hire / Labour Hire Agreement (facility contract)
 7. Client Service Agreement
 8. Host Employer WHS Agreement
-9. Privacy Policy
-10. Whistleblower Policy
-
+9. Privacy Policy (mandatory — health records involved)
+10. Whistleblower Policy (mandatory for Pty Ltd)
+11. International Worker Placement Agreement (visa/accommodation/AQF mapping)
 ---
 
 ## Skills in GitHub (skills/ folder)
