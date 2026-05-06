@@ -61,12 +61,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 2.5rem
 .logo svg{width:32px;height:32px}
 .logo-text span:first-child{display:block;font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.5px}
 .logo-text span:last-child{display:block;font-size:8px;font-weight:600;color:var(--navy);letter-spacing:3px}
-.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}
+.nav-links{display:flex;align-items:center;gap:.65rem;list-style:none;flex-wrap:nowrap}
 .nav-links a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--teal)}
 .nav-btn{background:var(--navy);color:#fff!important;padding:9px 20px;border-radius:6px;font-weight:700!important}
 .nav-btn:hover{background:var(--teal)!important}
-@media(max-width:768px){nav{padding:0 1.25rem}.nav-links{display:none}}
+
 
 /* HERO */
 .hero{margin-top:66px;background:var(--navy-d);padding:4rem 4rem 3rem;position:relative;overflow:hidden}
@@ -290,6 +290,38 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
 .faq-a{display:none;padding:0 0 1.25rem;font-size:14.5px;color:var(--muted);line-height:1.8}
 .faq-item.open .faq-a{display:block}
 @media(max-width:768px){.faq-section{padding:3.5rem 1.5rem}}
+
+/* ── HAMBURGER NAV ─────────────────────────────────────────── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:1.5px solid rgba(11,107,110,.2);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
+.nav-hamburger span{display:block;width:18px;height:2px;background:var(--teal,#0B6B6E);border-radius:2px;transition:transform .25s,opacity .25s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1060px){
+  .nav-hamburger{display:flex}
+  .nav-links{display:none!important}
+  .nav-links.mobile-open{
+    display:flex!important;flex-direction:column;align-items:stretch;gap:0;
+    position:fixed;top:66px;left:0;right:0;bottom:0;
+    background:rgba(255,255,255,.98);backdrop-filter:blur(12px);
+    padding:1.5rem 1.75rem 2rem;overflow-y:auto;z-index:499;
+    border-top:1px solid rgba(11,107,110,.1);
+  }
+  .nav-links.mobile-open li{border-bottom:.5px solid rgba(11,107,110,.08)}
+  .nav-links.mobile-open a{display:block;font-size:15px!important;font-weight:600;color:#1B3A5C!important;padding:1rem .25rem;text-decoration:none;transition:color .15s}
+  .nav-links.mobile-open a:hover{color:#0B6B6E!important}
+  .nav-links.mobile-open .nav-btn,.nav-links.mobile-open .nav-cta{
+    margin-top:1rem;background:#0B6B6E!important;color:#fff!important;
+    border-radius:8px;padding:1rem 1.25rem!important;text-align:center;
+    font-size:15px!important;border:none;
+  }
+  .nav-contact-block{display:none}
+}
+@media(min-width:1061px){
+  .nav-links{display:flex!important;align-items:center;gap:.65rem;list-style:none;flex-wrap:nowrap}
+  .nav-links a{font-size:11.5px;font-weight:600;white-space:nowrap}
+}
+/* ─────────────────────────────────────────────────────────── */
 </style>
 
 <script type="application/ld+json">
@@ -316,6 +348,10 @@ button[type=submit]{font-size:15px!important;padding:13px 26px!important;min-hei
     <a href="tel:+61411459755" style="font-family:inherit;font-size:11.5px;font-weight:500;color:#5a6a7a;text-decoration:none;white-space:nowrap;line-height:1.3"><strong style="font-weight:700;color:#1B3A5C;margin-right:3px">Phone:</strong>+61 411 459 755</a>
     <a href="mailto:connect@healthplusint.com.au" style="font-family:inherit;font-size:11.5px;font-weight:500;color:#5a6a7a;text-decoration:none;white-space:nowrap;line-height:1.3"><strong style="font-weight:700;color:#1B3A5C;margin-right:3px">Email:</strong>connect@healthplusint.com.au</a>
   </div>
+
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -631,6 +667,28 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
 });
 </script>
 
+<script>
+(function(){
+  var btn = document.getElementById('navHamburger');
+  var nav = document.querySelector('.nav-links');
+  if(!btn||!nav) return;
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('mobile-open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  // close on link click
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('mobile-open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+</script>
 </body>
 </html>
 
