@@ -342,7 +342,7 @@ const SCALE = 1.9;
 const OFFSET_X = 8;   // push map right so text doesn't overlap
 const OFFSET_Y = 0;
 function ll(lon, lat){
-  return [(lon - 134) * SCALE + OFFSET_X, -(lat + 27) * SCALE + OFFSET_Y];
+  return [(lon - 134) * SCALE + OFFSET_X, (lat + 27) * SCALE + OFFSET_Y];
 }
 function v3(lon, lat, z=0){ const [x,y]=ll(lon,lat); return new THREE.Vector3(x,y,z); }
 
