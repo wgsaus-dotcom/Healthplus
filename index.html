@@ -66,10 +66,10 @@ h1 .teal-ol{-webkit-text-stroke:1.5px var(--teal);color:transparent;display:bloc
 .legend-line{width:20px;height:1px;flex-shrink:0}
 @media(max-width:640px){.map-legend{display:none}}
 
-.hero-scroll{position:absolute;left:0;bottom:36px;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp 1s 2s ease forwards;display:none}
-.scroll-track{width:48px;height:1px;background:rgba(13,31,51,.15);position:relative;overflow:hidden}
-.scroll-track::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;background:var(--teal);animation:scrollRight 2s ease-in-out infinite}
-@keyframes scrollRight{0%{left:-40%}100%{left:140%}}
+
+
+
+
 .scroll-label{font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:rgba(13,31,51,.4)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -233,9 +233,6 @@ footer{position:relative;z-index:10;background:#050C15;padding:56px 48px 36px}
     <a href="submit-a-request.html" class="btn-primary"><span>Submit a Workforce Request</span></a>
     <a href="join.html" class="btn-ghost">Register as a Healthcare Worker</a>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-track"></div>
-    <div class="scroll-label">Scroll to explore</div>
   </div>
 </section>
 
@@ -411,29 +408,35 @@ const TAS = [
 // East: Pacific coast south to ~-37.5°S
 // South: Murray River west to 141°E at ~-34°S
 const NSW = [
-  // SW corner — SA/Murray River junction
+  // SW corner — SA border meets Murray River at ~141°E, 34°S
   [141.0,-34.0],
-  // West border north (141°E — dead straight SA/QLD line)
-  [141.0,-29.0],
-  // QLD border — heads east then follows Macintyre/Barwon rivers (dips south)
-  [141.0,-28.5],[142.0,-29.0],[144.0,-29.0],
-  [145.5,-29.0],[147.0,-28.6],[148.5,-28.7],
-  [149.5,-28.5],[150.8,-28.4],[152.0,-28.2],
-  [153.0,-28.1],[153.5,-28.2],
-  // NE coast — Tweed Heads area
-  [153.6,-28.5],
-  // NSW Pacific coast heading south
-  [153.4,-29.5],[153.1,-30.5],[152.9,-31.4],
-  [152.2,-32.5],[151.7,-33.0],[151.2,-33.9],  // Sydney
-  [151.0,-34.2],[150.7,-35.0],[150.5,-35.7],
-  [150.1,-36.3],[149.9,-37.1],[149.7,-37.4],
-  // SE corner — far south NSW coast
-  [149.5,-37.5],[149.0,-37.6],
-  // Murray River — follows river westward with realistic meanders
-  // River runs roughly: starts ~SE at -37.5, heads west dropping to -36 then -35.5
-  [148.0,-36.9],[147.0,-36.0],[146.0,-35.8],
-  [145.0,-35.7],[144.2,-35.7],[143.5,-35.2],
-  [142.5,-34.8],[141.8,-34.4],[141.3,-34.1],
+  // North up SA border (141°E dead straight to QLD corner at ~29°S)
+  [141.0,-32.0],[141.0,-30.0],[141.0,-29.0],
+  // QLD border — Macintyre River then Barwon River, dips south then east
+  [141.5,-28.8],[142.5,-29.2],[143.5,-29.1],
+  [144.5,-29.0],[145.5,-29.1],[146.0,-28.9],
+  [146.5,-28.6],[147.0,-28.6],[147.5,-28.6],
+  [148.0,-28.7],[148.5,-28.7],[149.0,-28.5],
+  [149.5,-28.4],[150.0,-28.4],[150.5,-28.3],
+  [151.0,-28.4],[151.5,-28.3],[152.0,-28.2],
+  [152.5,-28.2],[153.0,-28.1],[153.3,-28.0],
+  [153.5,-28.2],
+  // NSW north coast to SE
+  [153.6,-28.6],[153.5,-29.2],[153.3,-29.8],
+  [153.1,-30.3],[152.9,-30.9],[152.8,-31.4],
+  [152.5,-31.9],[152.1,-32.5],[151.9,-32.9],
+  [151.6,-33.3],[151.2,-33.9], // Sydney
+  [151.0,-34.1],[150.8,-34.5],[150.6,-35.1],
+  [150.4,-35.5],[150.2,-35.9],[150.0,-36.3],
+  [149.8,-36.7],[149.7,-37.0],[149.6,-37.3],
+  [149.4,-37.5],
+  // Murray River — follows river westward with natural meanders
+  // River hugs ~37.5°S near coast, rises to ~35.5°S near SA
+  [148.8,-37.2],[148.2,-37.0],[147.5,-36.8],
+  [147.0,-36.3],[146.5,-36.1],[146.0,-35.9],
+  [145.5,-35.8],[145.0,-35.7],[144.5,-35.7],
+  [144.0,-35.6],[143.5,-35.3],[143.0,-35.1],
+  [142.5,-34.8],[142.0,-34.5],[141.5,-34.2],
   [141.0,-34.0],
 ];
 
