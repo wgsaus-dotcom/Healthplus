@@ -129,6 +129,43 @@ footer{position:relative;z-index:10;background:#0D1F33;padding:56px 48px 36px}
 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.7)}}
 .live-text{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+
+/* FILE UPLOAD */
+.file-drop{
+  border:2px dashed rgba(11,107,110,.35);
+  background:rgba(255,255,255,.25);
+  padding:28px 20px;
+  text-align:center;
+  cursor:pointer;
+  transition:all .25s;
+  position:relative;
+}
+.file-drop:hover,.file-drop.drag-over{
+  border-color:var(--teal-d);
+  background:rgba(11,107,110,.08);
+}
+.file-drop-icon{
+  color:rgba(13,31,51,.35);
+  margin-bottom:10px;
+  display:flex;justify-content:center;
+}
+.file-drop:hover .file-drop-icon{color:var(--teal-d)}
+.file-drop-text{font-size:13px;color:rgba(13,31,51,.55);line-height:1.6}
+.file-drop-text strong{color:var(--teal-d);font-weight:600}
+.file-drop-text span{font-size:11px;color:rgba(13,31,51,.4)}
+.file-chosen{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;font-weight:500;color:var(--teal-d);
+  justify-content:center;
+}
+.file-clear{
+  background:none;border:none;cursor:pointer;
+  color:rgba(13,31,51,.4);font-size:14px;
+  width:20px;height:20px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:all .2s;padding:0;
+}
+.file-clear:hover{background:rgba(13,31,51,.1);color:var(--ink)}
+
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -176,7 +213,7 @@ footer{position:relative;z-index:10;background:#0D1F33;padding:56px 48px 36px}
       <div class="card-mid" style="padding:44px 36px">
         <span class="section-tag">Register Your Interest</span>
         <h3 style="font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:900;text-transform:uppercase;margin-bottom:24px;line-height:1;color:var(--ink)">Tell us about yourself.</h3>
-        <form action="https://formspree.io/f/xpqbdonv" method="POST">
+        <form action="https://formspree.io/f/xpqbdonv" method="POST" enctype="multipart/form-data">
           <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your full name" required></div>
           <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required></div>
           <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="+61 4XX XXX XXX"></div>
@@ -198,6 +235,28 @@ footer{position:relative;z-index:10;background:#0D1F33;padding:56px 48px 36px}
             </select>
           </div>
           <div class="form-group"><label>Tell Us About Yourself</label><textarea name="message" placeholder="Brief background — qualifications, experience, what you're looking for..."></textarea></div>
+          <div class="form-group">
+            <label>Resume / CV</label>
+            <div class="file-drop" id="fileDrop" onclick="document.getElementById('resumeFile').click()">
+              <div class="file-drop-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <div class="file-drop-text" id="fileDropText">
+                <strong>Click to upload</strong> or drag and drop<br>
+                <span>PDF, DOC, DOCX — max 10MB</span>
+              </div>
+              <div class="file-chosen" id="fileChosen" style="display:none">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B6B6E" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span id="fileChosenName"></span>
+                <button type="button" onclick="event.stopPropagation();clearFile()" class="file-clear">✕</button>
+              </div>
+            </div>
+            <input type="file" id="resumeFile" name="resume" accept=".pdf,.doc,.docx" style="display:none" onchange="handleFileSelect(this)">
+          </div>
           <input type="hidden" name="_subject" value="New Healthcare Worker Registration — HPI">
           <button type="submit" class="btn-primary" style="width:100%;text-align:center;border:none;cursor:pointer"><span>Register My Interest</span></button>
         </form>
@@ -282,5 +341,49 @@ let t=0;
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+
+<script>
+function handleFileSelect(input){
+  if(!input.files.length) return;
+  const f = input.files[0];
+  // 10MB limit
+  if(f.size > 10*1024*1024){
+    alert('File too large. Please upload a file under 10MB.');
+    input.value=''; return;
+  }
+  document.getElementById('fileDropText').style.display='none';
+  const chosen = document.getElementById('fileChosen');
+  chosen.style.display='flex';
+  document.getElementById('fileChosenName').textContent = f.name;
+  document.getElementById('fileDrop').style.borderColor='#0B6B6E';
+  document.getElementById('fileDrop').style.background='rgba(11,107,110,.06)';
+}
+function clearFile(){
+  document.getElementById('resumeFile').value='';
+  document.getElementById('fileDropText').style.display='block';
+  document.getElementById('fileChosen').style.display='none';
+  document.getElementById('fileDrop').style.borderColor='';
+  document.getElementById('fileDrop').style.background='';
+}
+// Drag and drop
+const drop = document.getElementById('fileDrop');
+if(drop){
+  drop.addEventListener('dragover', e=>{ e.preventDefault(); drop.classList.add('drag-over'); });
+  drop.addEventListener('dragleave', ()=>drop.classList.remove('drag-over'));
+  drop.addEventListener('drop', e=>{
+    e.preventDefault(); drop.classList.remove('drag-over');
+    const files = e.dataTransfer.files;
+    if(files.length){
+      const fi = document.getElementById('resumeFile');
+      // DataTransfer trick to set files
+      const dt = new DataTransfer();
+      dt.items.add(files[0]);
+      fi.files = dt.files;
+      handleFileSelect(fi);
+    }
+  });
+}
+</script>
+
 </body>
 </html>
