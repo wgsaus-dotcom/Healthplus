@@ -731,11 +731,29 @@ let t=0;
   sydRing.material.opacity=.1+.12*Math.sin(t*1.5);
 
   // Town pulses
-  // Raycaster hover
+  // Raycaster hover + tooltip
   raycaster.setFromCamera(mouse2D, camera);
   const intersects = raycaster.intersectObjects(townMeshes.map(m=>m.hitbox));
   const hoveredSet = new Set(intersects.map(i=>i.object));
   townMeshes.forEach(m=>{m.hovered=hoveredSet.has(m.hitbox);});
+  // Tooltip
+  if(intersects.length>0){
+    const ti=townMeshes.findIndex(m=>m.hitbox===intersects[0].object);
+    if(ti>=0){
+      const t=towns[ti];
+      const cls=t.shortage==='critical'?'shortage-critical':t.shortage==='severe'?'shortage-severe':'shortage-high';
+      document.getElementById('tt-lhd').textContent=t.lhd;
+      document.getElementById('tt-name').textContent=t.name;
+      document.getElementById('tt-dist').textContent=t.dist;
+      document.getElementById('tt-badge').innerHTML='<span class="tt-badge '+cls+'">'+t.shortage.toUpperCase()+' SHORTAGE</span>';
+      const [ttx,tty]=ll(t.lon,t.lat);
+      const tv=new THREE.Vector3(ttx,tty,1.5);tv.project(camera);
+      const tw=window.innerWidth,th=window.innerHeight;
+      tooltip.style.left=((tv.x*.5+.5)*tw)+'px';
+      tooltip.style.top=((-tv.y*.5+.5)*th)+'px';
+      tooltip.classList.add('visible');
+    }
+  } else { tooltip.classList.remove('visible'); }
 
   townMeshes.forEach(({core,ring1,ring2,glow,hovered,phase})=>{
     const tgtS = hovered ? 1.65 : (.88+.2*Math.sin(t*1.5+phase));
@@ -771,28 +789,6 @@ let t=0;
     }
   });
 
-  // Tooltip on hover
-  const intersects = raycaster.intersectObjects(townMeshes.map(m=>m.hitbox));
-  if (intersects.length > 0) {
-    const obj = intersects[0].object;
-    const ti = townMeshes.findIndex(m => m.hitbox === obj);
-    if (ti >= 0) {
-      const t = towns[ti];
-      const cls = t.shortage === 'critical' ? 'shortage-critical' : t.shortage === 'severe' ? 'shortage-severe' : 'shortage-high';
-      document.getElementById('tt-lhd').textContent = t.lhd;
-      document.getElementById('tt-name').textContent = t.name;
-      document.getElementById('tt-dist').textContent = t.dist;
-      document.getElementById('tt-badge').innerHTML = '<span class="tt-badge ' + cls + '">' + t.shortage.toUpperCase() + ' SHORTAGE</span>';
-      const [tx, ty] = ll(t.lon, t.lat);
-      const v = new THREE.Vector3(tx, ty, 1.5);
-      v.project(camera);
-      tooltip.style.left = ((v.x * 0.5 + 0.5) * w) + 'px';
-      tooltip.style.top  = ((-v.y * 0.5 + 0.5) * h) + 'px';
-      tooltip.classList.add('visible');
-    }
-  } else {
-    tooltip.classList.remove('visible');
-  }
 
   // Flow
   for(let i=0;i<FC;i++){
