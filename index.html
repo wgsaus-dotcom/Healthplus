@@ -453,22 +453,23 @@ camera.position.set(0, 0, 88);
 
 // ── DRAW FULL AUSTRALIA OUTLINE — dim ──────────────────────────────────────
 const ausPts = AUS.map(c => v3(c[0],c[1], 0));
-scene.add(new THREE.Line(
-  new THREE.BufferGeometry().setFromPoints(ausPts),
-  new THREE.LineBasicMaterial({color:0x0D2440, transparent:false, opacity:1.0})
-));
-// Second pass — slight glow halo
-scene.add(new THREE.Line(
-  new THREE.BufferGeometry().setFromPoints(ausPts),
-  new THREE.LineBasicMaterial({color:0x0D2440, transparent:true, opacity:0.4})
-));
+// Stack 5 passes at tiny z offsets — creates visual thickness on WebGL
+[0, 0.04, -0.04, 0.08, -0.08].forEach((zOff, i) => {
+  const pts = AUS.map(c => { const [x,y]=ll(c[0],c[1]); return new THREE.Vector3(x,y,zOff); });
+  scene.add(new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints(pts),
+    new THREE.LineBasicMaterial({color:0x0D2440, transparent:true, opacity: i===0 ? 1.0 : 0.55})
+  ));
+});
 
 // Tasmania outline
-const tasPts = TAS.map(c => v3(c[0],c[1], 0));
-scene.add(new THREE.Line(
-  new THREE.BufferGeometry().setFromPoints(tasPts),
-  new THREE.LineBasicMaterial({color:0x0D2440, transparent:false, opacity:1.0})
-));
+[0, 0.04, -0.04, 0.08, -0.08].forEach((zOff, i) => {
+  const pts = TAS.map(c => { const [x,y]=ll(c[0],c[1]); return new THREE.Vector3(x,y,zOff); });
+  scene.add(new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints(pts),
+    new THREE.LineBasicMaterial({color:0x0D2440, transparent:true, opacity: i===0 ? 1.0 : 0.55})
+  ));
+});
 
 // ── FILL ALL AUSTRALIA with very dim dots ─────────────────────────────────
 {
@@ -522,17 +523,14 @@ borders.forEach(pts => {
   ));
 }
 
-// ── NSW OUTLINE — bright teal, drawn on top ──────────────────────────────────
-const nswPts = NSW.map(c => v3(c[0],c[1], 1));
-scene.add(new THREE.Line(
-  new THREE.BufferGeometry().setFromPoints(nswPts),
-  new THREE.LineBasicMaterial({color:0x0B6B6E, transparent:false, opacity:1.0})
-));
-// second pass slightly brighter for glow effect
-scene.add(new THREE.Line(
-  new THREE.BufferGeometry().setFromPoints(nswPts),
-  new THREE.LineBasicMaterial({color:0x0ECECE, transparent:true, opacity:0.4})
-));
+// ── NSW OUTLINE — bright teal thick ─────────────────────────────────────────
+[1.0, 1.04, 0.96, 1.08, 0.92, 1.12, 0.88].forEach((zOff, i) => {
+  const pts = NSW.map(c => { const [x,y]=ll(c[0],c[1]); return new THREE.Vector3(x,y,zOff); });
+  scene.add(new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints(pts),
+    new THREE.LineBasicMaterial({color: i < 2 ? 0x0B6B6E : 0x0ECECE, transparent:true, opacity: i===0 ? 1.0 : i < 3 ? 0.6 : 0.25})
+  ));
+});
 
 // ── TOWN NODES on NSW ─────────────────────────────────────────────────────────
 const towns = [
