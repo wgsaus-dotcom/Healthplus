@@ -10,8 +10,8 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#686B6E;--bg-2:#BEC1C5;--bg-3:#B2B5B9;
-  --card:#707376;--card-hov:#C8F0EE;
+  --bg:#6E7E8A;--bg-2:#BEC1C5;--bg-3:#B2B5B9;
+  --card:#7A8A96;--card-hov:#C8F0EE;
   --ink:#0D1F33;--teal:#0ECECE;--teal-d:#0B6B6E;--amber:#F5A623;
 }
 html{scroll-behavior:smooth}
@@ -23,7 +23,7 @@ body:has(a:hover) #cursor{width:16px;height:16px;background:var(--amber)}
 body:has(a:hover) #cursor-ring{width:44px;height:44px;border-color:rgba(245,166,35,.45)}
 #canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5}
 /* NAV */
-nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(104,107,110,.97);border-bottom:1px solid rgba(11,107,110,.12);backdrop-filter:blur(8px)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:12px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(110,126,138,.97);border-bottom:1px solid rgba(11,107,110,.12);backdrop-filter:blur(8px)}
 .nav-logo a{display:block}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{color:rgba(13,31,51,.6);text-decoration:none;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transition:color .2s}
@@ -37,7 +37,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:18px 48px;display
 .eyebrow{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#B8740A;margin-bottom:16px;display:inline-block}
 .page-hero h1{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(44px,7vw,88px);line-height:.9;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:24px;color:var(--ink)}
 .page-hero h1 em{font-style:normal;color:var(--teal-d)}
-.page-hero p{font-size:16px;line-height:1.8;color:rgba(13,31,51,.6);font-weight:300;max-width:540px}
+.page-hero p{font-size:18px;line-height:1.8;color:rgba(13,31,51,.6);font-weight:300;max-width:540px}
 @media(max-width:640px){.page-hero{padding:110px 20px 60px}}
 /* SECTIONS */
 .section{position:relative;z-index:10;padding:88px 48px}
@@ -62,7 +62,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:18px 48px;display
 .card::before,.card-mid::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal-d);transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .card:hover::before,.card-mid:hover::before{transform:scaleX(1)}
 .card h3,.card-mid h3{font-family:'Big Shoulders Display',sans-serif;font-size:22px;font-weight:900;text-transform:uppercase;margin-bottom:10px;line-height:1;color:var(--ink)}
-.card p,.card-mid p{font-size:13px;color:rgba(13,31,51,.6);line-height:1.75}
+.card p,.card-mid p{font-size:15px;color:rgba(13,31,51,.6);line-height:1.75}
 .card-bar{width:24px;height:2px;background:var(--teal-d);margin-bottom:18px}
 /* STEPS */
 .step-num{font-family:'Big Shoulders Display',sans-serif;font-size:64px;font-weight:900;color:rgba(11,107,110,.08);position:absolute;top:-6px;right:12px;line-height:1}
@@ -70,10 +70,10 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:18px 48px;display
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
 @media(max-width:900px){.two-col{grid-template-columns:1fr;gap:40px}}
 /* BODY COPY */
-.body-lg{font-size:17px;line-height:1.9;color:rgba(13,31,51,.6);font-weight:300}
+.body-lg{font-size:19px;line-height:1.85;color:rgba(13,31,51,.6);font-weight:300}
 .body-lg strong{color:var(--ink);font-weight:600}
-.body-md{font-size:15px;line-height:1.8;color:rgba(13,31,51,.6);font-weight:300}
-.body-sm{font-size:13px;line-height:1.75;color:rgba(13,31,51,.45)}
+.body-md{font-size:17px;line-height:1.8;color:rgba(13,31,51,.6);font-weight:300}
+.body-sm{font-size:14px;line-height:1.75;color:rgba(13,31,51,.45)}
 /* BUTTONS */
 .btn-primary{background:var(--teal-d);color:#fff;padding:14px 30px;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;display:inline-block;position:relative;overflow:hidden;transition:all .3s}
 .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--teal);transition:left .35s;z-index:0}
@@ -104,7 +104,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:18px 48px;display
 .badge-green{background:rgba(30,140,60,.1);color:#1A6B2A;border:1px solid rgba(30,140,60,.25)}
 .badge-teal{background:rgba(11,107,110,.12);color:var(--teal-d);border:1px solid rgba(11,107,110,.25)}
 /* CTA BAND */
-.cta-band{position:relative;z-index:10;padding:88px 48px;background:#A8E8E6;border-top:2px solid rgba(11,107,110,.15);overflow:hidden;text-align:center}
+.cta-band{position:relative;z-index:10;padding:88px 48px;background:#C2E0EC;border-top:2px solid rgba(11,107,110,.15);overflow:hidden;text-align:center}
 .cta-band-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(11,107,110,.1) 0%,transparent 65%);pointer-events:none}
 .cta-band h2{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(32px,5vw,66px);text-transform:uppercase;line-height:.92;margin-bottom:20px;position:relative;color:var(--ink)}
 .cta-band h2 em{font-style:normal;color:var(--teal-d)}
@@ -141,7 +141,7 @@ footer{position:relative;z-index:10;background:#0D1F33;padding:56px 48px 36px}
 <canvas id="canvas"></canvas>
 <nav>
   <div class="nav-logo">
-    <a href="index.html"><img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:48px;width:auto;display:block;"></a>
+    <a href="index.html"><img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:64px;width:auto;display:block;"></a>
   </div>
   <ul class="nav-links">
     <li><a href="services-remote.html">Nursing</a></li>
@@ -169,7 +169,7 @@ footer{position:relative;z-index:10;background:#0D1F33;padding:56px 48px 36px}
     <div class="card reveal d3" style="padding:40px 28px"><div class="step-num">04</div><div class="card-bar"></div><h3>Care Delivered</h3><p style="margin-bottom:20px">The worker arrives on site. You manage clinical direction. We support the placement from start to finish.</p><a href="contact.html" class="btn-ghost" style="font-size:9px">Get in touch →</a></div>
   </div>
 </section>
-<section class="section" style="background:#606366;padding:88px 48px;position:relative;z-index:10">
+<section class="section" style="background:#637179;padding:88px 48px;position:relative;z-index:10">
   <div class="two-col">
     <div><span class="section-tag reveal">The EOR Model</span><h2 class="section-h reveal d1" style="margin-bottom:24px">What <em>employer<br>of record</em> means.</h2><p class="body-md reveal d2" style="margin-bottom:20px">Every worker placed through Health Plus International is on our books — not yours. You get the workforce without the employment obligations.</p></div>
     <div style="display:flex;flex-direction:column;gap:2px" class="reveal d2">
@@ -178,7 +178,7 @@ footer{position:relative;z-index:10;background:#0D1F33;padding:56px 48px 36px}
     </div>
   </div>
 </section>
-<section class="section" style="background:#686B6E;padding:88px 48px;position:relative;z-index:10">
+<section class="section" style="background:#6E7E8A;padding:88px 48px;position:relative;z-index:10">
   <div style="margin-bottom:52px"><span class="section-tag reveal">Credentialling</span><h2 class="section-h reveal d1">Verified before<br>they <em>arrive.</em></h2></div>
   <div class="grid-3">
     <div class="card reveal"><div class="card-bar"></div><h3>AHPRA Verified</h3><p>All registered health practitioners verified against the AHPRA register. Current, active, unrestricted registration confirmed.</p></div>
@@ -208,7 +208,7 @@ footer{position:relative;z-index:10;background:#0D1F33;padding:56px 48px 36px}
   <div class="aboriginal-bar"></div>
   <div class="footer-grid">
     <div>
-      <a href="index.html"><img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:52px;width:auto;margin-bottom:14px;display:block;filter:brightness(0) invert(1)"></a>
+      <a href="index.html"><img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:62px;width:auto;margin-bottom:16px;display:block;filter:brightness(0) invert(1)"></a>
       <p class="footer-tagline">We strategically place healthcare workers in regional and remote NSW communities. Employer of record. One invoice. People. Care. Compliance.</p>
     </div>
     <div class="footer-col">
