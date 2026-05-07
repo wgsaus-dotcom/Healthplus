@@ -201,6 +201,8 @@ footer{position:relative;z-index:10;background:#050C15;padding:56px 48px 36px}
 </head>
 <body>
 <div id="cursor"></div>
+<div id="map-labels"></div>
+<div id="node-tooltip"><div class="tt-lhd" id="tt-lhd"></div><div class="tt-name" id="tt-name"></div><div class="tt-dist" id="tt-dist"></div><div id="tt-badge"></div></div>
 <div id="cursor-ring"></div>
 <div id="grain"></div>
 <canvas id="canvas"></canvas>
@@ -534,13 +536,19 @@ borders.forEach(pts => {
 
 // ── TOWN NODES on NSW ─────────────────────────────────────────────────────────
 const towns = [
-  {lon:141.5,lat:-31.9,c:0xFF5555},{lon:148.1,lat:-30.0,c:0xFF5555},
-  {lon:148.0,lat:-29.5,c:0xFF5555},{lon:145.9,lat:-30.1,c:0xF5A623},
-  {lon:145.8,lat:-31.5,c:0xF5A623},{lon:146.0,lat:-34.3,c:0xF5A623},
-  {lon:149.8,lat:-29.5,c:0xF5A623},{lon:148.6,lat:-32.2,c:0x66BB6A},
-  {lon:150.9,lat:-31.1,c:0x66BB6A},{lon:151.7,lat:-30.5,c:0x66BB6A},
-  {lon:153.1,lat:-30.3,c:0x66BB6A},{lon:147.4,lat:-35.1,c:0x66BB6A},
-  {lon:144.0,lat:-36.1,c:0x66BB6A},
+  {lon:141.5,lat:-31.9,c:0xFF5555,name:'Broken Hill',  lhd:'Far West LHD',     shortage:'critical',dist:'1,100km from Sydney'},
+  {lon:148.1,lat:-30.0,c:0xFF5555,name:'Walgett',       lhd:'Western NSW LHD',  shortage:'critical',dist:'685km from Sydney'},
+  {lon:148.0,lat:-29.5,c:0xFF5555,name:'Lightning Ridge',lhd:'Western NSW LHD', shortage:'critical',dist:'760km from Sydney'},
+  {lon:145.9,lat:-30.1,c:0xF5A623,name:'Bourke',         lhd:'Western NSW LHD', shortage:'severe',  dist:'800km from Sydney'},
+  {lon:145.8,lat:-31.5,c:0xF5A623,name:'Cobar',          lhd:'Western NSW LHD', shortage:'severe',  dist:'695km from Sydney'},
+  {lon:146.0,lat:-34.3,c:0xF5A623,name:'Griffith',       lhd:'Murrumbidgee LHD',shortage:'severe',  dist:'567km from Sydney'},
+  {lon:149.8,lat:-29.5,c:0xF5A623,name:'Moree',          lhd:'Hunter New England',shortage:'severe', dist:'530km from Sydney'},
+  {lon:148.6,lat:-32.2,c:0x66BB6A,name:'Dubbo',          lhd:'Western NSW LHD', shortage:'high',    dist:'393km from Sydney'},
+  {lon:150.9,lat:-31.1,c:0x66BB6A,name:'Tamworth',       lhd:'Hunter New England',shortage:'high',  dist:'410km from Sydney'},
+  {lon:151.7,lat:-30.5,c:0x66BB6A,name:'Armidale',       lhd:'Hunter New England',shortage:'high',  dist:'480km from Sydney'},
+  {lon:153.1,lat:-30.3,c:0x66BB6A,name:'Coffs Harbour',  lhd:'Mid North Coast',  shortage:'high',   dist:'540km from Sydney'},
+  {lon:147.4,lat:-35.1,c:0x66BB6A,name:'Wagga Wagga',    lhd:'Murrumbidgee LHD',shortage:'high',    dist:'457km from Sydney'},
+  {lon:144.0,lat:-36.1,c:0x66BB6A,name:'Deniliquin',     lhd:'Murrumbidgee LHD',shortage:'high',    dist:'715km from Sydney'},
 ];
 const townMeshes=[];
 const raycaster = new THREE.Raycaster();
@@ -687,6 +695,47 @@ let t=0;
     glow.scale.setScalar(gs);
     glow.material.opacity = hovered ? .22 : (.03+.06*Math.sin(t*.5+phase));
   });
+
+  // Project town 3D positions to screen and update HTML labels
+  const w = window.innerWidth, h = window.innerHeight;
+  towns.forEach((t, i) => {
+    const [tx, ty] = ll(t.lon, t.lat);
+    const v = new THREE.Vector3(tx, ty, 1.5);
+    v.project(camera);
+    const sx = (v.x * 0.5 + 0.5) * w;
+    const sy = (-v.y * 0.5 + 0.5) * h;
+    // Only show if in front of camera and on screen
+    if (v.z < 1 && sx > 0 && sx < w && sy > 0 && sy < h) {
+      labelEls[i].style.left = sx + 'px';
+      labelEls[i].style.top  = sy + 'px';
+      labelEls[i].style.opacity = '1';
+    } else {
+      labelEls[i].style.opacity = '0';
+    }
+  });
+
+  // Tooltip on hover
+  const intersects = raycaster.intersectObjects(townMeshes.map(m=>m.hitbox));
+  if (intersects.length > 0) {
+    const obj = intersects[0].object;
+    const ti = townMeshes.findIndex(m => m.hitbox === obj);
+    if (ti >= 0) {
+      const t = towns[ti];
+      const cls = t.shortage === 'critical' ? 'shortage-critical' : t.shortage === 'severe' ? 'shortage-severe' : 'shortage-high';
+      document.getElementById('tt-lhd').textContent = t.lhd;
+      document.getElementById('tt-name').textContent = t.name;
+      document.getElementById('tt-dist').textContent = t.dist;
+      document.getElementById('tt-badge').innerHTML = '<span class="tt-badge ' + cls + '">' + t.shortage.toUpperCase() + ' SHORTAGE</span>';
+      const [tx, ty] = ll(t.lon, t.lat);
+      const v = new THREE.Vector3(tx, ty, 1.5);
+      v.project(camera);
+      tooltip.style.left = ((v.x * 0.5 + 0.5) * w) + 'px';
+      tooltip.style.top  = ((-v.y * 0.5 + 0.5) * h) + 'px';
+      tooltip.classList.add('visible');
+    }
+  } else {
+    tooltip.classList.remove('visible');
+  }
 
   // Flow
   for(let i=0;i<FC;i++){
