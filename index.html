@@ -208,7 +208,17 @@ footer{position:relative;z-index:10;background:#050C15;padding:56px 48px 36px}
 .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.28);text-decoration:none;margin-bottom:9px;transition:color .2s}
 .footer-col a:hover{color:rgba(255,255,255,.7)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.acknowledgement{font-size:11px;color:rgba(255,255,255,.18);max-width:480px;line-height:1.8}
+.acknowledgement{font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.8;max-width:640px}
+.acknowledgement-block{display:flex;align-items:flex-start;gap:14px;margin-bottom:28px}
+.acknowledgement-flags{display:flex;flex-direction:column;gap:6px;flex-shrink:0;padding-top:2px}
+.country-map-label{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.country-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
+@media(max-width:900px){.country-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.country-grid{grid-template-columns:1fr}}
+.country-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:10px 12px}
+.country-lhd{font-size:10px;font-weight:700;color:rgba(232,160,32,.85);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.country-nations{font-size:11px;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:3px}
+.country-places{font-size:10px;color:rgba(255,255,255,.3);line-height:1.5}
 .footer-copy{font-size:10px;color:rgba(255,255,255,.15);letter-spacing:.06em;white-space:nowrap}
 @media(max-width:640px){footer{padding:44px 20px 28px}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column}}
 
@@ -411,7 +421,60 @@ footer{position:relative;z-index:10;background:#050C15;padding:56px 48px 36px}
     <div class="footer-col"><h4>Regions</h4><a href="regions/far-west-nsw.html">Far West NSW</a><a href="index.html#lhd">Western NSW</a><a href="index.html#lhd">Murrumbidgee</a><a href="index.html#lhd">Hunter New England</a><a href="index.html#lhd">Northern NSW</a></div>
   </div>
   <div class="footer-bottom">
-    <p class="acknowledgement">Health Plus International acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Aboriginal and Torres Strait Islander peoples, and to Elders past, present and emerging.</p>
+
+    <div class="acknowledgement-block">
+      <div class="acknowledgement-flags">
+        <svg width="32" height="21" viewBox="0 0 32 21" aria-label="Aboriginal Flag">
+          <rect width="32" height="10.5" fill="#000"/>
+          <rect y="10.5" width="32" height="10.5" fill="#CC3300"/>
+          <circle cx="16" cy="10.5" r="5" fill="#E8A020"/>
+        </svg>
+        <svg width="32" height="21" viewBox="0 0 32 21" aria-label="Torres Strait Islander Flag">
+          <rect width="32" height="21" fill="#009B77"/>
+          <rect y="8.4" width="32" height="4.2" fill="#0032A0"/>
+          <polygon points="16,3 17.5,7.5 22,7.5 18.5,10 20,14.5 16,12 12,14.5 13.5,10 10,7.5 14.5,7.5" fill="#fff"/>
+          <polygon points="16,7.5 16.9,10.2 19.8,10.2 17.5,11.8 18.4,14.5 16,12.9 13.6,14.5 14.5,11.8 12.2,10.2 15.1,10.2" fill="#E8A020"/>
+        </svg>
+      </div>
+      <p class="acknowledgement">
+        Health Plus International acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to all Aboriginal and Torres Strait Islander Elders — past, present and emerging.
+      </p>
+    </div>
+
+    <div class="country-map-label">Countries on which we work</div>
+    <div class="country-grid">
+      <div class="country-card">
+        <div class="country-lhd">Far West NSW</div>
+        <div class="country-nations">Barkindji · Ngemba · Muruwari · Malyangapa</div>
+        <div class="country-places">Broken Hill · Wilcannia · Bourke · Walgett</div>
+      </div>
+      <div class="country-card">
+        <div class="country-lhd">Western NSW</div>
+        <div class="country-nations">Wiradjuri · Ngemba</div>
+        <div class="country-places">Dubbo · Bathurst · Orange · Mudgee</div>
+      </div>
+      <div class="country-card">
+        <div class="country-lhd">Murrumbidgee</div>
+        <div class="country-nations">Wiradjuri · Nari Nari · Wamba Wamba</div>
+        <div class="country-places">Wagga Wagga · Griffith · Albury</div>
+      </div>
+      <div class="country-card">
+        <div class="country-lhd">Hunter New England</div>
+        <div class="country-nations">Gamilaraay · Wonnarua · Anaiwan · Yuwaalaraay</div>
+        <div class="country-places">Tamworth · Armidale · Moree · Inverell</div>
+      </div>
+      <div class="country-card">
+        <div class="country-lhd">Northern NSW</div>
+        <div class="country-nations">Bundjalung · Gumbaynggirr · Githabul</div>
+        <div class="country-places">Lismore · Casino · Grafton · Tweed</div>
+      </div>
+      <div class="country-card">
+        <div class="country-lhd">Mid North Coast</div>
+        <div class="country-nations">Dunghutti · Birpai · Gumbaynggirr</div>
+        <div class="country-places">Kempsey · Port Macquarie · Taree</div>
+      </div>
+    </div>
+
     <p class="footer-copy">© 2026 Health Plus International Pty Ltd · ABN 13 155 901 723</p>
   </div>
 </footer>
