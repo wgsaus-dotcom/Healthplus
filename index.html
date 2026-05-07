@@ -517,7 +517,7 @@ const ausPts = AUS.map(c => v3(c[0],c[1], 0));
   const pts = AUS.map(c => { const [x,y]=ll(c[0],c[1]); return new THREE.Vector3(x,y,zOff); });
   scene.add(new THREE.Line(
     new THREE.BufferGeometry().setFromPoints(pts),
-    new THREE.LineBasicMaterial({color:0x0D2440, transparent:true, opacity: i===0 ? 1.0 : 0.55})
+    new THREE.LineBasicMaterial({color:0x4A8EC2, transparent:true, opacity: i===0 ? 1.0 : 0.55})
   ));
 });
 
@@ -526,7 +526,7 @@ const ausPts = AUS.map(c => v3(c[0],c[1], 0));
   const pts = TAS.map(c => { const [x,y]=ll(c[0],c[1]); return new THREE.Vector3(x,y,zOff); });
   scene.add(new THREE.Line(
     new THREE.BufferGeometry().setFromPoints(pts),
-    new THREE.LineBasicMaterial({color:0x0D2440, transparent:true, opacity: i===0 ? 1.0 : 0.55})
+    new THREE.LineBasicMaterial({color:0x4A8EC2, transparent:true, opacity: i===0 ? 1.0 : 0.55})
   ));
 });
 
@@ -659,7 +659,7 @@ window.addEventListener('mousemove', e => {
 const [sx,sy]=ll(151.2,-33.9);
 const sydCore=new THREE.Mesh(new THREE.SphereGeometry(.9,16,16),new THREE.MeshBasicMaterial({color:0xFFFFFF}));
 sydCore.position.set(sx,sy,1.5); scene.add(sydCore);
-const sydRing=new THREE.Mesh(new THREE.RingGeometry(1.2,1.6,40),new THREE.MeshBasicMaterial({color:0x0D2440,transparent:true,opacity:.35,side:THREE.DoubleSide}));
+const sydRing=new THREE.Mesh(new THREE.RingGeometry(1.2,1.6,40),new THREE.MeshBasicMaterial({color:0xFFFFFF,transparent:true,opacity:.3,side:THREE.DoubleSide}));
 sydRing.position.set(sx,sy,1.5); scene.add(sydRing);
 
 // ── CONNECTION LINES Sydney → towns ──────────────────────────────────────────
