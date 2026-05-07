@@ -76,7 +76,7 @@ h1 .teal-ol{-webkit-text-stroke:1.5px var(--teal);color:transparent;display:bloc
 @media(max-width:640px){.hero{padding:110px 20px 60px;max-width:100%}.hero::before{width:100%;background:rgba(7,16,28,.97)}}
 
 /* STATS */
-.stats{position:relative;z-index:10;background:#B8D8E6;border-top:2px solid rgba(11,107,110,.18);border-bottom:2px solid rgba(11,107,110,.18);display:flex}
+.stats{position:relative;z-index:10;background:#0B1829;border-top:2px solid rgba(11,107,110,.18);border-bottom:2px solid rgba(11,107,110,.18);display:flex}
 .stat-item{flex:1;padding:28px 20px;text-align:center;border-right:1px solid rgba(14,206,206,.1);position:relative;transition:background .3s}
 .stat-item:last-child{border-right:none}
 .stat-item:hover{background:rgba(11,107,110,.08)}
@@ -108,7 +108,7 @@ h1 .teal-ol{-webkit-text-stroke:1.5px var(--teal);color:transparent;display:bloc
 .lhd-intro p{font-size:14px;color:rgba(255,255,255,.6);max-width:280px;line-height:1.75;font-weight:300}
 .lhd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(14,206,206,.15)}
 .lhd-card{background:#07101C;padding:32px 26px;position:relative;overflow:hidden;transition:background .35s}
-.lhd-card:hover{background:#B8D8E6}
+.lhd-card:hover{background:#0B1829}
 .lhd-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .lhd-card:hover::before{transform:scaleX(1)}
 .lhd-name{font-family:'Big Shoulders Display',sans-serif;font-size:20px;font-weight:900;text-transform:uppercase;margin-bottom:4px;color:#fff}
@@ -123,7 +123,7 @@ h1 .teal-ol{-webkit-text-stroke:1.5px var(--teal);color:transparent;display:bloc
 /* TOWNS */
 .towns-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(14,206,206,.15)}
 .town-card{background:#07101C;padding:30px 22px;position:relative;overflow:hidden;transition:background .3s}
-.town-card:hover{background:#B8D8E6}
+.town-card:hover{background:#0B1829}
 .town-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;transition:height .4s}
 .town-card.crit::before{background:#FF5555}
 .town-card.severe::before{background:var(--amber)}
@@ -144,7 +144,7 @@ h1 .teal-ol{-webkit-text-stroke:1.5px var(--teal);color:transparent;display:bloc
 .how-header p{font-size:14px;color:rgba(255,255,255,.6);max-width:260px;line-height:1.75;font-weight:300}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(14,206,206,.15)}
 .step{background:#07101C;padding:34px 22px;position:relative;overflow:hidden;transition:background .3s}
-.step:hover{background:#B8D8E6}
+.step:hover{background:#0B1829}
 .step-n{font-family:'Big Shoulders Display',sans-serif;font-size:64px;font-weight:900;color:rgba(14,206,206,.05);position:absolute;top:-6px;right:12px;line-height:1}
 .step-bar{width:22px;height:2px;background:var(--teal);margin-bottom:20px}
 .step h3{font-family:'Big Shoulders Display',sans-serif;font-size:19px;font-weight:900;text-transform:uppercase;margin-bottom:10px;line-height:1;color:#fff}
@@ -158,7 +158,7 @@ h1 .teal-ol{-webkit-text-stroke:1.5px var(--teal);color:transparent;display:bloc
 .wf-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(14,206,206,.15)}
 .wf-card{background:#07101C;padding:30px 16px;text-align:center;position:relative;overflow:hidden;transition:background .3s}
 .wf-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--teal);transform:scaleX(0);transition:transform .4s}
-.wf-card:hover{background:#B8D8E6}
+.wf-card:hover{background:#0B1829}
 .wf-card:hover::after{transform:scaleX(1)}
 .wf-n{font-family:'Big Shoulders Display',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;color:rgba(11,107,110,.35);margin-bottom:14px}
 .wf-title{font-family:'Big Shoulders Display',sans-serif;font-size:17px;font-weight:900;text-transform:uppercase;line-height:1.1;margin-bottom:8px;color:#fff}
@@ -253,7 +253,49 @@ footer{position:relative;z-index:10;background:#050C15;padding:56px 48px 36px}
   <div class="stat-item reveal d3"><div class="s-num">24h</div><div class="s-label">Response Guarantee</div></div>
 </div>
 
-<section class="section section-mid" style="overflow:hidden;background:#E8ECF1">
+
+<!-- DUAL IMAGE CTA -->
+<section style="position:relative;z-index:10;display:grid;grid-template-columns:1fr 1fr;height:500px">
+  <div style="position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:url(images/hero-outback.jpg) center/cover;filter:brightness(.4)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,16,28,.9) 0%,rgba(11,107,110,.25) 100%)"></div>
+    <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:48px 44px">
+      <div style="font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#0ECECE;margin-bottom:14px">For Facilities &amp; Services</div>
+      <h2 style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(26px,3.2vw,46px);text-transform:uppercase;line-height:.92;color:#fff;margin-bottom:16px">Need a credentialled<br>worker in<br><em style="font-style:normal;color:#0ECECE">24 hours?</em></h2>
+      <p style="font-size:14px;color:rgba(255,255,255,.65);font-weight:300;line-height:1.7;margin-bottom:28px;max-width:340px">We match, verify, and deploy. Employer of record, one all-inclusive invoice.</p>
+      <a href="submit-a-request.html" style="display:inline-flex;align-items:center;gap:12px;background:#0B6B6E;color:#fff;padding:14px 28px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;width:fit-content">
+        Submit a Workforce Request
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div style="position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:url(images/hero-nurse.jpg) center/cover;filter:brightness(.38)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,16,28,.9) 0%,rgba(245,166,35,.1) 100%)"></div>
+    <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:48px 44px">
+      <div style="font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#F5A623;margin-bottom:14px">For Healthcare Workers</div>
+      <h2 style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(26px,3.2vw,46px);text-transform:uppercase;line-height:.92;color:#fff;margin-bottom:16px">Work where<br>you're needed<br><em style="font-style:normal;color:#F5A623">most.</em></h2>
+      <p style="font-size:14px;color:rgba(255,255,255,.65);font-weight:300;line-height:1.7;margin-bottom:28px;max-width:340px">Regional NSW needs your skills. We handle employment, compliance, and logistics.</p>
+      <a href="join.html" style="display:inline-flex;align-items:center;gap:12px;background:#F5A623;color:#07101C;padding:14px 28px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;width:fit-content">
+        Register as a Healthcare Worker
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Uluru banner -->
+<div style="position:relative;z-index:10;height:180px;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url(images/banner-outback.jpg) center 40%/cover"></div>
+  <div style="position:absolute;inset:0;background:rgba(7,16,28,.65)"></div>
+  <div style="position:relative;height:100%;display:flex;align-items:center;justify-content:center;padding:0 48px">
+    <p style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(18px,2.8vw,34px);text-transform:uppercase;color:#fff;text-align:center;letter-spacing:.03em;line-height:1.1">
+      Broken Hill. Walgett. Bourke. &nbsp;<em style="font-style:normal;color:#0ECECE">These communities have waited long enough.</em>
+    </p>
+  </div>
+</div>
+
+<section class="section section-mid" style="overflow:hidden;background:#0B1829">
   <div class="mission-bg">Bridge</div>
   <div class="mission-wrap">
     <div class="eyebrow reveal">The Problem We Solve</div>
@@ -308,7 +350,7 @@ footer{position:relative;z-index:10;background:#050C15;padding:56px 48px 36px}
   </div>
 </section>
 
-<section class="section" style="overflow:hidden;position:relative;background:#B8D8E6;z-index:10">
+<section class="section" style="overflow:hidden;position:relative;background:#0B1829;z-index:10">
   <div class="cta-glow"></div>
   <div class="cta-inner">
     <div class="eyebrow reveal">People. Care. Compliance.</div>
