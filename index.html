@@ -216,8 +216,6 @@ footer{position:relative;z-index:10;background:#050C15;padding:56px 48px 36px}
 </head>
 <body>
 <div id="cursor"></div>
-<div id="map-labels"></div>
-<div id="node-tooltip"><div class="tt-lhd" id="tt-lhd"></div><div class="tt-name" id="tt-name"></div><div class="tt-dist" id="tt-dist"></div><div id="tt-badge"></div></div>
 <div id="cursor-ring"></div>
 <div id="grain"></div>
 <canvas id="canvas"></canvas>
@@ -731,29 +729,11 @@ let t=0;
   sydRing.material.opacity=.1+.12*Math.sin(t*1.5);
 
   // Town pulses
-  // Raycaster hover + tooltip
+  // Raycaster hover
   raycaster.setFromCamera(mouse2D, camera);
   const intersects = raycaster.intersectObjects(townMeshes.map(m=>m.hitbox));
   const hoveredSet = new Set(intersects.map(i=>i.object));
   townMeshes.forEach(m=>{m.hovered=hoveredSet.has(m.hitbox);});
-  // Tooltip
-  if(intersects.length>0){
-    const ti=townMeshes.findIndex(m=>m.hitbox===intersects[0].object);
-    if(ti>=0){
-      const t=towns[ti];
-      const cls=t.shortage==='critical'?'shortage-critical':t.shortage==='severe'?'shortage-severe':'shortage-high';
-      document.getElementById('tt-lhd').textContent=t.lhd;
-      document.getElementById('tt-name').textContent=t.name;
-      document.getElementById('tt-dist').textContent=t.dist;
-      document.getElementById('tt-badge').innerHTML='<span class="tt-badge '+cls+'">'+t.shortage.toUpperCase()+' SHORTAGE</span>';
-      const [ttx,tty]=ll(t.lon,t.lat);
-      const tv=new THREE.Vector3(ttx,tty,1.5);tv.project(camera);
-      const tw=window.innerWidth,th=window.innerHeight;
-      tooltip.style.left=((tv.x*.5+.5)*tw)+'px';
-      tooltip.style.top=((-tv.y*.5+.5)*th)+'px';
-      tooltip.classList.add('visible');
-    }
-  } else { tooltip.classList.remove('visible'); }
 
   townMeshes.forEach(({core,ring1,ring2,glow,hovered,phase})=>{
     const tgtS = hovered ? 1.65 : (.88+.2*Math.sin(t*1.5+phase));
@@ -770,25 +750,6 @@ let t=0;
     glow.scale.setScalar(gs);
     glow.material.opacity = hovered ? .22 : (.03+.06*Math.sin(t*.5+phase));
   });
-
-  // Project town 3D positions to screen and update HTML labels
-  const w = window.innerWidth, h = window.innerHeight;
-  towns.forEach((t, i) => {
-    const [tx, ty] = ll(t.lon, t.lat);
-    const v = new THREE.Vector3(tx, ty, 1.5);
-    v.project(camera);
-    const sx = (v.x * 0.5 + 0.5) * w;
-    const sy = (-v.y * 0.5 + 0.5) * h;
-    // Only show if in front of camera and on screen
-    if (v.z < 1 && sx > 0 && sx < w && sy > 0 && sy < h) {
-      labelEls[i].style.left = sx + 'px';
-      labelEls[i].style.top  = sy + 'px';
-      labelEls[i].style.opacity = '1';
-    } else {
-      labelEls[i].style.opacity = '0';
-    }
-  });
-
 
   // Flow
   for(let i=0;i<FC;i++){
