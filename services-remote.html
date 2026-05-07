@@ -10,8 +10,8 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#CACDD0;--bg-2:#BEC1C5;--bg-3:#B2B5B9;
-  --card:#D4D7DA;--card-hov:#C8F0EE;
+  --bg:#AEB1B4;--bg-2:#BEC1C5;--bg-3:#B2B5B9;
+  --card:#B8BBBE;--card-hov:#C8F0EE;
   --ink:#0D1F33;--teal:#0ECECE;--teal-d:#0B6B6E;--amber:#F5A623;
 }
 html{scroll-behavior:smooth}
@@ -23,7 +23,7 @@ body:has(a:hover) #cursor{width:16px;height:16px;background:var(--amber)}
 body:has(a:hover) #cursor-ring{width:44px;height:44px;border-color:rgba(245,166,35,.45)}
 #canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5}
 /* NAV */
-nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(202,205,208,.97);border-bottom:1px solid rgba(11,107,110,.12);backdrop-filter:blur(8px)}
+nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(174,177,180,.97);border-bottom:1px solid rgba(11,107,110,.12);backdrop-filter:blur(8px)}
 .nav-logo a{display:block}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{color:rgba(13,31,51,.6);text-decoration:none;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transition:color .2s}
@@ -104,7 +104,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:18px 48px;display
 .badge-green{background:rgba(30,140,60,.1);color:#1A6B2A;border:1px solid rgba(30,140,60,.25)}
 .badge-teal{background:rgba(11,107,110,.12);color:var(--teal-d);border:1px solid rgba(11,107,110,.25)}
 /* CTA BAND */
-.cta-band{position:relative;z-index:10;padding:88px 48px;background:#C2F0EE;border-top:2px solid rgba(11,107,110,.15);overflow:hidden;text-align:center}
+.cta-band{position:relative;z-index:10;padding:88px 48px;background:#A8E8E6;border-top:2px solid rgba(11,107,110,.15);overflow:hidden;text-align:center}
 .cta-band-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(11,107,110,.1) 0%,transparent 65%);pointer-events:none}
 .cta-band h2{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(32px,5vw,66px);text-transform:uppercase;line-height:.92;margin-bottom:20px;position:relative;color:var(--ink)}
 .cta-band h2 em{font-style:normal;color:var(--teal-d)}
