@@ -69,25 +69,29 @@
   ]
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 html{scroll-behavior:smooth}
-body{font-family:'Montserrat',sans-serif;color:#1a1a1a;background:#F7F8F6;-webkit-font-smoothing:antialiased;min-height:100vh}
-:root{--teal:#0B6B6E;--teal-d:#085558;--teal-pale:#E1F5EE;--teal-mid:#9FE1CB;--navy:#1B3A5C;--navy-d:#0D1F33;--border:rgba(11,107,110,0.12);--muted:#5a6a7a}
+body{font-family:'Barlow',sans-serif;color:#fff;background:#07101C;-webkit-font-smoothing:antialiased;min-height:100vh}
+:root{--teal:#0ECECE;--teal-d:#0B6B6E;--teal-pale:rgba(14,206,206,.08);--teal-mid:#0ECECE;--navy:#0E1F36;--navy-d:#07101C;--border:rgba(11,107,110,0.12);--muted:#5a6a7a}
 
 /* NAV */
-nav{background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.07);height:66px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-
-.nav-back{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
-.nav-back:hover{color:var(--teal)}
+nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(14,206,206,.15);height:72px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;position:fixed;top:0;left:0;right:0;z-index:200}
+.nav-logo a{display:block}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#0ECECE}
+.nav-cta{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#000;text-decoration:none;background:#0ECECE;border:1px solid #0ECECE;padding:10px 20px;transition:all .25s;white-space:nowrap}
+.nav-cta:hover{background:#fff;color:#07101C}
+@media(max-width:768px){nav{padding:14px 20px}.nav-links{display:none}.nav-cta{padding:8px 14px;font-size:8px}}
 
 /* PAGE */
-.page{max-width:800px;margin:0 auto;padding:3rem 2rem 5rem}
+.page{max-width:800px;margin:0 auto;padding:6rem 2rem 5rem}
 
 /* HERO CARD */
-.hero-card{background:var(--navy-d);border-radius:18px;padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.hero-card{background:#0B1829;border-radius:18px;padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden}
 .hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(11,107,110,0.25),transparent 70%)}
 .hero-tag{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal-mid);margin-bottom:1rem}
 .hero-card h1{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.4px;margin-bottom:.75rem}
@@ -95,27 +99,27 @@ nav{background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1
 .hero-card p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;max-width:480px}
 
 /* SEARCH CARD */
-.search-card{background:#fff;border-radius:16px;padding:2rem;border:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,.05);margin-bottom:1.5rem}
-.search-card h2{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:.35rem}
-.search-card .sub{font-size:13px;color:var(--muted);margin-bottom:1.75rem;line-height:1.5}
+.search-card{background:#0E1F36;border-radius:16px;padding:2rem;border:1px solid rgba(14,206,206,.15);box-shadow:0 2px 20px rgba(0,0,0,.05);margin-bottom:1.5rem}
+.search-card h2{font-size:16px;font-weight:700;color:#fff;margin-bottom:.35rem}
+.search-card .sub{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:1.75rem;line-height:1.5}
 
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .fg{display:flex;flex-direction:column;gap:6px}
 .fg.full{grid-column:1/-1}
-.fg label{font-size:10px;font-weight:700;color:var(--navy);letter-spacing:.5px}
+.fg label{font-size:10px;font-weight:700;color:#fff;letter-spacing:.5px}
 .fg input,.fg select{
-  padding:12px 14px;border:1.5px solid var(--border);border-radius:9px;
-  font-family:'Montserrat',sans-serif;font-size:14px;color:#1a1a1a;
-  background:#fff;outline:none;transition:border-color .2s,box-shadow .2s;
+  padding:12px 14px;border:1.5px solid rgba(14,206,206,.2);border-radius:9px;
+  font-family:'Barlow',sans-serif;font-size:14px;color:#fff;
+  background:rgba(255,255,255,.07);color:#fff;outline:none;transition:border-color .2s,box-shadow .2s;
 }
 .fg input:focus,.fg select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(11,107,110,0.1)}
-.fg input::placeholder{color:#aab}
+.fg input::placeholder{color:rgba(255,255,255,.3)}
 
 .btn-verify{
   width:100%;padding:14px;
   background:var(--teal);color:#fff;
   border:none;border-radius:9px;
-  font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;
+  font-family:'Barlow',sans-serif;font-size:15px;font-weight:700;
   cursor:pointer;transition:all .2s;
   display:flex;align-items:center;justify-content:center;gap:10px;
 }
@@ -123,11 +127,11 @@ nav{background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1
 .btn-verify .icon{font-size:18px}
 
 /* RESULT CARD */
-.result-card{display:none;background:#fff;border-radius:16px;border:1px solid var(--border);box-shadow:0 2px 20px rgba(0,0,0,.05);overflow:hidden;margin-bottom:1.5rem}
+.result-card{display:none;background:#0E1F36;border-radius:16px;border:1px solid rgba(14,206,206,.15);box-shadow:0 2px 20px rgba(0,0,0,.05);overflow:hidden;margin-bottom:1.5rem}
 .result-card.show{display:block}
 
 .result-header{padding:1.25rem 1.75rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
-.result-header h3{font-size:14px;font-weight:700;color:var(--navy)}
+.result-header h3{font-size:14px;font-weight:700;color:#fff}
 .status-badge{display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;font-size:11px;font-weight:700}
 .status-badge.live{background:rgba(22,163,74,.1);color:#16A34A}
 .status-badge.live::before{content:'';width:6px;height:6px;border-radius:50%;background:#16A34A;animation:blink 1.5s infinite}
@@ -135,9 +139,9 @@ nav{background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1
 
 .result-body{padding:1.75rem}
 .result-info{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:1.5rem}
-.info-item{background:var(--teal-pale);border-radius:10px;padding:1rem 1.25rem;border:1px solid rgba(11,107,110,.1)}
+.info-item{background:rgba(14,206,206,.08);border-radius:10px;padding:1rem 1.25rem;border:1px solid rgba(14,206,206,.15)}
 .info-item .info-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--teal);margin-bottom:4px}
-.info-item .info-value{font-size:14px;font-weight:700;color:var(--navy)}
+.info-item .info-value{font-size:14px;font-weight:700;color:#fff}
 .info-item.full{grid-column:1/-1}
 
 .ahpra-btn{
@@ -145,31 +149,31 @@ nav{background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1
   width:100%;padding:14px;
   background:var(--navy);color:#fff;
   border:none;border-radius:9px;
-  font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;
+  font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;
   cursor:pointer;text-decoration:none;transition:all .2s;
 }
 .ahpra-btn:hover{background:var(--teal);transform:translateY(-1px)}
 
-.result-note{padding:1rem 1.75rem;background:#FFF9EC;border-top:1px solid rgba(202,138,4,.15);display:flex;align-items:flex-start;gap:10px}
+.result-note{padding:1rem 1.75rem;background:rgba(245,166,35,.08);border-top:1px solid rgba(245,166,35,.2);display:flex;align-items:flex-start;gap:10px}
 .result-note .note-icon{font-size:16px;flex-shrink:0;margin-top:1px}
-.result-note p{font-size:12px;color:#92400E;line-height:1.6}
+.result-note p{font-size:12px;color:rgba(255,255,255,.6);line-height:1.6}
 
 /* HOW IT WORKS */
-.how-card{background:#fff;border-radius:16px;padding:2rem;border:1px solid var(--border);margin-bottom:1.5rem}
-.how-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:1.25rem}
+.how-card{background:#0E1F36;border-radius:16px;padding:2rem;border:1px solid rgba(14,206,206,.15);margin-bottom:1.5rem}
+.how-card h3{font-size:14px;font-weight:700;color:#fff;margin-bottom:1.25rem}
 .how-steps{display:flex;flex-direction:column;gap:12px}
 .how-step{display:flex;align-items:flex-start;gap:14px}
 .how-num{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.how-step h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
-.how-step p{font-size:12px;color:var(--muted);line-height:1.6}
+.how-step h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:2px}
+.how-step p{font-size:12px;color:rgba(255,255,255,.6);line-height:1.6}
 
 /* DISCLAIMER */
-.disclaimer{background:rgba(11,107,110,.06);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
-.disclaimer p{font-size:12px;color:var(--muted);line-height:1.7}
-.disclaimer strong{color:var(--navy)}
+.disclaimer{background:rgba(14,206,206,.06);border:1px solid rgba(14,206,206,.12);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.disclaimer p{font-size:12px;color:rgba(255,255,255,.6);line-height:1.7}
+.disclaimer strong{color:#fff}
 
 /* PIE CTA */
-.pie-card{background:var(--navy-d);border-radius:14px;padding:1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.pie-card{background:#0B1829;border-radius:14px;padding:1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
 .pie-card h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:.25rem}
 .pie-card p{font-size:12px;color:rgba(255,255,255,.75);line-height:1.6}
 .pie-btn{background:var(--teal);color:#fff;padding:10px 20px;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s}
@@ -335,19 +339,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo-link"><img src="images/logo-healthplus.png" alt="HealthPlus International" style="height:48px;width:auto;display:block"></a>
+  <div class="nav-logo">
+    <a href="index.html"><img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:48px;width:auto;display:block;"></a>
+  </div>
   <ul class="nav-links">
-    <li><a href="#map-sec">Regions</a></li>
-    <li><a href="services-remote.html">Healthcare</a></li>
-    <li><a href="ain.html">AIN & Aged Care</a></li>
+    <li><a href="services-remote.html">Nursing</a></li>
     <li><a href="allied-health.html">Allied Health</a></li>
-    <li><a href="how-we-work.html" class="active">How We Work</a></li>
+    <li><a href="aged-care.html">Aged Care</a></li>
+    <li><a href="how-we-work.html">How We Work</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li class="nav-phone-item"><a href="tel:+61411459755"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:6px;flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5 2 2 0 0 1 3.6 2.87h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 17.5z"/></svg>0411 459 755</a></li>
+    <li><a href="ahpra-verify.html" class="active">Verify AHPRA</a></li>
   </ul>
-  <a href="submit-a-request.html" class="nav-cta-btn">Submit a Request</a>
-  <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <a href="submit-a-request.html" class="nav-cta">Submit a Request</a>
 </nav>
 
 <div class="page">
