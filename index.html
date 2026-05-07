@@ -66,7 +66,7 @@ h1 .teal-ol{-webkit-text-stroke:1.5px var(--teal);color:transparent;display:bloc
 .legend-line{width:20px;height:1px;flex-shrink:0}
 @media(max-width:640px){.map-legend{display:none}}
 
-.hero-scroll{position:absolute;left:0;bottom:36px;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp 1s 2s ease forwards}
+.hero-scroll{position:absolute;left:0;bottom:36px;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp 1s 2s ease forwards;display:none}
 .scroll-track{width:48px;height:1px;background:rgba(13,31,51,.15);position:relative;overflow:hidden}
 .scroll-track::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;background:var(--teal);animation:scrollRight 2s ease-in-out infinite}
 @keyframes scrollRight{0%{left:-40%}100%{left:140%}}
@@ -411,23 +411,30 @@ const TAS = [
 // East: Pacific coast south to ~-37.5°S
 // South: Murray River west to 141°E at ~-34°S
 const NSW = [
-  // Start SW at Murray/SA corner
+  // SW corner — SA/Murray River junction
   [141.0,-34.0],
-  // North along SA/QLD border (141°E)
+  // West border north (141°E — dead straight SA/QLD line)
   [141.0,-29.0],
-  // East along QLD border (roughly 29°S, slight dip to rivers)
-  [141.0,-28.5],[143.0,-28.5],[146.0,-28.5],
-  [148.5,-28.9],[150.2,-28.5],[152.0,-28.5],
-  [153.5,-28.5],  // NE corner coast
-  // South along NSW coast
-  [153.6,-28.1],[153.2,-30.0],[152.8,-31.4],
-  [151.7,-32.8],[151.2,-33.9],  // Sydney
-  [150.8,-34.5],[150.5,-35.7],
-  [149.9,-37.3],[149.5,-37.5],
-  // Murray River westward (VIC/NSW border) — roughly follows -36° with dips
-  [148.5,-36.8],[147.5,-36.0],[146.5,-36.0],
-  [145.5,-35.9],[144.5,-35.8],[143.5,-34.8],
-  [142.5,-34.0],[141.8,-34.0],[141.0,-34.0],
+  // QLD border — heads east then follows Macintyre/Barwon rivers (dips south)
+  [141.0,-28.5],[142.0,-29.0],[144.0,-29.0],
+  [145.5,-29.0],[147.0,-28.6],[148.5,-28.7],
+  [149.5,-28.5],[150.8,-28.4],[152.0,-28.2],
+  [153.0,-28.1],[153.5,-28.2],
+  // NE coast — Tweed Heads area
+  [153.6,-28.5],
+  // NSW Pacific coast heading south
+  [153.4,-29.5],[153.1,-30.5],[152.9,-31.4],
+  [152.2,-32.5],[151.7,-33.0],[151.2,-33.9],  // Sydney
+  [151.0,-34.2],[150.7,-35.0],[150.5,-35.7],
+  [150.1,-36.3],[149.9,-37.1],[149.7,-37.4],
+  // SE corner — far south NSW coast
+  [149.5,-37.5],[149.0,-37.6],
+  // Murray River — follows river westward with realistic meanders
+  // River runs roughly: starts ~SE at -37.5, heads west dropping to -36 then -35.5
+  [148.0,-36.9],[147.0,-36.0],[146.0,-35.8],
+  [145.0,-35.7],[144.2,-35.7],[143.5,-35.2],
+  [142.5,-34.8],[141.8,-34.4],[141.3,-34.1],
+  [141.0,-34.0],
 ];
 
 // ── RENDERER SETUP ────────────────────────────────────────────────────────────
@@ -445,19 +452,19 @@ camera.position.set(0, 0, 88);
 const ausPts = AUS.map(c => v3(c[0],c[1], 0));
 scene.add(new THREE.Line(
   new THREE.BufferGeometry().setFromPoints(ausPts),
-  new THREE.LineBasicMaterial({color:0x1B3A5C, transparent:false, opacity:1.0})
+  new THREE.LineBasicMaterial({color:0x0D2440, transparent:false, opacity:1.0})
 ));
 // Second pass — slight glow halo
 scene.add(new THREE.Line(
   new THREE.BufferGeometry().setFromPoints(ausPts),
-  new THREE.LineBasicMaterial({color:0x1B3A5C, transparent:true, opacity:0.3})
+  new THREE.LineBasicMaterial({color:0x0D2440, transparent:true, opacity:0.4})
 ));
 
 // Tasmania outline
 const tasPts = TAS.map(c => v3(c[0],c[1], 0));
 scene.add(new THREE.Line(
   new THREE.BufferGeometry().setFromPoints(tasPts),
-  new THREE.LineBasicMaterial({color:0x1B3A5C, transparent:false, opacity:1.0})
+  new THREE.LineBasicMaterial({color:0x0D2440, transparent:false, opacity:1.0})
 ));
 
 // ── FILL ALL AUSTRALIA with very dim dots ─────────────────────────────────
@@ -471,7 +478,7 @@ scene.add(new THREE.Line(
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(pts),3));
   scene.add(new THREE.Points(g,
-    new THREE.PointsMaterial({color:0x1B3A5C, size:0.2, transparent:true, opacity:0.12})
+    new THREE.PointsMaterial({color:0x0D2440, size:0.22, transparent:true, opacity:0.18})
   ));
 }
 
@@ -493,7 +500,7 @@ const borders = [
 borders.forEach(pts => {
   scene.add(new THREE.Line(
     new THREE.BufferGeometry().setFromPoints(pts.map(c => v3(c[0],c[1],0.1))),
-    new THREE.LineBasicMaterial({color:0x1B3A5C, transparent:true, opacity:0.55})
+    new THREE.LineBasicMaterial({color:0x1A3A5C, transparent:true, opacity:0.7})
   ));
 });
 
@@ -516,7 +523,7 @@ borders.forEach(pts => {
 const nswPts = NSW.map(c => v3(c[0],c[1], 1));
 scene.add(new THREE.Line(
   new THREE.BufferGeometry().setFromPoints(nswPts),
-  new THREE.LineBasicMaterial({color:0x0B6B6E, transparent:true, opacity:1.0})
+  new THREE.LineBasicMaterial({color:0x0B6B6E, transparent:false, opacity:1.0})
 ));
 // second pass slightly brighter for glow effect
 scene.add(new THREE.Line(
