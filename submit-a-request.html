@@ -2,617 +2,347 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Submit a Healthcare Workforce Request | HealthPlus International</title>
-<meta name="description" content="Submit a workforce request for credentialled healthcare staff for your regional or remote NSW health facility or service. We respond within one business day.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit a Workforce Request | Health Plus International</title>
+<meta name="description" content="Submit a healthcare workforce request for your regional or remote NSW facility. We respond within 24 hours with a matched, credentialled candidate.">
 <link rel="canonical" href="https://healthplusint.com.au/submit-a-request.html">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Health Plus International Pty Ltd">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="HealthPlus International">
-<meta property="og:title" content="Submit a Healthcare Workforce Request | HealthPlus International">
-<meta property="og:description" content="Request credentialled healthcare staff for your regional or remote NSW facility. We respond within 24 hours. Enrolled nurses, AINs, aged care workers, allied health.">
-<meta property="og:url" content="https://healthplusint.com.au/submit-a-request.html">
-<meta property="og:image" content="https://healthplusint.com.au/images/logo-healthplus.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Submit a Healthcare Workforce Request | HealthPlus International">
-<meta name="twitter:description" content="Request credentialled healthcare staff for regional or remote NSW. 24hr response. Employer of record model.">
-<meta name="twitter:image" content="https://healthplusint.com.au/images/logo-healthplus.png">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ContactPage","name":"Submit a Healthcare Workforce Request","url":"https://healthplusint.com.au/submit-a-request.html","description":"Workforce request form for healthcare facilities in regional and remote NSW seeking credentialled healthcare staff.","publisher":{"@type":"Organization","name":"Health Plus International Pty Ltd","url":"https://healthplusint.com.au","telephone":"+61411459755","email":"connect@healthplusint.com.au","areaServed":"Regional and Remote NSW, Australia"}}
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#0ECECE;--teal-d:#0B6B6E;--navy:#07101C;--navy-2:#0B1829;--navy-3:#0E1F36;--amber:#F5A623;--muted:rgba(255,255,255,.38)}
 html{scroll-behavior:smooth}
-body{font-family:'Montserrat',sans-serif;color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased}
-:root{
-  --teal:#0B6B6E;--teal-d:#085558;--teal-pale:#E1F5EE;--teal-mid:#9FE1CB;
-  --navy:#1B3A5C;--navy-d:#0D1F33;
-  --off:#F7F8F6;--border:rgba(11,107,110,0.12);
-  --text:#1a1a1a;--muted:#5a6a7a;
-}
-
-/* NAV */
-
-.nav-phone{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--teal);text-decoration:none;white-space:nowrap;padding:6px 14px;border:1.5px solid var(--teal);border-radius:100px;transition:all .2s;margin-left:8px}
-.nav-phone:hover{background:var(--teal);color:#fff}
-.nav-phone{font-size:11px;padding:5px 10px}}
-
-/* PAGE LAYOUT */
-.page-wrap{display:grid;grid-template-columns:1fr 380px;min-height:100vh;margin-top:66px}
-@media(max-width:960px){.page-wrap{grid-template-columns:1fr}}
-
-/* LEFT — FORM */
-.form-side{padding:4rem;background:#fff}
-.form-side h1{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--navy);margin-bottom:.5rem;line-height:1.15}
-.form-side .sub{font-size:14px;color:var(--muted);margin-bottom:2.5rem;line-height:1.65}
-.label-tag{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:.5rem}
-
-/* FORM GROUPS */
-.form-section{margin-bottom:2.25rem;padding-bottom:2.25rem;border-bottom:1px solid var(--border)}
-.form-section:last-of-type{border-bottom:none}
-.section-title{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--navy);text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:8px}
-.section-title::before{content:'';display:block;width:20px;height:2px;background:var(--teal)}
-.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:1rem}
-.fg label{font-size:11px;font-weight:700;color:var(--navy);letter-spacing:.3px}
-.fg input,.fg select,.fg textarea{font-family:'Montserrat',sans-serif;font-size:13px;color:#1a1a1a;border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;background:#fff;transition:border-color .2s;width:100%}
-.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--teal);background:var(--teal-pale)}
-.fg textarea{resize:vertical;min-height:90px;line-height:1.6}
-.fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6a7a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.fg .hint{font-size:10.5px;color:var(--muted);line-height:1.5}
-.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:600px){.fg-row{grid-template-columns:1fr}}
-
-/* CHECKBOXES */
-.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
-.check-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:all .2s;font-size:12px;font-weight:600;color:#333}
-.check-item input[type="checkbox"]{width:16px;height:16px;accent-color:var(--teal);cursor:pointer;flex-shrink:0}
-.check-item:has(input:checked){border-color:var(--teal);background:var(--teal-pale);color:var(--teal)}
-@media(max-width:600px){.check-grid{grid-template-columns:1fr}}
-
-/* URGENCY TOGGLE */
-.urgency-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem}
-.urg-btn{padding:10px 8px;border:1.5px solid var(--border);border-radius:8px;text-align:center;cursor:pointer;transition:all .2s}
-.urg-btn input{display:none}
-.urg-btn .urg-label{font-size:11px;font-weight:700;display:block}
-.urg-btn .urg-sub{font-size:10px;color:var(--muted);margin-top:2px;display:block}
-.urg-btn:has(input:checked){border-color:var(--teal);background:var(--teal-pale)}
-.urg-btn:has(input:checked) .urg-label{color:var(--teal)}
-
-/* SUBMIT */
-.submit-btn{width:100%;padding:15px;background:var(--teal);color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:background .2s;margin-top:.5rem}
-.submit-btn:hover{background:var(--teal-d)}
-.privacy-note{font-size:10.5px;color:var(--muted);text-align:center;margin-top:.75rem;line-height:1.5}
-
-/* SUCCESS STATE */
-.success-msg{display:none;background:var(--teal-pale);border:1.5px solid var(--teal);border-radius:12px;padding:2rem;text-align:center;margin-top:1.5rem}
-.success-msg.show{display:block}
-.success-msg h3{font-size:16px;font-weight:700;color:var(--teal);margin-bottom:.4rem}
-.success-msg p{font-size:13px;color:var(--muted)}
-
-/* RIGHT — INFO PANEL */
-.info-side{background:var(--navy-d);padding:4rem 2.5rem;position:relative;overflow:hidden}
-.info-side::before{content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(11,107,110,.2),transparent 70%)}
-.info-inner{position:relative;z-index:1}
-.info-side h2{font-size:18px;font-weight:800;color:#fff;margin-bottom:1.5rem}
-.info-block{margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid rgba(255,255,255,.06)}
-.info-block:last-child{border-bottom:none}
-.info-block h4{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--teal-mid);text-transform:uppercase;margin-bottom:.75rem}
-.info-block p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7}
-.promise-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:.75rem}
-.promise-check{width:20px;height:20px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:800;flex-shrink:0;margin-top:1px}
-.promise-item p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.55}
-.phone-block{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:1.25rem;margin-top:1.5rem;text-align:center}
-.phone-block p{font-size:11px;color:rgba(255,255,255,.7);margin-bottom:.4rem}
-.phone-block a{font-size:18px;font-weight:800;color:#fff;text-decoration:none}
-.phone-block a:hover{color:var(--teal-mid)}
-.phone-block span{display:block;font-size:10px;color:rgba(255,255,255,.55);margin-top:.25rem}
-.lhd-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:.75rem}
-.lhd-tag{font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px;background:rgba(11,107,110,.2);color:var(--teal-mid);border:1px solid rgba(11,107,110,.3)}
-
+body{background:var(--navy);color:#fff;font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none}
+@media(hover:none){body{cursor:auto}#cursor,#cursor-ring{display:none}}
+#cursor{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--teal);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+#cursor-ring{position:fixed;width:34px;height:34px;border-radius:50%;border:1px solid rgba(14,206,206,.35);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s,top .1s,width .3s,height .3s}
+body:has(a:hover) #cursor{width:16px;height:16px;background:var(--amber)}
+body:has(a:hover) #cursor-ring{width:44px;height:44px;border-color:rgba(245,166,35,.35)}
+#canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#grain{position:fixed;top:-50%;left:-50%;width:200%;height:200%;z-index:1;pointer-events:none;opacity:.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .5s steps(1) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-2%,-2%)}40%{transform:translate(2%,-1%)}60%{transform:translate(-1%,3%)}80%{transform:translate(3%,1%)}}
+nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(7,16,28,.97),transparent);backdrop-filter:blur(4px)}
+.nav-logo a{display:block}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-cta{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);text-decoration:none;border:1px solid rgba(14,206,206,.3);padding:10px 20px;transition:all .25s;white-space:nowrap}
+.nav-cta:hover{background:var(--teal);color:#000}
+@media(max-width:768px){nav{padding:14px 20px}.nav-links{display:none}.nav-cta{padding:8px 14px;font-size:8px}}
+/* PAGE HERO */
+.page-hero{position:relative;z-index:10;padding:140px 48px 80px;border-bottom:1px solid rgba(14,206,206,.08)}
+.page-hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(7,16,28,.6) 0%,rgba(7,16,28,.95) 100%);pointer-events:none}
+.page-hero-inner{position:relative;max-width:760px}
+.eyebrow{font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:inline-block}
+.page-hero h1{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(44px,7vw,88px);line-height:.9;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:24px}
+.page-hero h1 em{font-style:normal;color:var(--teal)}
+.page-hero p{font-size:16px;line-height:1.8;color:rgba(255,255,255,.6);font-weight:300;max-width:540px}
+@media(max-width:640px){.page-hero{padding:110px 20px 60px}}
+/* SECTIONS */
+.section{position:relative;z-index:10;padding:88px 48px}
+.section-dark{background:var(--navy)}
+.section-mid{background:var(--navy-2)}
+.section-deep{background:var(--navy-3)}
+@media(max-width:640px){.section{padding:64px 20px}}
+.section-h{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(28px,4.5vw,56px);text-transform:uppercase;line-height:.92}
+.section-h em{font-style:normal;color:var(--teal)}
+.section-h span{color:var(--amber)}
+.section-tag{font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;display:block}
+/* GRID CARDS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(14,206,206,.06)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(14,206,206,.06)}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(14,206,206,.06)}
+@media(max-width:900px){.grid-4{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.card{background:var(--navy);padding:36px 28px;position:relative;overflow:hidden;transition:background .3s}
+.card-mid{background:var(--navy-2);padding:36px 28px;position:relative;overflow:hidden;transition:background .3s}
+.card:hover,.card-mid:hover{background:var(--navy-3)}
+.card::before,.card-mid::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.card:hover::before,.card-mid:hover::before{transform:scaleX(1)}
+.card h3,.card-mid h3{font-family:'Big Shoulders Display',sans-serif;font-size:22px;font-weight:900;text-transform:uppercase;margin-bottom:10px;line-height:1}
+.card p,.card-mid p{font-size:13px;color:var(--muted);line-height:1.75}
+.card-bar{width:24px;height:2px;background:var(--teal);margin-bottom:18px}
+/* STEP CARDS */
+.step-num{font-family:'Big Shoulders Display',sans-serif;font-size:64px;font-weight:900;color:rgba(14,206,206,.06);position:absolute;top:-6px;right:12px;line-height:1}
+/* TWO COL LAYOUT */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two-col-rev{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+@media(max-width:900px){.two-col,.two-col-rev{grid-template-columns:1fr;gap:40px}}
+/* BODY COPY */
+.body-lg{font-size:17px;line-height:1.9;color:rgba(255,255,255,.55);font-weight:300}
+.body-lg strong{color:rgba(255,255,255,.85);font-weight:500}
+.body-md{font-size:15px;line-height:1.8;color:rgba(255,255,255,.55);font-weight:300}
+.body-sm{font-size:13px;line-height:1.75;color:var(--muted)}
+/* BUTTONS */
+.btn-primary{background:var(--teal-d);color:#fff;padding:14px 30px;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;display:inline-block;position:relative;overflow:hidden;transition:all .3s}
+.btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--teal);transition:left .35s;z-index:0}
+.btn-primary:hover::before{left:0}
+.btn-primary span{position:relative;z-index:1}
+.btn-ghost{color:var(--muted);font-size:10px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s}
+.btn-ghost::after{content:'→';transition:transform .3s}
+.btn-ghost:hover{color:#fff}
+.btn-ghost:hover::after{transform:translateX(4px)}
+/* FORM */
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(14,206,206,.15);color:#fff;padding:12px 16px;font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;transition:border-color .25s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(14,206,206,.5);background:rgba(14,206,206,.04)}
+.form-group select option{background:#0B1829;color:#fff}
+.form-group textarea{resize:vertical;min-height:120px}
+/* STATS STRIP */
+.stats-strip{display:flex;border-top:1px solid rgba(14,206,206,.08);border-bottom:1px solid rgba(14,206,206,.08)}
+.stat-item{flex:1;padding:28px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.05)}
+.stat-item:last-child{border-right:none}
+.s-num{font-family:'Big Shoulders Display',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:900;color:var(--teal);line-height:1}
+.s-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+@media(max-width:640px){.stats-strip{flex-wrap:wrap}.stat-item{flex:0 0 50%;border-right:none;border-bottom:1px solid rgba(255,255,255,.05)}}
+/* BADGE */
+.badge{display:inline-block;padding:4px 10px;font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px}
+.badge-red{background:rgba(255,85,85,.1);color:#FF7070;border:1px solid rgba(255,85,85,.22)}
+.badge-amber{background:rgba(245,166,35,.1);color:var(--amber);border:1px solid rgba(245,166,35,.22)}
+.badge-green{background:rgba(102,187,106,.1);color:#66BB6A;border:1px solid rgba(102,187,106,.22)}
+.badge-teal{background:rgba(14,206,206,.1);color:var(--teal);border:1px solid rgba(14,206,206,.22)}
+/* CTA BAND */
+.cta-band{position:relative;z-index:10;padding:88px 48px;background:var(--navy-2);border-top:1px solid rgba(14,206,206,.1);overflow:hidden;text-align:center}
+.cta-band-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(14,206,206,.06) 0%,transparent 65%);pointer-events:none}
+.cta-band h2{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(32px,5vw,66px);text-transform:uppercase;line-height:.92;margin-bottom:20px;position:relative}
+.cta-band h2 em{font-style:normal;color:var(--teal)}
+.cta-band p{font-size:15px;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:36px;font-weight:300;max-width:560px;margin-left:auto;margin-right:auto;position:relative}
+.cta-band-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+@media(max-width:640px){.cta-band{padding:64px 20px}}
 /* FOOTER */
-footer{background:var(--navy-d);padding:3rem 4rem 2rem;border-top:1px solid rgba(255,255,255,.04)}
-.ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3.5rem;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.fb p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.7);margin-top:.75rem;max-width:320px}
-.fc h4{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--teal-mid);margin-bottom:.9rem}
-.fc a{display:block;font-size:13px;color:rgba(255,255,255,.75);text-decoration:none;margin-bottom:7px;transition:color .2s}
-.fc a:hover{color:#fff}
-.fb-bot{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem}
-.fb-bot p,.fb-bot a{font-size:11px;color:rgba(255,255,255,.55)}
-.fb-bot a{color:var(--teal-mid);text-decoration:none}
-.ack{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:flex-start;gap:10px}
-.ack-bar{width:4px;min-height:38px;background:linear-gradient(to bottom,#E8A020,#CC3300,#000);border-radius:2px;flex-shrink:0;margin-top:2px}
-.ack p{font-size:10.5px;color:rgba(255,255,255,.55);line-height:1.7;font-weight:500}
-@media(max-width:768px){.ft{grid-template-columns:1fr;gap:2rem}footer{padding:2.5rem 1.5rem}}
-@media(max-width:960px){.info-side{padding:3rem 1.5rem}.form-side{padding:3rem 1.5rem}}
-
-/* ── FOOTER TAGLINE ── */
-.hpi-tagline{
-  display:inline-flex;align-items:center;gap:10px;
-  margin-top:1rem;
-  font-size:12px;font-weight:600;letter-spacing:1.5px;
-  color:#9FE1CB;
-}
-.hpi-tagline::before,.hpi-tagline::after{
-  content:'';display:block;width:20px;height:1.5px;
-  background:#0B6B6E;border-radius:1px;flex-shrink:0;
-}
-
-}
-
-/* ══ READABILITY OVERRIDE — WCAG AA, older readers ══════════════════════════ */
-/* Base */
-body{font-size:16px;line-height:1.8}
-
-/* All paragraph text — minimum 15px, comfortable line height */
-p{font-size:15px;line-height:1.8}
-p.lead,.lead{font-size:16px!important;line-height:1.85!important}
-
-/* Navigation */
-
-/* Section eyebrow labels — minimum 12px */
-.label,.label-light,.lbl,.hero-tag,.hero-eyebrow span,
-.entry-tag,.step-tag,.label-tag,.section-title,
-.reg,.svc-type,.price-badge,.strike,
-.badge-teal,.badge-navy{font-size:12px!important;letter-spacing:1.5px!important}
-
-/* Card body text — minimum 14.5px */
-.prof-card p,.spec-card p,.svc-card-body p,
-.removed-card p,.why-card p,.diff-content p,
-.how-step p,.check-item p,.pipe-content p,
-.eor-col li,.comp-item,.why-text span,
-.badge-text span,.country-pill span,
-.price-list li,.price-list-item,
-.commit-card p,.pillar-body p,.pillar p{font-size:14.5px!important;line-height:1.8!important}
-
-/* Card headings */
-.removed-card h4,.spec-card h4,.svc-card-title,
-.check-item h4,.pipe-content h4,.diff-content h3,
-.how-step h4,.why-card h3,.badge-text strong,
-.commit-card h3,.pillar-title{font-size:16px!important}
-
-/* Form labels — minimum 13px */
-.fg label,.field label,.form-label,
-label{font-size:13px!important;letter-spacing:.5px!important}
-
-/* Form inputs — minimum 15px so older people can see what they typed */
-input,select,textarea,
-.fg input,.fg select,.fg textarea,
-.field input,.field select,.field textarea{font-size:15px!important;line-height:1.6!important}
-
-/* Buttons — larger, easier to tap */
-.btn-teal,.btn-ghost,.sc-btn-primary,.sc-btn-ghost,
-
-/* Footer — all readable */
-.fb p{font-size:14px!important;line-height:1.8!important}
-.fc h4{font-size:12px!important;letter-spacing:2px!important}
-.fc a{font-size:14px!important;line-height:2!important}
-.fb-bot p,.fb-bot a{font-size:13px!important}
-.ack p{font-size:12.5px!important;line-height:1.75!important}
-.hpi-tagline{font-size:13px!important}
-
-/* Role tags / pills — minimum 11px */
-.role-tag,.tp,.dir-tag,.badge-row span,
-.sec-cta-text span{font-size:11.5px!important}
-
-/* Stats labels */
-.stat-l,.lbl-s,.exp-label,.stat-label{font-size:11px!important;letter-spacing:1.5px!important}
-
-/* Trust bar */
-.trust-item{font-size:12px!important}
-
-/* Map sidebar */
-.sb-name,.sb-label,.sb-value,.remote-stat .val,
-.remote-stat .lbl-s{font-size:13px!important}
-
-/* Steps */
-.step-n,.ps-circle{font-size:14px!important}
-.pl{font-size:12px!important}
-
-/* Progress labels */
-.pl,.step-title{font-size:15px!important}
-.step-sub{font-size:14px!important;line-height:1.75!important}
-
-/* Mobile nav labels */
-.mnav-label{font-size:10px!important}
-
-/* Amount / rate text */
-.amount,.price-fee .amount{font-size:15px!important;font-weight:600!important}
-/* ══════════════════════════════════════════════════════════════════════════ */
-
-  
-  
-  
-}
-
-}
-/* ─────────────────────────────────────────────────────────── */
-
-  
-  
-
-  
-  
-/* ─────────────────────────────────────────────────── */
-
-@media(max-width:900px){
-  
-  .nav-links,
-  
-}
-
-/* ─────────────────────────────────────────────────────────────────── */
-
-
-
-/* ══ NAV ══════════════════════════════════════════════════════════════════ */
-html,body{overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.07)}
-.nav-logo-link{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
-.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;padding:0;margin:0 auto}
-.nav-links a{font-size:13px;font-weight:600;color:#5a6a7a;text-decoration:none;white-space:nowrap;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:#0B6B6E}
-.nav-cta-btn{flex-shrink:0;background:#1B3A5C;color:#fff!important;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s}
-.nav-cta-btn:hover{background:#0B6B6E!important}
-.nav-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:1.5px solid rgba(11,107,110,.25);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
-.nav-burger span{display:block;width:18px;height:2px;background:#0B6B6E;border-radius:2px;transition:transform .25s,opacity .2s}
-.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-burger.open span:nth-child(2){opacity:0}
-.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:900px){
-  .nav-burger{display:flex}
-  .nav-links,.nav-cta-btn{display:none!important}
-  .nav-links.is-open{display:flex!important;flex-direction:column;gap:0;list-style:none;position:fixed;top:66px;left:0;right:0;bottom:0;z-index:9999;background:#fff;overflow-y:auto;padding:1.25rem 2rem 3rem;border-top:1px solid rgba(11,107,110,.1)}
-  .nav-links.is-open li{border-bottom:1px solid rgba(11,107,110,.07)}
-  .nav-links.is-open a{display:block;padding:.85rem .25rem;font-size:16px!important;font-weight:600;color:#1B3A5C!important;text-decoration:none}
-  .nav-links.is-open a:hover,.nav-links.is-open a.active{color:#0B6B6E!important}
-}
-/* ═════════════════════════════════════════════════════════════════════════ */
-
-.nav-phone-item{display:none}
-@media(max-width:900px){
-  .nav-links.is-open .nav-phone-item{display:block;border-top:2px solid rgba(11,107,110,.15)!important;margin-top:.5rem;padding-top:.25rem}
-  .nav-links.is-open .nav-phone-item a{color:#0B6B6E!important;font-weight:700!important;font-size:15px!important;display:flex;align-items:center}
-}
+footer{position:relative;z-index:10;background:#050C15;padding:56px 48px 36px}
+.aboriginal-bar{height:3px;background:linear-gradient(to right,#E8A020 33%,#CC3300 33% 66%,#111 66%);margin-bottom:48px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.28);line-height:1.8;max-width:260px;margin-top:4px}
+.footer-col h4{font-size:9px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.28);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.7)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:22px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.acknowledgement{font-size:11px;color:rgba(255,255,255,.18);max-width:480px;line-height:1.8}
+.footer-copy{font-size:10px;color:rgba(255,255,255,.15);letter-spacing:.06em;white-space:nowrap}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}}
+/* LIVE BADGE */
+.live-badge{position:fixed;bottom:24px;left:24px;z-index:500;background:rgba(7,16,28,.95);border:1px solid rgba(14,206,206,.18);padding:10px 18px;display:flex;align-items:center;gap:9px;backdrop-filter:blur(12px)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.7)}}
+.live-text{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 </style>
 </head>
 <body>
-
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="grain"></div>
+<canvas id="canvas"></canvas>
 <nav>
-  <a href="index.html" class="nav-logo-link"><img src="images/logo-healthplus.png" alt="HealthPlus International" style="height:48px;width:auto;display:block"></a>
+  <div class="nav-logo">
+    <a href="index.html"><img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:48px;width:auto;display:block;"></a>
+  </div>
   <ul class="nav-links">
-    <li><a href="#map-sec">Regions</a></li>
-    <li><a href="services-remote.html">Healthcare</a></li>
-    <li><a href="ain.html">AIN & Aged Care</a></li>
+    <li><a href="services-remote.html">Nursing</a></li>
     <li><a href="allied-health.html">Allied Health</a></li>
+    <li><a href="aged-care.html">Aged Care</a></li>
     <li><a href="how-we-work.html">How We Work</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li class="nav-phone-item"><a href="tel:+61411459755"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:6px;flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5 2 2 0 0 1 3.6 2.87h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 17.5z"/></svg>0411 459 755</a></li>
   </ul>
-  <a href="submit-a-request.html" class="nav-cta-btn">Submit a Request</a>
-  <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <a href="submit-a-request.html" class="nav-cta">Submit a Request</a>
 </nav>
 
-<div class="page-wrap">
+<section class="page-hero section-dark">
+  <div class="page-hero-inner">
+    <span class="eyebrow reveal">Facilities & Services</span>
+    <h1 class="reveal d1">Submit a<br>workforce<br><em>request.</em></h1>
+    <p class="reveal d2">Tell us what you need. We'll respond within 24 hours with a matched, credentialled, compliant healthcare worker ready for your facility.</p>
+  </div>
+</section>
 
-  <!-- FORM SIDE -->
-  <div class="form-side">
-    <span class="label-tag">FACILITY WORKFORCE REQUEST</span>
-    <h1>Submit a Workforce Request</h1>
-    <p class="sub">Complete this form to request a credentialled healthcare worker for your regional or remote NSW facility or service. We respond within one business day — usually the same day.</p>
-
-    <form id="requestForm" action="https://formspree.io/f/xpqbdonv" method="POST">
-
-      <!-- SECTION 1: FACILITY -->
-      <div class="form-section">
-        <div class="section-title">Your Facility</div>
-        <div class="fg-row">
-          <div class="fg">
-            <label>Facility Name *</label>
-            <input type="text" name="facility_name" placeholder="e.g. Broken Hill Hospital" required>
-          </div>
-          <div class="fg">
-            <label>Local Health District *</label>
-            <select name="lhd" required>
-              <option value="" disabled selected>Select LHD</option>
-              <option>Far West NSW LHD</option>
+<section class="section section-dark">
+  <div class="two-col" style="gap:80px">
+    <div>
+      <div class="card-mid" style="padding:48px 40px">
+        <span class="section-tag">Workforce Request</span>
+        <h3 style="font-family:'Big Shoulders Display',sans-serif;font-size:28px;font-weight:900;text-transform:uppercase;margin-bottom:28px;line-height:1">Your facility.<br>Your requirements.</h3>
+        <form action="https://formspree.io/f/xpqbdonv" method="POST">
+          <div class="form-group"><label>Facility Name</label><input type="text" name="facility" placeholder="Your facility or service name" required></div>
+          <div class="form-group"><label>Contact Name</label><input type="text" name="name" placeholder="Your full name" required></div>
+          <div class="form-group"><label>Contact Email</label><input type="email" name="email" placeholder="your@facility.com.au" required></div>
+          <div class="form-group"><label>Contact Phone</label><input type="tel" name="phone" placeholder="+61 4XX XXX XXX" required></div>
+          <div class="form-group"><label>Location</label><input type="text" name="location" placeholder="Town / facility location" required></div>
+          <div class="form-group"><label>LHD Region</label>
+            <select name="region" required>
+              <option value="" disabled selected>Select LHD region</option>
+              <option>Far West LHD</option>
               <option>Western NSW LHD</option>
               <option>Murrumbidgee LHD</option>
               <option>Hunter New England LHD</option>
               <option>Northern NSW LHD</option>
               <option>Mid North Coast LHD</option>
-              <option>Other</option>
+              <option>Other — please specify below</option>
             </select>
           </div>
-        </div>
-        <div class="fg">
-          <label>Facility Town / Location *</label>
-          <input type="text" name="location" placeholder="e.g. Broken Hill, Bourke, Dubbo" required>
-        </div>
-        <div class="fg-row">
-          <div class="fg">
-            <label>Your Name *</label>
-            <input type="text" name="contact_name" placeholder="e.g. Facility Manager, Care Coordinator, NUM" required>
-          </div>
-          <div class="fg">
-            <label>Your Title / Role</label>
-            <input type="text" name="contact_role" placeholder="e.g. Facility Manager, NUM, Care Coordinator">
-          </div>
-        </div>
-        <div class="fg-row">
-          <div class="fg">
-            <label>Phone *</label>
-            <input type="tel" name="phone" placeholder="02 xxxx xxxx" required>
-          </div>
-          <div class="fg">
-            <label>Email *</label>
-            <input type="email" name="email" placeholder="you@facility.health.nsw.gov.au" required>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION 2: ROLE DETAILS -->
-      <div class="form-section">
-        <div class="section-title">Role Required</div>
-        <div class="fg">
-          <label>Discipline / Profession *</label>
-          <select name="discipline" required>
-                        <option value="" disabled selected>Select role or discipline</option>
-            <optgroup label="Care Workers">
-              <option>Healthcare Worker (Cert III, Cert IV or equivalent)</option>
+          <div class="form-group"><label>Role Required</label>
+            <select name="role" required>
+              <option value="" disabled selected>Select role type</option>
+              <option>Enrolled Nurse</option>
               <option>AIN (Assistant in Nursing)</option>
               <option>Aged Care Worker</option>
-              <option>Support Worker (Community Care)</option>
-            </optgroup>
-            <optgroup label="Allied Health">
+              <option>Support Worker</option>
+              <option>Physiotherapist</option>
               <option>Occupational Therapist</option>
               <option>Psychologist</option>
               <option>Podiatrist</option>
-              <option>Aboriginal &amp; Torres Strait Islander Health Practitioner</option>
-              <option>Medical Radiation Practitioner</option>
-              <option>Dietitian / Nutritionist</option>
-              <option>Exercise Physiologist</option>
-            </optgroup>
-            <option>Other (specify in notes)</option>
-            </optgroup>
-          </select>
-        </div>
-        <div class="fg">
-          <label>Number of Practitioners Required</label>
-          <select name="headcount">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4 or more</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label>Specific clinical experience required (if any)</label>
-          <textarea name="clinical_experience" placeholder="e.g. Regional or remote experience, aged care, community health, chronic disease..."></textarea>
-        </div>
-      </div>
-
-      <!-- SECTION 3: DATES & ROSTER -->
-      <div class="form-section">
-        <div class="section-title">Dates &amp; Roster</div>
-        <div class="fg-row">
-          <div class="fg">
-            <label>Start Date *</label>
-            <input type="date" name="start_date" required>
+              <option>Paramedic</option>
+              <option>Aboriginal Health Worker</option>
+              <option>Other — please specify below</option>
+            </select>
           </div>
-          <div class="fg">
-            <label>End Date / Duration</label>
-            <input type="date" name="end_date">
-            <span class="hint">Leave blank if ongoing or ongoing-with-review</span>
+          <div class="form-group"><label>Start Date Required</label><input type="date" name="start_date"></div>
+          <div class="form-group"><label>Duration / Hours</label><input type="text" name="duration" placeholder="e.g. 4 weeks full time, 3 days/week"></div>
+          <div class="form-group"><label>Additional Requirements</label><textarea name="message" placeholder="Any specific requirements, shift patterns, clinical context, or other details..."></textarea></div>
+          <input type="hidden" name="_subject" value="New Workforce Request — HPI">
+          <button type="submit" class="btn-primary" style="width:100%;text-align:center;border:none;cursor:pointer;font-size:11px;padding:16px"><span>Submit Workforce Request</span></button>
+        </form>
+      </div>
+    </div>
+    <div>
+      <span class="section-tag reveal">What Happens Next</span>
+      <h2 class="section-h reveal d1" style="margin-bottom:40px">We respond<br>within <em>24 hours.</em></h2>
+      <div style="display:flex;flex-direction:column;gap:2px" class="reveal d2">
+        <div class="card" style="padding:28px 24px">
+          <div style="display:flex;gap:18px;align-items:flex-start">
+            <div style="font-family:'Big Shoulders Display',sans-serif;font-size:36px;font-weight:900;color:var(--teal);line-height:1;flex-shrink:0">01</div>
+            <div><h3 style="font-size:16px;margin-bottom:6px">We review your request</h3><p>Within 24 hours, our team assesses your requirements against our current candidate network.</p></div>
           </div>
         </div>
-        <div class="fg">
-          <label>Arrangement Type</label>
-          <select name="arrangement_type">
-            <option>Short-term relief (days to 2 weeks)</option>
-            <option>Medium placement (2 weeks to 3 months)</option>
-            <option>Extended rotational placement (3+ months)</option>
-            <option>Ongoing retained arrangement</option>
-            <option>Unsure — discuss with Health Plus</option>
-          </select>
+        <div class="card" style="padding:28px 24px">
+          <div style="display:flex;gap:18px;align-items:flex-start">
+            <div style="font-family:'Big Shoulders Display',sans-serif;font-size:36px;font-weight:900;color:var(--teal);line-height:1;flex-shrink:0">02</div>
+            <div><h3 style="font-size:16px;margin-bottom:6px">We match a candidate</h3><p>We identify the best available candidate — verified credentials, police clearance, and appropriate experience confirmed.</p></div>
+          </div>
         </div>
-        <div class="fg">
-          <label>Roster / Shift Pattern</label>
-          <input type="text" name="roster" placeholder="e.g. 5 days on / 2 off, Monday–Friday, 7-day rotating...">
+        <div class="card" style="padding:28px 24px">
+          <div style="display:flex;gap:18px;align-items:flex-start">
+            <div style="font-family:'Big Shoulders Display',sans-serif;font-size:36px;font-weight:900;color:var(--teal);line-height:1;flex-shrink:0">03</div>
+            <div><h3 style="font-size:16px;margin-bottom:6px">We confirm & contract</h3><p>We confirm the placement with you, issue a placement agreement, and manage all employment documentation.</p></div>
+          </div>
         </div>
-      </div>
-
-      <!-- SECTION 4: URGENCY -->
-      <div class="form-section">
-        <div class="section-title">Urgency</div>
-        <div class="urgency-row">
-          <label class="urg-btn">
-            <input type="radio" name="urgency" value="urgent" required>
-            <span class="urg-label"><svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;margin-right:4px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Urgent</span>
-            <span class="urg-sub">Within 48 hours</span>
-          </label>
-          <label class="urg-btn">
-            <input type="radio" name="urgency" value="soon">
-            <span class="urg-label"><svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;margin-right:4px"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Soon</span>
-            <span class="urg-sub">Within 2 weeks</span>
-          </label>
-          <label class="urg-btn">
-            <input type="radio" name="urgency" value="planned">
-            <span class="urg-label"><svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;margin-right:4px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Planned</span>
-            <span class="urg-sub">2+ weeks away</span>
-          </label>
+        <div class="card" style="padding:28px 24px">
+          <div style="display:flex;gap:18px;align-items:flex-start">
+            <div style="font-family:'Big Shoulders Display',sans-serif;font-size:36px;font-weight:900;color:var(--teal);line-height:1;flex-shrink:0">04</div>
+            <div><h3 style="font-size:16px;margin-bottom:6px">Worker arrives. Care delivered.</h3><p>The worker starts on site. You receive a single weekly invoice. We remain available for the duration.</p></div>
+          </div>
         </div>
       </div>
-
-      <!-- SECTION 5: ACCOMMODATION -->
-      <div class="form-section">
-        <div class="section-title">Accommodation &amp; Travel</div>
-        <div class="check-grid">
-          <label class="check-item"><input type="checkbox" name="accom" value="Facility accommodation available"> Facility accommodation available</label>
-          <label class="check-item"><input type="checkbox" name="accom" value="Assistance finding accommodation"> Assistance finding accommodation</label>
-          <label class="check-item"><input type="checkbox" name="travel" value="Travel allowance provided"> Travel allowance provided</label>
-          <label class="check-item"><input type="checkbox" name="travel" value="Vehicle provided on site"> Vehicle provided on site</label>
-        </div>
-        <div class="fg">
-          <label>Additional accommodation / travel notes</label>
-          <textarea name="accom_notes" placeholder="Any details that would help a practitioner understand the arrangement..."></textarea>
-        </div>
-      </div>
-
-      <!-- SECTION 6: OTHER NOTES -->
-      <div class="form-section">
-        <div class="section-title">Anything Else</div>
-        <div class="fg">
-          <label>Additional information for HealthPlus International</label>
-          <textarea name="notes" rows="4" placeholder="Community demographics, cultural considerations, specific equipment, reporting structure, or anything else relevant to the role..."></textarea>
-        </div>
-        <div class="fg">
-          <label>How did you hear about us?</label>
-          <select name="source">
-            <option value="" disabled selected>Select one</option>
-            <option>Google Search</option>
-            <option>NSW Health network / referral</option>
-            <option>LHD recommendation</option>
-            <option>LinkedIn</option>
-            <option>Conference or event</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-
-      <button type="submit" class="submit-btn">Submit Workforce Request →</button>
-      <p class="privacy-note">Your information is handled in accordance with our privacy policy and the Privacy Act 1988 (Cth). We will never share your details with third parties without your consent.</p>
-
-      <div class="success-msg" id="successMsg">
-        <div style="width:52px;height:52px;border-radius:50%;background:var(--teal-pale);border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto .75rem"><svg viewBox="0 0 24 24" style="width:24px;height:24px;stroke:var(--teal);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <h3>Request received — thank you.</h3>
-        <p>A member of our team will contact you within one business day, usually sooner for urgent requests. In the meantime, call us directly on <a href="tel:+61411459755" style="color:var(--teal);font-weight:700">+61 411 459 755</a>.</p>
-      </div>
-    </form>
-  </div>
-
-  <!-- INFO SIDE -->
-  <div class="info-side">
-    <div class="info-inner">
-      <h2>What happens next</h2>
-
-      <div class="info-block">
-        <h4>Our commitment to you</h4>
-        <div class="promise-item"><div class="promise-check">1</div><p>We review your request and respond within one business day — same day for urgent requests</p></div>
-        <div class="promise-item"><div class="promise-check">2</div><p>We identify verified, credentialled candidates with documented rural experience</p></div>
-        <div class="promise-item"><div class="promise-check">3</div><p>We present a practitioner profile before any commitment is made</p></div>
-        <div class="promise-item"><div class="promise-check">4</div><p>We manage all employment documentation, payroll, and compliance — one invoice</p></div>
-      </div>
-
-      <div class="info-block">
-        <h4>We serve these LHDs</h4>
-        <div class="lhd-tags">
-          <span class="lhd-tag">Far West NSW</span>
-          <span class="lhd-tag">Western NSW</span>
-          <span class="lhd-tag">Murrumbidgee</span>
-          <span class="lhd-tag">Hunter New England</span>
-          <span class="lhd-tag">Northern NSW</span>
-          <span class="lhd-tag">Mid North Coast</span>
-        </div>
-      </div>
-
-      <div class="info-block">
-        <h4>Every placement includes</h4>
-        <p style="margin-bottom:.5rem">✓ Registration &amp; credentials verified (NSW Health guidelines)<br>✓ National Police Check<br>✓ Working With Children Check<br>✓ Professional indemnity insurance<br>✓ Workers' compensation cover<br>✓ Fair Work compliant employment</p>
-      </div>
-
-      <div class="info-block">
-        <h4>No lock-in contracts</h4>
-        <p>We work on placement-by-placement arrangements. No retainer fees, no minimum spend, no lock-in. Pay only for what you use.</p>
-      </div>
-
-      <div class="phone-block">
-        <p>Prefer to speak directly?</p>
-        <a href="tel:+61411459755">+61 411 459 755</a>
-        <span>Mon–Fri · Urgent after-hours available</span>
+      <div style="margin-top:24px;padding:24px 28px;border:1px solid rgba(14,206,206,.15);background:rgba(14,206,206,.04)" class="reveal d3">
+        <div style="font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:8px">Prefer to call?</div>
+        <div style="font-family:'Big Shoulders Display',sans-serif;font-size:22px;font-weight:900">connect@healthplusint.com.au</div>
+        <p class="body-sm" style="margin-top:6px">We respond to all enquiries within 24 hours.</p>
       </div>
     </div>
   </div>
+</section>
 
-</div>
-
-<!-- FOOTER -->
 <footer>
-  <div class="ft">
-    <div class="fb">
-      <img src="images/logo-healthplus-transparent.png" alt="HealthPlus International" style="height:52px;width:auto;display:block;margin-bottom:12px">
-      <p>HealthPlus International connects credentialled healthcare workers to regional and remote NSW communities. People. Care. Compliance.</p>
-      <div class="hpi-tagline">People. Care. Compliance.</div>
+  <div class="aboriginal-bar"></div>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html"><img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:52px;width:auto;margin-bottom:14px;display:block;"></a>
+      <p class="footer-tagline">We strategically place healthcare workers in regional and remote NSW communities. Employer of record. One invoice. People. Care. Compliance.</p>
     </div>
-    <div class="fc"><h4>FOR FACILITIES</h4><a href="tel:+61411459755">+61 411 459 755</a><a href="submit-a-request.html">Submit a Request</a><a href="how-we-work.html">How We Work</a><a href="index.html#map-sec">Regions</a></div>
-    <div class="fc"><h4>FOR HEALTHCARE WORKERS</h4><a href="index.html#register">Join Our Care Network</a><a href="allied-health.html">Allied Health</a><a href="ahpra-verify.html">AHPRA Check</a></div>
+    <div class="footer-col">
+      <h4>Workforce</h4>
+      <a href="services-remote.html">Enrolled Nurses</a>
+      <a href="ain.html">AIN</a>
+      <a href="aged-care.html">Aged Care Workers</a>
+      <a href="aged-care.html">Support Workers</a>
+      <a href="allied-health.html">Allied Health</a>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <a href="regions/far-west-nsw.html">Far West NSW</a>
+      <a href="index.html#regions">Western NSW</a>
+      <a href="index.html#regions">Murrumbidgee</a>
+      <a href="index.html#regions">Hunter New England</a>
+      <a href="index.html#regions">Northern NSW</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="how-we-work.html">How We Work</a>
+      <a href="join.html">Register as a Worker</a>
+      <a href="submit-a-request.html">Submit a Request</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
-  <div class="fb-bot">
-    <p>© 2026 HealthPlus International Pty Ltd · ABN 13 155 901 723 · Sydney, NSW</p>
-    <a href="mailto:connect@healthplusint.com.au">connect@healthplusint.com.au</a>
-    <a href="tel:+61411459755">+61 411 459 755</a>
-  </div>
-  <div class="ack">
-    <div class="ack-bar"></div>
-    <p>HealthPlus International acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Aboriginal and Torres Strait Islander peoples, and to Elders past, present and emerging.</p>
+  <div class="footer-bottom">
+    <p class="acknowledgement">Health Plus International acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Aboriginal and Torres Strait Islander peoples, and to Elders past, present and emerging.</p>
+    <p class="footer-copy">© 2026 Health Plus International Pty Ltd · ABN 13 155 901 723</p>
   </div>
 </footer>
-
+<div class="live-badge"><div class="live-dot"></div><div class="live-text">24hr Response Active</div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-document.getElementById('requestForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('.submit-btn');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-
-  try {
-    const res = await fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      this.style.display = 'none';
-      document.getElementById('successMsg').classList.add('show');
-    } else {
-      btn.textContent = 'Submit Workforce Request →';
-      btn.disabled = false;
-      alert('Something went wrong. Please call us directly on +61 411 459 755.');
-    }
-  } catch {
-    btn.textContent = 'Submit Workforce Request →';
-    btn.disabled = false;
-    alert('Network error. Please call us directly on +61 411 459 755.');
-  }
+// Ambient particle background for inner pages
+const canvas = document.getElementById('canvas');
+const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x000000, 0);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 400);
+camera.position.z = 80;
+// Particle field
+const count = 500;
+const pos = new Float32Array(count*3);
+const vel = new Float32Array(count*3);
+for(let i=0;i<count;i++){
+  pos[i*3]=(Math.random()-.5)*180;
+  pos[i*3+1]=(Math.random()-.5)*120;
+  pos[i*3+2]=(Math.random()-.5)*60;
+  vel[i*3]=(Math.random()-.5)*.02;
+  vel[i*3+1]=(Math.random()-.5)*.015;
+  vel[i*3+2]=0;
+}
+const geo = new THREE.BufferGeometry();
+geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+scene.add(new THREE.Points(geo,
+  new THREE.PointsMaterial({color:0x0ECECE,size:.18,transparent:true,opacity:.18,sizeAttenuation:true})
+));
+let mx=0,my=0;
+window.addEventListener('mousemove',e=>{
+  mx=(e.clientX/window.innerWidth-.5)*2;
+  my=-(e.clientY/window.innerHeight-.5)*2;
+  document.getElementById('cursor').style.left=e.clientX+'px';
+  document.getElementById('cursor').style.top=e.clientY+'px';
+  document.getElementById('cursor-ring').style.left=e.clientX+'px';
+  document.getElementById('cursor-ring').style.top=e.clientY+'px';
 });
-</script>
-
-
-
-
-<script>
-(function(){
-  var btn=document.getElementById('navBurger');
-  var ul=document.querySelector('nav .nav-links');
-  if(!btn||!ul)return;
-  btn.addEventListener('click',function(){
-    var o=ul.classList.toggle('is-open');
-    btn.classList.toggle('open',o);
-    btn.setAttribute('aria-expanded',o);
-    document.body.style.overflow=o?'hidden':'';
-  });
-  ul.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){
-      ul.classList.remove('is-open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
-      document.body.style.overflow='';
-    });
-  });
+window.addEventListener('resize',()=>{
+  camera.aspect=window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth,window.innerHeight);
+});
+let t=0;
+(function animate(){
+  requestAnimationFrame(animate); t+=.006;
+  for(let i=0;i<count;i++){
+    pos[i*3]+=vel[i*3]; pos[i*3+1]+=vel[i*3+1];
+    if(Math.abs(pos[i*3])>90) vel[i*3]*=-1;
+    if(Math.abs(pos[i*3+1])>60) vel[i*3+1]*=-1;
+  }
+  geo.attributes.position.needsUpdate=true;
+  camera.position.x += (mx*3 - camera.position.x)*.04;
+  camera.position.y += (my*2 - camera.position.y)*.04;
+  renderer.render(scene,camera);
 })();
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
