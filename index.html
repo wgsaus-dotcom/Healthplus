@@ -666,12 +666,26 @@ let t=0;
   sydRing.material.opacity=.1+.12*Math.sin(t*1.5);
 
   // Town pulses
-  townMeshes.forEach(({core,ring,glow,phase})=>{
-    const p=.88+.18*Math.sin(t*1.5+phase);
-    core.scale.setScalar(p);
-    ring.scale.setScalar(1+.45*Math.sin(t+phase));
-    ring.material.opacity=.1+.22*Math.sin(t*.8+phase);
-    glow.material.opacity=.02+.04*Math.sin(t*.5+phase);
+  // Raycaster hover
+  raycaster.setFromCamera(mouse2D, camera);
+  const intersects = raycaster.intersectObjects(townMeshes.map(m=>m.hitbox));
+  const hoveredSet = new Set(intersects.map(i=>i.object));
+  townMeshes.forEach(m=>{m.hovered=hoveredSet.has(m.hitbox);});
+
+  townMeshes.forEach(({core,ring1,ring2,glow,hovered,phase})=>{
+    const tgtS = hovered ? 1.65 : (.88+.2*Math.sin(t*1.5+phase));
+    const cs = core.scale.x + (tgtS - core.scale.x)*.14;
+    core.scale.setScalar(cs);
+
+    ring1.scale.setScalar(hovered ? 1.45 : (1+.5*Math.sin(t*2+phase)));
+    ring1.material.opacity = hovered ? .75 : (.25+.3*Math.sin(t*1.2+phase));
+
+    ring2.scale.setScalar(hovered ? 1.9 : (1+.85*Math.sin(t*.9+phase)));
+    ring2.material.opacity = hovered ? .45 : (.08+.15*Math.sin(t*.7+phase));
+
+    const gs = hovered ? 1.55 : (1+.2*Math.sin(t*.4+phase));
+    glow.scale.setScalar(gs);
+    glow.material.opacity = hovered ? .22 : (.03+.06*Math.sin(t*.5+phase));
   });
 
   // Flow
