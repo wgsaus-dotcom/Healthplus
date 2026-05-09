@@ -11,6 +11,34 @@ All HealthPlus documents are generated with Python + ReportLab. Every document u
 
 ---
 
+## Session Start — Run This First
+
+Before running any ReportLab script, always fetch the logo:
+
+```bash
+mkdir -p /home/claude/images
+curl -s -o /home/claude/images/logo-healthplus.png "https://healthplusint.com.au/images/logo-healthplus-transparent.png"
+pip install reportlab pillow --break-system-packages
+```
+
+The `draw_page` function has a try/except fallback to a text wordmark if the file isn't present — but always fetch it first.
+
+---
+
+## Company Identity (Critical — read before any legal or commercial document)
+
+**The Company** = **Westminster Green Solutions Pty Ltd** (ABN 13 155 901 723)
+- 12 years operating history across multiple sectors: NDIS labour hire, waste/recycling management
+- Sole director: Abhay J Kumar
+- **HealthPlus International** is an **early-stage trading name only** — it is not a separate legal entity
+
+In any legal or commercial document:
+- Refer to the contracting party as **Westminster Green Solutions Pty Ltd (ABN 13 155 901 723) trading as Health Plus International**
+- Never imply HealthPlus International has independent legal standing
+- Include a clarifying recital in agreements: *"HealthPlus International is a trading name of Westminster Green Solutions Pty Ltd, a company with 12 years of operating history across health workforce, NDIS labour hire, and environmental services sectors."*
+
+---
+
 ## Setup
 
 ```bash
@@ -60,11 +88,10 @@ def draw_page(c, doc):
     c.setFillColor(NAVY_D)
     c.rect(0, H-band, W, band, fill=1, stroke=0)
 
-    # Logo image (preferred — use PNG file if available)
-    # If logo file not accessible, fall back to draw_logo_fallback()
+    # Logo image (preferred — fetched to /home/claude/images/logo-healthplus.png at session start)
     try:
         from reportlab.lib.utils import ImageReader
-        logo_img = ImageReader('images/logo-healthplus.png')
+        logo_img = ImageReader('/home/claude/images/logo-healthplus.png')
         logo_h = 18*mm
         logo_w = logo_h * (824/748)  # maintain aspect ratio
         c.drawImage(logo_img, ML, H-band+(band-logo_h)/2,
@@ -169,6 +196,16 @@ ST = {
                   leading=13, alignment=TA_JUSTIFY),
     'agree':   mk('agree', fontName='Helvetica-Bold', fontSize=10, textColor=NAVY,
                   alignment=TA_CENTER, leading=14),
+    # Counter-proposal styles
+    'cp_verdict_accept': mk('cp_verdict_accept', fontName='Helvetica-Bold', fontSize=8.5,
+                  textColor=colors.HexColor('#1a6b3c'), leading=12),
+    'cp_verdict_partial': mk('cp_verdict_partial', fontName='Helvetica-Bold', fontSize=8.5,
+                  textColor=colors.HexColor('#7a4f00'), leading=12),
+    'cp_verdict_reject':  mk('cp_verdict_reject', fontName='Helvetica-Bold', fontSize=8.5,
+                  textColor=colors.HexColor('#8b1a1a'), leading=12),
+    'cp_body': mk('cp_body', fontSize=9, leading=14, spaceAfter=4, alignment=TA_JUSTIFY),
+    'cp_label':mk('cp_label', fontName='Helvetica-Bold', fontSize=8, textColor=MUTED,
+                  leading=12, spaceAfter=2),
 }
 ```
 
@@ -247,6 +284,162 @@ def def_row(term, defn):
         ('LINEBELOW',(0,0),(-1,-1),0.3,colors.HexColor('#ddecea')),
     ]))
     return t
+
+# ── COUNTER-PROPOSAL COMPONENTS ───────────────────────────────────────────────
+
+ACCEPT_BG  = colors.HexColor('#E8F5E9')
+PARTIAL_BG = colors.HexColor('#FFF8E1')
+REJECT_BG  = colors.HexColor('#FFEBEE')
+ACCEPT_BRD = colors.HexColor('#2e7d52')
+PARTIAL_BRD= colors.HexColor('#c89000')
+REJECT_BRD = colors.HexColor('#b71c1c')
+
+def cp_item_row(item_no, their_position, verdict, our_position, rationale):
+    """
+    Single counter-proposal item row.
+    verdict: 'ACCEPT' | 'PARTIAL ACCEPT' | 'REJECT'
+    """
+    v_map = {
+        'ACCEPT':        (ST['cp_verdict_accept'],  ACCEPT_BG,  ACCEPT_BRD),
+        'PARTIAL ACCEPT':(ST['cp_verdict_partial'], PARTIAL_BG, PARTIAL_BRD),
+        'REJECT':        (ST['cp_verdict_reject'],  REJECT_BG,  REJECT_BRD),
+    }
+    v_style, bg, brd = v_map.get(verdict.upper(), v_map['REJECT'])
+    col1 = 1.1*cm; col2 = (PW - col1) / 3; col3 = col2; col4 = PW - col1 - col2 - col3
+
+    data = [[
+        Paragraph(f'<b>{item_no}</b>', ST['cp_label']),
+        Paragraph(their_position, ST['cp_body']),
+        Paragraph(f'<b>{verdict}</b>', v_style),
+        Paragraph(our_position, ST['cp_body']),
+    ]]
+    t = Table(data, colWidths=[col1, col2, col3, col4])
+    t.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), bg),
+        ('BOX',        (0,0), (-1,-1), 1.2, brd),
+        ('LINEAFTER',  (0,0), (2,0),   0.4, brd),
+        ('VALIGN',     (0,0), (-1,-1), 'TOP'),
+        ('TOPPADDING', (0,0), (-1,-1), 8),
+        ('BOTTOMPADDING',(0,0),(-1,-1),8),
+        ('LEFTPADDING',(0,0),(-1,-1),  8),
+        ('RIGHTPADDING',(0,0),(-1,-1), 8),
+    ]))
+    return t
+
+def cp_header_row():
+    """Column headers for counter-proposal item table."""
+    data = [[
+        Paragraph('<b>#</b>', ST['cp_label']),
+        Paragraph('<b>Their Position</b>', ST['cp_label']),
+        Paragraph('<b>Verdict</b>', ST['cp_label']),
+        Paragraph('<b>Our Position / Counter</b>', ST['cp_label']),
+    ]]
+    col1 = 1.1*cm; col2 = (PW - col1) / 3; col3 = col2; col4 = PW - col1 - col2 - col3
+    t = Table(data, colWidths=[col1, col2, col3, col4])
+    t.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), NAVY_D),
+        ('TEXTCOLOR',  (0,0), (-1,-1), WHITE),
+        ('TOPPADDING', (0,0), (-1,-1), 6),
+        ('BOTTOMPADDING',(0,0),(-1,-1),6),
+        ('LEFTPADDING',(0,0),(-1,-1),  8),
+    ]))
+    return t
+
+def variation_clause_box(clause_no, original_text, proposed_text):
+    """Box showing original clause vs proposed variation."""
+    data = [
+        [Paragraph(f'<b>Clause {clause_no} — Proposed Variation</b>', ST['warn_h']), ''],
+        [Paragraph('<b>Original:</b>', ST['cp_label']),
+         Paragraph(original_text, ST['cp_body'])],
+        [Paragraph('<b>Proposed:</b>', ST['cp_label']),
+         Paragraph(proposed_text, ST['cp_body'])],
+    ]
+    t = Table(data, colWidths=[2.8*cm, PW-2.8*cm])
+    t.setStyle(TableStyle([
+        ('SPAN',       (0,0), (-1,0)),
+        ('BACKGROUND', (0,0), (-1,0), NAVY_D),
+        ('TEXTCOLOR',  (0,0), (-1,0), WHITE),
+        ('BACKGROUND', (0,1), (-1,-1), colors.HexColor('#F0F4FF')),
+        ('BOX',        (0,0), (-1,-1), 1, NAVY),
+        ('LINEBELOW',  (0,0), (-1,0),  0.5, TEAL),
+        ('LINEBELOW',  (0,1), (-1,1),  0.3, colors.HexColor('#c8d0e0')),
+        ('VALIGN',     (0,0), (-1,-1), 'TOP'),
+        ('TOPPADDING', (0,0), (-1,-1), 8),
+        ('BOTTOMPADDING',(0,0),(-1,-1),8),
+        ('LEFTPADDING',(0,0),(-1,-1),  10),
+        ('RIGHTPADDING',(0,0),(-1,-1), 10),
+    ]))
+    return t
+
+def safeguard_box(title, items):
+    """
+    Teal safeguard/condition box.
+    items: list of strings — each becomes a bullet point.
+    """
+    bullet_text = '<br/>'.join([f'• {i}' for i in items])
+    data = [
+        [Paragraph(f'🛡 {title}', ST['warn_h'])],
+        [Paragraph(bullet_text, ST['cp_body'])],
+    ]
+    t = Table(data, colWidths=[PW])
+    t.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (0,0), TEAL_PALE),
+        ('BACKGROUND', (0,1), (0,1), colors.HexColor('#F2FAFA')),
+        ('BOX',        (0,0), (-1,-1), 1.2, TEAL),
+        ('LINEBELOW',  (0,0), (0,0),   0.5, TEAL),
+        ('TOPPADDING', (0,0), (-1,-1), 8),
+        ('BOTTOMPADDING',(0,0),(-1,-1),8),
+        ('LEFTPADDING',(0,0),(-1,-1),  12),
+        ('RIGHTPADDING',(0,0),(-1,-1), 12),
+    ]))
+    return t
+
+def model_comparison_box(col_headers, rows):
+    """
+    Side-by-side model comparison table.
+    col_headers: list of strings e.g. ['Criterion', 'Their Model', 'Our Model']
+    rows: list of lists matching col count
+    """
+    n = len(col_headers)
+    col_w = PW / n
+    header_row = [Paragraph(f'<b>{h}</b>', ST['cp_label']) for h in col_headers]
+    data = [header_row] + [[Paragraph(str(c), ST['cp_body']) for c in r] for r in rows]
+    t = Table(data, colWidths=[col_w]*n)
+    t.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,0), NAVY_D),
+        ('TEXTCOLOR',  (0,0), (-1,0), WHITE),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [OFF, WHITE]),
+        ('BOX',        (0,0), (-1,-1), 0.8, NAVY),
+        ('INNERGRID',  (0,0), (-1,-1), 0.3, colors.HexColor('#c0ccd8')),
+        ('VALIGN',     (0,0), (-1,-1), 'TOP'),
+        ('TOPPADDING', (0,0), (-1,-1), 7),
+        ('BOTTOMPADDING',(0,0),(-1,-1),7),
+        ('LEFTPADDING',(0,0),(-1,-1),  8),
+        ('RIGHTPADDING',(0,0),(-1,-1), 8),
+    ]))
+    return t
+
+def step_block(step_no, title, body):
+    """Numbered step block for process/next-steps sections."""
+    data = [[
+        Paragraph(f'<b>{step_no}</b>', mk('sn', fontName='Helvetica-Bold', fontSize=13,
+                  textColor=WHITE, alignment=TA_CENTER, leading=18)),
+        [Paragraph(f'<b>{title}</b>', ST['clause']),
+         Paragraph(body, ST['cp_body'])]
+    ]]
+    t = Table(data, colWidths=[1.2*cm, PW-1.2*cm])
+    t.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (0,0), TEAL),
+        ('BACKGROUND', (1,0), (1,0), TEAL_PALE),
+        ('BOX',        (0,0), (-1,-1), 0.8, TEAL),
+        ('VALIGN',     (0,0), (-1,-1), 'MIDDLE'),
+        ('TOPPADDING', (0,0), (-1,-1), 10),
+        ('BOTTOMPADDING',(0,0),(-1,-1),10),
+        ('LEFTPADDING',(0,0),(0,0),    0),
+        ('LEFTPADDING',(1,0),(1,0),    12),
+        ('RIGHTPADDING',(0,0),(-1,-1), 10),
+    ]))
+    return t
 ```
 
 ---
@@ -259,6 +452,8 @@ def def_row(term, defn):
 # sec_bar('PARTIES') → party_table() → sec_bar('BACKGROUND') → recitals
 # → rule → 'THE PARTIES AGREE AS FOLLOWS' → numbered clauses
 # → PageBreak → sec_bar('EXECUTION') → signature blocks
+# IMPORTANT: Always identify the Company as Westminster Green Solutions Pty Ltd
+# (ABN 13 155 901 723) T/A Health Plus International. Include trading name recital.
 ```
 
 ### 2. Placement Confirmation Letter
@@ -290,23 +485,55 @@ def def_row(term, defn):
 # Payment terms + bank details
 ```
 
+### 6. Counter-Proposal
+```python
+# A structured multi-part position statement responding to a third-party
+# proposal, term sheet, or offer. Full pattern reference: /home/claude/build_v4.py
+#
+# Story structure:
+# doc_header(S, 'COUNTER-PROPOSAL', subtitle, ref, today)
+# → highlight_box('Executive Position Summary')
+# → sec_bar('SECTION 1 — COMMERCIAL TERMS')
+#   → cp_header_row()
+#   → cp_item_row('1.1', their_pos, 'ACCEPT', our_pos, rationale)
+#   → cp_item_row('1.2', their_pos, 'PARTIAL ACCEPT', our_pos, rationale)
+#   → cp_item_row('1.3', their_pos, 'REJECT', our_pos, rationale)
+# → sec_bar('SECTION 2 — PROPOSED VARIATIONS')
+#   → variation_clause_box('3.2', original_text, proposed_text)
+# → sec_bar('SECTION 3 — SAFEGUARDS & CONDITIONS')
+#   → safeguard_box('Non-Negotiable Conditions', ['item1', 'item2'])
+# → sec_bar('SECTION 4 — MODEL COMPARISON')
+#   → model_comparison_box(['Criterion','Their Model','Our Model'], rows)
+# → sec_bar('SECTION 5 — NEXT STEPS')
+#   → step_block('1', 'Review Period', 'Respond within 5 business days.')
+#   → step_block('2', 'Execution', 'Sign and return countersigned copy.')
+# → warning_box('⚠ IMPORTANT', 'This counter-proposal expires 14 days from date above.')
+# → PageBreak → sec_bar('EXECUTION') → signature blocks
+```
+
 ---
 
 ## Critical Rules
 
-1. **Footer is always drawn bottom-up** — flag bar at y=8, then text, then rule at y=41. Never change this order or overlap occurs.
+1. **Session start** — Always run the curl logo fetch before any script. Logo URL: `https://healthplusint.com.au/images/logo-healthplus-transparent.png` → `/home/claude/images/logo-healthplus.png`.
 
-2. **INTERNATIONAL text spacing** — Always use `saveState()`/`restoreState()` around any textObject with `setCharSpace()` to prevent leaking into subsequent drawString calls.
+2. **Company identity** — In any legal or commercial document, the contracting party is **Westminster Green Solutions Pty Ltd (ABN 13 155 901 723) T/A Health Plus International**. HealthPlus International is an early-stage trading name only — never imply it is an independent legal entity.
 
-3. **Logo in PDF** — Use `ImageReader` to load `images/logo-healthplus.png`. If file not available in context, use the text fallback ("HealthPlus" in white on navy-d).
+3. **Footer is always drawn bottom-up** — flag bar at y=8, then text, then rule at y=41. Never change this order or overlap occurs.
 
-4. **Never use Unicode subscripts/superscripts** — renders as black boxes. Use `<sub>` and `<super>` tags inside Paragraph objects only.
+4. **INTERNATIONAL text spacing** — Always use `saveState()`/`restoreState()` around any textObject with `setCharSpace()` to prevent leaking into subsequent drawString calls.
 
-5. **Paragraph-level HTML** — ReportLab Paragraphs support: `<b>`, `<i>`, `<br/>`, `<em>`, `<super>`, `<sub>`. Use `&amp;`, `&lt;`, `&gt;` for special chars.
+5. **Logo in PDF** — Use `ImageReader` to load `/home/claude/images/logo-healthplus.png`. If file not available, use the text fallback ("HealthPlus" in white on navy-d).
 
-6. **Output path** — always `/mnt/user-data/outputs/HPI_[Type]_[Name].pdf`
+6. **Never use Unicode subscripts/superscripts** — renders as black boxes. Use `<sub>` and `<super>` tags inside Paragraph objects only.
 
-7. **After building** — always call `present_files(['/mnt/user-data/outputs/...pdf'])` to deliver to user.
+7. **Paragraph-level HTML** — ReportLab Paragraphs support: `<b>`, `<i>`, `<br/>`, `<em>`, `<super>`, `<sub>`. Use `&amp;`, `&lt;`, `&gt;` for special chars.
+
+8. **Output path** — always `/mnt/user-data/outputs/HPI_[Type]_[Name].pdf`
+
+9. **After building** — always call `present_files(['/mnt/user-data/outputs/...pdf'])` to deliver to user.
+
+10. **Personal email** — `wgs.aus@gmail.com` (never `was.aus@gmail.com`).
 
 ---
 
@@ -332,10 +559,11 @@ def doc_header(S, title, subtitle, ref, today):
 
 ```python
 COMPANY = {
-    'legal':    'Westminster Green Solutions',
+    'legal':    'Westminster Green Solutions Pty Ltd',
     'abn':      '13 155 901 723',
     'trading':  'Health Plus International',
     'brand':    'HealthPlus International',
+    'history':  '12 years operating history (NDIS labour hire, waste/recycling management)',
     'tagline':  'People. Care. Compliance.',
     'phone':    '+61 411 459 755',
     'email':    'connect@healthplusint.com.au',
