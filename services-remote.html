@@ -170,6 +170,56 @@ footer{position:relative;z-index:10;background:#07101C;padding:56px 48px 36px;bo
   }
 }
 </script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What qualifications do Enrolled Nurses need to work in NSW?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enrolled Nurses in NSW must hold current AHPRA registration under the Nursing Board of Australia. Health Plus International verifies AHPRA registration for every EN before placement and credentials all nurses to NSW Health Credentialling Framework standards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an Employer of Record in healthcare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An Employer of Record (EOR) is the legal employer of the healthcare worker. Health Plus International directly employs every EN we place \u2014 covering payroll, superannuation, workers compensation, insurance, and compliance \u2014 while the worker delivers care at your facility under your clinical governance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which regional NSW LHDs have the most critical nursing shortages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Far West NSW LHD (Broken Hill, Wilcannia), Western NSW LHD (Walgett, Lightning Ridge, Bourke), and Murrumbidgee LHD (Griffith) have critical-to-severe Enrolled Nurse shortages. Health Plus International maintains an active workforce pipeline specifically for these districts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can Health Plus International place an Enrolled Nurse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Health Plus International provides a 24-hour initial response for all workforce requests. Placement timelines depend on credentialling status, location, and workforce availability. Pre-credentialled workers can be mobilised faster."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Enrolled Nurses placed by Health Plus International hold OASV compliance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All Enrolled Nurses are verified for current Occupational Assessment, Screening and Vaccination (OASV) compliance and hold National Police Clearance before placement in any NSW Health facility."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div id="cursor"></div>
@@ -232,6 +282,48 @@ footer{position:relative;z-index:10;background:#07101C;padding:56px 48px 36px;bo
   </div>
 </section>
 <div class="cta-band"><div class="cta-band-glow"></div><h2 class="reveal">Need an enrolled<br><em>nurse?</em></h2><p class="reveal d1">Submit a request and we'll match a verified EN or AIN to your facility within 24 hours.</p><div class="cta-band-btns reveal d2"><a href="submit-a-request.html" class="btn-primary"><span>Submit a Workforce Request</span></a><a href="join.html" class="btn-ghost">I'm a Healthcare Worker</a></div></div>
+<section class="faq-section reveal">
+  <p class="faq-eyebrow">Common Questions</p>
+  <h2>Frequently Asked Questions</h2>
+  <p class="faq-intro">Answers to the questions NSW Health facilities and healthcare workers ask most.</p>
+  <div class="faq-list">
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">What qualifications do Enrolled Nurses need to work in NSW?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>Enrolled Nurses in NSW must hold current AHPRA registration under the Nursing Board of Australia. Health Plus International verifies AHPRA registration for every EN before placement and credentials all nurses to NSW Health Credentialling Framework standards.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">What is an Employer of Record in healthcare?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>An Employer of Record (EOR) is the legal employer of the healthcare worker. Health Plus International directly employs every EN we place — covering payroll, superannuation, workers compensation, insurance, and compliance — while the worker delivers care at your facility under your clinical governance.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">Which regional NSW LHDs have the most critical nursing shortages?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>Far West NSW LHD (Broken Hill, Wilcannia), Western NSW LHD (Walgett, Lightning Ridge, Bourke), and Murrumbidgee LHD (Griffith) have critical-to-severe Enrolled Nurse shortages. Health Plus International maintains an active workforce pipeline specifically for these districts.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">How quickly can Health Plus International place an Enrolled Nurse?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>Health Plus International provides a 24-hour initial response for all workforce requests. Placement timelines depend on credentialling status, location, and workforce availability. Pre-credentialled workers can be mobilised faster.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">Do Enrolled Nurses placed by Health Plus International hold OASV compliance?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>Yes. All Enrolled Nurses are verified for current Occupational Assessment, Screening and Vaccination (OASV) compliance and hold National Police Clearance before placement in any NSW Health facility.</p></div>
+  </div>
+  </div>
+</section>
 <footer>
   <div class="aboriginal-bar"></div>
   <div class="footer-grid">
@@ -307,6 +399,17 @@ let t=0;
 })();
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
 </script>
 </body>
 </html>
