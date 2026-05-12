@@ -4,9 +4,8 @@
 User-agent: *
 Allow: /
 
-# Do not crawl internal assets
-Disallow: /images/
-Disallow: /regions/
+# Regions are valid indexable pages
+Allow: /regions/
 
 # Allow crawler to access key pages
 Allow: /index.html
