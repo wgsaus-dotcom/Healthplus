@@ -4,98 +4,106 @@
 
   <url>
     <loc>https://healthplusint.com.au/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/"/>
   </url>
 
   <url>
-    <loc>https://healthplusint.com.au/services-remote.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <loc>https://healthplusint.com.au/services-remote</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/services-remote.html"/>
-  </url>
-
-
-
-  <url>
-    <loc>https://healthplusint.com.au/aged-care.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/aged-care.html"/>
-  </url>
-  <url>
-    <loc>https://healthplusint.com.au/ain.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/ain.html"/>
-  </url>
-  <url>
-    <loc>https://healthplusint.com.au/allied-health.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/allied-health.html"/>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/services-remote"/>
   </url>
 
   <url>
-    <loc>https://healthplusint.com.au/how-we-work.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <loc>https://healthplusint.com.au/allied-health</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/allied-health"/>
+  </url>
+
+  <url>
+    <loc>https://healthplusint.com.au/aged-care</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/aged-care"/>
+  </url>
+
+  <url>
+    <loc>https://healthplusint.com.au/ain</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/ain"/>
+  </url>
+
+  <url>
+    <loc>https://healthplusint.com.au/our-pillars</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/how-we-work.html"/>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/our-pillars"/>
   </url>
 
   <url>
-    <loc>https://healthplusint.com.au/about.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <loc>https://healthplusint.com.au/how-we-work</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/how-we-work"/>
   </url>
 
   <url>
-    <loc>https://healthplusint.com.au/ahpra-verify.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/ahpra-verify.html"/>
-  </url>
-
-  <url>
-    <loc>https://healthplusint.com.au/submit-a-request.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/submit-a-request.html"/>
-  </url>
-
-  <url>
-    <loc>https://healthplusint.com.au/join.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/join.html"/>
-  </url>
-
-  <url>
-    <loc>https://healthplusint.com.au/regions/far-west-nsw.html</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/regions/far-west-nsw.html"/>
-  </url>
-
-
-  <url>
-    <loc>https://healthplusint.com.au/contact.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <loc>https://healthplusint.com.au/about</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/about"/>
   </url>
+
+  <url>
+    <loc>https://healthplusint.com.au/ahpra-verify</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/ahpra-verify"/>
+  </url>
+
+  <url>
+    <loc>https://healthplusint.com.au/submit-a-request</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/submit-a-request"/>
+  </url>
+
+  <url>
+    <loc>https://healthplusint.com.au/join</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/join"/>
+  </url>
+
+  <url>
+    <loc>https://healthplusint.com.au/contact</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/contact"/>
+  </url>
+
+  <url>
+    <loc>https://healthplusint.com.au/regions/far-west-nsw</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/regions/far-west-nsw"/>
+  </url>
+
 </urlset>
