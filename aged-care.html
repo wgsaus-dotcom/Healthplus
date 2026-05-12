@@ -154,6 +154,48 @@ footer{position:relative;z-index:10;background:#07101C;padding:56px 48px 36px;bo
   "areaServed": {"@type": "AdministrativeArea", "name": "Regional and Remote NSW, Australia"}
 }
 </script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What qualification is required for aged care workers in Australia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aged care workers in Australia are required to hold the CHC33021 Certificate III in Individual Support (Ageing) or an equivalent nationally recognised qualification. This is a mandatory requirement under the Aged Care Quality Standards (ACQS) and applies to all workers in residential aged care facilities (RACFs)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the Aged Care Quality Standards (ACQS)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Aged Care Quality Standards are eight standards set by the Australian Government that all residential aged care facilities must meet. They cover consumer dignity and choice, ongoing assessment and planning, personal care and clinical care, services and supports, service environment, feedback and complaints, human resources, and organisational governance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do aged care support workers need AHPRA registration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Aged care support workers and personal care workers do not require AHPRA registration. Health Plus International verifies CHC33021 qualifications, National Police Clearance, Infection Prevention and Control (IPC) training currency, and first aid certification for all aged care workers before placement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between residential aged care and community support workers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Residential aged care workers (CHC33021) work in RACFs providing personal care, ADL support, and respite. Community support workers assist clients in their own homes under CHSP (Commonwealth Home Support Programme) or HCP (Home Care Packages Program) arrangements. Health Plus International places both roles across regional and remote NSW."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div id="cursor"></div>
@@ -215,6 +257,41 @@ footer{position:relative;z-index:10;background:#07101C;padding:56px 48px 36px;bo
   </div>
 </section>
 <div class="cta-band"><div class="cta-band-glow"></div><h2 class="reveal">Need aged care<br><em>workers?</em></h2><p class="reveal d1">Tell us your facility location, role type, and duration. We respond within 24 hours.</p><div class="cta-band-btns reveal d2"><a href="submit-a-request.html" class="btn-primary"><span>Submit a Workforce Request</span></a><a href="join.html" class="btn-ghost">Register as a Worker</a></div></div>
+<section class="faq-section reveal">
+  <p class="faq-eyebrow">Common Questions</p>
+  <h2>Frequently Asked Questions</h2>
+  <p class="faq-intro">Answers to the questions NSW Health facilities and healthcare workers ask most.</p>
+  <div class="faq-list">
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">What qualification is required for aged care workers in Australia?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>Aged care workers in Australia are required to hold the CHC33021 Certificate III in Individual Support (Ageing) or an equivalent nationally recognised qualification. This is a mandatory requirement under the Aged Care Quality Standards (ACQS) and applies to all workers in residential aged care facilities (RACFs).</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">What are the Aged Care Quality Standards (ACQS)?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>The Aged Care Quality Standards are eight standards set by the Australian Government that all residential aged care facilities must meet. They cover consumer dignity and choice, ongoing assessment and planning, personal care and clinical care, services and supports, service environment, feedback and complaints, human resources, and organisational governance.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">Do aged care support workers need AHPRA registration?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>No. Aged care support workers and personal care workers do not require AHPRA registration. Health Plus International verifies CHC33021 qualifications, National Police Clearance, Infection Prevention and Control (IPC) training currency, and first aid certification for all aged care workers before placement.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">What is the difference between residential aged care and community support workers?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>Residential aged care workers (CHC33021) work in RACFs providing personal care, ADL support, and respite. Community support workers assist clients in their own homes under CHSP (Commonwealth Home Support Programme) or HCP (Home Care Packages Program) arrangements. Health Plus International places both roles across regional and remote NSW.</p></div>
+  </div>
+  </div>
+</section>
 <footer>
   <div class="aboriginal-bar"></div>
   <div class="footer-grid">
@@ -290,6 +367,17 @@ let t=0;
 })();
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
 </script>
 </body>
 </html>
