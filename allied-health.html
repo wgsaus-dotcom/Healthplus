@@ -168,6 +168,48 @@ footer{position:relative;z-index:10;background:#07101C;padding:56px 48px 36px;bo
   }
 }
 </script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which allied health professions require AHPRA registration in Australia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AHPRA-regulated allied health professions include physiotherapy, occupational therapy, psychology, podiatry, paramedicine, dental, chiropractic, Chinese medicine, medical radiation practice, optometry, osteopathy, and Aboriginal and Torres Strait Islander health practice. Dietitians are not AHPRA registered \u2014 they are accredited through Dietitians Australia (APD)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are dietitians AHPRA registered in Australia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Dietitians in Australia are not AHPRA registered. They are accredited through Dietitians Australia as Accredited Practising Dietitians (APDs). Health Plus International places APD-credentialled dietitians and verifies current APD accreditation before placement in regional NSW."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Health Plus International verify allied health practitioner credentials?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Health Plus International conducts live AHPRA registration verification for all regulated allied health professions, APD accreditation verification for dietitians, NSW Health Credentialling Framework checks, National Police Clearance verification, and qualification checks before any placement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which regional NSW LHDs have the greatest allied health shortages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Allied health shortages are most acute in Far West NSW LHD, Western NSW LHD, Murrumbidgee LHD, and Hunter New England LHD \u2014 particularly for physiotherapy, occupational therapy, and psychology in communities more than 300km from Sydney."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div id="cursor"></div>
@@ -218,6 +260,41 @@ footer{position:relative;z-index:10;background:#07101C;padding:56px 48px 36px;bo
   </div>
 </section>
 <div class="cta-band"><div class="cta-band-glow"></div><h2 class="reveal">Need allied<br><em>health support?</em></h2><p class="reveal d1">Tell us the profession, location, and duration. We'll confirm availability within 24 hours.</p><div class="cta-band-btns reveal d2"><a href="submit-a-request.html" class="btn-primary"><span>Submit a Workforce Request</span></a><a href="contact.html" class="btn-ghost">Ask Us a Question</a></div></div>
+<section class="faq-section reveal">
+  <p class="faq-eyebrow">Common Questions</p>
+  <h2>Frequently Asked Questions</h2>
+  <p class="faq-intro">Answers to the questions NSW Health facilities and healthcare workers ask most.</p>
+  <div class="faq-list">
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">Which allied health professions require AHPRA registration in Australia?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>AHPRA-regulated allied health professions include physiotherapy, occupational therapy, psychology, podiatry, paramedicine, dental, chiropractic, Chinese medicine, medical radiation practice, optometry, osteopathy, and Aboriginal and Torres Strait Islander health practice. Dietitians are not AHPRA registered — they are accredited through Dietitians Australia (APD).</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">Are dietitians AHPRA registered in Australia?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>No. Dietitians in Australia are not AHPRA registered. They are accredited through Dietitians Australia as Accredited Practising Dietitians (APDs). Health Plus International places APD-credentialled dietitians and verifies current APD accreditation before placement in regional NSW.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">How does Health Plus International verify allied health practitioner credentials?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>Health Plus International conducts live AHPRA registration verification for all regulated allied health professions, APD accreditation verification for dietitians, NSW Health Credentialling Framework checks, National Police Clearance verification, and qualification checks before any placement.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false">
+      <span class="faq-q-text">Which regional NSW LHDs have the greatest allied health shortages?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a"><p>Allied health shortages are most acute in Far West NSW LHD, Western NSW LHD, Murrumbidgee LHD, and Hunter New England LHD — particularly for physiotherapy, occupational therapy, and psychology in communities more than 300km from Sydney.</p></div>
+  </div>
+  </div>
+</section>
 <footer>
   <div class="aboriginal-bar"></div>
   <div class="footer-grid">
@@ -293,6 +370,17 @@ let t=0;
 })();
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
 </script>
 </body>
 </html>
