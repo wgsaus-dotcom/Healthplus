@@ -577,7 +577,7 @@ control_table.setStyle(TableStyle([
 | 20 | Incident Register | REG-002 | 🟡 Medium | |
 | 21 | Placement Termination Procedure | PROC-006 | 🟢 Standard | |
 | 22 | Worker Induction Sign-Off | FORM-002 | 🟢 Standard | |
-| 23 | Business Dev & Profit Sharing Agr | AGR-003 | ✅ Complete | Done — May 2026 |
+| 23 | Business Dev & Profit Sharing Agr | AGR-003 | ✅ v2.0 Amended & Restated | 28 May 2026 — pending solicitor review |
 
 ---
 

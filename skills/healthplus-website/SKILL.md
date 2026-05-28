@@ -322,23 +322,28 @@ All governance documents stored in `r2://hpi-candidate-docs/governance/`
 | Company Constitution (14 parts) | ✅ Drafted — needs lawyer review + deed execution | `governance/HPI_Constitution_WestminsterGreenSolutions.pdf` |
 | Profit Sharing & Business Development Agreement | ✅ Drafted — needs agreed figures + lawyer review | `governance/HPI_ProfitSharing_Agreement_2026.pdf` |
 
-### Partnership Agreement Key Terms (HPI-PSA-2026-001)
+### Partnership Agreement Key Terms (HPI-PSA-2026-001 v2.0 — Amended and Restated, 28 May 2026)
+
+> **Current version:** HPI-PSA-2026-001 v2.0 Amended and Restated, 28 May 2026. Supersedes v1.0 (6 May 2026) in full. Incorporates all matters agreed in Company Letter dated 11 May 2026. PDF: `HPI_ProfitSharing_Agreement_v2_AmendedRestated.pdf`.
+
 - **Party A:** Westminster Green Solutions Pty Ltd (Abhay J Kumar, Sole Director)
-- **Party B:** Reji Varghese — Business Development Consultant + Honorary Board Director (International Operations)
+- **Party B:** Reji Varghese — Business Development Consultant + **Strategic Business Development Advisor — International Operations** (NOT "Honorary Board Director" — title amended; explicit de facto director exclusion in clause 4.2)
 - **Profit split:** 50% Net Profit each (Gross Revenue − Gross Expenses − Tax)
-- **Director salary:** Capped at agreed amount — cannot be exceeded without Reji's written consent
-- **Minimum draw:** Agreed monthly advance against profit share (non-recoverable if profit falls short)
-- **Monthly reporting:** P&L report within 15 days of month end, bank statements on request
-- **Retirement:** Reji retires → Passive Royalty (50% Net Profit) in perpetuity, no restraint
-- **Death:** Next of Kin receives payments for 10 years from date of death
-- **Sale:** Reji gets 50% of Net Sale Proceeds — 60 days notice required
+- **Director salary cap:** **NIL** until both parties agree the Salary Cap in writing. Any salary drawn without written agreement is added back to Net Profit
+- **Minimum draw:** **REMOVED** — pure profit share. Interim drawings only by mutual written agreement (clause 5.7)
+- **Monthly reporting:** P&L report within 15 days of month end; bank statements on request; **continues throughout 15-year Royalty Term post-Retirement** (clause 5C.4)
+- **Retirement:** Reji retires → Passive Royalty (50% Net Profit) for **fifteen (15) years from Retirement Notice** (NOT perpetual — clause 8.4). Restraint of trade does not apply during Royalty Term
+- **Death of Consultant:** Next of Kin receives later of (a) residual Royalty Term or (b) 10 years from death, **capped at 15 years total from Retirement Notice** (clause 10.2 — drafting fix with footnote)
+- **Sale Event:** Reji gets 50% of Net Sale Proceeds — 60 days notice required. Passive Royalty **survives Sale Event and binds arm's-length successor** for unexpired Royalty Term (clause 6.6 / 8.5)
 - **Termination for convenience:** Accrued profit share + 50% goodwill valuation
 - **Termination for cause:** Accrued profit share only — no goodwill, no royalty
 - **Full exit by Reji:** Goodwill valuation OR dissolution + 3-year restraint in NSW
-- **Reserved Matters (need both parties):** Sale, major contracts, capex, salary above cap, related-party transactions, debt, brand changes, new JVs
-- **Restraint:** 3 years NSW — applies equally to Abhay if he terminates for convenience
-- **Governing law:** NSW | **Dispute:** Mediation first, then NSW courts
-- **[INSERT BEFORE SIGNING]:** Director salary cap amount · Major contract threshold · Minimum monthly draw amount · Reji ABN/TFN · Reji email/phone
+- **Reserved Matters (reduced to 3 — clause 5F.1):** (a) Sale or Transfer, (b) Director Salary above Cap, (c) Related-Party Transactions >$5k/FY. Strategic Direction, Major Contracts, Capex, JVs, Debt and Brand Change are NO LONGER reserved
+- **Anti-Migration (new — clause 5I):** Arrangements with sole or primary purpose of materially reducing Reji's entitlements by transferring HPI activities to another entity are prohibited. Genuine restructuring of non-HPI WGS activities is unaffected
+- **WGS Pre-Existing Interests Carve-Out (new — clause 5J):** Agreement applies exclusively to HPI trading activity. Reji has no claim on NDIS labour hire, waste/recycling, or any other WGS commercial activity
+- **Restraint:** 3 years NSW — applies equally to Abhay if he terminates for convenience. Reji walks free at end of 15-year Royalty Term (no post-Term restraint — explicit decision May 2026)
+- **Governing law:** NSW | **Dispute:** Negotiation → mediation (Australian Disputes Centre) → NSW courts
+- **[STILL OUTSTANDING BEFORE SIGNING]:** Solicitor review (advised by both agreement legal notice and 11 May internal advisory); Reji ABN/TFN, email, phone (placeholders in execution page)
 
 ### Next governance documents to build:
 1. Board Charter
