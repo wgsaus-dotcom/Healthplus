@@ -3,13 +3,10 @@ main = "worker.js"
 compatibility_date = "2024-11-01"
 account_id = "d2586c55db329e1e12cbaf3285d32f1a"
 
-[build]
-command = ""
-
 [[d1_databases]]
 binding = "DB"
 database_name = "hpi-portal"
-database_id = "31c09424-3d8d-4f9e-9325-100d85ede480"
+database_id = "6be6bb20-d81a-4753-adb9-bbb6562ac678"
 
 [vars]
 FROM_EMAIL = "connect@healthplusint.com.au"
