@@ -3,6 +3,9 @@ main = "worker.js"
 compatibility_date = "2024-11-01"
 account_id = "d2586c55db329e1e12cbaf3285d32f1a"
 
+[build]
+command = ""
+
 [[d1_databases]]
 binding = "DB"
 database_name = "hpi-portal"
