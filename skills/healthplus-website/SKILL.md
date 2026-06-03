@@ -367,11 +367,50 @@ All governance documents stored in `r2://hpi-candidate-docs/governance/`
 
 ---
 
+## Applications Portal — LIVE (3 Jun 2026)
+
+| Item | Detail |
+|------|--------|
+| Worker | `hpi-onboarding.wgs-aus.workers.dev` |
+| D1 Database | `hpi-portal` UUID `6be6bb20-d81a-4753-adb9-bbb6562ac678` — WGS CF account `d2586c55db329e1e12cbaf3285d32f1a` |
+| Staff portal | `healthplusint.com.au/portal.html` |
+| Staff login | `wgs.aus@gmail.com` / `HPI@2026!` |
+| Bootstrap key | `3_eKEzSIUheGg6pQYvyKsL23UkUWuSJn` (stored as `HPI_BOOTSTRAP_KEY` in GitHub secrets) |
+| Resend domain | `healthplusint.com.au` — Verified 3 Jun 2026, Tokyo (ap-northeast-1) |
+| From address | `connect@healthplusint.com.au` |
+
+### Worker API Routes
+```
+POST  /api/apply/worker                  — worker application (stores + emails)
+POST  /api/apply/facility                — facility request (stores + emails)
+POST  /api/auth/login                    — staff login → returns session token
+POST  /api/auth/logout                   — invalidate session
+GET   /api/portal/applications           — list applications (auth required)
+PATCH /api/portal/applications/:id       — update status + notes (auth required)
+POST  /api/portal/staff                  — create staff account (requires BOOTSTRAP_KEY)
+GET   /api/ping                          — health check
+```
+
+### D1 Tables
+- `applications` — all worker + facility submissions
+- `staff` — portal staff accounts
+- `sessions` — active login tokens (12h expiry)
+
+### Email flow
+- Applicant confirmation → sent to applicant email via Resend
+- Internal notification → sent to `connect@healthplusint.com.au` on every submission
+
+---
+
 ## Pending
-1. ⏳ Formspree auto-reply for facility forms (configure in dashboard)
-2. ⏳ Testimonials — 2–3 real quotes from facilities or placed workers
-3. ⏳ WhatsApp link alongside FAB (wa.me/+61411459755)
-4. ⏳ Image WebP conversion + lazy loading
-5. ⏳ WCAG 2.1 AA — ARIA labels on map, skip-to-content
-6. ⏳ Google Workspace — activate connect@healthplusint.com.au
-7. ⏳ Build Tier 3 governance — employment contracts (3 versions)
+1. ✅ ~~Google Workspace — activate connect@healthplusint.com.au~~ — ACTIVE
+2. ⏳ Wire `join.html` → `POST /api/apply/worker` (currently Formspree xpqbdonv)
+3. ⏳ Wire `submit-a-request.html` → `POST /api/apply/facility` (currently Formspree xpqbdonv)
+4. ⏳ Fix GitHub Actions deploy-worker.yml (currently deployed direct via wrangler CLI)
+5. ⏳ Testimonials — 2–3 real quotes from facilities or placed workers
+6. ⏳ Mobile nav hamburger menu
+7. ⏳ Map node labels (removed to fix JS crash — clean reimplementation needed)
+8. ⏳ WhatsApp link alongside FAB (wa.me/+61411459755)
+9. ⏳ Image WebP conversion + lazy loading
+10. ⏳ Build Tier 3 governance — employment contracts (3 versions)
+
