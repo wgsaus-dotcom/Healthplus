@@ -192,7 +192,7 @@ footer{position:relative;z-index:10;background:#07101C;padding:56px 48px 36px;bo
   </div>
   <!-- Right: nurse image -->
   <div style="position:relative;overflow:hidden;height:100%;">
-    <div style="position:absolute;inset:0;background:url(images/hero-nurse.jpg) center top/cover no-repeat"></div>
+    <div style="position:absolute;inset:0;background:url(images/hero-nurse.jpg) 30% top/cover no-repeat"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(11,24,41,.4) 0%,transparent 60%),linear-gradient(to top,rgba(7,16,28,.85) 0%,transparent 50%)"></div>
     <!-- Floating credential badge -->
     <div style="position:absolute;bottom:48px;left:40px;background:rgba(7,16,28,.9);border:1px solid rgba(14,206,206,.3);padding:20px 24px;backdrop-filter:blur(12px);max-width:280px">
@@ -232,7 +232,7 @@ footer{position:relative;z-index:10;background:#07101C;padding:56px 48px 36px;bo
       <div class="card-mid" style="padding:44px 36px">
         <span class="section-tag">Register Your Interest</span>
         <h3 style="font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:900;text-transform:uppercase;margin-bottom:24px;line-height:1;color:#fff">Tell us about yourself.</h3>
-        <form action="https://formspree.io/f/xpqbdonv" method="POST" enctype="multipart/form-data">
+        <form id="workerForm">
           <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your full name" required></div>
           <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required></div>
           <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="+61 4XX XXX XXX"></div>
@@ -276,8 +276,9 @@ footer{position:relative;z-index:10;background:#07101C;padding:56px 48px 36px;bo
             </div>
             <input type="file" id="resumeFile" name="resume" accept=".pdf,.doc,.docx" style="display:none" onchange="handleFileSelect(this)">
           </div>
-          <input type="hidden" name="_subject" value="New Healthcare Worker Registration — HPI">
-          <button type="submit" class="btn-primary" style="width:100%;text-align:center;border:none;cursor:pointer"><span>Register My Interest</span></button>
+          <button type="submit" id="submitBtn" class="btn-primary" style="width:100%;text-align:center;border:none;cursor:pointer;transition:opacity .2s"><span id="submitBtnText">Register My Interest</span></button>
+          <div id="formSuccess" style="display:none;margin-top:16px;background:rgba(14,206,206,.1);border:1px solid #0ECECE;border-radius:6px;padding:16px;text-align:center;color:#0ECECE;font-size:14px;font-weight:600">✓ Application received! We'll be in touch within 24 hours.</div>
+          <div id="formError" style="display:none;margin-top:16px;background:rgba(220,50,50,.1);border:1px solid rgba(220,50,50,.4);border-radius:6px;padding:16px;text-align:center;color:#ff6b6b;font-size:14px"></div>
         </form>
       </div>
     </div>
@@ -402,6 +403,49 @@ if(drop){
     }
   });
 }
+
+// ── Worker form submission ──────────────────────────────────────────────────
+document.getElementById('workerForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('submitBtnText');
+  const successEl = document.getElementById('formSuccess');
+  const errorEl = document.getElementById('formError');
+
+  // Reset state
+  successEl.style.display = 'none';
+  errorEl.style.display = 'none';
+  btn.disabled = true;
+  btn.style.opacity = '0.6';
+  btnText.textContent = 'Sending…';
+
+  try {
+    const fd = new FormData(this);
+    const res = await fetch('https://hpi-onboarding.wgs-aus.workers.dev/api/apply/worker', {
+      method: 'POST',
+      body: fd
+    });
+    const data = await res.json();
+    if (data.ok) {
+      successEl.style.display = 'block';
+      this.reset();
+      clearFile();
+      btn.style.display = 'none';
+    } else {
+      errorEl.textContent = data.error || 'Something went wrong. Please try again or call +61 411 459 755.';
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btnText.textContent = 'Register My Interest';
+    }
+  } catch (err) {
+    errorEl.textContent = 'Network error. Please check your connection and try again.';
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btnText.textContent = 'Register My Interest';
+  }
+});
 </script>
 
 </body>
