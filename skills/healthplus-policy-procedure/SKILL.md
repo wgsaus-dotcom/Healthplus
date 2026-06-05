@@ -577,7 +577,7 @@ control_table.setStyle(TableStyle([
 | 20 | Incident Register | REG-002 | 🟡 Medium | |
 | 21 | Placement Termination Procedure | PROC-006 | 🟢 Standard | |
 | 22 | Worker Induction Sign-Off | FORM-002 | 🟢 Standard | |
-| 23 | Business Dev & Profit Sharing Agr | AGR-003 | ✅ v2.0 Amended & Restated | 28 May 2026 — pending solicitor review |
+| 23 | Business Dev & Profit Sharing Agr | AGR-003 | ✅ v3.0 APPROVED | 5 Jun 2026 — legally reviewed, approved, ready to execute. PDF: agreements/HPI_ProfitSharing_Agreement_v3_AmendedRestated.pdf |
 
 ---
 
