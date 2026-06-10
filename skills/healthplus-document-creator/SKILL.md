@@ -84,28 +84,33 @@ def draw_page(c, doc):
     c.saveState()
     band = 22*mm
 
-    # ── HEADER BAND ──────────────────────────────────────────────────────────
-    c.setFillColor(NAVY_D)
+    # ── HEADER BAND (white — updated 11 June 2026) ───────────────────────────
+    c.setFillColor(WHITE)
     c.rect(0, H-band, W, band, fill=1, stroke=0)
 
     # Logo image (preferred — fetched to /home/claude/images/logo-healthplus.png at session start)
+    # On the white band prefer logo-healthplus-transparent.png if available.
     try:
         from reportlab.lib.utils import ImageReader
-        logo_img = ImageReader('/home/claude/images/logo-healthplus.png')
+        import os
+        _lp = '/home/claude/images/logo-healthplus-transparent.png'
+        if not os.path.exists(_lp):
+            _lp = '/home/claude/images/logo-healthplus.png'
+        logo_img = ImageReader(_lp)
         logo_h = 18*mm
         logo_w = logo_h * (824/748)  # maintain aspect ratio
         c.drawImage(logo_img, ML, H-band+(band-logo_h)/2,
                     width=logo_w, height=logo_h, mask='auto')
         contact_x = ML + logo_w + 10
     except:
-        # Fallback: text wordmark
-        c.setFillColor(WHITE)
+        # Fallback: text wordmark (navy on white)
+        c.setFillColor(NAVY)
         c.setFont('Helvetica-Bold', 13)
         c.drawString(ML+4, H-band/2+3, 'HealthPlus')
         contact_x = ML + 90
 
-    # Contact details (right side)
-    c.setFillColor(colors.Color(1,1,1,0.55))
+    # Contact details (right side) — muted navy/grey for white band
+    c.setFillColor(MUTED)
     c.setFont('Helvetica', 7.5)
     c.drawRightString(W-MR, H-10*mm, '+61 411 459 755')
     c.drawRightString(W-MR, H-16*mm, 'connect@healthplusint.com.au')
@@ -523,7 +528,7 @@ def step_block(step_no, title, body):
 
 4. **INTERNATIONAL text spacing** — Always use `saveState()`/`restoreState()` around any textObject with `setCharSpace()` to prevent leaking into subsequent drawString calls.
 
-5. **Logo in PDF** — Use `ImageReader` to load `/home/claude/images/logo-healthplus.png`. If file not available, use the text fallback ("HealthPlus" in white on navy-d).
+5. **Logo in PDF** — Use `ImageReader` to load `/home/claude/images/logo-healthplus-transparent.png` (preferred on the white header band; fall back to `logo-healthplus.png`). If no file available, use the text fallback ("HealthPlus" in NAVY on the white band).
 
 6. **Never use Unicode subscripts/superscripts** — renders as black boxes. Use `<sub>` and `<super>` tags inside Paragraph objects only.
 
