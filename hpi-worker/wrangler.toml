@@ -3,6 +3,9 @@ main = "worker.js"
 compatibility_date = "2024-11-01"
 account_id = "d2586c55db329e1e12cbaf3285d32f1a"
 
+[triggers]
+crons = ["0 * * * *"]
+
 [[d1_databases]]
 binding = "DB"
 database_name = "hpi-portal"
@@ -11,3 +14,5 @@ database_id = "6be6bb20-d81a-4753-adb9-bbb6562ac678"
 [vars]
 FROM_EMAIL = "connect@healthplusint.com.au"
 SITE_URL = "https://healthplusint.com.au"
+
+# Secrets (set in dashboard/API, not here): RESEND_API_KEY, BOOTSTRAP_KEY
