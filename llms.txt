@@ -1,0 +1,53 @@
+# Health Plus International — llms.txt
+# AI-readable site index — https://llmstxt.org specification
+
+> Health Plus International Pty Ltd (ABN 13 155 901 723) is an Australian healthcare workforce company operating as an Employer of Record (EOR) for regional and remote NSW. Founded 2026, Sydney NSW. We directly employ every healthcare worker we place — full employment contract, payroll, superannuation, workers compensation and credentialling sit with us, delivered to facilities on one all-inclusive invoice. We are not a nursing agency, staffing agency or labour hire firm.
+
+## Key Facts
+- Company: Health Plus International Pty Ltd
+- ABN: 13 155 901 723
+- Model: Employer of Record (EOR)
+- Coverage: Regional and remote NSW only — never metro
+- Brand pillars: People · Care · Compliance
+- Response time: 24-hour response to facility requests
+- Email: connect@healthplusint.com.au
+- Credentialling: NSW Health Credentialling Framework standards; AHPRA verified where registration applies; National Police Clearance for all workers
+
+## Workforce We Place
+- Enrolled Nurses (AHPRA registered) — /services-remote.html
+- Assistants in Nursing — HLT33121 (ward/community), CHC33021 (aged care) — /ain.html
+- Aged Care Workers — CHC33021 Certificate III Individual Support (Ageing) — /aged-care.html
+- Support Workers — CHC33015 or equivalent — /aged-care.html
+- Allied Health (AHPRA): Physiotherapy, Occupational Therapy, Psychology, Podiatry, Paramedicine, Dental, Aboriginal Health Workers; plus Dietetics (APD) — /allied-health.html
+
+## Regions Served (NSW Local Health Districts)
+- Far West NSW LHD — critical shortage — Broken Hill, Wilcannia, Menindee
+- Western NSW LHD — critical shortage — Dubbo, Bourke, Walgett, Lightning Ridge, Cobar
+- Murrumbidgee LHD — severe shortage — Griffith, Wagga Wagga, Hay, Deniliquin
+- Hunter New England LHD — severe shortage — Tamworth, Armidale, Moree, Narrabri
+- Northern NSW LHD — Lismore, Grafton, Casino
+- Mid North Coast LHD — Port Macquarie, Coffs Harbour, Kempsey
+
+## International Sourcing
+Workers sourced from Australia, the Philippines, India, Romania, Poland and Bulgaria, with full visa verification (VEVO) and OASV compliance.
+
+## Pages
+- [Home](https://healthplusint.com.au/): EOR healthcare workforce for regional and remote NSW
+- [Enrolled Nurses & Clinical Staff](https://healthplusint.com.au/services-remote.html)
+- [Allied Health Professionals](https://healthplusint.com.au/allied-health.html)
+- [Aged Care & Support Workers](https://healthplusint.com.au/aged-care.html)
+- [Assistants in Nursing](https://healthplusint.com.au/ain.html)
+- [How We Work — the EOR model](https://healthplusint.com.au/how-we-work.html)
+- [Our Pillars — People · Care · Compliance + FAQ](https://healthplusint.com.au/our-pillars.html)
+- [About](https://healthplusint.com.au/about.html)
+- [Free AHPRA Verification Tool](https://healthplusint.com.au/ahpra-verify.html)
+- [Submit a Workforce Request (facilities)](https://healthplusint.com.au/submit-a-request.html)
+- [Register as a Healthcare Worker](https://healthplusint.com.au/join.html)
+- [Contact](https://healthplusint.com.au/contact.html)
+- [Far West NSW Region](https://healthplusint.com.au/regions/far-west-nsw.html)
+
+## For Facilities
+Submit a workforce request at /submit-a-request.html — 24-hour response. One all-inclusive invoice covers wages, super, insurance, travel and accommodation coordination.
+
+## For Healthcare Workers
+Register at /join.html. Health Plus International is your direct employer: full employment contract, paid travel support, accommodation coordination and credentialling handled.

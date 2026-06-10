@@ -18,5 +18,28 @@ Allow: /submit-a-request.html
 Allow: /join.html
 Allow: /regions/far-west-nsw.html
 
+
+# AI crawlers — explicitly allowed (AEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# AI-readable site index
+# llms.txt: https://healthplusint.com.au/llms.txt
+
 # Sitemap
 Sitemap: https://healthplusint.com.au/sitemap.xml
