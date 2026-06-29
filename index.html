@@ -32,19 +32,23 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --teal:#1B6B6E;--teal-d:#085558;
-  --bg:#FAF7F2;--bg-2:#FDF0E8;--bg-3:#FFFFFF;--ink:#1A2A2A;--teal:#1B6B6E;--teal-d:#085558;--amber:#C4622D;--muted:#6b5a4a;
-  --amber:#C4622D;--muted:#6b5a4a;
+  --green:#0E8F61;--green-d:#087347;--green-pale:#EAF7F1;
+  --navy:#0B3558;--navy-d:#081F3A;
+  --sky:#2F9ED8;--amber:#F2B23A;
+  --charcoal:#1F2933;--slate:#64748B;
+  --white:#FFFFFF;--off:#F8FBFC;--pale-mint:#EAF7F1;
+  --teal:#0E8F61;--teal-d:#087347;--ink:#1F2933;--muted:#64748B;
+  --bg:#F8FBFC;--bg-2:#EAF7F1;--bg-3:#FFFFFF;
 }
 html{scroll-behavior:smooth}
-body{background:#FAF7F2;color:#1A2A2A;font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none}
+body{background:#F8FBFC;color:#1F2933;font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none}
 @media(hover:none){body{cursor:auto}#cursor,#cursor-ring{display:none}}
 #cursor{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--teal);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
-#cursor-ring{position:fixed;width:34px;height:34px;border-radius:50%;border:1px solid rgba(11,107,110,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s,top .1s,width .3s,height .3s}
+#cursor-ring{position:fixed;width:34px;height:34px;border-radius:50%;border:1px solid rgba(11,53,88,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s,top .1s,width .3s,height .3s}
 body:has(a:hover) #cursor{width:16px;height:16px;background:var(--amber)}
 body:has(a:hover) #cursor-ring{width:44px;height:44px;border-color:rgba(196,98,45,.35)}
 #canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
-#grain{position:fixed;top:-50%;left:-50%;width:200%;height:200%;z-index:1;pointer-events:none;opacity:.03;
+#grain{position:fixed;top:-50%;left:-50%;width:200%;height:200%;z-index:1;pointer-events:none;opacity:.015;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation:grain .5s steps(1) infinite}
 @keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-2%,-2%)}40%{transform:translate(2%,-1%)}60%{transform:translate(-1%,3%)}80%{transform:translate(3%,1%)}}
@@ -56,27 +60,27 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:8px 48px;display:
 .nav-logo-sub{font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.4;font-weight:300;margin-top:2px}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{color:rgba(13,31,51,.55);text-decoration:none;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;transition:color .2s}
-.nav-links a:hover{color:#1B6B6E}
-.nav-cta{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#000;text-decoration:none;background:#1B6B6E;border:1px solid #1B6B6E;padding:10px 22px;transition:all .25s}
-.nav-cta:hover{background:#C4622D;border-color:#C4622D;color:#fff}
+.nav-links a:hover{color:#0E8F61}
+.nav-cta{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-decoration:none;background:#0E8F61;border:1px solid #0E8F61;padding:10px 22px;transition:all .25s}
+.nav-cta:hover{background:#F2B23A;border-color:#F2B23A;color:#fff}
 .nav-ham{display:none;flex-direction:column;justify-content:space-between;width:26px;height:18px;background:none;border:none;cursor:pointer;padding:0;z-index:210}
-.nav-ham span{display:block;width:100%;height:2px;background:#C4622D;border-radius:1px;transition:transform .3s,opacity .3s}
+.nav-ham span{display:block;width:100%;height:2px;background:#F2B23A;border-radius:1px;transition:transform .3s,opacity .3s}
 .nav-ham.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
 .nav-ham.open span:nth-child(2){opacity:0}
 .nav-ham.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 .nav-mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,.98);z-index:205;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:80px 20px 40px}
 .nav-mobile-menu.open{display:flex}
 .nav-mobile-menu a{font-family:'Barlow',sans-serif;font-size:22px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#2D1F15;text-decoration:none;padding:18px 0;border-bottom:1px solid rgba(0,0,0,.06);width:100%;text-align:center;transition:color .2s}
-.nav-mobile-menu a:hover{color:#C4622D}
-.nav-mobile-cta{background:#C4622D !important;color:#fff !important;margin-top:20px;border-radius:0 !important;padding:18px 0 !important;border:none !important}
+.nav-mobile-menu a:hover{color:#F2B23A}
+.nav-mobile-cta{background:#F2B23A !important;color:#fff !important;margin-top:20px;border-radius:0 !important;padding:18px 0 !important;border:none !important}
 @media(max-width:768px){nav{padding:8px 20px}.nav-links{display:none}.nav-cta{display:none}.nav-ham{display:flex}}
 
 /* HERO — text left, map fills screen behind */
 .hero{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;max-width:600px}
 /* dark gradient left-side so text is always readable over the map */
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(10,5,2,.98) 50%,rgba(10,5,2,.55) 100%);pointer-events:none;z-index:0}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(11,53,88,.85) 50%,rgba(11,53,88,.45) 100%);pointer-events:none;z-index:0}
 .hero-eyebrow{font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);margin-bottom:22px;opacity:0;animation:fadeUp 1s .6s ease forwards;display:flex;align-items:center;gap:12px}
-.hero-eyebrow::before{content:'';width:32px;height:1px;background:#1B6B6E}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:#0E8F61}
 h1{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(38px,8vw,96px);line-height:.9;letter-spacing:-.01em;text-transform:uppercase;opacity:0;animation:fadeUp 1s .8s ease forwards}
 h1 .outline{color:#FFFFFF !important;display:block;-webkit-text-stroke:0}
 h1 .teal-ol{-webkit-text-stroke:2px #FFFFFF;color:transparent;display:block}
@@ -93,7 +97,7 @@ h1 .teal-ol{-webkit-text-stroke:2px #FFFFFF;color:transparent;display:block}
 
 /* Map legend — bottom right of hero */
 .map-legend{position:fixed;bottom:40px;right:40px;z-index:20;background:rgba(7,16,28,.97);border:1px solid rgba(11,107,110,.15);box-shadow:0 4px 24px rgba(13,31,51,.08);backdrop-filter:blur(10px);padding:18px 22px;min-width:190px;opacity:0;animation:fadeIn 1s 2s ease forwards}
-.legend-title{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#1B6B6E;margin-bottom:12px}
+.legend-title{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#0E8F61;margin-bottom:12px}
 .legend-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:11px;color:rgba(255,255,255,.6)}
 .legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .legend-line{width:20px;height:1px;flex-shrink:0}
@@ -115,7 +119,7 @@ h1 .teal-ol{-webkit-text-stroke:2px #FFFFFF;color:transparent;display:block}
 .stat-item:hover{background:rgba(11,107,110,.08)}
 .stat-item::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--teal-d);transition:width .5s}
 .stat-item:hover::after{width:40%}
-.s-num{font-family:'Big Shoulders Display',sans-serif;font-size:clamp(32px,4.5vw,52px);font-weight:900;color:#1B6B6E;line-height:1}
+.s-num{font-family:'Big Shoulders Display',sans-serif;font-size:clamp(32px,4.5vw,52px);font-weight:900;color:#0E8F61;line-height:1}
 .s-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#6b5a4a;margin-top:5px}
 @media(max-width:640px){.stats{flex-wrap:wrap}.stat-item{flex:0 0 50%;border-right:none;border-bottom:1px solid rgba(14,206,206,.1)}}
 
@@ -127,7 +131,7 @@ h1 .teal-ol{-webkit-text-stroke:2px #FFFFFF;color:transparent;display:block}
 .eyebrow{font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#B8740A;margin-bottom:16px;display:inline-block}
 .section-h{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(36px,6vw,72px);text-transform:uppercase;line-height:.92;color:#FFFFFF !important}
 .section-h em{font-style:normal;color:var(--teal)}
-.section-h span{color:#C4622D}
+.section-h span{color:#F2B23A}
 
 /* MISSION */
 .mission-wrap{max-width:820px;margin:0 auto;text-align:center;position:relative;overflow:hidden}
@@ -139,7 +143,7 @@ h1 .teal-ol{-webkit-text-stroke:2px #FFFFFF;color:transparent;display:block}
 /* LHD GRID */
 .lhd-intro{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:32px;flex-wrap:wrap}
 .lhd-intro p{font-size:14px;color:rgba(255,255,255,.6);max-width:280px;line-height:1.75;font-weight:300}
-.lhd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(14,206,206,.15)}
+.lhd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(14,143,97,.2)}
 .lhd-card{background:#FFFFFF;padding:32px 26px;position:relative;overflow:hidden;transition:background .35s}
 .lhd-card:hover{background:#FDF0E8}
 .lhd-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);transform:scaleX(0);transition:transform .4s;transform-origin:left}
@@ -154,7 +158,7 @@ h1 .teal-ol{-webkit-text-stroke:2px #FFFFFF;color:transparent;display:block}
 @media(max-width:480px){.lhd-grid{grid-template-columns:1fr}}
 
 /* TOWNS */
-.towns-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(14,206,206,.15)}
+.towns-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(14,143,97,.2)}
 .town-card{background:#FFFFFF;padding:30px 22px;position:relative;overflow:hidden;transition:background .3s}
 .town-card:hover{background:#FDF0E8}
 .town-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;transition:height .4s}
@@ -162,7 +166,7 @@ h1 .teal-ol{-webkit-text-stroke:2px #FFFFFF;color:transparent;display:block}
 .town-card.severe::before{background:var(--amber)}
 .town-card.high::before{background:#66BB6A}
 .town-card:hover::before{height:100%}
-.tc-km{font-family:'Big Shoulders Display',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;color:#1B6B6E;margin-bottom:12px}
+.tc-km{font-family:'Big Shoulders Display',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;color:#0E8F61;margin-bottom:12px}
 .tc-name{font-family:'Big Shoulders Display',sans-serif;font-size:clamp(20px,2.5vw,32px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:5px;color:#1A2A2A}
 .tc-lhd{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#8a7a6a;margin-bottom:11px}
 .tc-badge{display:inline-block;padding:3px 8px;font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
@@ -188,7 +192,7 @@ h1 .teal-ol{-webkit-text-stroke:2px #FFFFFF;color:transparent;display:block}
 /* WORKFORCE */
 .wf-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:24px;flex-wrap:wrap}
 .wf-header p{font-size:16px;color:rgba(255,255,255,.6);max-width:260px;line-height:1.75;font-weight:300}
-.wf-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(14,206,206,.15)}
+.wf-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(14,143,97,.2)}
 .wf-card{background:#FFFFFF;padding:40px 28px;text-align:center;position:relative;overflow:hidden;transition:background .3s}
 .wf-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--teal);transform:scaleX(0);transition:transform .4s}
 .wf-card:hover{background:#FDF0E8}
@@ -209,7 +213,7 @@ h1 .teal-ol{-webkit-text-stroke:2px #FFFFFF;color:transparent;display:block}
 .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
 /* FOOTER */
-footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
+footer{position:relative;z-index:10;background:#0B3558;padding:56px 48px 36px}
 .aboriginal-bar{height:3px;background:linear-gradient(to right,#E8A020 33%,#CC3300 33% 66%,#111 66%);margin-bottom:48px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:44px}
 .footer-brand-name{font-family:'Big Shoulders Display',sans-serif;font-size:17px;font-weight:900;text-transform:uppercase;margin-bottom:10px}
@@ -218,7 +222,7 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
 .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.28);text-decoration:none;margin-bottom:9px;transition:color .2s}
 .footer-col a:hover{color:#4a3a2a}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:28px;display:flex;flex-direction:column;gap:0}
-.acknowledgement{font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.8;max-width:640px}
+.acknowledgement{font-size:11.5px;color:rgba(255,255,255,.85);line-height:1.8;max-width:640px}
 .acknowledgement-block{display:flex;align-items:flex-start;gap:14px;margin-bottom:28px}
 .acknowledgement-flags{display:flex;flex-direction:column;gap:6px;flex-shrink:0;padding-top:2px}
 .country-map-label{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
@@ -251,7 +255,7 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
 .node-line{width:1px;height:12px;margin-top:2px}
 #node-tooltip{position:fixed;z-index:15;pointer-events:none;background:rgba(7,16,28,.96);border:1px solid rgba(14,206,206,.35);padding:14px 18px;min-width:160px;transform:translate(-50%,-120%);opacity:0;transition:opacity .2s;backdrop-filter:blur(8px)}
 #node-tooltip.visible{opacity:1}
-.tt-lhd{font-size:8px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#1B6B6E;margin-bottom:6px}
+.tt-lhd{font-size:8px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#0E8F61;margin-bottom:6px}
 .tt-name{font-family:'Big Shoulders Display',sans-serif;font-size:22px;font-weight:900;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:4px}
 .tt-dist{font-size:11px;color:#6b5a4a;margin-bottom:10px}
 .tt-badge{display:inline-block;padding:3px 8px;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
@@ -314,7 +318,7 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
   <div class="nav-logo">
     <a href="index.html" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;gap:3px">
       <img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:72px;width:auto;display:block;">
-      <span style="font-family:'Barlow',sans-serif;font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C4622D;white-space:nowrap;padding-left:2px">People &nbsp;·&nbsp; Care &nbsp;·&nbsp; Compliance</span>
+      <span style="font-family:'Barlow',sans-serif;font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2B23A;white-space:nowrap;padding-left:2px">People &nbsp;·&nbsp; Care &nbsp;·&nbsp; Compliance</span>
     </a>
   </div>
   <button class="nav-ham" id="navHam" aria-label="Open menu" aria-expanded="false">
@@ -358,13 +362,13 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
 </section>
 
 <div class="map-legend">
-  <a href="submit-a-request.html" style="display:block;background:#C4622D;color:#fff;text-align:center;padding:11px 16px;font-family:'Big Shoulders Display',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;margin-bottom:16px;transition:background .2s;border:1px solid rgba(196,98,45,.3)" onmouseover="this.style.background='#1B6B6E';this.style.color='#000'" onmouseout="this.style.background='#C4622D';this.style.color='#fff'">Submit a Request →</a>
-  <a href="join.html" style="display:block;background:transparent;color:#C4622D;text-align:center;padding:9px 16px;font-family:'Big Shoulders Display',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;margin-bottom:16px;border:1px solid rgba(196,98,45,.35);transition:all .2s" onmouseover="this.style.background='rgba(196,98,45,.1)'" onmouseout="this.style.background='transparent'">Register as a Worker</a>
+  <a href="submit-a-request.html" style="display:block;background:#F2B23A;color:#fff;text-align:center;padding:11px 16px;font-family:'Big Shoulders Display',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;margin-bottom:16px;transition:background .2s;border:1px solid rgba(196,98,45,.3)" onmouseover="this.style.background='#0E8F61';this.style.color='#000'" onmouseout="this.style.background='#F2B23A';this.style.color='#fff'">Submit a Request →</a>
+  <a href="join.html" style="display:block;background:transparent;color:#F2B23A;text-align:center;padding:9px 16px;font-family:'Big Shoulders Display',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;margin-bottom:16px;border:1px solid rgba(196,98,45,.35);transition:all .2s" onmouseover="this.style.background='rgba(196,98,45,.1)'" onmouseout="this.style.background='transparent'">Register as a Worker</a>
   <div class="legend-title">NSW LHD Shortage Network</div>
   <div class="legend-row"><div class="legend-dot" style="background:#FF5555"></div>Critical shortage</div>
-  <div class="legend-row"><div class="legend-dot" style="background:#C4622D"></div>Severe shortage</div>
+  <div class="legend-row"><div class="legend-dot" style="background:#F2B23A"></div>Severe shortage</div>
   <div class="legend-row"><div class="legend-dot" style="background:#66BB6A"></div>High shortage</div>
-  <div class="legend-row" style="margin-top:12px"><div class="legend-line" style="background:#1B6B6E;opacity:.7"></div>Worker placement flow</div>
+  <div class="legend-row" style="margin-top:12px"><div class="legend-line" style="background:#0E8F61;opacity:.7"></div>Worker placement flow</div>
 </div>
 
 <div class="stats">
@@ -381,10 +385,10 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
     <div style="position:absolute;inset:0;background:url(images/hero-outback.jpg) center/cover;filter:brightness(.4)"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,16,28,.9) 0%,rgba(11,107,110,.25) 100%)"></div>
     <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:48px 44px">
-      <div style="font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#1B6B6E;margin-bottom:14px">For Facilities &amp; Services</div>
-      <h2 style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(26px,3.2vw,46px);text-transform:uppercase;line-height:.92;color:#fff;margin-bottom:16px">Need a credentialled<br>worker in<br><em style="font-style:normal;color:#1B6B6E">24 hours?</em></h2>
+      <div style="font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#0E8F61;margin-bottom:14px">For Facilities &amp; Services</div>
+      <h2 style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(26px,3.2vw,46px);text-transform:uppercase;line-height:.92;color:#fff;margin-bottom:16px">Need a credentialled<br>worker in<br><em style="font-style:normal;color:#0E8F61">24 hours?</em></h2>
       <p style="font-size:14px;color:#5a4a3a;font-weight:300;line-height:1.7;margin-bottom:28px;max-width:340px">We identify, credential, and strategically place work-ready healthcare professionals — locally trained, directly employed by the facilities we serve.</p>
-      <a href="submit-a-request.html" style="display:inline-flex;align-items:center;gap:12px;background:#C4622D;color:#fff;padding:14px 28px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;width:fit-content">
+      <a href="submit-a-request.html" style="display:inline-flex;align-items:center;gap:12px;background:#F2B23A;color:#fff;padding:14px 28px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;width:fit-content">
         Submit a Workforce Request
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -394,10 +398,10 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
     <div style="position:absolute;inset:0;background:url(images/hero-nurse.jpg) center/cover;filter:brightness(.38)"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,16,28,.9) 0%,rgba(196,98,45,.1) 100%)"></div>
     <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:48px 44px">
-      <div style="font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#C4622D;margin-bottom:14px">For Healthcare Workers</div>
-      <h2 style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(26px,3.2vw,46px);text-transform:uppercase;line-height:.92;color:#fff;margin-bottom:16px">Work where<br>you're needed<br><em style="font-style:normal;color:#C4622D">most.</em></h2>
+      <div style="font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#F2B23A;margin-bottom:14px">For Healthcare Workers</div>
+      <h2 style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(26px,3.2vw,46px);text-transform:uppercase;line-height:.92;color:#fff;margin-bottom:16px">Work where<br>you're needed<br><em style="font-style:normal;color:#F2B23A">most.</em></h2>
       <p style="font-size:14px;color:#5a4a3a;font-weight:300;line-height:1.7;margin-bottom:28px;max-width:340px">Regional NSW needs your skills. We handle employment, compliance, and logistics.</p>
-      <a href="join.html" style="display:inline-flex;align-items:center;gap:12px;background:#C4622D;color:#FAF7F2;padding:14px 28px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;width:fit-content">
+      <a href="join.html" style="display:inline-flex;align-items:center;gap:12px;background:#F2B23A;color:#FAF7F2;padding:14px 28px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;width:fit-content">
         Register as a Healthcare Worker
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -411,7 +415,7 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
   <div style="position:absolute;inset:0;background:rgba(7,16,28,.65)"></div>
   <div style="position:relative;height:100%;display:flex;align-items:center;justify-content:center;padding:0 48px">
     <p style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(18px,2.8vw,34px);text-transform:uppercase;color:#fff;text-align:center;letter-spacing:.03em;line-height:1.1">
-      Broken Hill. Walgett. Bourke. &nbsp;<em style="font-style:normal;color:#1B6B6E">These communities have waited long enough.</em>
+      Broken Hill. Walgett. Bourke. &nbsp;<em style="font-style:normal;color:#0E8F61">These communities have waited long enough.</em>
     </p>
   </div>
 </div>
@@ -464,34 +468,34 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
   <div class="wf-header"><div><div class="eyebrow reveal">Who We Place</div><h2 class="section-h reveal d1">Our Healthcare<br>Workforce</h2></div><p class="reveal d2">Five credentialled workforce types. All locally developed, verified, and placed with clinical purpose across regional and remote NSW.</p></div>
   <div class="wf-grid">
     <a class="wf-card reveal" href="services-remote.html" style="text-decoration:none;text-align:left;display:block">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#1B6B6E;margin-bottom:16px;opacity:.85">AHPRA Registered</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0E8F61;margin-bottom:16px;opacity:.85">AHPRA Registered</div>
       <div class="wf-title">Enrolled Nurses</div>
       <div class="wf-desc" style="margin-bottom:16px">AHPRA verified. Scope of practice confirmed. The primary clinical workforce for regional and remote acute and community health settings.</div>
-      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1B6B6E">View Workforce →</div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0E8F61">View Workforce →</div>
     </a>
     <a class="wf-card reveal d1" href="ain.html" style="text-decoration:none;text-align:left;display:block">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#1B6B6E;margin-bottom:16px;opacity:.85">Certificate III / Clinical Support</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0E8F61;margin-bottom:16px;opacity:.85">Certificate III / Clinical Support</div>
       <div class="wf-title">Assistants in Nursing</div>
       <div class="wf-desc" style="margin-bottom:16px">Trained, assessed, and verified. Essential to ward and community-based care delivery across regional and remote NSW LHD facilities.</div>
-      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1B6B6E">View Workforce →</div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0E8F61">View Workforce →</div>
     </a>
     <a class="wf-card reveal d2" href="aged-care.html" style="text-decoration:none;text-align:left;display:block">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#1B6B6E;margin-bottom:16px;opacity:.85">ACQS Compliant · Cert III / IV</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0E8F61;margin-bottom:16px;opacity:.85">ACQS Compliant · Cert III / IV</div>
       <div class="wf-title">Aged Care Workers</div>
       <div class="wf-desc" style="margin-bottom:16px">Certificate III or IV equivalent. Residential aged care facilities (RACFs) and Consumer Directed Care programs across regional NSW.</div>
-      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1B6B6E">View Workforce →</div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0E8F61">View Workforce →</div>
     </a>
     <a class="wf-card reveal d3" href="aged-care.html" style="text-decoration:none;text-align:left;display:block">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#1B6B6E;margin-bottom:16px;opacity:.85">Consumer Directed Care</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0E8F61;margin-bottom:16px;opacity:.85">Consumer Directed Care</div>
       <div class="wf-title">Support Workers</div>
       <div class="wf-desc" style="margin-bottom:16px">Person-centred community support for in-home care, day programs, and community health services. Deployed with purpose in communities that need them most.</div>
-      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1B6B6E">View Workforce →</div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0E8F61">View Workforce →</div>
     </a>
     <a class="wf-card reveal d4" href="allied-health.html" style="text-decoration:none;text-align:left;display:block">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#1B6B6E;margin-bottom:16px;opacity:.85">AHPRA Registered · Selected Professions</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0E8F61;margin-bottom:16px;opacity:.85">AHPRA Registered · Selected Professions</div>
       <div class="wf-title">Allied Health</div>
       <div class="wf-desc" style="margin-bottom:16px">OT, Physiotherapy, Psychology, Podiatry, Dietetics — selected allied health professions strategically placed to address critical service gaps in regional NSW.</div>
-      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1B6B6E">View Workforce →</div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0E8F61">View Workforce →</div>
     </a>
   </div>
 </section>
@@ -507,11 +511,11 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
 </section>
 
 <!-- WORKER CTA BAND -->
-<section style="position:relative;z-index:10;background:#FDF5EE;border-top:3px solid #C4622D;border-bottom:3px solid #C4622D;padding:3.5rem 0">
+<section style="position:relative;z-index:10;background:#FDF5EE;border-top:3px solid #F2B23A;border-bottom:3px solid #F2B23A;padding:3.5rem 0">
   <div class="container">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center">
       <div>
-        <div style="font-size:10px;font-weight:700;letter-spacing:3px;color:#C4622D;text-transform:uppercase;margin-bottom:.75rem">For Healthcare Workers</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:3px;color:#F2B23A;text-transform:uppercase;margin-bottom:.75rem">For Healthcare Workers</div>
         <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#143049;line-height:1.2;margin-bottom:1rem">Ready to work where you're needed most?</h2>
         <p style="color:#444;font-size:15px;line-height:1.7;margin-bottom:1rem">Regional and remote NSW has some of Australia's most acute healthcare shortages — and some of its most rewarding placements. Health Plus International directly employs you: we handle your contract, payroll, superannuation, insurance, and compliance so you can focus on care.</p>
         <ul style="color:#444;font-size:14px;line-height:1.9;padding-left:1.2rem;margin-bottom:1.5rem">
@@ -522,31 +526,31 @@ footer{position:relative;z-index:10;background:#2D1F15;padding:56px 48px 36px}
           <li>Fair Work compliant direct employment contract from day one</li>
         </ul>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="join.html" style="display:inline-flex;align-items:center;gap:8px;background:#C4622D;color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none">Apply Now &#8594;</a>
-          <a href="how-we-work.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#C4622D;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid #C4622D">How it works</a>
+          <a href="join.html" style="display:inline-flex;align-items:center;gap:8px;background:#F2B23A;color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none">Apply Now &#8594;</a>
+          <a href="how-we-work.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#F2B23A;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid #F2B23A">How it works</a>
         </div>
       </div>
       <div style="background:#fff;border-radius:14px;padding:2rem;border:1px solid rgba(11,107,110,.15);box-shadow:0 4px 24px rgba(11,107,110,.08)">
-        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#C4622D;text-transform:uppercase;margin-bottom:1.2rem">What we handle for you</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#F2B23A;text-transform:uppercase;margin-bottom:1.2rem">What we handle for you</div>
         <div style="display:flex;flex-direction:column;gap:.85rem">
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:#C4622D;font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:#F2B23A;font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:#143049;font-size:14px">Employment contract</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">Fair Work compliant, issued before placement</p></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:#C4622D;font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:#F2B23A;font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:#143049;font-size:14px">Payroll &amp; superannuation</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">Paid on time, every time — no agency deductions</p></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:#C4622D;font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:#F2B23A;font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:#143049;font-size:14px">AHPRA &amp; credential verification</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">We verify and maintain your registration records</p></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:#C4622D;font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:#F2B23A;font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:#143049;font-size:14px">National Police Clearance</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">Coordinated and renewed by us</p></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:#C4622D;font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:#F2B23A;font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:#143049;font-size:14px">Workers' compensation &amp; PI insurance</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">Full cover held by Health Plus International</p></div>
           </div>
         </div>
@@ -750,7 +754,7 @@ const ausPts = AUS.map(c => v3(c[0],c[1], 0));
   const pts = AUS.map(c => { const [x,y]=ll(c[0],c[1]); return new THREE.Vector3(x,y,zOff); });
   scene.add(new THREE.Line(
     new THREE.BufferGeometry().setFromPoints(pts),
-    new THREE.LineBasicMaterial({color:0x4A8EC2, transparent:true, opacity: i===0 ? 1.0 : 0.55})
+    new THREE.LineBasicMaterial({color:0x0B3558, transparent:true, opacity: i===0 ? 1.0 : 0.55})
   ));
 });
 
@@ -759,7 +763,7 @@ const ausPts = AUS.map(c => v3(c[0],c[1], 0));
   const pts = TAS.map(c => { const [x,y]=ll(c[0],c[1]); return new THREE.Vector3(x,y,zOff); });
   scene.add(new THREE.Line(
     new THREE.BufferGeometry().setFromPoints(pts),
-    new THREE.LineBasicMaterial({color:0x4A8EC2, transparent:true, opacity: i===0 ? 1.0 : 0.55})
+    new THREE.LineBasicMaterial({color:0x0B3558, transparent:true, opacity: i===0 ? 1.0 : 0.55})
   ));
 });
 
@@ -811,7 +815,7 @@ borders.forEach(pts => {
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(pts),3));
   scene.add(new THREE.Points(g,
-    new THREE.PointsMaterial({color:0x0ECECE, size:0.2, transparent:true, opacity:0.15})
+    new THREE.PointsMaterial({color:0x0E8F61, size:0.2, transparent:true, opacity:0.15})
   ));
 }
 
@@ -820,7 +824,7 @@ borders.forEach(pts => {
   const pts = NSW.map(c => { const [x,y]=ll(c[0],c[1]); return new THREE.Vector3(x,y,zOff); });
   scene.add(new THREE.Line(
     new THREE.BufferGeometry().setFromPoints(pts),
-    new THREE.LineBasicMaterial({color: i < 2 ? 0x0B6B6E : 0x0ECECE, transparent:true, opacity: i===0 ? 1.0 : i < 3 ? 0.6 : 0.25})
+    new THREE.LineBasicMaterial({color: i < 2 ? 0x0E8F61 : 0x0E8F61, transparent:true, opacity: i===0 ? 1.0 : i < 3 ? 0.6 : 0.25})
   ));
 });
 
@@ -829,10 +833,10 @@ const towns = [
   {lon:141.5,lat:-31.9,c:0xFF5555,name:'Broken Hill',  lhd:'Far West LHD',     shortage:'critical',dist:'1,100km from Sydney'},
   {lon:148.1,lat:-30.0,c:0xFF5555,name:'Walgett',       lhd:'Western NSW LHD',  shortage:'critical',dist:'685km from Sydney'},
   {lon:148.0,lat:-29.5,c:0xFF5555,name:'Lightning Ridge',lhd:'Western NSW LHD', shortage:'critical',dist:'760km from Sydney'},
-  {lon:145.9,lat:-30.1,c:0xF5A623,name:'Bourke',         lhd:'Western NSW LHD', shortage:'severe',  dist:'800km from Sydney'},
-  {lon:145.8,lat:-31.5,c:0xF5A623,name:'Cobar',          lhd:'Western NSW LHD', shortage:'severe',  dist:'695km from Sydney'},
-  {lon:146.0,lat:-34.3,c:0xF5A623,name:'Griffith',       lhd:'Murrumbidgee LHD',shortage:'severe',  dist:'567km from Sydney'},
-  {lon:149.8,lat:-29.5,c:0xF5A623,name:'Moree',          lhd:'Hunter New England',shortage:'severe', dist:'530km from Sydney'},
+  {lon:145.9,lat:-30.1,c:0xF2B23A,name:'Bourke',         lhd:'Western NSW LHD', shortage:'severe',  dist:'800km from Sydney'},
+  {lon:145.8,lat:-31.5,c:0xF2B23A,name:'Cobar',          lhd:'Western NSW LHD', shortage:'severe',  dist:'695km from Sydney'},
+  {lon:146.0,lat:-34.3,c:0xF2B23A,name:'Griffith',       lhd:'Murrumbidgee LHD',shortage:'severe',  dist:'567km from Sydney'},
+  {lon:149.8,lat:-29.5,c:0xF2B23A,name:'Moree',          lhd:'Hunter New England',shortage:'severe', dist:'530km from Sydney'},
   {lon:148.6,lat:-32.2,c:0x66BB6A,name:'Dubbo',          lhd:'Western NSW LHD', shortage:'high',    dist:'393km from Sydney'},
   {lon:150.9,lat:-31.1,c:0x66BB6A,name:'Tamworth',       lhd:'Hunter New England',shortage:'high',  dist:'410km from Sydney'},
   {lon:151.7,lat:-30.5,c:0x66BB6A,name:'Armidale',       lhd:'Hunter New England',shortage:'high',  dist:'480km from Sydney'},
@@ -900,7 +904,7 @@ towns.forEach(t => {
   const [tx,ty]=ll(t.lon,t.lat);
   scene.add(new THREE.Line(
     new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(sx,sy,1.5),new THREE.Vector3(tx,ty,1.5)]),
-    new THREE.LineBasicMaterial({color:0x0ECECE,transparent:true,opacity:0.15})
+    new THREE.LineBasicMaterial({color:0x0E8F61,transparent:true,opacity:0.15})
   ));
 });
 
@@ -909,7 +913,7 @@ const FC=100;
 const fPos=new Float32Array(FC*3);
 const fGeo=new THREE.BufferGeometry();
 fGeo.setAttribute('position',new THREE.BufferAttribute(fPos,3));
-scene.add(new THREE.Points(fGeo,new THREE.PointsMaterial({color:0x0ECECE,size:.5,transparent:true,opacity:.9,sizeAttenuation:true})));
+scene.add(new THREE.Points(fGeo,new THREE.PointsMaterial({color:0x0E8F61,size:.5,transparent:true,opacity:.9,sizeAttenuation:true})));
 const fState=[];
 function resetF(i){
   const t=towns[Math.floor(Math.random()*towns.length)];
@@ -927,7 +931,7 @@ for(let i=0;i<FC;i++) resetF(i);
   for(let i=0;i<700;i++){pts[i*3]=(Math.random()-.5)*140;pts[i*3+1]=(Math.random()-.5)*90;pts[i*3+2]=-10+Math.random()*4;}
   const g=new THREE.BufferGeometry();
   g.setAttribute('position',new THREE.BufferAttribute(pts,3));
-  scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0x0ECECE,size:.15,transparent:true,opacity:.12})));
+  scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0x0E8F61,size:.15,transparent:true,opacity:.12})));
 }
 
 // ── INPUT ─────────────────────────────────────────────────────────────────────
