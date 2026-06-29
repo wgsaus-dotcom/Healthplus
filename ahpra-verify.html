@@ -9,7 +9,7 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="Health Plus International Pty Ltd">
 <meta name="keywords" content="AHPRA registration check, AHPRA verification tool, AHPRA register lookup, health practitioner registration Australia, allied health AHPRA verify, free AHPRA check, healthcare worker registration, AHPRA nurse check">
-<meta name="theme-color" content="#0B6B6E">
+<meta name="theme-color" content="#0E8F61">
 <link rel="alternate" hreflang="en-AU" href="https://healthplusint.com.au/ahpra-verify.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Health Plus International">
@@ -74,16 +74,24 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;color:#fff;background:#07101C;-webkit-font-smoothing:antialiased;min-height:100vh}
-:root{--teal:#0ECECE;--teal-d:#0B6B6E;--teal-pale:rgba(14,206,206,.08);--teal-mid:#0ECECE;--navy:#0E1F36;--navy-d:#07101C;--border:rgba(11,107,110,0.12);--muted:#5a6a7a}
+body{font-family:'Barlow',sans-serif;color:#fff;background:#F8FBFC;-webkit-font-smoothing:antialiased;min-height:100vh}
+:root{
+  --green:#0E8F61;--green-d:#087347;--green-pale:#EAF7F1;
+  --navy:#0B3558;--navy-d:#081F3A;
+  --sky:#2F9ED8;--amber:#F2B23A;
+  --charcoal:#1F2933;--slate:#64748B;
+  --white:#FFFFFF;--off:#F8FBFC;--pale-mint:#EAF7F1;
+  --teal:#0E8F61;--teal-d:#087347;--ink:#1F2933;--muted:#64748B;
+  --bg:#F8FBFC;--bg-2:#EAF7F1;--bg-3:#FFFFFF;
+}
 
 /* NAV */
-nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(14,206,206,.15);height:72px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;position:fixed;top:0;left:0;right:0;z-index:200}
+nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(14,143,97,.2);height:72px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;position:fixed;top:0;left:0;right:0;z-index:200}
 .nav-logo a{display:block}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:#0ECECE}
-.nav-cta{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#000;text-decoration:none;background:#0ECECE;border:1px solid #0ECECE;padding:10px 20px;transition:all .25s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#0E8F61}
+.nav-cta{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-decoration:none;background:#0E8F61;border:1px solid #0E8F61;padding:10px 20px;transition:all .25s;white-space:nowrap;color:#fff!important}
 .nav-cta:hover{background:#fff;color:#07101C}
 @media(max-width:768px){nav{padding:8px 20px}.nav-links{display:none}.nav-cta{padding:8px 14px;font-size:8px}}
 
@@ -91,7 +99,7 @@ nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px sol
 .page{max-width:800px;margin:0 auto;padding:6rem 2rem 5rem}
 
 /* HERO CARD */
-.hero-card{background:#0B1829;border-radius:18px;padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.hero-card{background:#EAF7F1;border-radius:18px;padding:3rem;margin-bottom:2rem;position:relative;overflow:hidden}
 .hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(11,107,110,0.25),transparent 70%)}
 .hero-tag{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal-mid);margin-bottom:1rem}
 .hero-card h1{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.4px;margin-bottom:.75rem}
@@ -99,7 +107,7 @@ nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px sol
 .hero-card p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;max-width:480px}
 
 /* SEARCH CARD */
-.search-card{background:#0E1F36;border-radius:16px;padding:2rem;border:1px solid rgba(14,206,206,.15);box-shadow:0 2px 20px rgba(0,0,0,.05);margin-bottom:1.5rem}
+.search-card{background:#FFFFFF;border-radius:16px;padding:2rem;border:1px solid rgba(14,143,97,.2);box-shadow:0 2px 20px rgba(0,0,0,.05);margin-bottom:1.5rem}
 .search-card h2{font-size:16px;font-weight:700;color:#fff;margin-bottom:.35rem}
 .search-card .sub{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:1.75rem;line-height:1.5}
 
@@ -113,7 +121,7 @@ nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px sol
   background:rgba(255,255,255,.07);color:#fff;outline:none;transition:border-color .2s,box-shadow .2s;
 }
 .fg input:focus,.fg select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(11,107,110,0.1)}
-.fg input::placeholder{color:rgba(255,255,255,.3)}
+.fg input::placeholder{color:rgba(31,41,51,.4)}
 
 .btn-verify{
   width:100%;padding:14px;
@@ -127,7 +135,7 @@ nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px sol
 .btn-verify .icon{font-size:18px}
 
 /* RESULT CARD */
-.result-card{display:none;background:#0E1F36;border-radius:16px;border:1px solid rgba(14,206,206,.15);box-shadow:0 2px 20px rgba(0,0,0,.05);overflow:hidden;margin-bottom:1.5rem}
+.result-card{display:none;background:#FFFFFF;border-radius:16px;border:1px solid rgba(14,143,97,.2);box-shadow:0 2px 20px rgba(0,0,0,.05);overflow:hidden;margin-bottom:1.5rem}
 .result-card.show{display:block}
 
 .result-header{padding:1.25rem 1.75rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
@@ -139,7 +147,7 @@ nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px sol
 
 .result-body{padding:1.75rem}
 .result-info{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:1.5rem}
-.info-item{background:rgba(14,206,206,.08);border-radius:10px;padding:1rem 1.25rem;border:1px solid rgba(14,206,206,.15)}
+.info-item{background:rgba(14,206,206,.08);border-radius:10px;padding:1rem 1.25rem;border:1px solid rgba(14,143,97,.2)}
 .info-item .info-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--teal);margin-bottom:4px}
 .info-item .info-value{font-size:14px;font-weight:700;color:#fff}
 .info-item.full{grid-column:1/-1}
@@ -159,7 +167,7 @@ nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px sol
 .result-note p{font-size:12px;color:rgba(255,255,255,.6);line-height:1.6}
 
 /* HOW IT WORKS */
-.how-card{background:#0E1F36;border-radius:16px;padding:2rem;border:1px solid rgba(14,206,206,.15);margin-bottom:1.5rem}
+.how-card{background:#FFFFFF;border-radius:16px;padding:2rem;border:1px solid rgba(14,143,97,.2);margin-bottom:1.5rem}
 .how-card h3{font-size:14px;font-weight:700;color:#fff;margin-bottom:1.25rem}
 .how-steps{display:flex;flex-direction:column;gap:12px}
 .how-step{display:flex;align-items:flex-start;gap:14px}
@@ -173,7 +181,7 @@ nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px sol
 .disclaimer strong{color:#fff}
 
 /* PIE CTA */
-.pie-card{background:#0B1829;border-radius:14px;padding:1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.pie-card{background:#EAF7F1;border-radius:14px;padding:1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
 .pie-card h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:.25rem}
 .pie-card p{font-size:12px;color:rgba(255,255,255,.75);line-height:1.6}
 .pie-btn{background:var(--teal);color:#fff;padding:10px 20px;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s}
@@ -195,7 +203,7 @@ nav{background:rgba(7,16,28,.97);backdrop-filter:blur(8px);border-bottom:1px sol
 }
 .hpi-tagline::before,.hpi-tagline::after{
   content:'';display:block;width:20px;height:1.5px;
-  background:#0B6B6E;border-radius:1px;flex-shrink:0;
+  background:#0E8F61;border-radius:1px;flex-shrink:0;
 }
 
 }
@@ -311,11 +319,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem
 .nav-logo-link{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
 .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;padding:0;margin:0 auto}
 .nav-links a{font-size:13px;font-weight:600;color:#5a6a7a;text-decoration:none;white-space:nowrap;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:#0B6B6E}
+.nav-links a:hover,.nav-links a.active{color:#0E8F61}
 .nav-cta-btn{flex-shrink:0;background:#1B3A5C;color:#fff!important;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s}
-.nav-cta-btn:hover{background:#0B6B6E!important}
+.nav-cta-btn:hover{background:#0E8F61!important}
 .nav-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:1.5px solid rgba(11,107,110,.25);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
-.nav-burger span{display:block;width:18px;height:2px;background:#0B6B6E;border-radius:2px;transition:transform .25s,opacity .2s}
+.nav-burger span{display:block;width:18px;height:2px;background:#0E8F61;border-radius:2px;transition:transform .25s,opacity .2s}
 .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-burger.open span:nth-child(2){opacity:0}
 .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -325,24 +333,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem
   .nav-links.is-open{display:flex!important;flex-direction:column;gap:0;list-style:none;position:fixed;top:66px;left:0;right:0;bottom:0;z-index:9999;background:#fff;overflow-y:auto;padding:1.25rem 2rem 3rem;border-top:1px solid rgba(11,107,110,.1)}
   .nav-links.is-open li{border-bottom:1px solid rgba(11,107,110,.07)}
   .nav-links.is-open a{display:block;padding:.85rem .25rem;font-size:16px!important;font-weight:600;color:#1B3A5C!important;text-decoration:none}
-  .nav-links.is-open a:hover,.nav-links.is-open a.active{color:#0B6B6E!important}
+  .nav-links.is-open a:hover,.nav-links.is-open a.active{color:#0E8F61!important}
 }
 /* ═════════════════════════════════════════════════════════════════════════ */
 
 .nav-phone-item{display:none}
 @media(max-width:900px){
   .nav-links.is-open .nav-phone-item{display:block;border-top:2px solid rgba(11,107,110,.15)!important;margin-top:.5rem;padding-top:.25rem}
-  .nav-links.is-open .nav-phone-item a{color:#0B6B6E!important;font-weight:700!important;font-size:15px!important;display:flex;align-items:center}
+  .nav-links.is-open .nav-phone-item a{color:#0E8F61!important;font-weight:700!important;font-size:15px!important;display:flex;align-items:center}
 }
 .nav-ham{display:none;flex-direction:column;justify-content:space-between;width:26px;height:18px;background:none;border:none;cursor:pointer;padding:0;z-index:210}
-.nav-ham span{display:block;width:100%;height:2px;background:#0B6B6E;border-radius:1px;transition:transform .3s,opacity .3s}
+.nav-ham span{display:block;width:100%;height:2px;background:#0E8F61;border-radius:1px;transition:transform .3s,opacity .3s}
 .nav-ham.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
 .nav-ham.open span:nth-child(2){opacity:0}
 .nav-ham.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 .nav-mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,.98);z-index:205;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:80px 20px 40px}
 .nav-mobile-menu.open{display:flex}
 .nav-mobile-menu a{font-family:'Barlow',sans-serif;font-size:22px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0D1F33;text-decoration:none;padding:18px 0;border-bottom:1px solid rgba(0,0,0,.06);width:100%;text-align:center;transition:color .2s}
-.nav-mobile-menu a:hover{color:#0B6B6E}
+.nav-mobile-menu a:hover{color:#0E8F61}
 @media(max-width:768px){nav{padding:8px 20px}.nav-links{display:none}.nav-cta{display:none}.nav-ham{display:flex}}
   <button class="nav-ham" id="navHam" aria-label="Open menu" aria-expanded="false">
   <div class="nav-mobile-menu" id="navMobile" aria-hidden="true">
@@ -354,7 +362,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;padding:0 2.5rem
   <div class="nav-logo">
     <a href="index.html" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;gap:2px">
       <img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:72px;width:auto;display:block;">
-      <span style="font-family:'Barlow',sans-serif;font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#0B6B6E;white-space:nowrap;padding-left:2px">People &nbsp;·&nbsp; Care &nbsp;·&nbsp; Compliance</span>
+      <span style="font-family:'Barlow',sans-serif;font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#0E8F61;white-space:nowrap;padding-left:2px">People &nbsp;·&nbsp; Care &nbsp;·&nbsp; Compliance</span>
     </a>
   </div>
   <ul class="nav-links">
@@ -616,11 +624,11 @@ document.addEventListener('keydown', e => {
 })();
 </script>
 <!-- WORKER CTA BAND -->
-<section style="background:var(--teal-pale,#E1F5EE);border-top:3px solid var(--teal,#0B6B6E);border-bottom:3px solid var(--teal,#0B6B6E);padding:3.5rem 0">
+<section style="background:var(--teal-pale,#E1F5EE);border-top:3px solid var(--teal,#0E8F61);border-bottom:3px solid var(--teal,#0E8F61);padding:3.5rem 0">
   <div class="container">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center">
       <div>
-        <div style="font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal,#0B6B6E);text-transform:uppercase;margin-bottom:.75rem">For Healthcare Workers</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:3px;color:var(--teal,#0E8F61);text-transform:uppercase;margin-bottom:.75rem">For Healthcare Workers</div>
         <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--navy,#1B3A5C);line-height:1.2;margin-bottom:1rem">Ready to work where you're needed most?</h2>
         <p style="color:#444;font-size:15px;line-height:1.7;margin-bottom:1rem">Regional and remote NSW has some of Australia's most acute healthcare shortages — and some of its most rewarding placements. Health Plus International directly employs you: we handle your contract, payroll, superannuation, insurance, and compliance so you can focus on care.</p>
         <ul style="color:#444;font-size:14px;line-height:1.9;padding-left:1.2rem;margin-bottom:1.5rem">
@@ -631,31 +639,31 @@ document.addEventListener('keydown', e => {
           <li>Fair Work compliant direct employment contract from day one</li>
         </ul>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="join.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal,#0B6B6E);color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none">Apply Now &#8594;</a>
-          <a href="how-we-work.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--teal,#0B6B6E);padding:11px 22px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid var(--teal,#0B6B6E)">How it works</a>
+          <a href="join.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal,#0E8F61);color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none">Apply Now &#8594;</a>
+          <a href="how-we-work.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--teal,#0E8F61);padding:11px 22px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid var(--teal,#0E8F61)">How it works</a>
         </div>
       </div>
       <div style="background:#fff;border-radius:14px;padding:2rem;border:1px solid rgba(11,107,110,.15);box-shadow:0 4px 24px rgba(11,107,110,.08)">
-        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--teal,#0B6B6E);text-transform:uppercase;margin-bottom:1.2rem">What we handle for you</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--teal,#0E8F61);text-transform:uppercase;margin-bottom:1.2rem">What we handle for you</div>
         <div style="display:flex;flex-direction:column;gap:.85rem">
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:var(--teal,#0B6B6E);font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:var(--teal,#0E8F61);font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:var(--navy,#1B3A5C);font-size:14px">Employment contract</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">Fair Work compliant, issued before placement</p></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:var(--teal,#0B6B6E);font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:var(--teal,#0E8F61);font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:var(--navy,#1B3A5C);font-size:14px">Payroll &amp; superannuation</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">Paid on time, every time — no agency deductions</p></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:var(--teal,#0B6B6E);font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:var(--teal,#0E8F61);font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:var(--navy,#1B3A5C);font-size:14px">AHPRA &amp; credential verification</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">We verify and maintain your registration records</p></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:var(--teal,#0B6B6E);font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:var(--teal,#0E8F61);font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:var(--navy,#1B3A5C);font-size:14px">National Police Clearance</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">Coordinated and renewed by us</p></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:.75rem">
-            <span style="color:var(--teal,#0B6B6E);font-size:18px;line-height:1">&#10003;</span>
+            <span style="color:var(--teal,#0E8F61);font-size:18px;line-height:1">&#10003;</span>
             <div><strong style="color:var(--navy,#1B3A5C);font-size:14px">Workers' compensation &amp; PI insurance</strong><p style="color:#666;font-size:13px;margin:0;line-height:1.5">Full cover held by Health Plus International</p></div>
           </div>
         </div>
