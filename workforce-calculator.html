@@ -3,179 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workforce Shortfall Calculator | Cost of Unfilled Clinical Positions in Regional NSW | Health Plus International</title>
-<meta name="description" content="Put a number on unfilled clinical positions in regional and remote NSW. Calculate the contingency premium and uncovered care hours your facility carries — and compare it against an Employer of Record placement on one all-inclusive invoice.">
-<meta name="keywords" content="workforce shortfall calculator, cost of unfilled nursing positions NSW, agency premium calculator healthcare, regional NSW healthcare workforce, employer of record healthcare NSW, contingency staffing cost">
+<title>Workforce Pressure Calculator | Health Plus International</title>
+<meta name="description" content="Estimate the operational pressure created by persistent healthcare vacancies, contingency coverage and uncovered roster hours. A workforce planning tool from Health Plus International.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Health Plus International">
 <link rel="canonical" href="https://healthplusint.com.au/workforce-calculator">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Workforce Shortfall Calculator | Health Plus International">
-<meta property="og:description" content="Every unfilled clinical position in regional and remote NSW is paid for twice — in premium contingency rates and in hours of care that never happen. Put a number on it.">
+<meta property="og:title" content="Workforce Pressure Calculator | Health Plus International">
+<meta property="og:description" content="Put a number on persistent workforce pressure and identify an appropriate workforce-development starting point.">
 <meta property="og:url" content="https://healthplusint.com.au/workforce-calculator">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Health Plus International">
 <meta property="og:image" content="https://healthplusint.com.au/images/logo-healthplus-transparent.png">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Workforce Shortfall Calculator | Health Plus International">
-<meta name="twitter:description" content="Calculate what unfilled clinical positions cost a regional NSW facility — the contingency premium, and the care hours that never happen.">
-<meta name="twitter:image" content="https://healthplusint.com.au/images/logo-healthplus-transparent.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Health Plus International",
-  "url": "https://healthplusint.com.au",
-  "logo": "https://healthplusint.com.au/images/logo-healthplus-transparent.png",
-  "description": "Health Plus International strategically places directly employed, credentialled healthcare workers across regional and remote NSW as an Employer of Record.",
-  "email": "connect@healthplusint.com.au",
-  "address": {"@type": "PostalAddress", "addressRegion": "NSW", "addressCountry": "AU"}
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Workforce Shortfall Calculator",
-  "url": "https://healthplusint.com.au/workforce-calculator",
-  "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-lede"]}
-}
+{"@context":"https://schema.org","@type":"WebPage","name":"Workforce Pressure Calculator","url":"https://healthplusint.com.au/workforce-calculator","about":{"@type":"Organization","name":"Health Plus International","url":"https://healthplusint.com.au","description":"Healthcare workforce development organisation supporting workforce readiness, deployment, participation and retention."}}
 </script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:#F8FBFC;color:#1F2933;font-family:'Barlow',sans-serif;overflow-x:hidden}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;width:100%;z-index:200;padding:8px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.08);backdrop-filter:blur(8px)}
 .nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:rgba(13,31,51,.75);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:color .2s}
+.nav-links a{color:rgba(13,31,51,.75);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
 .nav-links a:hover,.nav-links a.active{color:#0E8F61}
-.nav-cta{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff!important;text-decoration:none;background:#0E8F61;border:1px solid #0E8F61;padding:10px 20px;transition:all .25s;white-space:nowrap}
-.nav-cta:hover{opacity:.88}
+.nav-cta{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff!important;text-decoration:none;background:#0E8F61;border:1px solid #0E8F61;padding:10px 20px;white-space:nowrap}
 .nav-ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
-.nav-ham span{display:block;width:24px;height:2px;background:#0B3558;transition:all .25s}
-.nav-ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-ham.open span:nth-child(2){opacity:0}
-.nav-ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-ham span{display:block;width:24px;height:2px;background:#0B3558}
 .nav-mobile-menu{display:none;position:fixed;top:90px;left:0;right:0;bottom:0;background:rgba(255,255,255,.99);z-index:190;flex-direction:column;padding:32px 24px;gap:4px}
 .nav-mobile-menu.open{display:flex}
 .nav-mobile-menu a{color:#0B3558;text-decoration:none;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.06)}
 .nav-mobile-menu a.nav-mobile-cta{background:#0E8F61;color:#fff;text-align:center;border:none;margin-top:16px;padding:16px}
-@media(max-width:768px){nav{padding:8px 20px}.nav-links{display:none}.nav-cta{display:none}.nav-ham{display:flex}}
+@media(max-width:768px){nav{padding:8px 20px}.nav-links,.nav-cta{display:none}.nav-ham{display:flex}}
 
-/* HERO */
 .page-hero{padding:148px 48px 72px;background:#EAF7F1;border-bottom:1px solid rgba(14,143,97,.12);position:relative;overflow:hidden}
-.page-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(14,143,97,.07) 0%,transparent 65%);pointer-events:none}
-.hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#F2B23A;margin-bottom:18px;display:flex;align-items:center;gap:12px}
-.hero-eyebrow::before{content:'';width:32px;height:1px;background:#F2B23A}
-.page-hero h1{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(48px,7.5vw,100px);line-height:.9;text-transform:uppercase;margin-bottom:26px;color:#0B3558}
-.page-hero h1 em{font-style:normal;color:#0E8F61}
-.hero-lede{font-size:18px;line-height:1.8;color:#64748B;font-weight:300;max-width:640px}
+.page-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(14,143,97,.07) 0%,transparent 65%)}
+.hero-eyebrow,.sec-eyebrow{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#F2B23A;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before,.sec-eyebrow::before{content:'';width:32px;height:1px;background:#F2B23A}
+.page-hero h1,.section h2,.cta-band h2{font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;color:#0B3558}
+.page-hero h1{font-size:clamp(48px,7.5vw,100px);line-height:.9;margin-bottom:26px}
+.page-hero h1 em,.section h2 em,.cta-band h2 em{font-style:normal;color:#0E8F61}
+.hero-lede{font-size:18px;line-height:1.8;color:#64748B;font-weight:300;max-width:720px}
 @media(max-width:640px){.page-hero{padding:120px 20px 56px}}
 
-/* CALC LAYOUT */
-.calc-wrap{position:relative;z-index:10;padding:72px 48px 88px;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+.calc-wrap{padding:72px 48px 88px;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
 @media(max-width:940px){.calc-wrap{grid-template-columns:1fr;padding:56px 20px 64px}}
-
-/* CONTROLS */
-.controls{background:#FFFFFF;border:1px solid rgba(14,143,97,.14);padding:40px 36px}
-.ctl-label{font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#0E8F61;margin-bottom:12px;display:flex;justify-content:space-between;align-items:baseline}
-.ctl-value{font-family:'Big Shoulders Display',sans-serif;font-size:24px;font-weight:900;color:#0B3558;letter-spacing:.02em}
+.controls{background:#fff;border:1px solid rgba(14,143,97,.14);padding:40px 36px}
 .ctl-block{margin-bottom:34px}
 .ctl-block:last-child{margin-bottom:0}
+.ctl-label{font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#0E8F61;margin-bottom:12px;display:flex;justify-content:space-between;align-items:baseline}
+.ctl-value{font-family:'Big Shoulders Display',sans-serif;font-size:24px;font-weight:900;color:#0B3558}
 .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.role-btn{border:1px solid rgba(11,53,88,.18);background:#F8FBFC;padding:14px 12px;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#0B3558;cursor:pointer;transition:all .2s;text-align:left}
+.role-btn{border:1px solid rgba(11,53,88,.18);background:#F8FBFC;padding:14px 12px;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#0B3558;cursor:pointer;text-align:left}
 .role-btn small{display:block;font-size:10px;font-weight:400;letter-spacing:.02em;text-transform:none;color:#64748B;margin-top:4px}
 .role-btn.active{background:#0E8F61;border-color:#0E8F61;color:#fff}
-.role-btn.active small{color:rgba(255,255,255,.75)}
+.role-btn.active small{color:rgba(255,255,255,.78)}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:linear-gradient(to right,#0E8F61 var(--fill,50%),rgba(11,53,88,.14) var(--fill,50%));outline:none;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#0B3558;border:3px solid #fff;box-shadow:0 1px 5px rgba(11,53,88,.35);cursor:grab}
-input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#0B3558;border:3px solid #fff;box-shadow:0 1px 5px rgba(11,53,88,.35);cursor:grab}
-input[type=range]:focus-visible{outline:2px solid #0E8F61;outline-offset:6px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#0B3558;border:3px solid #fff;box-shadow:0 1px 5px rgba(11,53,88,.35)}
 .ctl-hint{font-size:11px;color:#94A3B4;margin-top:9px;line-height:1.55}
 
-/* RESULTS */
 .results{background:#0B3558;color:#fff;padding:44px 40px;position:sticky;top:110px;overflow:hidden}
 .results::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(to right,#0E8F61,#F2B23A,transparent)}
 .res-eyebrow{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#F2B23A;margin-bottom:10px}
-.res-big{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(64px,8vw,104px);line-height:.9;color:#fff;letter-spacing:.01em}
-.res-big-sub{font-size:13px;color:rgba(255,255,255,.72);margin-top:10px;line-height:1.7;max-width:340px}
+.res-big{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(64px,8vw,104px);line-height:.9}
+.res-big-sub{font-size:13px;color:rgba(255,255,255,.72);margin-top:10px;line-height:1.7;max-width:360px}
 .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.10);margin-top:34px}
 .res-cell{background:#0B3558;padding:20px 18px 18px}
-.res-cell .n{font-family:'Big Shoulders Display',sans-serif;font-size:34px;font-weight:900;color:#0E8F61;line-height:1}
+.res-cell .n{font-family:'Big Shoulders Display',sans-serif;font-size:34px;font-weight:900;color:#0E8F61}
 .res-cell .n.amber{color:#F2B23A}
-.res-cell .l{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:8px;line-height:1.6}
-.res-ctas{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
-.btn{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:15px 26px;transition:all .25s}
+.res-cell .l{font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:8px;line-height:1.6}
+.response-card{margin-top:30px;padding:22px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05)}
+.response-card .tier{font-family:'Big Shoulders Display',sans-serif;font-size:30px;font-weight:900;color:#F2B23A;text-transform:uppercase}
+.response-card p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.72);margin-top:5px}
+.btn{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:15px 26px}
 .btn-green{background:#0E8F61;color:#fff;border:1px solid #0E8F61}
-.btn-green:hover{opacity:.88}
 .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
-.btn-ghost:hover{border-color:#fff}
+.res-ctas{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
 @media(max-width:940px){.results{position:static}}
-@media(max-width:480px){.results{padding:34px 22px}.controls{padding:30px 20px}}
+@media(max-width:480px){.results{padding:34px 22px}.controls{padding:30px 20px}.role-grid{grid-template-columns:1fr}}
 
-/* COMPARISON */
-.section{position:relative;z-index:10;padding:88px 48px}
+.section{padding:88px 48px}
 .section-mid{background:#EAF7F1}
 .sec-inner{max-width:1100px;margin:0 auto}
-.sec-eyebrow{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#F2B23A;margin-bottom:16px;display:flex;align-items:center;gap:12px}
-.sec-eyebrow::before{content:'';width:32px;height:1px;background:#F2B23A}
-.section h2{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(38px,5vw,64px);line-height:.92;text-transform:uppercase;color:#0B3558;margin-bottom:18px}
-.section h2 em{font-style:normal;color:#0E8F61}
-.sec-lede{font-size:16px;line-height:1.8;color:#64748B;font-weight:300;max-width:620px;margin-bottom:44px}
-.cmp{width:100%;border-collapse:collapse;background:#fff;border:1px solid rgba(14,143,97,.14)}
-.cmp th{font-family:'Big Shoulders Display',sans-serif;font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:.03em;padding:20px 22px;text-align:left;border-bottom:1px solid rgba(14,143,97,.14)}
-.cmp th:first-child{width:24%;color:#94A3B4;font-family:'Barlow',sans-serif;font-size:9px;font-weight:700;letter-spacing:.24em}
-.cmp th.c-cont{color:#0B3558}
-.cmp th.c-eor{color:#0E8F61}
-.cmp td{padding:18px 22px;font-size:14px;line-height:1.65;color:#3D4A57;border-bottom:1px solid rgba(11,53,88,.08);vertical-align:top}
-.cmp tr:last-child td{border-bottom:none}
-.cmp td:first-child{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#94A3B4;padding-top:22px}
-.cmp td.eor{background:#F4FBF8;font-weight:500;color:#1F2933}
-@media(max-width:700px){.cmp,.cmp thead,.cmp tbody,.cmp tr,.cmp td,.cmp th{display:block}.cmp th:first-child,.cmp td:first-child{width:auto}.cmp th{padding:16px 18px}.cmp td{padding:12px 18px}}
+.section h2{font-size:clamp(38px,5vw,64px);line-height:.92;margin-bottom:18px}
+.sec-lede{font-size:16px;line-height:1.8;color:#64748B;font-weight:300;max-width:720px;margin-bottom:40px}
+.insight-grid,.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.insight,.tier-card{background:#fff;border:1px solid rgba(14,143,97,.14);padding:28px}
+.insight h3,.tier-card h3{font-family:'Big Shoulders Display',sans-serif;font-size:28px;font-weight:900;text-transform:uppercase;color:#0B3558;margin-bottom:10px}
+.insight p,.tier-card p{font-size:14px;line-height:1.75;color:#64748B}
+.tier-card strong{display:block;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#0E8F61;margin-bottom:8px}
+.method{max-width:1100px;margin:36px auto 0;font-size:12px;line-height:1.8;color:#7B8794;border-left:2px solid rgba(14,143,97,.35);padding-left:18px}
+@media(max-width:800px){.insight-grid,.tier-grid{grid-template-columns:1fr}.section{padding:60px 20px}}
 
-/* METHOD NOTE */
-.method{max-width:1100px;margin:40px auto 0;font-size:12px;line-height:1.8;color:#94A3B4;border-left:2px solid rgba(14,143,97,.35);padding-left:18px}
+.cta-band{background:#0B3558;padding:88px 48px;text-align:center}
+.cta-band h2{font-size:clamp(40px,6vw,76px);line-height:.9;color:#fff;margin-bottom:18px}
+.cta-band p{font-size:16px;color:rgba(255,255,255,.72);font-weight:300;max-width:650px;margin:0 auto 36px;line-height:1.8}
 
-/* CTA BAND */
-.cta-band{background:#0B3558;padding:88px 48px;text-align:center;position:relative;overflow:hidden}
-.cta-band::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,#0E8F61,#F2B23A,transparent)}
-.cta-band h2{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(40px,6vw,76px);text-transform:uppercase;line-height:.9;color:#fff;margin-bottom:18px}
-.cta-band h2 em{font-style:normal;color:#0E8F61}
-.cta-band p{font-size:16px;color:rgba(255,255,255,.72);font-weight:300;max-width:560px;margin:0 auto 36px;line-height:1.8}
-@media(max-width:640px){.section{padding:60px 20px}.cta-band{padding:64px 20px}}
-
-/* FOOTER */
-footer{position:relative;z-index:10;background:#0B3558;padding:56px 48px 36px;border-top:1px solid rgba(255,255,255,.08)}
+footer{background:#0B3558;padding:56px 48px 36px;border-top:1px solid rgba(255,255,255,.08)}
 .aboriginal-bar{height:3px;background:linear-gradient(to right,#E8A020 33%,#CC3300 33% 66%,#111 66%);margin-bottom:48px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
-.footer-tagline{font-size:13px;color:rgba(255,255,255,.80);line-height:1.8;max-width:260px;margin-top:4px}
-.footer-col h4{font-size:9px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:#F2B23A;margin-bottom:14px}
-.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.82);text-decoration:none;margin-bottom:8px;transition:color .2s}
-.footer-col a:hover{color:#ffffff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:22px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.acknowledgement{font-size:11px;color:rgba(255,255,255,.85);max-width:480px;line-height:1.8}
-.footer-copy{font-size:10px;color:rgba(255,255,255,.75);letter-spacing:.06em}
-@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:28px}footer{padding:48px 20px 30px}}
-@media(max-width:480px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}}
-
-/* LIVE BADGE */
-.live-badge{position:fixed;bottom:24px;left:24px;z-index:150;background:rgba(5,12,21,.95);border:1px solid rgba(14,143,97,.25);padding:10px 18px;display:flex;align-items:center;gap:9px;backdrop-filter:blur(12px)}
-.live-dot{width:6px;height:6px;border-radius:50%;background:#0E8F61;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.7)}}
-.live-text{font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.85)}
-@media(max-width:640px){.live-badge{display:none}}
-@media(prefers-reduced-motion:reduce){.live-dot{animation:none}html{scroll-behavior:auto}}
+.footer-tagline{font-size:13px;line-height:1.75;color:rgba(255,255,255,.62);max-width:330px}
+.footer-col h4{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#F2B23A;margin-bottom:16px}
+.footer-col a{display:block;color:rgba(255,255,255,.68);text-decoration:none;font-size:12px;margin:9px 0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;gap:30px}
+.acknowledgement,.footer-copy{font-size:10px;line-height:1.7;color:rgba(255,255,255,.42)}
+.acknowledgement{max-width:680px}
+@media(max-width:760px){.footer-grid{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column}footer{padding:48px 20px 30px}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -183,8 +120,8 @@ footer{position:relative;z-index:10;background:#0B3558;padding:56px 48px 36px;bo
 <nav>
   <div class="nav-logo">
     <a href="index.html" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;gap:3px">
-      <img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:72px;width:auto;display:block;">
-      <span style="font-family:'Barlow',sans-serif;font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#0E8F61;white-space:nowrap;padding-left:2px">People &nbsp;·&nbsp; Care &nbsp;·&nbsp; Compliance</span>
+      <img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:72px;width:auto;display:block">
+      <span style="font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#0E8F61;padding-left:2px">People &nbsp;·&nbsp; Care &nbsp;·&nbsp; Compliance</span>
     </a>
   </div>
   <ul class="nav-links">
@@ -192,117 +129,154 @@ footer{position:relative;z-index:10;background:#0B3558;padding:56px 48px 36px;bo
     <li><a href="allied-health.html">Allied Health</a></li>
     <li><a href="aged-care.html">Aged Care</a></li>
     <li><a href="how-we-work.html">How We Work</a></li>
+    <li><a href="workforce-calculator.html" class="active">Calculator</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="ahpra-verify.html">Verify AHPRA</a></li>
-    <li><a href="our-pillars.html">Our Pillars</a></li>
   </ul>
-  <a href="submit-a-request.html" class="nav-cta">Submit a Request</a>
-  <button class="nav-ham" id="navHam" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-mobile-menu" id="navMobile" aria-hidden="true">
+  <a href="submit-a-request.html" class="nav-cta">Discuss a Requirement</a>
+  <button class="nav-ham" id="navHam" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="nav-mobile-menu" id="navMobile">
     <a href="services-remote.html">Nursing</a>
     <a href="allied-health.html">Allied Health</a>
     <a href="aged-care.html">Aged Care &amp; Support</a>
     <a href="how-we-work.html">How We Work</a>
-    <a href="workforce-calculator.html">Shortfall Calculator</a>
-    <a href="submit-a-request.html" class="nav-mobile-cta">Submit a Request</a>
+    <a href="workforce-calculator.html">Workforce Calculator</a>
+    <a href="submit-a-request.html" class="nav-mobile-cta">Discuss a Requirement</a>
   </div>
 </nav>
 
 <header class="page-hero">
-  <div class="hero-eyebrow">Workforce Shortfall Calculator</div>
-  <h1>Put a number<br>on the <em>shortfall.</em></h1>
-  <p class="hero-lede">Every unfilled clinical position in regional and remote NSW is paid for twice — once in premium rates for short-notice contingency coverage, and again in hours of care that never happen. Move the sliders to your facility's real numbers and see what the shortfall is carrying.</p>
+  <div class="hero-eyebrow">Workforce Pressure Calculator</div>
+  <h1>Put a number on<br><em>workforce pressure.</em></h1>
+  <p class="hero-lede">Estimate the operational impact of persistent vacancies, contingency coverage and uncovered roster hours. Adjust the figures to reflect your facility's actual workforce position.</p>
 </header>
 
 <main class="calc-wrap">
   <div class="controls" aria-label="Calculator inputs">
-
     <div class="ctl-block">
       <div class="ctl-label"><span>Workforce type</span></div>
       <div class="role-grid" id="roleGrid">
         <button class="role-btn active" data-role="en" type="button">Enrolled Nurse<small>AHPRA registered</small></button>
         <button class="role-btn" data-role="ain" type="button">Assistant in Nursing<small>Ward &amp; community</small></button>
-        <button class="role-btn" data-role="acw" type="button">Aged Care Worker<small>RACF &amp; home care</small></button>
-        <button class="role-btn" data-role="ah" type="button">Allied Health<small>AHPRA verified</small></button>
+        <button class="role-btn" data-role="acw" type="button">Aged Care Worker<small>Residential &amp; community</small></button>
+        <button class="role-btn" data-role="ah" type="button">Allied Health<small>Registered where applicable</small></button>
       </div>
     </div>
 
     <div class="ctl-block">
       <div class="ctl-label"><span>Unfilled positions</span><span class="ctl-value" id="vPos">2</span></div>
-      <input type="range" id="sPos" min="1" max="12" step="1" value="2" aria-label="Number of unfilled positions">
+      <input type="range" id="sPos" min="1" max="20" step="1" value="2">
     </div>
 
     <div class="ctl-block">
       <div class="ctl-label"><span>Rostered hours per week, per position</span><span class="ctl-value" id="vHrs">38</span></div>
-      <input type="range" id="sHrs" min="16" max="48" step="1" value="38" aria-label="Rostered hours per week per position">
+      <input type="range" id="sHrs" min="8" max="48" step="1" value="38">
     </div>
 
     <div class="ctl-block">
-      <div class="ctl-label"><span>Contingency rate per hour</span><span class="ctl-value" id="vAg">$98</span></div>
-      <input type="range" id="sAg" min="40" max="220" step="1" value="98" aria-label="Contingency coverage rate per hour">
-      <p class="ctl-hint">The all-in hourly cost of covering the shortfall at short notice — charge rate plus travel and accommodation where it applies. Adjust to your latest invoice.</p>
+      <div class="ctl-label"><span>Current contingency / backfill cost per hour</span><span class="ctl-value" id="vAg">$98</span></div>
+      <input type="range" id="sAg" min="40" max="220" step="1" value="98">
+      <p class="ctl-hint">Use the all-in hourly cost your organisation is currently paying for short-notice coverage or other temporary workforce arrangements.</p>
     </div>
 
     <div class="ctl-block">
-      <div class="ctl-label"><span>Sustainable rate per hour</span><span class="ctl-value" id="vDir">$54</span></div>
-      <input type="range" id="sDir" min="30" max="140" step="1" value="54" aria-label="Sustainable direct employment cost per hour">
-      <p class="ctl-hint">The fully loaded hourly cost of the same role on a stable placement — wages, superannuation, leave and on-costs on one all-inclusive invoice.</p>
+      <div class="ctl-label"><span>Sustainable workforce cost per hour</span><span class="ctl-value" id="vDir">$54</span></div>
+      <input type="range" id="sDir" min="30" max="140" step="1" value="54">
+      <p class="ctl-hint">Use your organisation's estimated fully loaded sustainable cost for the same role. This is a planning input, not an HPI quoted rate.</p>
     </div>
 
     <div class="ctl-block">
-      <div class="ctl-label"><span>Shortfall hours actually covered</span><span class="ctl-value" id="vCov">70%</span></div>
-      <input type="range" id="sCov" min="0" max="100" step="5" value="70" aria-label="Percentage of shortfall hours covered by contingency staff">
-      <p class="ctl-hint">The rest of the rostered hours go uncovered — care that is delayed, diluted, or not delivered at all.</p>
+      <div class="ctl-label"><span>Rostered hours actually covered</span><span class="ctl-value" id="vCov">70%</span></div>
+      <input type="range" id="sCov" min="0" max="100" step="5" value="70">
+      <p class="ctl-hint">Estimate how much of the vacancy is actually filled through overtime, temporary coverage, redistribution or other measures.</p>
     </div>
-
   </div>
 
-  <aside class="results" aria-live="polite" aria-label="Calculator results">
-    <div class="res-eyebrow">Premium paid above sustainable cost</div>
+  <aside class="results" aria-live="polite">
+    <div class="res-eyebrow">Estimated annual workforce pressure</div>
     <div class="res-big" id="rYear">$0</div>
-    <p class="res-big-sub">per year, over and above what the same rostered hours would cost as stable, directly employed placements.</p>
+    <p class="res-big-sub">Indicative premium expenditure above the sustainable-cost input for covered vacancy hours.</p>
+
     <div class="res-grid">
-      <div class="res-cell"><div class="n" id="rMonth">$0</div><div class="l">Premium per month</div></div>
-      <div class="res-cell"><div class="n" id="rWeek">$0</div><div class="l">Premium per week</div></div>
-      <div class="res-cell"><div class="n amber" id="rUncov">0</div><div class="l">Uncovered care hours per year</div></div>
-      <div class="res-cell"><div class="n amber" id="rShifts">0</div><div class="l">Equivalent 8-hour shifts not delivered</div></div>
+      <div class="res-cell"><div class="n" id="rMonth">$0</div><div class="l">Pressure per month</div></div>
+      <div class="res-cell"><div class="n" id="rWeek">$0</div><div class="l">Pressure per week</div></div>
+      <div class="res-cell"><div class="n amber" id="rUncov">0</div><div class="l">Uncovered roster hours per year</div></div>
+      <div class="res-cell"><div class="n amber" id="rShifts">0</div><div class="l">Equivalent 8-hour shifts uncovered</div></div>
     </div>
+
+    <div class="response-card">
+      <div class="res-eyebrow">Indicative HPI starting point</div>
+      <div class="tier" id="rTier">Workforce Core</div>
+      <p id="rTierText">Recurring vacancy pressure may benefit from a structured workforce pipeline rather than repeated short-notice response.</p>
+    </div>
+
     <div class="res-ctas">
-      <a href="submit-a-request.html" class="btn btn-green">Submit a Request</a>
-      <a href="contact.html" class="btn btn-ghost">Speak to Us</a>
+      <a href="submit-a-request.html" class="btn btn-green">Discuss Your Requirement</a>
+      <a href="how-we-work.html" class="btn btn-ghost">View the Framework</a>
     </div>
   </aside>
 </main>
 
 <section class="section section-mid">
   <div class="sec-inner">
-    <div class="sec-eyebrow">The same hours, two ways to pay for them</div>
-    <h2>Contingency coverage <em>vs Employer of Record.</em></h2>
-    <p class="sec-lede">Short-notice coverage keeps the roster alive, and it has a place. But when the same position stays unfilled for months, the premium compounds — and the facility carries the coordination, the compliance checks and the discontinuity on top of the invoice.</p>
-    <table class="cmp">
-      <thead>
-        <tr><th></th><th class="c-cont">Contingency Coverage</th><th class="c-eor">Health Plus International — EOR</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>What you pay</td><td>Premium hourly rates, plus travel and accommodation, on every shift — indefinitely.</td><td class="eor">One all-inclusive invoice for a stable placement. Wages, superannuation, insurances and on-costs are ours to carry as the Employer of Record.</td></tr>
-        <tr><td>Continuity of care</td><td>A different worker each roster. Handover burden and orientation time repeat every placement.</td><td class="eor">The same credentialled worker, embedded in the community — Broken Hill, Walgett, Bourke, Griffith — for the length of the placement.</td></tr>
-        <tr><td>Compliance burden</td><td>Your team verifies registrations, National Police Clearance and OASV status again with every new face.</td><td class="eor">Every worker is credentialled to NSW Health Credentialling Framework standards and AHPRA verified where registration applies — before deployment.</td></tr>
-        <tr><td>Employment risk</td><td>Sits in the grey zone between provider, worker and facility.</td><td class="eor">We directly employ every worker we place. One employer. One responsibility. One point of accountability.</td></tr>
-        <tr><td>Response</td><td>Subject to availability — regional and remote positions wait longest.</td><td class="eor">24-hour response on every workforce request, and a sourcing pipeline built for regional and remote NSW.</td></tr>
-      </tbody>
-    </table>
-    <p class="method"><strong>About these figures.</strong> This calculator is a planning guide, not a quote. Default rates are indicative of current regional and remote NSW market ranges for each workforce type; every slider is adjustable so the result reflects your facility's actual invoices and awards. Calculations assume 52 rostered weeks and exclude recruitment time, orientation costs and the clinical cost of discontinuity — which means the true figure is usually higher, not lower. For numbers specific to your facility and LHD, speak to us.</p>
+    <div class="sec-eyebrow">What the numbers tell you</div>
+    <h2>Pressure is more than <em>an hourly rate.</em></h2>
+    <p class="sec-lede">The calculator separates the premium attached to covered vacancy hours from the roster hours that remain uncovered. It is designed to support a workforce conversation — not to turn HPI into a rate-card or staffing-agency comparison.</p>
+
+    <div class="insight-grid">
+      <div class="insight">
+        <h3>Immediate coverage</h3>
+        <p>Short-term measures can keep a roster functioning when workforce pressure is urgent. They are often necessary, but they do not automatically resolve the underlying vacancy.</p>
+      </div>
+
+      <div class="insight">
+        <h3>Recurring pressure</h3>
+        <p>Repeated short-notice coverage can create ongoing premium expenditure, orientation burden, workforce discontinuity and persistent management effort.</p>
+      </div>
+
+      <div class="insight">
+        <h3>Development response</h3>
+        <p>A structured workforce response focuses on attraction, readiness, credential controls, deployment, support and retention so recurring pressure can move toward sustainable capability.</p>
+      </div>
+    </div>
+
+    <p class="method"><strong>Important:</strong> This calculator is an indicative workforce-planning tool only. Results are estimates based on the information entered and are not a quotation, employment-cost assessment, financial advice or guarantee of workforce availability. Actual workforce costs and operational impacts vary by role, location, award, employment arrangement, workforce mix and facility requirements.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Health Plus International workforce response</div>
+    <h2>Match the pressure to the <em>right starting point.</em></h2>
+    <p class="sec-lede">HPI uses a tiered workforce-development model so an urgent vacancy, a recurring pipeline problem and a structural workforce challenge are not treated as the same problem.</p>
+
+    <div class="tier-grid">
+      <div class="tier-card">
+        <strong>Contained or urgent requirement</strong>
+        <h3>Workforce Starter</h3>
+        <p>For a defined, immediate workforce requirement where rapid acknowledgement, triage, readiness and compliance controls are the priority.</p>
+      </div>
+
+      <div class="tier-card">
+        <strong>Recurring workforce pressure</strong>
+        <h3>Workforce Core</h3>
+        <p>For repeated vacancies, hard-to-fill roles and ongoing pipeline needs requiring structured attraction, readiness, deployment and support.</p>
+      </div>
+
+      <div class="tier-card">
+        <strong>Structural capability challenge</strong>
+        <h3>Workforce Transformation</h3>
+        <p>For sustained or system-level workforce pressure requiring a longer-term development strategy, participation pathways and capability-building.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="cta-band">
-  <h2>Turn the premium into <em>a workforce.</em></h2>
-  <p>Tell us the role, the setting, the LHD and the commencement date. We respond within 24 hours with a credentialled, directly employed placement pathway — on one all-inclusive invoice.</p>
+  <h2>Turn workforce pressure into <em>a plan.</em></h2>
+  <p>Share the role, setting, location and workforce requirement. HPI will review the requirement and identify the appropriate workforce-development starting point.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-    <a href="submit-a-request.html" class="btn btn-green">Submit a Request</a>
-    <a href="how-we-work.html" class="btn btn-ghost">How the EOR Model Works</a>
+    <a href="submit-a-request.html" class="btn btn-green">Discuss Your Workforce Requirement</a>
+    <a href="how-we-work.html" class="btn btn-ghost">View How We Work</a>
   </div>
 </section>
 
@@ -311,14 +285,13 @@ footer{position:relative;z-index:10;background:#0B3558;padding:56px 48px 36px;bo
   <div class="footer-grid">
     <div>
       <img src="images/logo-healthplus-transparent.png" alt="Health Plus International" style="height:52px;width:auto;margin-bottom:14px;display:block;filter:brightness(0) invert(1)">
-      <p class="footer-tagline">We develop local healthcare workforce in regional and remote NSW communities. Directly employed. One invoice. People. Care. Compliance.</p>
+      <p class="footer-tagline">Healthcare workforce development focused on participation, readiness, deployment, support and retention. People. Care. Compliance.</p>
     </div>
     <div class="footer-col">
       <h4>Workforce</h4>
-      <a href="services-remote.html">Enrolled Nurses</a>
+      <a href="services-remote.html">Nursing</a>
       <a href="ain.html">AIN</a>
-      <a href="aged-care.html">Aged Care Workers</a>
-      <a href="aged-care.html">Support Workers</a>
+      <a href="aged-care.html">Aged Care</a>
       <a href="allied-health.html">Allied Health</a>
     </div>
     <div class="footer-col">
@@ -326,15 +299,13 @@ footer{position:relative;z-index:10;background:#0B3558;padding:56px 48px 36px;bo
       <a href="about.html">About Us</a>
       <a href="how-we-work.html">How We Work</a>
       <a href="our-pillars.html">Our Pillars</a>
-      <a href="ahpra-verify.html">Verify AHPRA</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="footer-col">
       <h4>Get Started</h4>
-      <a href="submit-a-request.html">Submit a Request</a>
-      <a href="workforce-calculator.html">Shortfall Calculator</a>
+      <a href="workforce-calculator.html">Workforce Calculator</a>
+      <a href="submit-a-request.html">Discuss a Requirement</a>
       <a href="join.html">Register as a Worker</a>
-      <a href="contact.html">Speak to Us</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -343,103 +314,94 @@ footer{position:relative;z-index:10;background:#0B3558;padding:56px 48px 36px;bo
   </div>
 </footer>
 
-<div class="live-badge"><div class="live-dot"></div><div class="live-text">24hr Response Active</div></div>
-
 <script>
-// ---- Mobile nav ----
-const ham = document.getElementById('navHam');
-const mob = document.getElementById('navMobile');
-ham.addEventListener('click', () => {
-  const open = ham.classList.toggle('open');
-  mob.classList.toggle('open');
-  ham.setAttribute('aria-expanded', open);
-  mob.setAttribute('aria-hidden', !open);
-  document.body.style.overflow = open ? 'hidden' : '';
-});
-mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  ham.classList.remove('open'); mob.classList.remove('open');
-  ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true');
-  document.body.style.overflow = '';
-}));
+const ham=document.getElementById('navHam');
+const mob=document.getElementById('navMobile');
+ham.addEventListener('click',()=>mob.classList.toggle('open'));
 
-// ---- Calculator ----
-const ROLE_DEFAULTS = {
-  en:  { ag: 98,  dir: 54 },   // Enrolled Nurse
-  ain: { ag: 74,  dir: 43 },   // Assistant in Nursing
-  acw: { ag: 72,  dir: 45 },   // Aged Care Worker
-  ah:  { ag: 138, dir: 70 }    // Allied Health
+const ROLE_DEFAULTS={
+  en:{ag:98,dir:54},
+  ain:{ag:74,dir:43},
+  acw:{ag:72,dir:45},
+  ah:{ag:138,dir:70}
 };
-const el = id => document.getElementById(id);
-const sPos = el('sPos'), sHrs = el('sHrs'), sAg = el('sAg'), sDir = el('sDir'), sCov = el('sCov');
-const sliders = [sPos, sHrs, sAg, sDir, sCov];
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const el=id=>document.getElementById(id);
+const sPos=el('sPos'),sHrs=el('sHrs'),sAg=el('sAg'),sDir=el('sDir'),sCov=el('sCov');
+const sliders=[sPos,sHrs,sAg,sDir,sCov];
 
 function fillTrack(s){
-  const pct = ((s.value - s.min) / (s.max - s.min)) * 100;
-  s.style.setProperty('--fill', pct + '%');
+  const pct=((s.value-s.min)/(s.max-s.min))*100;
+  s.style.setProperty('--fill',pct+'%');
 }
 
 function fmtMoney(v){
-  if (v >= 1000000) return '$' + (v/1000000).toFixed(2).replace(/\.?0+$/,'') + 'M';
-  if (v >= 10000)   return '$' + Math.round(v/1000) + 'K';
-  return '$' + Math.round(v).toLocaleString('en-AU');
+  if(v>=1000000)return'$'+(v/1000000).toFixed(2).replace(/\.?0+$/,'')+'M';
+  if(v>=10000)return'$'+Math.round(v/1000)+'K';
+  return'$'+Math.round(v).toLocaleString('en-AU');
 }
-function fmtNum(v){ return Math.round(v).toLocaleString('en-AU'); }
 
-const animState = {};
-function setOut(id, value, money){
-  const node = el(id);
-  const target = value;
-  if (reduceMotion){ node.textContent = money ? fmtMoney(target) : fmtNum(target); return; }
-  const start = animState[id] || 0;
-  if (start === target){ node.textContent = money ? fmtMoney(target) : fmtNum(target); return; }
-  animState[id] = target;
-  const t0 = performance.now(), dur = 380;
-  function tick(t){
-    if (animState[id] !== target) return;           // superseded
-    const p = Math.min((t - t0)/dur, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    const cur = start + (target - start) * eased;
-    node.textContent = money ? fmtMoney(cur) : fmtNum(cur);
-    if (p < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
+function fmtNum(v){
+  return Math.round(v).toLocaleString('en-AU');
 }
 
 function recalc(){
-  const pos = +sPos.value, hrs = +sHrs.value, ag = +sAg.value, dir = +sDir.value, cov = +sCov.value/100;
-  el('vPos').textContent = pos;
-  el('vHrs').textContent = hrs;
-  el('vAg').textContent  = '$' + ag;
-  el('vDir').textContent = '$' + dir;
-  el('vCov').textContent = Math.round(cov*100) + '%';
+  const pos=+sPos.value;
+  const hrs=+sHrs.value;
+  const ag=+sAg.value;
+  const dir=+sDir.value;
+  const cov=+sCov.value/100;
+
+  el('vPos').textContent=pos;
+  el('vHrs').textContent=hrs;
+  el('vAg').textContent='$'+ag;
+  el('vDir').textContent='$'+dir;
+  el('vCov').textContent=Math.round(cov*100)+'%';
   sliders.forEach(fillTrack);
 
-  const premiumHr   = Math.max(ag - dir, 0);
-  const weeklyHours = pos * hrs;
-  const premYear  = premiumHr * weeklyHours * 52 * cov;
-  const uncovYear = weeklyHours * 52 * (1 - cov);
+  const weeklyHours=pos*hrs;
+  const premiumHr=Math.max(ag-dir,0);
+  const premYear=premiumHr*weeklyHours*52*cov;
+  const uncovYear=weeklyHours*52*(1-cov);
 
-  setOut('rYear',  premYear, true);
-  setOut('rMonth', premYear/12, true);
-  setOut('rWeek',  premYear/52, true);
-  setOut('rUncov', uncovYear, false);
-  setOut('rShifts', uncovYear/8, false);
+  el('rYear').textContent=fmtMoney(premYear);
+  el('rMonth').textContent=fmtMoney(premYear/12);
+  el('rWeek').textContent=fmtMoney(premYear/52);
+  el('rUncov').textContent=fmtNum(uncovYear);
+  el('rShifts').textContent=fmtNum(uncovYear/8);
+
+  let tier='Workforce Starter';
+  let txt='A contained or urgent requirement may benefit from rapid acknowledgement, triage, readiness and compliance controls.';
+
+  if(pos>=3 || premYear>=100000 || uncovYear>=1500){
+    tier='Workforce Core';
+    txt='Recurring vacancy pressure may benefit from a structured workforce pipeline rather than repeated short-notice response.';
+  }
+
+  if(pos>=7 || premYear>=300000 || uncovYear>=4000){
+    tier='Workforce Transformation';
+    txt='Sustained pressure at this level may indicate a structural workforce challenge requiring a longer-term capability response.';
+  }
+
+  el('rTier').textContent=tier;
+  el('rTierText').textContent=txt;
 }
 
-sliders.forEach(s => s.addEventListener('input', recalc));
+sliders.forEach(s=>s.addEventListener('input',recalc));
 
-document.getElementById('roleGrid').addEventListener('click', e => {
-  const btn = e.target.closest('.role-btn');
-  if (!btn) return;
-  document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+document.getElementById('roleGrid').addEventListener('click',e=>{
+  const btn=e.target.closest('.role-btn');
+  if(!btn)return;
+  document.querySelectorAll('.role-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  const d = ROLE_DEFAULTS[btn.dataset.role];
-  sAg.value = d.ag; sDir.value = d.dir;
+  const d=ROLE_DEFAULTS[btn.dataset.role];
+  sAg.value=d.ag;
+  sDir.value=d.dir;
   recalc();
 });
 
 recalc();
 </script>
+
 </body>
 </html>
