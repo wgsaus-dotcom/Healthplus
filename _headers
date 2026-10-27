@@ -1,9 +1,0 @@
-/*
-  Cache-Control: no-cache, must-revalidate
-  X-Frame-Options: DENY
-
-/*.html
-  Cache-Control: no-store
-
-/images/*
-  Cache-Control: public, max-age=86400
