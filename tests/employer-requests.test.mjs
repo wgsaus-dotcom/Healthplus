@@ -26,7 +26,7 @@ test("a confirmed CRM submission preserves its reference and original payload", 
   assert.deepEqual(await response.json(), { ok: true, reference: "HPI-EMP-TEST" });
   assert.equal(forwarded.url, "https://hpi-onboarding.wgs-aus.workers.dev/api/employer/request");
   assert.deepEqual(JSON.parse(forwarded.options.body), valid);
-  assert.equal(forwarded.options.redirect, "error");
+  assert.equal(forwarded.options.redirect, "manual");
   assert.equal(response.headers.get("cache-control"), "no-store");
 });
 
@@ -34,6 +34,9 @@ test("an upstream error or missing reference never reports a successful request"
   for (const upstream of [
     Response.json({ error: "unavailable" }, { status: 503 }),
     Response.json({ ok: true }),
+    Response.json({ reference: "REDIRECT-MUST-NOT-SUCCEED" }, {
+      status: 302, headers: { Location: "https://other.example/" },
+    }),
   ]) {
     t.mock.method(globalThis, "fetch", async () => upstream);
     const response = await POST(request(valid));

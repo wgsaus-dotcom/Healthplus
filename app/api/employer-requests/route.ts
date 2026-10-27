@@ -69,7 +69,9 @@ export async function POST(request: Request) {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(payload),
-      redirect: "error",
+      // Workers supports manual redirects. Never follow a redirect with
+      // the contact payload; a 3xx response fails confirmation below.
+      redirect: "manual",
       signal: AbortSignal.timeout(15000),
     });
     upstreamStatus = response.status;
