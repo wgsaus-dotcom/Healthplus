@@ -72,3 +72,22 @@ test("honeypot submissions are not forwarded", async (t) => {
   assert.equal(response.status, 200);
   assert.equal(fetch.mock.callCount(), 0);
 });
+
+
+test("a non-JSON upstream response logs metadata without contact details", async (t) => {
+  t.mock.method(globalThis, "fetch", async () => new Response("upstream private content", {
+    status: 403, headers: { "Content-Type": "text/html" },
+  }));
+  const log = t.mock.method(console, "error", () => {});
+  const response = await POST(request(valid));
+  assert.equal(response.status, 502);
+  assert.equal(log.mock.callCount(), 1);
+  const metadata = log.mock.calls[0].arguments[1];
+  assert.equal(metadata.stage, "read-response");
+  assert.equal(metadata.upstreamStatus, 403);
+  assert.equal(metadata.upstreamContentType, "text/html");
+  assert.equal(metadata.errorName, "SyntaxError");
+  const logged = JSON.stringify(log.mock.calls[0].arguments);
+  assert.ok(!logged.includes(valid.email));
+  assert.ok(!logged.includes("upstream private content"));
+});

@@ -3,11 +3,18 @@
   "name": "hpi-website",
   "main": "./worker/index.ts",
   "compatibility_date": "2026-09-30",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "workers_dev": true,
   "preview_urls": false,
-  "assets": { "directory": "./public", "binding": "ASSETS" },
-  "images": { "binding": "IMAGES" },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "images": {
+    "binding": "IMAGES"
+  },
   "d1_databases": [
     {
       "binding": "DB",
@@ -17,6 +24,13 @@
     }
   ],
   "r2_buckets": [
-    { "binding": "BUCKET", "bucket_name": "hpi-website-resumes" }
-  ]
+    {
+      "binding": "BUCKET",
+      "bucket_name": "hpi-website-resumes"
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
 }

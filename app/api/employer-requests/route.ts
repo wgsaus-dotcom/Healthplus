@@ -61,6 +61,9 @@ export async function POST(request: Request) {
     return json({ error: "Please complete the required fields and provide consent." }, 400);
   }
 
+  let stage = "connect";
+  let upstreamStatus: number | undefined;
+  let upstreamContentType: string | null = null;
   try {
     const response = await fetch(CRM_ENDPOINT, {
       method: "POST",
@@ -69,12 +72,22 @@ export async function POST(request: Request) {
       redirect: "error",
       signal: AbortSignal.timeout(15000),
     });
+    upstreamStatus = response.status;
+    upstreamContentType = response.headers.get("content-type");
+    stage = "read-response";
     const result = await response.json() as { reference?: unknown; error?: unknown };
     if (!response.ok || typeof result.reference !== "string" || !result.reference.trim()) {
+      console.error("HPI employer request failed", { stage: "confirm-reference", upstreamStatus, upstreamContentType });
       return json({ error: "Your workforce request could not be confirmed. Please contact HPI or try again." }, 502);
     }
     return json({ ok: true, reference: result.reference }, 201);
-  } catch {
+  } catch (error) {
+    // Log connection metadata only. Never log applicant/contact details,
+    // request payloads, response bodies, or exception messages.
+    console.error("HPI employer request failed", {
+      stage, upstreamStatus, upstreamContentType,
+      errorName: error instanceof Error ? error.name : "UnknownError",
+    });
     return json({ error: "The workforce request service is temporarily unavailable. Please try again or contact HPI." }, 502);
   }
 }
