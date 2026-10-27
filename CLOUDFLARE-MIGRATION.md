@@ -21,6 +21,24 @@ The original Sites configuration remains intact. `vite.cloudflare.config.ts` is 
 
 `scripts/configure-cloudflare.mjs` creates an ignored account-specific `wrangler.cloudflare.json` with a real account ID, D1 ID and bucket name. No secrets belong in that file or this repository. `scripts/deploy-cloudflare.mjs` requires that real configuration, builds it again and deploys the generated Worker configuration. Its staging command rejects live-domain routes.
 
+## Dashboard deployment checkpoint
+
+The owner has completed initial provisioning in the Cloudflare dashboard:
+
+- Worker project: `hpi-website`.
+- Build branch: `migration/chatgpt-sites-cloudflare`.
+- D1 database: `hai-website`, ID `53ebf718-97a3-4cb0-b3d8-92ac5673952c`, binding `DB`.
+- D1 table and unique index: created successfully using the source schema.
+- Resume bucket: `hpi-website-resumes`, binding `BUCKET`, public access disabled.
+- Build command: `npm run cloudflare:build`.
+- Deploy command: `npx wrangler deploy --config dist/server/wrangler.json`.
+- Root directory: repository root.
+- Account-specific, non-secret binding configuration is tracked in `wrangler.cloudflare.json`. Cloudflare Builds supplies deployment authentication; no credentials are stored in source.
+
+The initial build used the older repository default branch, which lacked package.json. A commit to the selected migration branch now requests a fresh build. This checkpoint does not confirm deployment success. Verify the build result and its returned workers.dev URL before any domain cutover.
+
+The provisioning commands below are a reference for fresh environments. Do not recreate the resources above or reapply the initial CREATE TABLE migration over the manually initialized database. Before adopting automated D1 migrations for this database, record an appropriate migration baseline and verify it against the existing schema.
+
 ## Deploy a staging copy
 
 Use the account that owns HPI's Cloudflare resources. Before deploying `hpi-website`, confirm that name is unused; select another name with `--worker` if necessary. Reuse or create resources deliberately rather than overwrite an existing project.
@@ -68,7 +86,9 @@ Re-read the live Sites database. If rows have appeared, export every row without
 - Existing rendered HTML suite: 6 test groups passed, covering the homepage, 24 additional indexed routes, structured data, sitemap and 404 responses.
 - Wrangler deployment dry run: passed; Worker bundle and `DB`, `BUCKET`, `IMAGES`, `ASSETS` bindings recognized.
 - New helper JavaScript syntax and Git whitespace checks: passed.
-- No independent Cloudflare resources have been created yet; account sign-in is required.
+- Owner-created Cloudflare resources: Worker project `hpi-website`, D1 database `hai-website`, and private R2 bucket `hpi-website-resumes`.
+- The owner successfully created the `worker_applications` table and its unique reference index in D1 through the dashboard console.
+- Production build branch is configured as `migration/chatgpt-sites-cloudflare`. The initial build from the older default branch failed because it did not contain package.json.
 - Live domain, email records and current Sites publication have not been changed.
 - Browser verification of the independent hosted deployment and end-to-end form persistence remain pending deployment.
 
