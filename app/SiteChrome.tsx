@@ -102,6 +102,13 @@ export function SiteFooter() {
         <p>Copyright 2026 Healthplus International, ABN 13 155 901 723</p>
         <p className="hpi-staff">Staff: <a href="https://documents.healthplusint.com.au">Documents</a> · <a href="https://crm.healthplusint.com.au/crm">CRM login</a></p>
       </div>
+      <a className="hpi-whatsapp-float" href="https://wa.me/61411459755" target="_blank" rel="noopener noreferrer" aria-label="Chat with Healthplus International on WhatsApp">
+        <span className="hpi-whatsapp-tooltip">Chat with HPI Now</span>
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="none" aria-hidden="true">
+          <path d="M27 15.5a11 11 0 0 1-16.3 9.65L5 27l1.8-5.8A11 11 0 1 1 27 15.5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M12 9.5c-.5-.3-1.1-.2-1.5.3-1.1 1.3-.8 3.7.6 5.9 1.5 2.4 3.9 4.3 6.3 5 1.6.5 3.1-.2 3.6-1.5.2-.5.1-.9-.4-1.2l-2.2-1.1c-.4-.2-.7-.1-1 .3l-.8 1c-1.8-.8-3.4-2.4-4.2-4.1l.9-.9c.3-.3.4-.6.2-1l-1.5-2.7Z" fill="currentColor" />
+        </svg>
+      </a>
     </footer>
   );
 }
