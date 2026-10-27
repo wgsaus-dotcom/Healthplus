@@ -1,53 +1,31 @@
 # Health Plus International
 
-> Health Plus International is a healthcare workforce development organisation building qualification-aligned pipelines through verified readiness, role-based development and retention support, with a focus on New South Wales.
+> Health Plus International is a healthcare workforce development business in Helensburgh, NSW. HPI recruits, employs and places healthcare workers in Sydney and regional NSW. HPI does not train workers.
 
-Official website: https://healthplusint.com.au/
-Last updated: 2026-10-01
+## Pages
 
-## Core pages
-
-- [About HPI](https://healthplusint.com.au/about)
-- [HPI Workforce Development Framework](https://healthplusint.com.au/framework)
-- [Ways to engage HPI](https://healthplusint.com.au/engage)
-- [Staff CPD and workforce capability](https://healthplusint.com.au/cpd)
-- [Service Charter](https://healthplusint.com.au/service-charter)
-- [Frequently asked questions](https://healthplusint.com.au/faq)
+- [Home](https://healthplusint.com.au/)
+- [For employers](https://healthplusint.com.au/employers)
+- [For healthcare workers](https://healthplusint.com.au/work-with-us)
+- [Roles](https://healthplusint.com.au/roles)
+- [About and how we work](https://healthplusint.com.au/about)
+- [FAQ](https://healthplusint.com.au/faq)
 - [Privacy Policy](https://healthplusint.com.au/privacy)
 - [Full factual reference](https://healthplusint.com.au/llms-full.txt)
 
-## Workforce pathways
+## Roles
 
-- [Registered Nurses](https://healthplusint.com.au/workforce/registered-nurses)
-- [Enrolled Nurses](https://healthplusint.com.au/workforce/enrolled-nurses)
-- [Assistants in Nursing](https://healthplusint.com.au/workforce/assistants-in-nursing)
-- [Aged Care Workers](https://healthplusint.com.au/workforce/aged-care-workers)
-- [Support Workers](https://healthplusint.com.au/workforce/support-workers)
-- [Selected Allied Health](https://healthplusint.com.au/workforce/allied-health)
-- [Selected Remote and Site Health](https://healthplusint.com.au/workforce/remote-site-health)
+Registered Nurses; Assistants in Nursing; aged care workers; support workers (community and in-home support, not NDIS); allied health professionals.
 
-## Regional pathways
+## How we work
 
-- [Far West NSW](https://healthplusint.com.au/regions/far-west-nsw)
-- [Western NSW](https://healthplusint.com.au/regions/western-nsw)
-- [Murrumbidgee](https://healthplusint.com.au/regions/murrumbidgee)
-- [Hunter New England](https://healthplusint.com.au/regions/hunter-new-england)
-- [Northern NSW](https://healthplusint.com.au/regions/northern-nsw)
-- [Mid North Coast](https://healthplusint.com.au/regions/mid-north-coast)
-
-## Important boundaries
-
-HPI does not guarantee a worker, job, interview, visa, registration result, start date, placement or retention outcome. Role, credential, employer, location and service requirements must be verified. The employing or host facility remains the Employer of Record and retains clinical governance, workplace, induction, supervision, scope and selection decisions within its authority.
+HPI employs the workers. The facility chooses who it accepts and directs day-to-day work and clinical supervision. Regional work is planned for each engagement. Listing a region does not mean a vacancy is open.
 
 ## Contact
 
-Health Plus International
-Carlingford NSW, Australia
+Helensburgh, NSW
 Phone: +61 411 459 755
 Email: info@healthplusint.com.au
-ABN: 13 155 901 723
 
-## Enquiries
-
-Facilities and services can request workforce support at https://healthplusint.com.au/#employer-request
-Healthcare professionals can register their interest at https://healthplusint.com.au/#worker-application
+Employer requests: https://healthplusint.com.au/employers#request
+Worker registration: https://healthplusint.com.au/work-with-us#apply

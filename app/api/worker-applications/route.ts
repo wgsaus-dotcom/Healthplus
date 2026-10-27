@@ -1,5 +1,6 @@
 import { getDb } from "@/db";
 import { workerApplications } from "@/db/schema";
+import { workforceRoles } from "@/app/form-options";
 
 const MAX_RESUME_SIZE = 5 * 1024 * 1024;
 const allowedTypes = new Set([
@@ -35,7 +36,9 @@ export async function POST(request: Request) {
       return Response.json({ ok: true, reference: "HPI-RECEIVED" });
     }
 
-    const fullName = `${textValue(form, "firstName", 60)} ${textValue(form, "lastName", 60)}`.trim();
+    const firstName = textValue(form, "firstName", 100);
+    const lastName = textValue(form, "lastName", 100);
+    const fullName = `${firstName} ${lastName}`;
     const email = textValue(form, "email", 180).toLowerCase();
     const phone = textValue(form, "phone", 40);
     const profession = textValue(form, "profession", 100);
@@ -51,7 +54,8 @@ export async function POST(request: Request) {
     const resume = form.get("resume");
 
     if (
-      !fullName ||
+      !firstName ||
+      !lastName ||
       !isEmail(email) ||
       !phone ||
       !profession ||
@@ -62,6 +66,10 @@ export async function POST(request: Request) {
         { error: "Please complete all required fields." },
         { status: 400 }
       );
+    }
+
+    if (!workforceRoles.some(role => role.value === profession)) {
+      return Response.json({ error: "Please choose one of the listed professions." }, { status: 400 });
     }
 
     if (consent !== "yes") {
@@ -119,9 +127,7 @@ export async function POST(request: Request) {
     }
 
     return Response.json({ ok: true, reference }, { status: 201 });
-  } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Unable to submit your application.";
-    return Response.json({ error: message }, { status: 500 });
+  } catch {
+    return Response.json({ error: "We could not submit your application. Please try again." }, { status: 500 });
   }
 }

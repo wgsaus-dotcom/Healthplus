@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SiteHeader, SiteFooter, ClosingPanel } from "./SiteChrome";
 
 const siteUrl = "https://healthplusint.com.au";
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Health Plus International",
   },
   description:
-    "HPI builds qualification-aligned healthcare workforce pipelines through verified readiness, role-based development and retention support across Sydney and regional NSW.",
+    "Health Plus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
   alternates: {
     canonical: "/",
   },
@@ -21,13 +22,13 @@ export const metadata: Metadata = {
     siteName: "Health Plus International",
     title: "Healthcare Workforce Development NSW | HPI",
     description:
-      "HPI builds qualification-aligned healthcare workforce pipelines through verified readiness, role-based development and retention support across Sydney and regional NSW.",
+      "Health Plus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
     images: [
       {
-        url: "/assets/hero-nurse.jpg",
+        url: "/assets/hero-hpi-care.webp",
         width: 900,
-        height: 506,
-        alt: "Healthcare professional supporting a patient",
+        height: 600,
+        alt: "Healthcare professional supporting an older woman",
       },
     ],
   },
@@ -35,8 +36,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Healthcare Workforce Development NSW | HPI",
     description:
-      "HPI builds qualification-aligned healthcare workforce pipelines through verified readiness, role-based development and retention support across Sydney and regional NSW.",
-    images: ["/assets/hero-nurse.jpg"],
+      "Health Plus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
+    images: ["/assets/hero-hpi-care.webp"],
   },
   robots: {
     index: true,
@@ -50,8 +51,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/assets/healthplus-mark.png",
-    shortcut: "/assets/healthplus-mark.png",
+    icon: "/assets/healthplus-mark.webp",
+    shortcut: "/assets/healthplus-mark.webp",
   },
 };
 
@@ -64,11 +65,11 @@ const structuredData = {
       name: "Health Plus International",
       legalName: "Health Plus International Pty Ltd",
       url: siteUrl,
-      logo: `${siteUrl}/assets/logo-healthplus-transparent.png`,
-      image: `${siteUrl}/assets/hero-nurse.jpg`,
+      logo: `${siteUrl}/assets/logo-healthplus-transparent.webp`,
+      image: `${siteUrl}/assets/hero-hpi-care.webp`,
       slogan: "People · Care · Compliance",
       description:
-        "Health Plus International is a healthcare workforce development organisation building qualification-aligned pipelines through verified readiness, structured CPD, early-placement continuity and retention support.",
+        "Health Plus International is a healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers. We do not train them.",
       identifier: {
         "@type": "PropertyValue",
         propertyID: "ABN",
@@ -86,7 +87,7 @@ const structuredData = {
       },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Carlingford",
+        addressLocality: "Helensburgh",
         addressRegion: "NSW",
         addressCountry: "AU",
       },
@@ -100,19 +101,11 @@ const structuredData = {
         "Mid North Coast",
       ],
       knowsAbout: [
-        "Healthcare workforce development",
-        "Rapid workforce response",
-        "Healthcare workforce attraction and matching",
-        "Enrolled nurse workforce pathways",
-        "Assistants in nursing",
-        "Aged care workforce",
-        "Disability and community support workers",
-        "Allied health workforce pathways",
-        "Healthcare worker credentialling",
-        "Regional workforce mobilisation",
-        "Continuing professional development",
-        "Staff capability development",
-        "Role-based learning",
+        "Registered Nurses",
+        "Assistants in Nursing",
+        "Aged care workers",
+        "Community support workers",
+        "Allied health professionals",
       ],
     },
     {
@@ -133,32 +126,13 @@ const structuredData = {
         name: "New South Wales",
       },
       serviceType:
-        "Healthcare workforce planning, attraction, matching, readiness, credentialling, deployment, support and retention",
+        "Healthcare workforce recruitment, employment and placement",
       audience: [
         { "@type": "Audience", audienceType: "Healthcare facilities and services" },
         { "@type": "Audience", audienceType: "Healthcare workers" },
       ],
     },
-    {
-      "@type": "Service",
-      "@id": `${siteUrl}/cpd#service`,
-      name: "Staff Continuing Professional Development and Workforce Capability",
-      url: `${siteUrl}/cpd`,
-      provider: { "@id": `${siteUrl}/#organization` },
-      areaServed: {
-        "@type": "Country",
-        name: "Australia",
-      },
-      description:
-        "Structured, role-relevant continuing professional development coordinated for HPI staff and approved workforce cohorts, including transition learning for selected international and relocating healthcare pathways.",
-      serviceType:
-        "Continuing professional development, role-based learning, regional transition support and workforce capability development",
-      audience: [
-        { "@type": "Audience", audienceType: "Health Plus International staff" },
-        { "@type": "Audience", audienceType: "Participating workforce cohorts" },
-        { "@type": "Audience", audienceType: "Client and partner teams under an agreed programme" },
-      ],
-    },
+
   ],
 };
 
@@ -170,7 +144,11 @@ export default function RootLayout({
   return (
     <html lang="en-AU">
       <body>
+        <script src="/legacy-anchors.js" defer />
+        <SiteHeader />
         {children}
+        <ClosingPanel />
+        <SiteFooter />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

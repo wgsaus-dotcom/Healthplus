@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -11,18 +10,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicy() {
   return (
     <main className="policy-page">
-      <header className="policy-header">
-        <Link className="brand inverse" href="/" aria-label="Health Plus International home">
-          <img src="/assets/healthplus-mark.png" alt="" width="180" height="190" />
-          <span>
-            <strong>Health Plus International</strong>
-            <small>People · Care · Compliance</small>
-          </span>
-        </Link>
-        <Link className="back-link" href="/">← Return to website</Link>
-      </header>
-
-      <section className="policy-hero">
+<section className="policy-hero">
         <p className="eyebrow light">People · Care · Compliance</p>
         <h1>Privacy <em>Policy.</em></h1>
         <p>
@@ -51,8 +39,8 @@ export default function PrivacyPolicy() {
             <li>résumés, employment history, qualifications, skills and references;</li>
             <li>professional registration, licences, work rights and availability;</li>
             <li>
-              screening and compliance information, such as police, NDIS Worker
-              Screening, Working with Children and aged-care-related checks;
+              screening and compliance information, such as police, role-required worker
+              screening, Working with Children and aged-care-related checks;
             </li>
             <li>
               information about employers, vacancies, workplaces, workforce needs,
@@ -250,7 +238,7 @@ export default function PrivacyPolicy() {
           <h2>Contact the Privacy Officer</h2>
           <p>
             Health Plus International Pty Ltd<br />
-            Carlingford NSW<br />
+            Helensburgh, NSW<br />
             <a href="mailto:info@healthplusint.com.au?subject=Privacy%20Enquiry">
               info@healthplusint.com.au
             </a><br />

@@ -1,6 +1,8 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
+
+import { roleValue, workforceRoles } from "./form-options";
 
 type SubmissionState =
   | { status: "idle" }
@@ -14,13 +16,19 @@ type EmployerRequestResult = {
   reference?: string;
 };
 
-export default function EmployerRequestForm() {
+export default function EmployerRequestForm({ initialRole = "" }: { initialRole?: string }) {
   const formRef = useRef<HTMLFormElement>(null);
   const [state, setState] = useState<SubmissionState>({ status: "idle" });
 
+  const inFlight = useRef(false);
+  const [selectedRoles, setSelectedRoles] = useState<string[]>(() => roleValue(initialRole) ? [roleValue(initialRole)] : []);
+  useEffect(() => { setSelectedRoles(roleValue(initialRole) ? [roleValue(initialRole)] : []); }, [initialRole]);
+
   async function submitRequest(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (inFlight.current) return;
     const form = event.currentTarget;
+    if (!form.reportValidity()) return;
     const data = new FormData(form);
 
     const roles = data
@@ -32,10 +40,13 @@ export default function EmployerRequestForm() {
         status: "error",
         message: "Please select at least one workforce role.",
       });
+      form.querySelector<HTMLInputElement>('input[name="roles"]')?.focus();
       return;
     }
 
     const details = [
+      `Additional information: ${String(data.get("notes") || "")}`,
+      `Company website: ${String(data.get("website") || "")}`,
       `Sector: ${String(data.get("sector") || "")}`,
       `Employment type: ${String(data.get("employmentType") || "")}`,
       `Shift / roster requirements: ${String(data.get("roster") || "Not specified")}`,
@@ -59,6 +70,7 @@ export default function EmployerRequestForm() {
       company: String(data.get("company") || ""),
     };
 
+    inFlight.current = true;
     setState({ status: "submitting" });
 
     try {
@@ -78,6 +90,7 @@ export default function EmployerRequestForm() {
 
       setState({ status: "success", reference: result.reference });
       formRef.current?.reset();
+      setSelectedRoles(roleValue(initialRole) ? [roleValue(initialRole)] : []);
     } catch (error) {
       setState({
         status: "error",
@@ -86,178 +99,46 @@ export default function EmployerRequestForm() {
             ? error.message
             : "We could not submit your workforce request.",
       });
+    } finally {
+      inFlight.current = false;
     }
   }
 
   return (
-    <form className="worker-form employer-form" ref={formRef} onSubmit={submitRequest}>
-      <div className="form-honeypot" aria-hidden="true">
-        <label htmlFor="employer-company">Company website</label>
-        <input
-          id="employer-company"
-          name="company"
-          tabIndex={-1}
-          autoComplete="off"
-        />
-      </div>
-
+    <form className="worker-form employer-form" ref={formRef} onSubmit={submitRequest} onInvalid={event => {
+      const optional = (event.target as HTMLElement).closest("details");
+      if (optional) optional.open = true;
+    }}>
+      <div className="form-honeypot" aria-hidden="true"><label htmlFor="employer-company">Company</label><input id="employer-company" name="company" tabIndex={-1} autoComplete="off" /></div>
       <div className="form-grid">
-        <label>
-          <span>Organisation *</span>
-          <input name="organisation" autoComplete="organization" required maxLength={200} />
-        </label>
-        <label>
-          <span>Contact person *</span>
-          <input name="contactName" autoComplete="name" required maxLength={160} />
-        </label>
-        <label>
-          <span>Email address *</span>
-          <input name="email" type="email" autoComplete="email" required maxLength={180} />
-        </label>
-        <label>
-          <span>Phone number</span>
-          <input name="phone" type="tel" autoComplete="tel" maxLength={50} />
-        </label>
-        <label>
-          <span>Sector *</span>
-          <select name="sector" required defaultValue="">
-            <option value="" disabled>Select your sector</option>
-            <option>Public health</option>
-            <option>Private hospital or health service</option>
-            <option>Residential aged care</option>
-            <option>Home and community care</option>
-            <option>Disability services</option>
-            <option>Community services</option>
-            <option>Regional or remote health</option>
-            <option>Industrial or site health</option>
-            <option>Other</option>
-          </select>
-        </label>
-        <label>
-          <span>Service location *</span>
-          <input
-            name="location"
-            required
-            maxLength={300}
-            placeholder="Town, region or facility"
-          />
-        </label>
-        <label>
-          <span>Number of workers *</span>
-          <input name="workersRequired" type="number" min={1} max={10000} required />
-        </label>
-        <label>
-          <span>Anticipated start date</span>
-          <input name="startDate" type="date" />
-        </label>
-        <label>
-          <span>Employment type *</span>
-          <select name="employmentType" required defaultValue="">
-            <option value="" disabled>Select employment type</option>
-            <option>Permanent full-time</option>
-            <option>Permanent part-time</option>
-            <option>Fixed-term contract</option>
-            <option>Casual or relief</option>
-            <option>Agency or temporary</option>
-            <option>To be discussed</option>
-          </select>
-        </label>
-        <label>
-          <span>Workforce pathway and timing *</span>
-          <select name="urgency" required defaultValue="">
-            <option value="" disabled>Select a pathway</option>
-            <option>Immediate roster / bench mobilisation — subject to pre-verified pool availability</option>
-            <option>Targeted sourcing — allow an indicative 2–4 weeks for complete compliance clearance</option>
-            <option>Planned workforce pipeline — within 1–3 months</option>
-            <option>Future workforce planning</option>
-          </select>
-          <small className="field-note">Timeframes are indicative and depend on role requirements, candidate availability and external screening or registration processes.</small>
-        </label>
+        <label><span>Organisation *</span><input name="organisation" autoComplete="organization" required maxLength={200} /></label>
+        <label><span>Contact person *</span><input name="contactName" autoComplete="name" required maxLength={160} /></label>
+        <label><span>Email *</span><input name="email" type="email" autoComplete="email" required maxLength={180} /></label>
+        <label><span>Phone</span><input name="phone" type="tel" autoComplete="tel" maxLength={50} /></label>
+        <label><span>Service location *</span><input name="location" required maxLength={300} /></label>
+        <label><span>Number of workers *</span><input name="workersRequired" type="number" min={1} max={10000} required /></label>
+        <label><span>When you need them *</span><select name="urgency" required defaultValue="">
+          <option value="" disabled>Choose timing</option>
+          <option>Immediate roster / bench mobilisation — subject to pre-verified pool availability</option>
+          <option>Targeted sourcing — allow an indicative 2–4 weeks for complete compliance clearance</option>
+          <option>Planned workforce pipeline — within 1–3 months</option>
+          <option>Future workforce planning</option>
+        </select><small>Timeframes are indicative and depend on role requirements, candidate availability and external screening or registration processes.</small></label>
       </div>
-
-      <fieldset className="role-selector">
-        <legend>Workforce roles required *</legend>
-        <div>
-          {[
-            "Registered Nurse",
-            "Enrolled Nurse",
-            "Assistant in Nursing",
-            "Aged Care Worker",
-            "Support Worker",
-            "Allied Health",
-            "Remote or Site Health",
-            "Other",
-          ].map((role) => (
-            <label key={role}>
-              <input type="checkbox" name="roles" value={role} />
-              <span>{role}</span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
-
-      <label className="form-message">
-        <span>Shift or roster requirements</span>
-        <textarea
-          name="roster"
-          rows={3}
-          maxLength={1200}
-          placeholder="Shift pattern, roster cycle, on-call or accommodation details"
-        />
-      </label>
-
-      <label className="form-message">
-        <span>Mandatory qualifications and checks</span>
-        <textarea
-          name="mandatoryChecks"
-          rows={3}
-          maxLength={1200}
-          placeholder="Registration, experience, licences, screening or role-specific requirements"
-        />
-      </label>
-
-      <label className="form-message">
-        <span>Workforce challenge and support required</span>
-        <textarea
-          name="workforceChallenge"
-          rows={4}
-          maxLength={1500}
-          placeholder="Tell us about the vacancy pressure, likely duration and support you need"
-        />
-      </label>
-
-      <label className="consent-check">
-        <input name="privacyConsent" type="checkbox" value="yes" required />
-        <span>
-          I confirm I am authorised to submit this request and consent to Health Plus
-          International securely storing and using these details to respond, as explained
-          in the{" "}
-          <a href="/privacy" target="_blank" rel="noopener noreferrer">
-            Privacy Policy
-          </a>.
-        </span>
-      </label>
-
-      <div className="form-submit-row">
-        <button className="button" type="submit" disabled={state.status === "submitting"}>
-          {state.status === "submitting" ? "Submitting…" : "Submit Workforce Request"}
-          <span aria-hidden="true">↗</span>
-        </button>
-        <p className="form-security">
-          Please do not include patient information, identity documents or other
-          sensitive records in this initial request.
-        </p>
-      </div>
-
-      <div className="form-status" aria-live="polite">
-        {state.status === "success" && (
-          <p className="form-success">
-            Thank you—your workforce request has been received. Reference:{" "}
-            <strong>{state.reference}</strong>
-          </p>
-        )}
-        {state.status === "error" && <p className="form-error">{state.message}</p>}
-      </div>
+      <fieldset className="role-selector" aria-required="true"><legend>Roles required *</legend><div>{workforceRoles.map(role => <label key={role.value}><input type="checkbox" name="roles" value={role.value} checked={selectedRoles.includes(role.value)} onChange={event => setSelectedRoles(current => event.target.checked ? [...current, role.value] : current.filter(value => value !== role.value))} /><span>{role.label}</span></label>)}</div></fieldset>
+      <label className="form-message"><span>Anything we should know?</span><textarea name="notes" rows={3} maxLength={1500} /><small>Useful to us: the service, the duties, how long you need the worker, supervision arrangements and any mandatory evidence.</small></label>
+      <details className="form-optional"><summary>Add detail (optional)</summary><div className="form-grid">
+        <label><span>Sector</span><select name="sector" defaultValue=""><option value="">Choose a sector</option><option>Public health</option><option>Private hospital or health service</option><option>Residential aged care</option><option>Home and community care</option><option>Community services</option><option>Regional health</option><option>Other</option></select></label>
+        <label><span>Employment type</span><select name="employmentType" defaultValue=""><option value="">Choose employment type</option><option>Permanent full-time</option><option>Permanent part-time</option><option>Fixed-term contract</option><option>Casual or relief</option><option>Agency or temporary</option><option>To be discussed</option></select></label>
+        <label><span>Anticipated start date</span><input name="startDate" type="date" /></label>
+        <label><span>Company website</span><input name="website" type="url" maxLength={300} /></label>
+        <label><span>Shift or roster needs</span><textarea name="roster" rows={3} maxLength={1200} /></label>
+        <label><span>Mandatory qualifications and checks</span><textarea name="mandatoryChecks" rows={3} maxLength={1200} /></label>
+        <label><span>Workforce challenge</span><textarea name="workforceChallenge" rows={3} maxLength={1500} /></label>
+      </div></details>
+      <label className="consent-check"><input name="privacyConsent" type="checkbox" value="yes" required /><span>I confirm I am authorised to submit this request and consent to Health Plus International securely storing and using these details to respond, as explained in the <a href="/privacy">Privacy Policy</a>.</span></label>
+      <div className="form-submit-row"><button className="hpi-action" type="submit" disabled={state.status === "submitting"}>{state.status === "submitting" ? "Submitting…" : "Submit request"}</button><p className="form-security">Do not include patient information, identity documents or sensitive records.</p></div>
+      <div className="form-status" aria-live="polite">{state.status === "success" && <p className="form-success">Thank you. We will acknowledge your request the same business day. Your contact will be named in our reply.</p>}{state.status === "error" && <p className="form-error">{state.message}</p>}</div>
     </form>
   );
 }
