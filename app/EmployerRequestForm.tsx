@@ -63,7 +63,7 @@ export default function EmployerRequestForm() {
 
     try {
       const response = await fetch(
-        "https://hpi-onboarding.wgs-aus.workers.dev/api/employer/request",
+        "/api/employer-requests",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
