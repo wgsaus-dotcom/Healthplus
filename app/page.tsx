@@ -50,7 +50,7 @@ export default function Home() {
       <section className="home-section" aria-labelledby="home-assurance-heading">
         <h2 id="home-assurance-heading">What you can count on</h2>
         <dl className="home-plain-list">
-          <div><dt>We employ and place.</dt><dd>We recruit, employ and place healthcare workers. We do not train them.</dd></div>
+          <div><dt>We employ and place.</dt><dd>We recruit, employ and place healthcare workers.</dd></div>
           <div><dt>Checked for the role.</dt><dd>Registration, qualifications, work rights and the screening the role needs, where required.</dd></div>
           <div><dt>Plain response standards.</dt><dd>Acknowledged the same business day. Contact within 24 hours.</dd></div>
         </dl>
@@ -66,7 +66,7 @@ export default function Home() {
               <summary><strong>{title}</strong><span>{visible}</span></summary>
               <p>{detail}</p>
             </details>)}
-            {index === 1 && <p className="home-registration-note">Registering does not guarantee a role, interview or start date.</p>}
+            
           </article>)}
         </div>
       </section>

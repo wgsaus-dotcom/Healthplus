@@ -69,7 +69,7 @@ const structuredData = {
       image: `${siteUrl}/assets/hero-hpi-care.webp`,
       slogan: "People · Care · Compliance",
       description:
-        "Health Plus International is a healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers. We do not train them.",
+        "Health Plus International is a healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers.",
       identifier: {
         "@type": "PropertyValue",
         propertyID: "ABN",

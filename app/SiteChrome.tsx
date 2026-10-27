@@ -99,7 +99,7 @@ export function SiteFooter() {
         <div><h2 id="country-heading">Acknowledgement of Country</h2><p>Health Plus International acknowledges the Dharawal people, the Traditional Custodians of the land in Helensburgh where we are based. We pay our respects to Elders past and present, and extend that respect to Aboriginal and Torres Strait Islander peoples across the communities where we work.</p></div>
       </section>
       <div className="hpi-footer-bottom">
-        <p>Copyright 2026 Health Plus International Pty Ltd, ABN 13 155 901 723</p>
+        <p>Copyright 2026 Healthplus International, ABN 13 155 901 723</p>
         <p className="hpi-staff">Staff: <a href="https://documents.healthplusint.com.au">Documents</a> · <a href="https://crm.healthplusint.com.au/crm">CRM login</a></p>
       </div>
     </footer>

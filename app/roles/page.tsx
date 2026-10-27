@@ -11,6 +11,6 @@ export default function RolesPage() {
       <h3>Checked before placement</h3><p>{role.checks}</p>
       <div className="inner-actions"><a className="hpi-action" href={`/employers?role=${role.slug}#request`}>Request this role</a><a className="hpi-action hpi-action-outline" href={`/work-with-us?profession=${role.slug}#apply`}>Find work as this</a></div>
     </section>)}
-    <p className="inner-note">A certificate shows training was completed. It does not by itself prove competence or authority to work, so we look at more than one document. Registering does not guarantee a role, interview or start date.</p>
+    <p className="inner-note">A certificate shows training was completed. It does not by itself prove competence or authority to work, so we look at more than one document.</p>
   </main>;
 }
