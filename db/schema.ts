@@ -18,3 +18,10 @@ export const workerApplications = sqliteTable("worker_applications", {
   status: text("status").notNull().default("new"),
   createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
+
+export const crmOutbox = sqliteTable('hpi_crm_outbox', {
+ id:text('id').primaryKey(),payload:text('payload').notNull(),state:text('state').notNull(),
+ createdAt:text('created_at').notNull(),deliveredAt:text('delivered_at'),retryAt:text('retry_at'),
+ attempts:integer('attempts').notNull().default(0),lastStatus:text('last_status').notNull().default('pending'),
+});
+

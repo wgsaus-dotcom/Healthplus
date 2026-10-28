@@ -1,6 +1,7 @@
 import { getDb } from "@/db";
 import { workerApplications } from "@/db/schema";
 import { workforceRoles } from "@/app/form-options";
+import { bridgeEnabled,saveCandidateWithOutbox } from '@/lib/crm-bridge.mjs';
 
 const MAX_RESUME_SIZE = 5 * 1024 * 1024;
 const allowedTypes = new Set([
@@ -111,7 +112,7 @@ export async function POST(request: Request) {
 
     try {
       const db = await getDb();
-      await db.insert(workerApplications).values({
+      const application={
         reference,
         fullName,
         email,
@@ -124,7 +125,9 @@ export async function POST(request: Request) {
         resumeName,
         resumeType,
         resumeSize,
-      });
+      };
+      if(bridgeEnabled(env))await saveCandidateWithOutbox(env,application);
+      else await db.insert(workerApplications).values(application);
     } catch (error) {
       if (resumeKey && env.BUCKET) await env.BUCKET.delete(resumeKey);
       throw error;
@@ -135,3 +138,4 @@ export async function POST(request: Request) {
     return Response.json({ error: "We could not submit your application. Please try again." }, { status: 500 });
   }
 }
+

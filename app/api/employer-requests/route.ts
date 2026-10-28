@@ -1,3 +1,4 @@
+import { stageEmployer,confirmEmployer } from '../../../lib/crm-bridge.mjs';
 // Keep the existing HPI CRM as the system of record. The browser submits to
 // this site's origin; this fixed server-side destination avoids a dependency
 // on the CRM's browser CORS allowlist during domain migration.
@@ -62,6 +63,11 @@ export async function POST(request: Request) {
   }
 
   let stage = "connect";
+  let bridgeEnv:any;
+  let stagedId:string|null=null;
+  try { bridgeEnv=(await import('cloudflare:workers')).env; } catch { /* Plain Node tests have no Worker runtime. */ }
+  try { stagedId=await stageEmployer(bridgeEnv,payload); }
+  catch { return json({error:'The workforce request service is temporarily unavailable. Please try again or contact HPI.'},503); }
   let upstreamStatus: number | undefined;
   let upstreamContentType: string | null = null;
   try {
@@ -82,6 +88,10 @@ export async function POST(request: Request) {
       console.error("HPI employer request failed", { stage: "confirm-reference", upstreamStatus, upstreamContentType });
       return json({ error: "Your workforce request could not be confirmed. Please contact HPI or try again." }, 502);
     }
+    // The staged row retains the enquiry for reconciliation if confirmation
+    // cannot be persisted after the older CRM has already accepted it.
+    try { await confirmEmployer(bridgeEnv,stagedId,result.reference,payload); }
+    catch { console.error('HPI CRM employer confirmation requires reconciliation'); }
     return json({ ok: true, reference: result.reference }, 201);
   } catch (error) {
     // Log connection metadata only. Never log applicant/contact details,
@@ -93,3 +103,4 @@ export async function POST(request: Request) {
     return json({ error: "The workforce request service is temporarily unavailable. Please try again or contact HPI." }, 502);
   }
 }
+
