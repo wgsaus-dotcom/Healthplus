@@ -1,11 +1,11 @@
 # Health Plus International — factual reference
 
-Health Plus International is a healthcare workforce development business in Helensburgh, NSW. HPI recruits, employs and places healthcare workers in Sydney and regional NSW. HPI does not train workers.
+Health Plus International is a healthcare workforce development business in Helensburgh, NSW. HPI recruits, employs and places healthcare workers in Sydney and regional NSW. 
 
 ## Roles
 
-- Registered Nurses
-- Assistants in Nursing
+- Registered nurses
+- Assistants in nursing
 - Aged care workers
 - Support workers: community and in-home support, not NDIS
 - Allied health professionals
@@ -28,7 +28,7 @@ Register in two short steps. We review your details and contact you about roles 
 Please do not send identity, banking, police-check or health information with your first details.
 
 Worker registration: https://healthplusint.com.au/work-with-us#apply
-Privacy Policy: https://healthplusint.com.au/privacy
+Privacy policy: https://healthplusint.com.au/privacy
 
 ## Where we work
 
@@ -47,7 +47,7 @@ Regional details and map: https://healthplusint.com.au/employers#where-we-work
 
 We work with the Multicultural Communities Support Centre (MCCSC) to support candidates into healthcare work. The pathway has three steps: HPI, MCCSC, host facility. No visa category or overseas origin is assumed; each person's work rights and qualifications are verified individually.
 
-About and Service Charter: https://healthplusint.com.au/about
+About and Service charter: https://healthplusint.com.au/about
 FAQ: https://healthplusint.com.au/faq
 
 ## Contact
@@ -59,4 +59,4 @@ WhatsApp: https://wa.me/61411459755
 Mon-Fri 8:30am-5:00pm Sydney time, excluding NSW public holidays.
 Regional after-hours support is set per engagement.
 
-Copyright 2026 Health Plus International Pty Ltd, ABN 13 155 901 723
+Copyright 2026 Healthplus International, ABN 13 155 901 723

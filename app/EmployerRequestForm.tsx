@@ -136,7 +136,7 @@ export default function EmployerRequestForm({ initialRole = "" }: { initialRole?
         <label><span>Mandatory qualifications and checks</span><textarea name="mandatoryChecks" rows={3} maxLength={1200} /></label>
         <label><span>Workforce challenge</span><textarea name="workforceChallenge" rows={3} maxLength={1500} /></label>
       </div></details>
-      <label className="consent-check"><input name="privacyConsent" type="checkbox" value="yes" required /><span>I confirm I am authorised to submit this request and consent to Health Plus International securely storing and using these details to respond, as explained in the <a href="/privacy">Privacy Policy</a>.</span></label>
+      <label className="consent-check"><input name="privacyConsent" type="checkbox" value="yes" required /><span>I confirm I am authorised to submit this request and consent to Health Plus International securely storing and using these details to respond, as explained in the <a href="/privacy">Privacy policy</a>.</span></label>
       <div className="form-submit-row"><button className="hpi-action" type="submit" disabled={state.status === "submitting"}>{state.status === "submitting" ? "Submitting…" : "Submit request"}</button><p className="form-security">Do not include patient information, identity documents or sensitive records.</p></div>
       <div className="form-status" aria-live="polite">{state.status === "success" && <p className="form-success">Thank you. We will acknowledge your request the same business day. Your contact will be named in our reply.</p>}{state.status === "error" && <p className="form-error">{state.message}</p>}</div>
     </form>

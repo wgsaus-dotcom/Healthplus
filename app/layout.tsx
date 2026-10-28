@@ -101,8 +101,8 @@ const structuredData = {
         "Mid North Coast",
       ],
       knowsAbout: [
-        "Registered Nurses",
-        "Assistants in Nursing",
+        "Registered nurses",
+        "Assistants in nursing",
         "Aged care workers",
         "Community support workers",
         "Allied health professionals",

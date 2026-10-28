@@ -9,7 +9,7 @@ const questions = [
   ["Do I need documents to register?", "No compliance documents are needed at this stage. A résumé is optional. We ask for registration and role-specific checks after reviewing your details. Please do not send identity, banking, police-check or health information with your first details."],
   ["Can I tell you where I want to work?", "Yes. Choose your preferred region in the form and tell us your availability. We discuss opportunities in Sydney and regional NSW. Regional work is planned for each engagement; listing a region does not mean a vacancy is open."],
   ["What happens after I register?", "We review your details and contact you about roles that may suit you. We then discuss the documents and checks needed for a suitable role."],
-  ["Which roles can I register for?", "Registered Nurses, Assistants in Nursing, aged care workers, support workers and allied health professionals. Support workers provide community support, not NDIS."],
+  ["Which roles can I register for?", "Registered nurses, assistants in nursing, aged care workers, support workers and allied health professionals. Support workers provide community support, not NDIS."],
 ] as const;
 
 export default async function WorkWithUsPage({ searchParams }: { searchParams?: Promise<FormSearchParams> }) {

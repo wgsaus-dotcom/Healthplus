@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
+  title: "Privacy policy",
   description:
     "How Health Plus International collects, uses, stores and protects personal information.",
   alternates: { canonical: "/privacy" },
@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
     <main className="policy-page">
 <section className="policy-hero">
         <p className="eyebrow light">People · Care · Compliance</p>
-        <h1>Privacy <em>Policy.</em></h1>
+        <h1>Privacy <em>policy.</em></h1>
         <p>
           Effective 28 July 2026 · Health Plus International Pty Ltd
           (ABN 13 155 901 723)
@@ -235,7 +235,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section policy-contact">
-          <h2>Contact the Privacy Officer</h2>
+          <h2>Contact the privacy officer</h2>
           <p>
             Health Plus International Pty Ltd<br />
             Helensburgh, NSW<br />

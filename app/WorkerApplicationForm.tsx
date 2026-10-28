@@ -94,7 +94,7 @@ export default function WorkerApplicationForm({ initialRole = "" }: { initialRol
       <fieldset className="form-step" data-form-step="2" hidden={step !== 2}><legend>Availability and résumé</legend>
         <label className="form-message"><span>Availability</span><textarea name="message" rows={3} maxLength={1200} /></label>
         <label className="resume-upload"><span>Résumé (optional)</span><input name="resume" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={event=>setFileName(event.target.files?.[0]?.name ?? "")} /><small>{fileName || "PDF, DOC or DOCX · maximum 5 MB"}</small></label>
-        <label className="consent-check"><input name="privacy_consent" type="checkbox" value="yes" required /><span>I consent to Health Plus International securely storing and using my information, and résumé if supplied, to assess suitable workforce pathways, as explained in the <a href="/privacy">Privacy Policy</a>.</span></label>
+        <label className="consent-check"><input name="privacy_consent" type="checkbox" value="yes" required /><span>I consent to Health Plus International securely storing and using my information, and résumé if supplied, to assess suitable workforce pathways, as explained in the <a href="/privacy">Privacy policy</a>.</span></label>
         <input type="hidden" name="source" value="hpi-website" />
         <div className="form-navigation"><button className="hpi-action hpi-action-outline" type="button" onClick={()=>setStep(1)}>Back</button><button className="hpi-action" type="submit" disabled={state.status === "submitting"}>{state.status === "submitting" ? "Submitting…" : "Register"}</button></div>
       </fieldset>

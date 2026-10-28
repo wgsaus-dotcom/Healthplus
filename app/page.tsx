@@ -1,8 +1,8 @@
 import "./home.css";
 
 const roles = [
-  ["Registered Nurses", "Hospital, aged care, community and regional services."],
-  ["Assistants in Nursing", "Wards, residential aged care, respite and community programmes."],
+  ["Registered nurses", "Hospital, aged care, community and regional services."],
+  ["Assistants in nursing", "Wards, residential aged care, respite and community programmes."],
   ["Aged care workers", "Residential aged care, respite and home care."],
   ["Support workers", "Community and in-home support, not NDIS."],
   ["Allied health professionals", "Where an employer has a defined service and scope."],
@@ -36,12 +36,12 @@ export default function Home() {
           <article>
             <h2>For employers and facilities.</h2>
             <p>Tell us the role and the location. We acknowledge your request the same business day.</p>
-            <a className="hpi-action" href="/employers#request">Request Staff</a>
+            <a className="hpi-action" href="/employers#request">Request staff</a>
           </article>
           <article>
             <h2>For healthcare workers.</h2>
             <p>Register in two short steps. Documents come later.</p>
-            <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Register for Work</a>
+            <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Register for work</a>
           </article>
         </div>
         <p className="home-response-line">Same business day acknowledgement · Contact within 24 hours · Sydney and regional NSW</p>

@@ -1,7 +1,7 @@
 import { innerMetadata, PageIntro } from "../InnerPage";
 import { roles } from "../simplified-content";
 
-export const metadata = innerMetadata("Roles", "Registered Nurses, Assistants in Nursing, aged care workers, community support workers and allied health professionals.", "/roles");
+export const metadata = innerMetadata("Roles", "Registered nurses, assistants in nursing, aged care workers, community support workers and allied health professionals.", "/roles");
 
 export default function RolesPage() {
   return <main className="hpi-inner">
