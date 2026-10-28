@@ -27,7 +27,7 @@ export default function Home() {
       <section className="home-hero" aria-labelledby="home-heading">
         <div className="home-hero-heading">
           <div>
-            <h1 id="home-heading">Need healthcare staff?<br />Want healthcare work?</h1>
+            <p className="atmos-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h1 id="home-heading">People who make<br />care possible.</h1>
             <p className="home-subhead">Health Plus International recruits, employs and places healthcare workers in Sydney and regional NSW.</p>
           </div>
           <img className="home-hero-image" src="/assets/hero-hpi-care.webp" alt="Healthcare professional supporting an older woman" width="900" height="600" fetchPriority="high" />
@@ -36,12 +36,12 @@ export default function Home() {
           <article>
             <h2>For employers and facilities.</h2>
             <p>Tell us the role and the location. We acknowledge your request the same business day.</p>
-            <a className="hpi-action" href="/employers#request">Request workers</a>
+            <a className="hpi-action" href="/employers#request">Request Staff</a>
           </article>
           <article>
             <h2>For healthcare workers.</h2>
             <p>Register in two short steps. Documents come later.</p>
-            <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find healthcare work</a>
+            <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Shifts</a>
           </article>
         </div>
         <p className="home-response-line">Same business day acknowledgement · Contact within 24 hours · Sydney and regional NSW</p>
