@@ -41,7 +41,7 @@ export default function Home() {
           <article>
             <h2>For healthcare workers.</h2>
             <p>Register in two short steps. Documents come later.</p>
-            <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Shifts</a>
+            <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Register for Work</a>
           </article>
         </div>
         <p className="home-response-line">Same business day acknowledgement · Contact within 24 hours · Sydney and regional NSW</p>
