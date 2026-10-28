@@ -1,3 +1,4 @@
+import RegionPhoto from "../RegionPhoto";
 import { roleFromSearch, type FormSearchParams } from "../form-options";
 import WorkerApplicationForm from "../WorkerApplicationForm";
 import { innerMetadata, PageIntro } from "../InnerPage";
@@ -33,6 +34,7 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
       <h2 id="worker-regions-heading">Where Would You Like to Work?</h2>
       <p>Explore Sydney and regional NSW. Regional work is planned for each engagement; a listed region does not mean a vacancy is open.</p>
       <div className="worker-region-list">{[{ slug: "sydney", name: "Sydney", places: "Sydney metropolitan area" }, ...regions].map(region => <article key={region.slug}>
+        <RegionPhoto slug={region.slug} />
         <h3>{region.name}</h3><p>{region.places}.</p>
         <a className="inner-link" href={`/work-with-us?region=${region.slug}${initialRole ? `&profession=${encodeURIComponent(initialRole)}` : ""}#apply`} aria-label={`Register Interest in ${region.name}`}>Register Interest in This Region</a>
       </article>)}</div>

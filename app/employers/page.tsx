@@ -1,3 +1,4 @@
+import RegionPhoto from "../RegionPhoto";
 import { roleFromSearch, type FormSearchParams } from "../form-options";
 import NSWMap from "../NSWMap";
 import EmployerRequestForm from "../EmployerRequestForm";
@@ -20,6 +21,7 @@ export default async function EmployersPage({ searchParams }: { searchParams?: P
         <div className="regional-feature-copy"><h2>Where<br /> We Work</h2><p>Sydney, and regional NSW in six areas. Regional work is planned for each engagement. Tell us the service and location in your request.</p></div>
       </div>
       <div className="inner-regions employer-regions">{regions.map(region => <article key={region.slug} id={`region-${region.slug}`}>
+        <RegionPhoto slug={region.slug} />
         <h3>{region.name}</h3>
         <p className="region-places">{region.places}.</p>
         <p>{region.detail}</p>
