@@ -1,3 +1,4 @@
+import { regionPhotos } from "./region-photos";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,5 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `https://healthplusint.com.au${path}`,
     changeFrequency,
     priority,
+    ...((path === "/employers" || path === "/work-with-us") ? {
+      images: Object.keys(regionPhotos).map(slug => `https://healthplusint.com.au/assets/regions/${slug}.webp`),
+    } : {}),
   }));
 }
