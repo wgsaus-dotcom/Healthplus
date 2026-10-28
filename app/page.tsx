@@ -15,9 +15,9 @@ const pathways = [
     ["Start and settle.", "You choose who you accept.", "We plan the start with you and follow up early in the placement. You direct day-to-day work and clinical supervision."],
   ] },
   { heading: "If you are looking for work", steps: [
-    ["Register.", "Two short steps.", "Your contact details, profession and region, then your availability and an optional résumé."],
+    ["Register.", "Two short steps.", "Upload your résumé with your contact details, profession and region, then tell us your availability."],
     ["We get in touch.", "We contact you about roles that may suit you.", "We review your details first."],
-    ["Documents come later.", "Only for roles that fit.", "We ask for registration and compliance documents after we have reviewed your details. Please do not send identity, banking or health information with your first details."],
+    ["Compliance documents come later.", "Only for roles that fit.", "We ask for registration and compliance documents after we have reviewed your details. Please do not send identity, banking or health information with your first details."],
   ] },
 ] as const;
 
@@ -40,7 +40,7 @@ export default function Home() {
           </article>
           <article>
             <h2>For healthcare workers.</h2>
-            <p>Register in two short steps. Documents come later.</p>
+            <p>Upload your résumé and register in two short steps. Compliance documents come later.</p>
             <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Register for work</a>
           </article>
         </div>

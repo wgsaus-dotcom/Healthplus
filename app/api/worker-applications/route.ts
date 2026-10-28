@@ -79,6 +79,10 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!(resume instanceof File) || resume.size === 0) {
+      return Response.json({ error: "Please upload your résumé to register." }, { status: 400 });
+    }
+
     const reference = `HPI-${crypto.randomUUID().slice(0, 8).toUpperCase()}`;
     let resumeName = "";
     let resumeType = "";
