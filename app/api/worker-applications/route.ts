@@ -130,7 +130,7 @@ export async function POST(request: Request) {
       throw error;
     }
 
-    return Response.json({ ok: true, reference }, { status: 201 });
+    return Response.json({ ok: true, reference, resumeReceived: true }, { status: 201 });
   } catch {
     return Response.json({ error: "We could not submit your application. Please try again." }, { status: 500 });
   }

@@ -10,13 +10,15 @@ type SubmissionState =
   | { status: "success"; reference: string }
   | { status: "error"; message: string };
 
-export default function WorkerApplicationForm({ initialRole = "" }: { initialRole?: string }) {
+export default function WorkerApplicationForm({ initialRole = "", initialRegion = "" }: { initialRole?: string; initialRegion?: string }) {
   const formRef = useRef<HTMLFormElement>(null);
   const [state, setState] = useState<SubmissionState>({ status: "idle" });
   const [fileName, setFileName] = useState("");
   const [step, setStep] = useState(1);
 
   const inFlight = useRef(false);
+  const [region, setRegion] = useState(initialRegion);
+  useEffect(() => { setRegion(initialRegion); }, [initialRegion]);
   const [profession, setProfession] = useState(() => roleValue(initialRole));
   useEffect(() => { setProfession(roleValue(initialRole)); }, [initialRole]);
 
@@ -61,9 +63,9 @@ export default function WorkerApplicationForm({ initialRole = "" }: { initialRol
         "/api/worker-applications",
         { method: "POST", body: data }
       );
-      const result = (await response.json()) as { error?: string; reference?: string };
+      const result = (await response.json()) as { error?: string; reference?: string; resumeReceived?: boolean };
 
-      if (!response.ok || !result.reference) {
+      if (!response.ok || !result.reference || !result.resumeReceived) {
         throw new Error(result.error || "We could not submit your application.");
       }
 
@@ -82,6 +84,17 @@ export default function WorkerApplicationForm({ initialRole = "" }: { initialRol
     }
   }
 
+  if (state.status === "success") return (
+    <section className="worker-confirmation" role="status" aria-live="polite">
+      <h2>Registration Received</h2>
+      <p>Your résumé and registration details have been received.</p>
+      <p>Your Reference: <strong>{state.reference}</strong></p>
+      <h3>What Happens Next</h3>
+      <p>We’ll review your résumé and contact you about roles that may suit you. We’ll discuss any role-specific documents and checks with you.</p>
+      <a className="hpi-action" href={`https://wa.me/61411459755?text=${encodeURIComponent(`Hello HPI, I’m following up on registration ${state.reference}.`)}`} target="_blank" rel="noopener noreferrer">Chat With HPI on WhatsApp</a>
+    </section>
+  );
+
   return (
     <form className="worker-form express-worker-form" ref={formRef} onSubmit={submitApplication} encType="multipart/form-data" noValidate>
       <div className="form-honeypot" aria-hidden="true"><label htmlFor="company">Company</label><input id="company" name="company" tabIndex={-1} autoComplete="off" /></div>
@@ -94,7 +107,7 @@ export default function WorkerApplicationForm({ initialRole = "" }: { initialRol
         <label><span>Profession *</span><select name="profession" required value={profession} onChange={event => setProfession(event.target.value)}><option value="" disabled>Choose your profession</option>{workforceRoles.map(role => <option key={role.value} value={role.value}>{role.label}</option>)}</select></label>
         <label><span>Registration or Qualification Status *</span><select name="registrationType" required defaultValue=""><option value="" disabled>Choose status</option><option>Current Ahpra registration</option><option>Ahpra application in progress</option><option>Certificate III or IV completed</option><option>Certificate III or IV in progress</option><option>Not currently registered or qualified</option></select></label>
         <label><span>Ahpra Number</span><input name="ahpraRegistrationNumber" maxLength={30} autoComplete="off" /></label>
-        <label><span>Preferred NSW Region *</span><select name="preferredLocations" required defaultValue=""><option value="" disabled>Choose a region</option><option>Sydney metropolitan area</option><option>Far West NSW</option><option>Western NSW</option><option>Murrumbidgee</option><option>Hunter New England</option><option>Northern NSW</option><option>Mid North Coast</option><option>Open to any regional NSW location</option><option>Open to any NSW location</option></select></label>
+        <label><span>Preferred NSW Region *</span><select name="preferredLocations" required value={region} onChange={event => setRegion(event.target.value)}><option value="" disabled>Choose a region</option><option>Sydney metropolitan area</option><option>Far West NSW</option><option>Western NSW</option><option>Murrumbidgee</option><option>Hunter New England</option><option>Northern NSW</option><option>Mid North Coast</option><option>Open to any regional NSW location</option><option>Open to any NSW location</option></select></label>
       </div><div className="form-navigation"><button className="hpi-action" type="button" onClick={nextStep}>Continue</button></div></fieldset>
       <fieldset className="form-step" data-form-step="2" hidden={step !== 2}><legend>Availability and Consent</legend>
         <label className="form-message"><span>Availability</span><textarea name="message" rows={3} maxLength={1200} /></label>

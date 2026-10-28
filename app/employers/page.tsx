@@ -25,6 +25,7 @@ export default async function EmployersPage({ searchParams }: { searchParams?: P
         <p>{region.detail}</p>
         <p className="region-engagement">We plan regional work for each engagement in {region.name}. Listing a region does not mean a vacancy is open.</p>
         <a className="inner-link region-map-link" href={`https://www.openstreetmap.org/search?query=${encodeURIComponent(region.name + " Australia")}`} target="_blank" rel="noopener noreferrer">View {region.name} on a map<span aria-hidden="true"> ↗</span></a>
+        <a className="inner-link region-map-link" href={`/work-with-us?region=${region.slug}#apply`}>Register Interest in This Region</a>
       </article>)}</div>
       <NSWMap />
     </section>

@@ -16,3 +16,12 @@
 .worker-invitation { padding:32px 0; }
 .worker-invitation .inner-actions { align-items:center; gap:24px; }
 @media(max-width:700px) { .worker-feature { grid-template-columns:minmax(0,1fr); padding-top:32px; } .worker-feature img { max-height:320px; object-fit:cover; } }
+
+.worker-region-list { display:grid; grid-template-columns:1fr 1fr; gap:0 40px; }
+.worker-region-list article { padding:20px 0; border-bottom:1px solid #102d3a20; }
+.worker-region-list h3 { margin:0 0 8px; }
+.worker-region-list p { margin-bottom:10px; }
+.worker-confirmation { max-width:760px; padding:28px; background:#edf4ef; border:1px solid #102d3a20; border-radius:20px; }
+.worker-confirmation h2 { margin-top:0; }
+.worker-confirmation .hpi-action { margin-top:12px; }
+@media(max-width:600px) { .worker-region-list { grid-template-columns:minmax(0,1fr); } }
