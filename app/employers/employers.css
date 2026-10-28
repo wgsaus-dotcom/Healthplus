@@ -10,12 +10,12 @@
 .employer-page .employer-form { background:#fffdf8; border:1px solid #09243b18; border-radius:16px; padding:clamp(22px,3vw,42px); }
 .employer-page .employer-form input, .employer-page .employer-form select, .employer-page .employer-form textarea { background:var(--ivory); border-color:#09243b38; border-radius:6px; }
 .employer-page .employer-form .hpi-action { border-radius:6px; }
-.employer-page .employer-receive { padding-top:42px; display:grid; grid-template-columns:1fr 1fr; gap:24px 48px; align-items:start; }
+.employer-page .employer-receive { padding-top:42px; display:grid; grid-template-columns:minmax(200px,280px) minmax(0,1fr); gap:24px 32px; align-items:start; }
 .employer-receive h2 { font-size:clamp(30px,3vw,42px); max-width:10ch; }
 .employer-receive .inner-deliverables { columns:auto; list-style:none; padding:0; margin:0; max-width:none; }
 .employer-receive .inner-deliverables li { border-bottom:1px solid #09243b18; margin:0; padding:10px 0; }
 .employer-receive .inner-deliverables li:first-child { padding-top:0; }
-.employer-page .employer-checks { display:grid; grid-template-columns:1fr 1fr; gap:24px 48px; padding-top:12px; padding-bottom:40px; }
+.employer-page .employer-checks { display:grid; grid-template-columns:minmax(200px,280px) minmax(0,1fr); gap:24px 32px; padding-top:12px; padding-bottom:40px; }
 .employer-checks h2 { font-size:24px; }
 .employer-page .employer-regional { padding-top:0; }
 .regional-feature { position:relative; isolation:isolate; overflow:hidden; border-radius:18px; min-height:460px; display:flex; align-items:center; background:var(--navy); }
