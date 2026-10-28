@@ -9,3 +9,4 @@
 .region-photo figcaption a:focus-visible { outline:2px solid #102d3a; outline-offset:3px; }
 .worker-region-list article:first-child { grid-column:1/-1; }
 @media(max-width:600px) { .region-photo-frame { border-radius:14px; } }
+.employer-regions article > .inner-link { display:table; margin-top:12px; }
