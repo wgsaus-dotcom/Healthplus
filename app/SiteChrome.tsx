@@ -2,15 +2,15 @@ import "./site-chrome.css";
 import "./atmos.css";
 
 const navigation = [
-  ["For employers", "/employers"],
-  ["For healthcare workers", "/work-with-us"],
+  ["For Employers", "/employers"],
+  ["For Healthcare Workers", "/work-with-us"],
   ["Roles", "/roles"],
   ["About", "/about"],
 ] as const;
 
 function Brand() {
   return (
-    <a className="hpi-brand" href="/" aria-label="Health Plus International home">
+    <a className="hpi-brand" href="/" aria-label="Health Plus International Home">
       <img src="/assets/healthplus-mark.webp" alt="" width="180" height="190" />
       <span><strong>Health Plus International</strong><small>People · Care · Compliance</small></span>
     </a>
@@ -21,7 +21,7 @@ export function SiteHeader() {
   return (
     <header className="hpi-header">
       <Brand />
-      <nav className="hpi-desktop-nav" aria-label="Primary navigation">
+      <nav className="hpi-desktop-nav" aria-label="Primary Navigation">
         {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
       </nav>
       <a className="hpi-header-phone" href="tel:+61411459755">
@@ -29,15 +29,15 @@ export function SiteHeader() {
         <svg className="hpi-phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m7 3 3 5-2 2c1.5 3 3 4.5 6 6l2-2 5 3c0 3-2 4-4 4C10 20 4 14 3 7c0-2 1-4 4-4Z" /></svg>
         <span className="hpi-sr-only">Call Health Plus International</span>
       </a>
-      <a className="hpi-action hpi-header-action" href="/employers#request">Request workers</a>
+      <a className="hpi-action hpi-header-action" href="/employers#request">Request Workers</a>
       <details className="hpi-mobile-menu">
-        <summary aria-label="Navigation menu"><span></span><span></span><span></span></summary>
-        <nav aria-label="Mobile navigation">
-          <a className="hpi-action" href="/employers#request">Request workers</a>
-          <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find healthcare work</a>
+        <summary aria-label="Navigation Menu"><span></span><span></span><span></span></summary>
+        <nav aria-label="Mobile Navigation">
+          <a className="hpi-action" href="/employers#request">Request Workers</a>
+          <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
           {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
           <a href="/faq">FAQ</a>
-          <a href="/privacy">Privacy policy</a>
+          <a href="/privacy">Privacy Policy</a>
         </nav>
       </details>
     </header>
@@ -47,17 +47,17 @@ export function SiteHeader() {
 export function ClosingPanel() {
   return (
     <section className="hpi-closing" id="start" aria-labelledby="hpi-start-heading">
-      <h2 id="hpi-start-heading">Start here.</h2>
+      <h2 id="hpi-start-heading">Start Here.</h2>
       <div className="hpi-doors">
         <article>
-          <h3>Employers and facilities.</h3>
+          <h3>Employers and Facilities.</h3>
           <p>Tell us the roles, the location and when you need them.</p>
-          <a className="hpi-action" href="/employers#request">Request workers</a>
+          <a className="hpi-action" href="/employers#request">Request Workers</a>
         </article>
         <article>
-          <h3>Healthcare workers.</h3>
+          <h3>Healthcare Workers.</h3>
           <p>Tell us your profession and where in NSW you want to work.</p>
-          <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find healthcare work</a>
+          <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
         </article>
       </div>
       <p className="hpi-talk">Prefer to talk? <a href="tel:+61411459755">+61 411 459 755</a>, <a href="mailto:info@healthplusint.com.au">info@healthplusint.com.au</a>, or <a href="https://wa.me/61411459755">WhatsApp</a>. <span>Mon-Fri 8:30am-5:00pm Sydney time, excluding NSW public holidays.</span></p>
@@ -70,7 +70,7 @@ export function SiteFooter() {
     <footer className="hpi-footer">
       <div className="hpi-footer-columns">
         <div>
-          <a href="/" aria-label="Health Plus International home" className="hpi-footer-logo"><img src="/assets/logo-healthplus-transparent.webp" alt="Health Plus International" width="158" height="144" loading="lazy" /></a>
+          <a href="/" aria-label="Health Plus International Home" className="hpi-footer-logo"><img src="/assets/logo-healthplus-transparent.webp" alt="Health Plus International" width="158" height="144" loading="lazy" /></a>
           <p className="hpi-footer-tagline">People · Care · Compliance</p>
           <address>Helensburgh, NSW</address>
           <p>Sydney &amp; regional NSW · Australia</p>
@@ -85,11 +85,11 @@ export function SiteFooter() {
           <p>Regional after-hours support is set per engagement.</p>
         </div>
 
-        <nav className="hpi-footer-links" aria-label="Footer navigation">
+        <nav className="hpi-footer-links" aria-label="Footer Navigation">
           <h2>Links</h2>
           {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
           <a href="/faq">FAQ</a>
-          <a href="/privacy">Privacy policy</a>
+          <a href="/privacy">Privacy Policy</a>
         </nav>
       </div>
       <section className="hpi-acknowledgement" aria-labelledby="country-heading">
@@ -101,10 +101,10 @@ export function SiteFooter() {
       </section>
       <div className="hpi-footer-bottom">
         <p>Copyright 2026 Healthplus International, ABN 13 155 901 723</p>
-        <p className="hpi-staff">Staff: <a href="https://documents.healthplusint.com.au">Documents</a> · <a href="https://crm.healthplusint.com.au/crm">CRM login</a></p>
+        <p className="hpi-staff">Staff: <a href="https://documents.healthplusint.com.au">Documents</a> · <a href="https://crm.healthplusint.com.au/crm">CRM Login</a></p>
       </div>
       <a className="hpi-whatsapp-float" href="https://wa.me/61411459755" target="_blank" rel="noopener noreferrer" aria-label="Chat with Healthplus International on WhatsApp">
-        <span className="hpi-whatsapp-tooltip">Chat with HPI now</span>
+        <span className="hpi-whatsapp-tooltip">Chat with HPI Now</span>
         <svg viewBox="0 0 32 32" width="30" height="30" fill="none" aria-hidden="true">
           <path d="M27 15.5a11 11 0 0 1-16.3 9.65L5 27l1.8-5.8A11 11 0 1 1 27 15.5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
           <path d="M12 9.5c-.5-.3-1.1-.2-1.5.3-1.1 1.3-.8 3.7.6 5.9 1.5 2.4 3.9 4.3 6.3 5 1.6.5 3.1-.2 3.6-1.5.2-.5.1-.9-.4-1.2l-2.2-1.1c-.4-.2-.7-.1-1 .3l-.8 1c-1.8-.8-3.4-2.4-4.2-4.1l.9-.9c.3-.3.4-.6.2-1l-1.5-2.7Z" fill="currentColor" />

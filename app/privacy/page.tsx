@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy policy",
+  title: "Privacy Policy",
   description:
     "How Health Plus International collects, uses, stores and protects personal information.",
   alternates: { canonical: "/privacy" },
@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
     <main className="policy-page">
 <section className="policy-hero">
         <p className="eyebrow light">People · Care · Compliance</p>
-        <h1>Privacy <em>policy.</em></h1>
+        <h1>Privacy <em>Policy.</em></h1>
         <p>
           Effective 28 July 2026 · Health Plus International Pty Ltd
           (ABN 13 155 901 723)
@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
         </div>
 
         <section className="policy-section">
-          <h2>1. What we collect</h2>
+          <h2>1. What We Collect</h2>
           <p>Depending on your relationship with HPI, we may collect:</p>
           <ul>
             <li>identity and contact details;</li>
@@ -67,7 +67,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section">
-          <h2>2. How we collect information</h2>
+          <h2>2. How We Collect Information</h2>
           <p>
             We usually collect information directly from you through website forms,
             résumé uploads, email, telephone, interviews, applications and service
@@ -84,7 +84,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section">
-          <h2>3. Why we use it</h2>
+          <h2>3. Why We Use It</h2>
           <p>We may use personal information to:</p>
           <ul>
             <li>respond to enquiries and workforce requests;</li>
@@ -109,7 +109,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section">
-          <h2>4. When we disclose information</h2>
+          <h2>4. When We Disclose Information</h2>
           <p>
             Where reasonably necessary for the purposes above, we may disclose
             relevant information to prospective or current employers and host
@@ -136,7 +136,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section">
-          <h2>5. Overseas handling</h2>
+          <h2>5. Overseas Handling</h2>
           <p>
             HPI may communicate with candidates, referees, service providers or
             authorised partners located outside Australia. Some technology and
@@ -154,7 +154,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section">
-          <h2>6. Security and retention</h2>
+          <h2>6. Security and Retention</h2>
           <p>
             We take reasonable administrative, technical and physical steps to
             protect personal information from misuse, interference, loss and
@@ -179,7 +179,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section">
-          <h2>7. Access and correction</h2>
+          <h2>7. Access and Correction</h2>
           <p>
             You may request access to personal information HPI holds about you or
             ask us to correct information that is inaccurate, out of date,
@@ -192,7 +192,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section">
-          <h2>8. Direct marketing and website use</h2>
+          <h2>8. Direct Marketing and Website Use</h2>
           <p>
             We may send relevant service or opportunity communications where you
             have consented or where otherwise permitted. You can unsubscribe from
@@ -207,7 +207,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section">
-          <h2>9. Privacy enquiries and complaints</h2>
+          <h2>9. Privacy Enquiries and Complaints</h2>
           <p>
             Contact our Privacy Officer if you have a question, want to request
             access or correction, or believe your information has not been handled
@@ -225,7 +225,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section">
-          <h2>10. Updates to this policy</h2>
+          <h2>10. Updates to This Policy</h2>
           <p>
             We may update this policy when our services, systems or legal
             obligations change. The current version will be published here with
@@ -235,7 +235,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section className="policy-section policy-contact">
-          <h2>Contact the privacy officer</h2>
+          <h2>Contact the Privacy Officer</h2>
           <p>
             Health Plus International Pty Ltd<br />
             Helensburgh, NSW<br />

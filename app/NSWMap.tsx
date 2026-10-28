@@ -11,6 +11,6 @@ const mapDocument = `<!doctype html>
 export default function NSWMap() {
   return <figure className="inner-map">
     <iframe title="Map of New South Wales" srcDoc={mapDocument} width="100%" height="320" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" />
-    <figcaption><a className="inner-link" href="https://www.openstreetmap.org/#map=6/-32.8/147.2" target="_blank" rel="noopener noreferrer">Open the NSW map</a></figcaption>
+    <figcaption><a className="inner-link" href="https://www.openstreetmap.org/#map=6/-32.8/147.2" target="_blank" rel="noopener noreferrer">Open the NSW Map</a></figcaption>
   </figure>;
 }

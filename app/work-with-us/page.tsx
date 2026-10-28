@@ -15,17 +15,17 @@ const questions = [
 export default async function WorkWithUsPage({ searchParams }: { searchParams?: Promise<FormSearchParams> }) {
   const initialRole = roleFromSearch(await (searchParams ?? Promise.resolve({})), "profession");
   return <main className="hpi-inner worker-page">
-    <PageIntro title="Your next chapter in healthcare. Here in NSW.">Tell us your role, where you want to work and when you’re available. Upload your résumé and register in two short steps; compliance documents come later.</PageIntro>
+    <PageIntro title="Your Next Chapter in Healthcare. Here in NSW.">Tell us your role, where you want to work and when you’re available. Upload your résumé and register in two short steps; compliance documents come later.</PageIntro>
     <div className="inner-form" id="apply"><WorkerApplicationForm initialRole={initialRole} /></div>
     <section className="worker-feature" aria-labelledby="worker-feature-heading">
       <img src="/assets/hpi-happy-healthcare-team.webp" alt="Illustrative image of healthcare colleagues sharing a relaxed moment at work" width="1536" height="1024" loading="lazy" />
-      <div><p className="worker-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h2 id="worker-feature-heading">A conversation about what comes next.</h2><dl>
-        <div><dt>Two-step registration.</dt><dd>Start with your résumé, details and work preferences.</dd></div>
-        <div><dt>Compliance documents later.</dt><dd>We ask for checks only for roles that fit.</dd></div>
-        <div><dt>Let’s talk about suitable roles.</dt><dd>We review your details and get in touch.</dd></div>
+      <div><p className="worker-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h2 id="worker-feature-heading">A Conversation About What Comes Next.</h2><dl>
+        <div><dt>Two-Step Registration.</dt><dd>Start with your résumé, details and work preferences.</dd></div>
+        <div><dt>Compliance Documents Later.</dt><dd>We ask for checks only for roles that fit.</dd></div>
+        <div><dt>Let’s Talk About Suitable Roles.</dt><dd>We review your details and get in touch.</dd></div>
       </dl></div>
     </section>
-    <section className="inner-block worker-faq" aria-labelledby="worker-faq-heading"><h2 id="worker-faq-heading">A few things you might be wondering.</h2><p><strong>If you can&apos;t find what you&apos;re looking for, please don&apos;t hesitate to <a className="inner-link" href="mailto:info@healthplusint.com.au">contact us directly</a>.</strong></p>{questions.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</section>
-    <section className="worker-invitation"><h2>Let’s talk about where you want to work.</h2><div className="inner-actions"><a className="hpi-action" href="#apply">Register your interest</a><a className="inner-link" href="https://wa.me/61411459755">Chat on WhatsApp</a></div></section>
+    <section className="inner-block worker-faq" aria-labelledby="worker-faq-heading"><h2 id="worker-faq-heading">A Few Things You Might Be Wondering.</h2><p><strong>If you can&apos;t find what you&apos;re looking for, please don&apos;t hesitate to <a className="inner-link" href="mailto:info@healthplusint.com.au">contact us directly</a>.</strong></p>{questions.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</section>
+    <section className="worker-invitation"><h2>Let’s Talk About Where You Want to Work.</h2><div className="inner-actions"><a className="hpi-action" href="#apply">Register Your Interest</a><a className="inner-link" href="https://wa.me/61411459755">Chat on WhatsApp</a></div></section>
   </main>;
 }
