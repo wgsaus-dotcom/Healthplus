@@ -8,8 +8,8 @@ export default function RolesPage() {
     <PageIntro title="Roles" />
     {roles.map(role => <section className="inner-block inner-role" key={role.slug} id={role.slug}>
       <h2>{role.name}</h2><p>{role.text}</p>
-      <h3>Checked Before Placement</h3><p>{role.checks}</p>
-      <div className="inner-actions"><a className="hpi-action" href={`/employers?role=${role.slug}#request`}>Request This Role</a><a className="hpi-action hpi-action-outline" href={`/work-with-us?profession=${role.slug}#apply`}>Find Work As This</a></div>
+      <h3>Checked before placement</h3><p>{role.checks}</p>
+      <div className="inner-actions"><a className="hpi-action" href={`/employers?role=${role.slug}#request`} aria-label={`Request Workers: ${role.name}`}>Request Workers</a><a className="hpi-action hpi-action-outline" href={`/work-with-us?profession=${role.slug}#apply`} aria-label={`Find Healthcare Work: ${role.name}`}>Find Healthcare Work</a></div>
     </section>)}
     <p className="inner-note">A certificate shows training was completed. It does not by itself prove competence or authority to work, so we look at more than one document.</p>
   </main>;

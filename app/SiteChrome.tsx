@@ -47,15 +47,15 @@ export function SiteHeader() {
 export function ClosingPanel() {
   return (
     <section className="hpi-closing" id="start" aria-labelledby="hpi-start-heading">
-      <h2 id="hpi-start-heading">Start Here.</h2>
+      <h2 id="hpi-start-heading">Start here</h2>
       <div className="hpi-doors">
         <article>
-          <h3>Employers and Facilities.</h3>
+          <h3>Employers and facilities</h3>
           <p>Tell us the roles, the location and when you need them.</p>
           <a className="hpi-action" href="/employers#request">Request Workers</a>
         </article>
         <article>
-          <h3>Healthcare Workers.</h3>
+          <h3>Healthcare workers</h3>
           <p>Tell us your profession and where in NSW you want to work.</p>
           <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
         </article>
@@ -90,6 +90,7 @@ export function SiteFooter() {
           {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
+          <a href="https://au.linkedin.com/company/health-plus-international-australia" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </nav>
       </div>
       <section className="hpi-acknowledgement" aria-labelledby="country-heading">
@@ -100,10 +101,10 @@ export function SiteFooter() {
         <div><h2 id="country-heading">Acknowledgement of Country</h2><p>Health Plus International acknowledges the Dharawal people, the Traditional Custodians of the land in Helensburgh where we are based. We pay our respects to Elders past and present, and extend that respect to Aboriginal and Torres Strait Islander peoples across the communities where we work.</p></div>
       </section>
       <div className="hpi-footer-bottom">
-        <p>Copyright 2026 Healthplus International, ABN 13 155 901 723</p>
+        <p>Copyright 2026 Health Plus International, ABN 13 155 901 723</p>
         <p className="hpi-staff">Staff: <a href="https://documents.healthplusint.com.au">Documents</a> · <a href="https://hai-crm.connect-a63.workers.dev/">CRM Login</a></p>
       </div>
-      <a className="hpi-whatsapp-float" href="https://wa.me/61411459755" target="_blank" rel="noopener noreferrer" aria-label="Chat with Healthplus International on WhatsApp">
+      <a className="hpi-whatsapp-float" href="https://wa.me/61411459755" target="_blank" rel="noopener noreferrer" aria-label="Chat with Health Plus International on WhatsApp">
         <span className="hpi-whatsapp-tooltip">Chat with HPI Now</span>
         <svg viewBox="0 0 32 32" width="30" height="30" fill="none" aria-hidden="true">
           <path d="M27 15.5a11 11 0 0 1-16.3 9.65L5 27l1.8-5.8A11 11 0 1 1 27 15.5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />

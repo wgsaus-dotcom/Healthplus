@@ -25,3 +25,5 @@
 .worker-confirmation h2 { margin-top:0; }
 .worker-confirmation .hpi-action { margin-top:12px; }
 @media(max-width:600px) { .worker-region-list { grid-template-columns:minmax(0,1fr); } }
+
+.worker-region-list article:not(:has(.region-photo)) { grid-column:1/-1; }

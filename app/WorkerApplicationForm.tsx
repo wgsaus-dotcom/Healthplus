@@ -86,10 +86,10 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
 
   if (state.status === "success") return (
     <section className="worker-confirmation" role="status" aria-live="polite">
-      <h2>Registration Received</h2>
+      <h2>Registration received</h2>
       <p>Your résumé and registration details have been received.</p>
       <p>Your Reference: <strong>{state.reference}</strong></p>
-      <h3>What Happens Next</h3>
+      <h3>What happens next</h3>
       <p>We’ll review your résumé and contact you about roles that may suit you. We’ll discuss any role-specific documents and checks with you.</p>
       <a className="hpi-action" href={`https://wa.me/61411459755?text=${encodeURIComponent(`Hello HPI, I’m following up on registration ${state.reference}.`)}`} target="_blank" rel="noopener noreferrer">Chat With HPI on WhatsApp</a>
     </section>
@@ -107,7 +107,7 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
         <label><span>Profession *</span><select name="profession" required value={profession} onChange={event => setProfession(event.target.value)}><option value="" disabled>Choose your profession</option>{workforceRoles.map(role => <option key={role.value} value={role.value}>{role.label}</option>)}</select></label>
         <label><span>Registration or Qualification Status *</span><select name="registrationType" required defaultValue=""><option value="" disabled>Choose status</option><option>Current Ahpra registration</option><option>Ahpra application in progress</option><option>Certificate III or IV completed</option><option>Certificate III or IV in progress</option><option>Not currently registered or qualified</option></select></label>
         <label><span>Ahpra Number</span><input name="ahpraRegistrationNumber" maxLength={30} autoComplete="off" /></label>
-        <label><span>Preferred NSW Region *</span><select name="preferredLocations" required value={region} onChange={event => setRegion(event.target.value)}><option value="" disabled>Choose a region</option><option>Sydney metropolitan area</option><option>Far West NSW</option><option>Western NSW</option><option>Murrumbidgee</option><option>Hunter New England</option><option>Northern NSW</option><option>Mid North Coast</option><option>Open to any regional NSW location</option><option>Open to any NSW location</option></select></label>
+        <label><span>Preferred NSW Region *</span><select name="preferredLocations" required value={region} onChange={event => setRegion(event.target.value)}><option value="" disabled>Choose a region</option><option>Sydney metropolitan area</option><option>Far West NSW</option><option>Western NSW</option><option>Murrumbidgee</option><option>Hunter New England</option><option>Northern NSW</option><option>Central Coast</option><option>Mid North Coast</option><option>Open to any regional NSW location</option><option>Open to any NSW location</option></select></label>
       </div><div className="form-navigation"><button className="hpi-action" type="button" onClick={nextStep}>Continue</button></div></fieldset>
       <fieldset className="form-step" data-form-step="2" hidden={step !== 2}><legend>Availability and Consent</legend>
         <label className="form-message"><span>Availability</span><textarea name="message" rows={3} maxLength={1200} /></label>

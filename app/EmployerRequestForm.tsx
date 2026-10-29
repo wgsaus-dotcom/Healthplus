@@ -119,9 +119,9 @@ export default function EmployerRequestForm({ initialRole = "" }: { initialRole?
         <label><span>Number of Workers *</span><input name="workersRequired" type="number" min={1} max={10000} required /></label>
         <label><span>When You Need Them *</span><select name="urgency" required defaultValue="">
           <option value="" disabled>Choose timing</option>
-          <option>Immediate roster / bench mobilisation — subject to pre-verified pool availability</option>
-          <option>Targeted sourcing — allow an indicative 2–4 weeks for complete compliance clearance</option>
-          <option>Planned workforce pipeline — within 1–3 months</option>
+          <option>As soon as possible (depends on available workers)</option>
+          <option>Within 2–4 weeks</option>
+          <option>Within 1–3 months</option>
           <option>Future workforce planning</option>
         </select><small>Timeframes are indicative and depend on role requirements, candidate availability and external screening or registration processes.</small></label>
       </div>
