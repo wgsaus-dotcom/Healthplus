@@ -102,7 +102,7 @@ export function SiteFooter() {
       </section>
       <div className="hpi-footer-bottom">
         <p>Copyright 2026 Health Plus International, ABN 13 155 901 723</p>
-        <p className="hpi-staff">Staff: <a href="https://documents.healthplusint.com.au">Documents</a> · <a href="https://hai-crm.connect-a63.workers.dev/">CRM Login</a></p>
+        <p className="hpi-staff">Staff: <a href="https://staff.healthplusint.com.au/hub">Documents</a> · <a href="https://hai-crm.connect-a63.workers.dev/">CRM Login</a></p>
       </div>
       <a className="hpi-whatsapp-float" href="https://wa.me/61411459755" target="_blank" rel="noopener noreferrer" aria-label="Chat with Health Plus International on WhatsApp">
         <span className="hpi-whatsapp-tooltip">Chat with HPI Now</span>
