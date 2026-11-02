@@ -87,3 +87,7 @@ footer.hpi-footer { background:var(--ivory); border-top:1px solid #09243b20; col
 .hpi-whatsapp-tooltip { position:absolute; right:68px; padding:9px 13px; border-radius:6px; background:#102d3a; color:#fff; font-size:14px; line-height:1.4; white-space:nowrap; opacity:0; visibility:hidden; pointer-events:none; }
 .hpi-whatsapp-float:hover .hpi-whatsapp-tooltip,.hpi-whatsapp-float:focus-visible .hpi-whatsapp-tooltip { opacity:1; visibility:visible; }
 @media(max-width:600px) { .hpi-footer .hpi-whatsapp-float { right:max(16px,env(safe-area-inset-right)); bottom:calc(16px + env(safe-area-inset-bottom)); } }
+
+/* Keep the approved five-item navigation together. */
+.hpi-desktop-nav { gap:16px; }
+.hpi-footer#contact { scroll-margin-top:110px; }

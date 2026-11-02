@@ -2,7 +2,7 @@ export const roles = [
   {
     slug: "registered-nurses", name: "Registered Nurses",
     text: "HPI recruits, employs and places registered nurses for hospital, subacute and multipurpose services, residential aged care and transition care, and community and regional services. HPI employs the nurse; the facility keeps clinical governance, local scope and day-to-day supervision.",
-    checks: "Ahpra registration and conditions, qualifications, identity, work rights, employment history, role-required screening, and specialty experience and recency of practice.",
+    checks: "AHPRA registration and conditions, qualifications, identity, work rights, employment history, role-required screening, and specialty experience and recency of practice.",
   },
   {
     slug: "assistants-in-nursing", name: "Assistants in Nursing",
@@ -39,7 +39,7 @@ export const regions = [
 
 export const responseStandards = [
   ["General enquiry", "Acknowledgement within one business day"],
-  ["Employer workforce request", "Facility contact and an initial response within 24 hours of receiving the request"],
+  ["Employer workforce request", "Acknowledgement and contact within one business day of receiving the request"],
   ["Application or registration", "Receipt confirmed within one business day"],
   ["Progress update", "Updates at agreed milestones, with material delays explained"],
   ["Reasonable adjustment", "Acknowledgement within two business days and discussion of practical options"],
@@ -50,9 +50,9 @@ export const questions = [
   ["What is Health Plus International?", "A healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers."],
   ["Do you train workers?", "No. We recruit, employ and place."],
   ["Who is responsible for clinical care and supervision?", "The facility or host service directs day-to-day work and clinical supervision. HPI employs the worker and checks them for the role."],
-  ["Which roles do you place?", "Registered nurses, assistants in nursing, aged care workers, community support workers and allied health professionals."],
+  ["Which roles do you place?", "Registered nurses, enrolled nurses, doctors, assistants in nursing, community support workers and allied health professionals."],
   ["Where do you work?", "Sydney, the Central Coast and regional NSW, including Newcastle, Maitland and the Riverina. Regional work is planned for each engagement; listing a region does not mean a vacancy is open."],
-  ["How do I request workers?", "Use the workforce request form. We acknowledge it the same business day and contact you within 24 hours."],
+  ["How do I request workers?", "Use the workforce request form. We acknowledge it and contact you within one business day."],
   ["What does “checked for the role” mean?", "We compare a worker’s evidence with the role: registration, qualifications, identity, work rights and the screening that role needs. A certificate alone does not prove competence. The checks for each role are on the roles page."],
   ["Does registering guarantee a job?", "No. Registration does not guarantee a role, interview or start date."],
   ["What kind of support workers do you place?", "Community and in-home support workers, not NDIS."],

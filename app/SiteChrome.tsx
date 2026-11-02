@@ -2,10 +2,11 @@ import "./site-chrome.css";
 import "./atmos.css";
 
 const navigation = [
-  ["For Employers", "/employers"],
-  ["For Healthcare Workers", "/work-with-us"],
-  ["Roles", "/roles"],
-  ["About", "/about"],
+  ["About HPI", "/about"],
+  ["Employers", "/employers"],
+  ["Healthcare Workers", "/work-with-us"],
+  ["Positions", "/roles"],
+  ["Contact Us", "#contact"],
 ] as const;
 
 function Brand() {
@@ -24,11 +25,6 @@ export function SiteHeader() {
       <nav className="hpi-desktop-nav" aria-label="Primary Navigation">
         {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
       </nav>
-      <a className="hpi-header-phone" href="tel:+61411459755">
-        <span className="hpi-phone-number">+61 411 459 755</span>
-        <svg className="hpi-phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="m7 3 3 5-2 2c1.5 3 3 4.5 6 6l2-2 5 3c0 3-2 4-4 4C10 20 4 14 3 7c0-2 1-4 4-4Z" /></svg>
-        <span className="hpi-sr-only">Call Health Plus International</span>
-      </a>
       <a className="hpi-action hpi-header-action" href="/employers#request">Request Workers</a>
       <details className="hpi-mobile-menu">
         <summary aria-label="Navigation Menu"><span></span><span></span><span></span></summary>
@@ -50,12 +46,12 @@ export function ClosingPanel() {
       <h2 id="hpi-start-heading">Start here</h2>
       <div className="hpi-doors">
         <article>
-          <h3>Employers and facilities</h3>
+          <h3>Employers and Facilities</h3>
           <p>Tell us the roles, the location and when you need them.</p>
           <a className="hpi-action" href="/employers#request">Request Workers</a>
         </article>
         <article>
-          <h3>Healthcare workers</h3>
+          <h3>Healthcare Workers</h3>
           <p>Tell us your profession and where in NSW you want to work.</p>
           <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
         </article>
@@ -67,7 +63,7 @@ export function ClosingPanel() {
 
 export function SiteFooter() {
   return (
-    <footer className="hpi-footer">
+    <footer className="hpi-footer" id="contact">
       <div className="hpi-footer-columns">
         <div>
           <a href="/" aria-label="Health Plus International Home" className="hpi-footer-logo"><img src="/assets/logo-healthplus-transparent.webp" alt="Health Plus International" width="158" height="144" loading="lazy" /></a>

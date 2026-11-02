@@ -10,14 +10,14 @@ const roles = [
 
 const pathways = [
   { heading: "If you need workers", steps: [
-    ["Tell us what you need", "Acknowledged the same business day.", "Send a short request. We name your contact."],
-    ["We check and match", "Contact within 24 hours.", "We check and match workers to your role brief. Checks are role-specific."],
+    ["Tell Us What You Need", "Acknowledged within one business day.", "Send a short request. We name your contact."],
+    ["We check and match", "Contact within one business day.", "We check and match workers to your role brief. Checks are role-specific."],
     ["Start and settle", "You choose who you accept.", "We plan the start with you and follow up early in the placement. You direct day-to-day work and clinical supervision."],
   ] },
   { heading: "If you are looking for work", steps: [
     ["Register", "Two short steps.", "Upload your résumé with your contact details, profession and region, then tell us your availability."],
     ["We get in touch", "We contact you about roles that may suit you.", "We review your details first."],
-    ["Compliance documents come later", "Only for roles that fit.", "We ask for registration and compliance documents after we have reviewed your details. Please do not send identity, banking or health information with your first details."],
+    ["Compliance documents", "Only for roles that fit.", "We ask for registration and compliance documents after we have reviewed your details. Please do not send identity, banking or health information with your first details."],
   ] },
 ] as const;
 
@@ -27,38 +27,38 @@ export default function Home() {
       <section className="home-hero" aria-labelledby="home-heading">
         <div className="home-hero-heading">
           <div>
-            <p className="atmos-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h1 id="home-heading">People who make<br />care possible</h1>
-            <p className="home-subhead">Health Plus International recruits, employs and places healthcare workers in Sydney and regional NSW.</p>
+            <p className="atmos-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h1 id="home-heading">We make care possible</h1>
+            <p className="home-subhead">Health Plus International recruits, employs and places healthcare workers in Sydney and Regional NSW.</p>
           </div>
           <img className="home-hero-image" src="/assets/hero-hpi-care.webp" alt="Healthcare professional supporting an older woman" width="900" height="600" fetchPriority="high" />
         </div>
         <div className="home-audiences">
           <article>
-            <h2>For employers and facilities</h2>
-            <p>Tell us the role and the location. We acknowledge your request the same business day.</p>
+            <h2>Employers and Facilities</h2>
+            <p>Tell us the role and the location. We acknowledge your request within one business day.</p>
             <a className="hpi-action" href="/employers#request">Request Workers</a>
           </article>
           <article>
-            <h2>For healthcare workers</h2>
+            <h2>Healthcare Workers</h2>
             <p>Upload your résumé and register in two short steps. Compliance documents come later.</p>
             <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
           </article>
         </div>
-        <p className="home-response-line">Same business day acknowledgement · Contact within 24 hours · Sydney and regional NSW</p>
+        <p className="home-response-line">Acknowledgement and contact within one business day · Sydney and regional NSW</p>
       </section>
 
       <section className="home-section" aria-labelledby="home-assurance-heading">
-        <h2 id="home-assurance-heading">What you can count on</h2>
+        <h2 id="home-assurance-heading">What You Can Count On</h2>
         <dl className="home-plain-list">
           <div><dt>We employ and place</dt><dd>We recruit, employ and place healthcare workers.</dd></div>
           <div><dt>Checked for the role</dt><dd>Registration, qualifications, work rights and the screening the role needs, where required.</dd></div>
-          <div><dt>Plain response standards</dt><dd>Acknowledged the same business day. Contact within 24 hours.</dd></div>
+          <div><dt>Acknowledgement and response</dt><dd>We acknowledge your request and contact you within one business day.</dd></div>
         </dl>
         <a className="home-text-link" href="/about#charter">See Our Service Charter</a>
       </section>
 
       <section className="home-section" id="how" aria-labelledby="home-how-heading">
-        <h2 id="home-how-heading">How it works</h2>
+        <h2 id="home-how-heading">How It Works</h2>
         <div className="home-process">
           {pathways.map(({heading, steps}, index) => <article key={heading}>
             <h3>{heading}</h3>
@@ -72,14 +72,14 @@ export default function Home() {
       </section>
 
       <section className="home-section" aria-labelledby="home-roles-heading">
-        <h2 id="home-roles-heading">Who we place</h2>
+        <h2 id="home-roles-heading">We Place</h2><ul className="home-placement-categories"><li><a className="home-text-link" href="/roles#allied-health">Allied Health</a></li><li><a className="home-text-link" href="/roles#nurses">Nurses</a></li><li><a className="home-text-link" href="/roles#doctors">Doctors</a></li></ul>
         <dl className="home-plain-list">{roles.map(([title, text]) => <div key={title}><dt>{title}</dt><dd>{text}</dd></div>)}</dl>
-        <a className="home-text-link" href="/roles">See Each Role and How We Check It</a>
+        <a className="home-text-link" href="/roles">See Positions and How We Check Them</a>
       </section>
 
       <section className="home-section home-coverage" aria-labelledby="home-coverage-heading">
-        <h2 id="home-coverage-heading">Sydney and regional NSW</h2>
-        <p>Sydney, the Central Coast and regional NSW, including the Hunter and Riverina. Regional work is planned for each engagement.</p>
+        <h2 id="home-coverage-heading">Sydney and Regional NSW</h2>
+        <p>We operate across metropolitan and regional NSW, delivering services tailored to the needs of healthcare facilities and communities statewide.</p>
         <a className="home-text-link" href="/employers#where-we-work">Explore Our Regions</a>
       </section>
     </main>

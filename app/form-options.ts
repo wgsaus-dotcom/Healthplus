@@ -1,5 +1,7 @@
 export const workforceRoles = [
   { slug: "registered-nurses", label: "Registered Nurses", value: "Registered Nurse" },
+  { slug: "enrolled-nurses", label: "Enrolled Nurses", value: "Enrolled Nurse" },
+  { slug: "doctors", label: "Doctors", value: "Doctor" },
   { slug: "assistants-in-nursing", label: "Assistants in Nursing", value: "Assistant in Nursing" },
   { slug: "aged-care-workers", label: "Aged Care Workers", value: "Aged Care Worker" },
   { slug: "support-workers", label: "Support Workers", value: "Support Worker" },

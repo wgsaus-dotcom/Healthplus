@@ -11,7 +11,7 @@ const questions = [
   ["Do I need documents to register?", "Upload your résumé when you register. We accept PDF, DOC or DOCX files up to 5 MB. No compliance documents are needed at this stage. We ask for registration and role-specific checks after reviewing your details. Please do not send identity, banking, police-check or health information with your first details."],
   ["Can I tell you where I want to work?", "Yes. Choose your preferred region in the form and tell us your availability. We discuss opportunities in Sydney and regional NSW. Regional work is planned for each engagement; listing a region does not mean a vacancy is open."],
   ["What happens after I register?", "We review your details and contact you about roles that may suit you. We then discuss the documents and checks needed for a suitable role."],
-  ["Which roles can I register for?", "Registered nurses, assistants in nursing, aged care workers, support workers and allied health professionals. Support workers provide community support, not NDIS."],
+  ["Which roles can I register for?", "Registered nurses, enrolled nurses, doctors, assistants in nursing, support workers and allied health professionals. Support workers provide community support, not NDIS."],
 ] as const;
 
 export default async function WorkWithUsPage({ searchParams }: { searchParams?: Promise<FormSearchParams> }) {
@@ -20,7 +20,7 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
   const rawRegion = Array.isArray(params.region) ? params.region[0] : params.region;
   const initialRegion = regions.find(region => region.slug === rawRegion)?.name ?? (rawRegion === "sydney" ? "Sydney metropolitan area" : "");
   return <main className="hpi-inner worker-page">
-    <PageIntro title="Your next chapter in healthcare, here in NSW">Tell us your role, where you want to work and when you’re available. Upload your résumé and register in two short steps; compliance documents come later.</PageIntro>
+    <PageIntro title="Start Your Next Chapter in Healthcare Across NSW.">Tell us about your preferred role, where you’d like to work and when you’re available. Upload your résumé and complete your registration in just two simple steps. You can provide your compliance documents later.</PageIntro>
     <div className="inner-form" id="apply"><WorkerApplicationForm initialRole={initialRole} initialRegion={initialRegion} /></div>
     <section className="worker-feature" aria-labelledby="worker-feature-heading">
       <img src="/assets/hpi-happy-healthcare-team.webp" alt="Illustrative image of healthcare colleagues sharing a relaxed moment at work" width="1536" height="1024" loading="lazy" />
@@ -31,8 +31,8 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
       </dl></div>
     </section>
     <section className="inner-block worker-regions" aria-labelledby="worker-regions-heading">
-      <h2 id="worker-regions-heading">Where would you like to work?</h2>
-      <p>Explore Sydney, the Central Coast and regional NSW, including the Hunter and Riverina. Regional work is planned for each engagement; a listed region does not mean a vacancy is open.</p>
+      <h2 id="worker-regions-heading">Which Location Would You Prefer to Work In?</h2>
+      <p>Explore healthcare opportunities across metropolitan and regional NSW.</p>
       <div className="worker-region-list">{[{ slug: "sydney", name: "Sydney", places: "Sydney metropolitan area" }, ...regions].map(region => <article key={region.slug}>
         <RegionPhoto slug={region.slug} />
         <h3>{region.name}</h3><p>{region.places}.</p>

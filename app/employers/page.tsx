@@ -6,15 +6,15 @@ import { innerMetadata } from "../InnerPage";
 import { regions } from "../simplified-content";
 import "./employers.css";
 
-export const metadata = innerMetadata("For Employers", "Send a request and we acknowledge it the same business day. We contact you within 24 hours.", "/employers");
+export const metadata = innerMetadata("Employers", "We acknowledge your request and contact you within one business day to discuss your staffing needs.", "/employers");
 
 export default async function EmployersPage({ searchParams }: { searchParams?: Promise<FormSearchParams> }) {
   const initialRole = roleFromSearch(await (searchParams ?? Promise.resolve({})), "role");
   return <main className="hpi-inner employer-page">
-    <header className="inner-intro employer-intro"><div><h1>Tell us the workers you need</h1><p className="employer-promise">We handle the compliance and rostering</p><p>Send a request and we acknowledge it the same business day. We contact you within 24 hours, and we will be straightforward about what we can fill. Not ready to commit? Ask about a trial engagement in the request.</p></div><figure className="employer-care-photo"><img src="/assets/hero-hpi-care.webp" alt="Healthcare professional sharing a warm moment with an older woman" width="900" height="600" fetchPriority="high" /></figure></header>
+    <header className="inner-intro employer-intro"><div><h1>Start Your Next Chapter in Healthcare with Health Plus International</h1><p className="employer-promise">We Manage Compliance and Rostering, So You Can Focus on Care.</p><p>Submit your request and we’ll acknowledge it within one business day. We’ll contact you within the same timeframe to discuss your staffing needs and provide an honest assessment of what we can deliver. Not ready to commit? Simply ask about a trial engagement in your request.</p><p>We operate across metropolitan and regional NSW, delivering tailored workforce solutions to hospitals, aged care providers and community healthcare facilities.</p></div><figure className="employer-care-photo"><img src="/assets/hero-hpi-care.webp" alt="Healthcare professional sharing a warm moment with an older woman" width="900" height="600" fetchPriority="high" /></figure></header>
     <div className="inner-form" id="request"><EmployerRequestForm initialRole={initialRole} /></div>
-    <section className="inner-block employer-receive"><h2>What you receive</h2><ul className="inner-deliverables">{["A verified role brief", "A qualified shortlist", "A readiness summary for each worker", "A start-date plan", "Early-placement follow-up", "Performance reporting"].map(text => <li key={text}>{text}</li>)}</ul></section>
-    <section className="inner-block employer-checks"><h2>Checked for the role</h2><p>Checks depend on the role: Ahpra registration, qualifications, work rights and the screening that role needs. See the checks for each role on the <a className="inner-link" href="/roles">roles page</a>.</p></section>
+    <section className="inner-block employer-receive"><h2>What We Deliver</h2><ul className="inner-deliverables">{["A verified role brief", "A qualified shortlist", "A readiness summary for each worker", "A start-date plan", "Early-placement follow-up", "Performance reporting"].map(text => <li key={text}>{text}</li>)}</ul></section>
+    <section className="inner-block employer-checks"><h2>Check for the role</h2><p>Checks depend on the role: AHPRA registration, qualifications, work rights and the screening that role needs. See the checks for each role on the <a className="inner-link" href="/roles">roles page</a>.</p></section>
     <section className="inner-block employer-regional" id="where-we-work">
       <div className="regional-feature">
         <img src="/assets/hpi-happy-healthcare-team.webp" alt="Illustrative image of healthcare colleagues enjoying a relaxed moment in a bright workplace" width="1536" height="1024" loading="lazy" />
