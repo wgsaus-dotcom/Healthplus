@@ -16,7 +16,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency,
     priority,
     ...((path === "/employers" || path === "/work-with-us") ? {
-      images: Object.keys(regionPhotos).map(slug => `https://healthplusint.com.au/assets/regions/${slug}.webp`),
-    } : {}),
+      images: [
+        ...(path === "/employers" ? ["https://healthplusint.com.au/assets/hero-hpi-care.webp"] : []),
+        "https://healthplusint.com.au/assets/hpi-happy-healthcare-team.webp",
+        ...Object.keys(regionPhotos).map(slug => `https://healthplusint.com.au/assets/regions/${slug}.webp`),
+      ],
+    } : path === "" ? { images: ["https://healthplusint.com.au/assets/hero-hpi-care.webp"] } : {}),
   }));
 }

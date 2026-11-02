@@ -1,10 +1,12 @@
-import { innerMetadata, PageIntro } from "../InnerPage";
+import PageSeo from "../PageSeo";
+import { pageMetadata } from "../seo-pages";
+import { PageIntro } from "../InnerPage";
 import { roles } from "../simplified-content";
 
-export const metadata = innerMetadata("Positions", "Allied Health, Nurses and Doctors. Explore healthcare positions with Health Plus International.", "/roles");
+export const metadata = pageMetadata("/roles");
 
 export default function RolesPage() {
-  return <main className="hpi-inner">
+  return <main className="hpi-inner"><PageSeo path="/roles" />
     <PageIntro title="Positions" />
     <nav className="inner-actions" aria-label="Position Categories"><a className="inner-link" href="#allied-health">Allied Health</a><a className="inner-link" href="#nurses">Nurses</a><a className="inner-link" href="#doctors">Doctors</a></nav>
     <section className="inner-block" id="nurses"><h2>Nurses</h2><a className="inner-link" href="#registered-nurses">Registered Nurses</a> · <a className="inner-link" href="#enrolled-nurses">Enrolled Nurses</a></section>

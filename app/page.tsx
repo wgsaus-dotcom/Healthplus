@@ -1,4 +1,8 @@
+import PageSeo from "./PageSeo";
+import { pageMetadata } from "./seo-pages";
 import "./home.css";
+
+export const metadata = pageMetadata("/");
 
 const roles = [
   ["Registered Nurses", "Hospital, aged care, community and regional services."],
@@ -23,7 +27,7 @@ const pathways = [
 
 export default function Home() {
   return (
-    <main className="hpi-home" id="top">
+    <main className="hpi-home" id="top"><PageSeo path="/" />
       <section className="home-hero" aria-labelledby="home-heading">
         <div className="home-hero-heading">
           <div>

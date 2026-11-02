@@ -1,11 +1,13 @@
+import PageSeo from "../PageSeo";
+import { pageMetadata } from "../seo-pages";
 import RegionPhoto from "../RegionPhoto";
 import { roleFromSearch, type FormSearchParams } from "../form-options";
 import WorkerApplicationForm from "../WorkerApplicationForm";
-import { innerMetadata, PageIntro } from "../InnerPage";
+import { PageIntro } from "../InnerPage";
 import "./workers.css";
 import { regions } from "../simplified-content";
 
-export const metadata = innerMetadata("Healthcare work in NSW", "Register for healthcare work in Sydney and regional NSW in two short steps. Tell HPI your role, preferred location and availability.", "/work-with-us");
+export const metadata = pageMetadata("/work-with-us");
 
 const questions = [
   ["Do I need documents to register?", "Upload your résumé when you register. We accept PDF, DOC or DOCX files up to 5 MB. No compliance documents are needed at this stage. We ask for registration and role-specific checks after reviewing your details. Please do not send identity, banking, police-check or health information with your first details."],
@@ -19,7 +21,7 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
   const initialRole = roleFromSearch(params, "profession");
   const rawRegion = Array.isArray(params.region) ? params.region[0] : params.region;
   const initialRegion = regions.find(region => region.slug === rawRegion)?.name ?? (rawRegion === "sydney" ? "Sydney metropolitan area" : "");
-  return <main className="hpi-inner worker-page">
+  return <main className="hpi-inner worker-page"><PageSeo path="/work-with-us" />
     <PageIntro title="Start Your Next Chapter in Healthcare Across NSW.">Tell us about your preferred role, where you’d like to work and when you’re available. Upload your résumé and complete your registration in just two simple steps. You can provide your compliance documents later.</PageIntro>
     <div className="inner-form" id="apply"><WorkerApplicationForm initialRole={initialRole} initialRegion={initialRegion} /></div>
     <section className="worker-feature" aria-labelledby="worker-feature-heading">

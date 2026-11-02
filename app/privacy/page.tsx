@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+import PageSeo from "../PageSeo";
+import { pageMetadata } from "../seo-pages";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "How Health Plus International collects, uses, stores and protects personal information.",
-  alternates: { canonical: "/privacy" },
-};
+export const metadata = pageMetadata("/privacy");
 
 export default function PrivacyPolicy() {
   return (
-    <main className="policy-page">
+    <main className="policy-page"><PageSeo path="/privacy" />
 <section className="policy-hero">
         <p className="eyebrow light">People · Care · Compliance</p>
         <h1>Privacy <em>policy</em></h1>

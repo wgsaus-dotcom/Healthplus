@@ -1,10 +1,12 @@
-import { innerMetadata, PageIntro } from "../InnerPage";
+import PageSeo from "../PageSeo";
+import { pageMetadata } from "../seo-pages";
+import { PageIntro } from "../InnerPage";
 import { responseStandards } from "../simplified-content";
 
-export const metadata = innerMetadata("About HPI", "Health Plus International is a healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers.", "/about");
+export const metadata = pageMetadata("/about");
 
 export default function AboutPage() {
-  return <main className="hpi-inner">
+  return <main className="hpi-inner"><PageSeo path="/about" />
     <PageIntro title="About HPI" />
     <section className="inner-block"><h2>Who we are</h2><p>Health Plus International is a healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers.</p></section>
     <section className="inner-block" id="how-we-work"><h2>How we work</h2><p>We confirm the role, check each worker’s credentials, plan their start and follow up to support them in the role. We check that workers hold current registration and the evidence their role requires. Staff CPD does not replace registration, induction or supervision.</p></section>
