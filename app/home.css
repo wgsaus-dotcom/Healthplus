@@ -1,4 +1,4 @@
-.hpi-home { background:var(--ivory); color:var(--navy); font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:400; line-height:1.6; }
+.hpi-home { background:var(--ivory); color:var(--navy); font-family:'Public Sans',Arial,sans-serif; font-size:16px; font-weight:400; line-height:1.6; }
 .hpi-home h1, .hpi-home h2, .hpi-home h3 { color:var(--navy); font-family:inherit; font-weight:700; letter-spacing:-.035em; }
 .home-hero, .home-section { padding-inline:clamp(22px,5vw,80px); }
 .home-hero { padding-block:28px 24px; }

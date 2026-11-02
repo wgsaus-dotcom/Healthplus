@@ -1,3 +1,6 @@
+@font-face { font-family:'Public Sans'; font-style:normal; font-weight:400; font-display:swap; src:url('/assets/fonts/public-sans-400.woff2') format('woff2'); }
+@font-face { font-family:'Public Sans'; font-style:normal; font-weight:600; font-display:swap; src:url('/assets/fonts/public-sans-600.woff2') format('woff2'); }
+@font-face { font-family:'Public Sans'; font-style:normal; font-weight:700; font-display:swap; src:url('/assets/fonts/public-sans-700.woff2') format('woff2'); }
 :root {
   --navy: #09243b;
   --navy-deep: #061a2b;
@@ -20,7 +23,7 @@ body {
   margin: 0;
   background: var(--ivory);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Public Sans', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }

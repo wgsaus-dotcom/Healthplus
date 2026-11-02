@@ -1,4 +1,4 @@
-.hpi-inner { background:var(--ivory); color:var(--navy); font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:400; line-height:1.6; padding:32px clamp(22px,5vw,80px) 20px; }
+.hpi-inner { background:var(--ivory); color:var(--navy); font-family:'Public Sans',Arial,sans-serif; font-size:16px; font-weight:400; line-height:1.6; padding:32px clamp(22px,5vw,80px) 20px; }
 .hpi-inner h1, .hpi-inner h2, .hpi-inner h3 { color:var(--navy); font-family:inherit; font-weight:700; letter-spacing:-.025em; line-height:1.2; }
 .inner-intro { margin-bottom:28px; max-width:1000px; }
 .inner-intro h1 { font-size:clamp(30px,3.5vw,48px); margin:0 0 20px; max-width:28ch; }
@@ -34,7 +34,7 @@
 .inner-faq summary { cursor:pointer; font-size:18px; font-weight:700; padding:18px 0; }
 .inner-faq details p { font-size:16px; margin:0 0 20px 20px; max-width:85ch; }
 .hpi-inner .worker-form { background:transparent; box-shadow:none; border:1px solid #09243b25; border-radius:2px; color:var(--navy); margin:0; padding:24px; }
-.hpi-inner .worker-form label, .hpi-inner .worker-form label > span, .hpi-inner .worker-form p, .hpi-inner .worker-form small, .hpi-inner .worker-form input, .hpi-inner .worker-form select, .hpi-inner .worker-form textarea, .hpi-inner .worker-form legend { color:var(--navy); font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:400; letter-spacing:0; line-height:1.5; }
+.hpi-inner .worker-form label, .hpi-inner .worker-form label > span, .hpi-inner .worker-form p, .hpi-inner .worker-form small, .hpi-inner .worker-form input, .hpi-inner .worker-form select, .hpi-inner .worker-form textarea, .hpi-inner .worker-form legend { color:var(--navy); font-family:'Public Sans',Arial,sans-serif; font-size:16px; font-weight:400; letter-spacing:0; line-height:1.5; }
 .hpi-inner .worker-form .form-grid { display:grid; gap:20px; grid-template-columns:1fr 1fr; }
 .hpi-inner .worker-form label { display:flex; flex-direction:column; gap:8px; }
 .hpi-inner .worker-form input, .hpi-inner .worker-form select, .hpi-inner .worker-form textarea { background:var(--paper); border:1px solid #09243b55; border-radius:2px; min-height:46px; padding:10px 12px; width:100%; }

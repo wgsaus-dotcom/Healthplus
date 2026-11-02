@@ -1,4 +1,4 @@
-.hpi-header, .hpi-closing, footer.hpi-footer { font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:400; line-height:1.6; }
+.hpi-header, .hpi-closing, footer.hpi-footer { font-family:'Public Sans',Arial,sans-serif; font-size:16px; font-weight:400; line-height:1.6; }
 .hpi-header { align-items:center; background:var(--ivory); border-bottom:1px solid #09243b20; display:flex; gap:24px; min-height:96px; padding:18px clamp(20px,3vw,48px); position:sticky; top:0; z-index:60; }
 .hpi-brand { align-items:center; display:flex; gap:12px; margin-right:auto; }
 .hpi-brand img { height:48px; object-fit:contain; width:46px; }
@@ -6,7 +6,7 @@
 .hpi-brand small { color:var(--navy); display:block; font-size:16px; font-weight:400; margin-top:2px; }
 .hpi-desktop-nav { align-items:center; display:flex; gap:20px; }
 .hpi-desktop-nav a, .hpi-header-phone { color:var(--navy); font-size:16px; white-space:nowrap; }
-.hpi-action { align-items:center; background:var(--gold); border:1px solid var(--gold); border-radius:2px; color:var(--navy); display:inline-flex; font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:700; justify-content:center; min-height:48px; padding:12px 22px; text-align:center; }
+.hpi-action { align-items:center; background:var(--gold); border:1px solid var(--gold); border-radius:2px; color:var(--navy); display:inline-flex; font-family:'Public Sans',Arial,sans-serif; font-size:16px; font-weight:700; justify-content:center; min-height:48px; padding:12px 22px; text-align:center; }
 .hpi-action:hover { background:#e6bd68; border-color:#e6bd68; }
 .hpi-action-outline { background:transparent; border-color:var(--navy); color:var(--navy); }
 .hpi-action-outline:hover { background:#09243b0a; border-color:var(--navy); }
@@ -91,3 +91,5 @@ footer.hpi-footer { background:var(--ivory); border-top:1px solid #09243b20; col
 /* Keep the approved five-item navigation together. */
 .hpi-desktop-nav { gap:16px; }
 .hpi-footer#contact { scroll-margin-top:110px; }
+
+.hpi-desktop-nav a, .hpi-mobile-menu nav > a, .hpi-action, .hpi-whatsapp-tooltip { font-weight:600; }
