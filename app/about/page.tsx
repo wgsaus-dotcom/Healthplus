@@ -1,3 +1,4 @@
+import "./about.css";
 import PageSeo from "../PageSeo";
 import { pageMetadata } from "../seo-pages";
 import { PageIntro } from "../InnerPage";
@@ -13,6 +14,14 @@ export default function AboutPage() {
     <section className="inner-block" id="charter"><h2>Service charter</h2><ul>{["Respectful service", "Clear communication", "Fair access", "Compliance-led delivery", "Privacy and consent", "Honest expectations"].map(item=><li key={item}>{item}</li>)}</ul>
       <div className="inner-table-wrap"><table><caption>Response standards</caption><thead><tr><th scope="col">Contact</th><th scope="col">Commitment</th></tr></thead><tbody>{responseStandards.map(([contact, standard])=><tr key={contact}><th scope="row">{contact}</th><td>{standard}</td></tr>)}</tbody></table></div>
     </section>
-    <section className="inner-block" id="partners"><h2>Partners</h2><p>Health Plus International is registered on the <a className="inner-link" style={{ color: "#b81237", fontSize: "1.5rem", fontWeight: 700 }} href="https://buy.nsw.gov.au/suppliers" target="_blank" rel="noopener noreferrer">buy.nsw Supplier Hub</a>.</p><p>We work with the Multicultural Communities Support Centre (MCCSC) to support candidates into healthcare work. The pathway has three steps: HPI, MCCSC, host facility. No visa category or overseas origin is assumed; each person&apos;s work rights and qualifications are verified individually.</p><a className="inner-partner-logo" href="https://mccsc.org.au" aria-label="Multicultural Communities Support Centre Website"><img src="/assets/mccsc-logo-small.webp" alt="Multicultural Communities Support Centre" width="160" height="160" loading="lazy" /></a></section>
+    <section className="inner-block" aria-labelledby="buy-nsw-heading">
+      <div className="buy-nsw-registration">
+        <p className="buy-nsw-eyebrow">Supplier registration</p>
+        <h2 id="buy-nsw-heading">Buy NSW</h2>
+        <p>Health Plus International is registered on the buy.nsw Supplier Hub.</p>
+        <a className="buy-nsw-link" href="https://buy.nsw.gov.au/suppliers" target="_blank" rel="noopener noreferrer">Visit the Supplier Hub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <section className="inner-block" id="partners"><h2>Partners</h2><p>We work with the Multicultural Communities Support Centre (MCCSC) to support candidates into healthcare work. The pathway has three steps: HPI, MCCSC, host facility. No visa category or overseas origin is assumed; each person&apos;s work rights and qualifications are verified individually.</p><a className="inner-partner-logo" href="https://mccsc.org.au" aria-label="Multicultural Communities Support Centre Website"><img src="/assets/mccsc-logo-small.webp" alt="Multicultural Communities Support Centre" width="160" height="160" loading="lazy" /></a></section>
   </main>;
 }

@@ -1,0 +1,8 @@
+.buy-nsw-registration { max-width:680px; padding:24px 28px; border:1px solid #102d3a20; border-left:4px solid #b81237; border-radius:0 16px 16px 0; background:#fffdf9; }
+.hpi-inner .buy-nsw-registration .buy-nsw-eyebrow { margin:0 0 8px; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#52636b; }
+.hpi-inner .buy-nsw-registration h2 { margin:0 0 10px; color:#b81237; font-size:32px; font-weight:700; line-height:1.15; letter-spacing:-.025em; }
+.hpi-inner .buy-nsw-registration > p:not(.buy-nsw-eyebrow) { margin:0 0 18px; max-width:54ch; }
+.buy-nsw-registration .buy-nsw-link { display:inline-flex; align-items:center; gap:12px; min-height:44px; color:var(--navy); font-size:16px; font-weight:600; text-decoration:underline; text-underline-offset:4px; }
+.buy-nsw-link:hover { color:#b81237; }
+.buy-nsw-link:focus-visible { outline:2px solid #b81237; outline-offset:4px; border-radius:2px; }
+@media(max-width:600px) { .buy-nsw-registration { padding:20px; } .hpi-inner .buy-nsw-registration h2 { font-size:28px; } }
