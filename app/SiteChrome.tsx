@@ -97,8 +97,8 @@ export function SiteFooter() {
         <div><h2 id="country-heading">Acknowledgement of Country</h2><p>Health Plus International acknowledges the Dharawal people, the Traditional Custodians of the land in Helensburgh where we are based. We pay our respects to Elders past and present, and extend that respect to Aboriginal and Torres Strait Islander peoples across the communities where we work.</p></div>
       </section>
       <div className="hpi-footer-bottom">
-        <p>Copyright 2026 Health Plus International, ABN 13 155 901 723</p>
-        <p className="hpi-staff">Staff: <a href="https://staff.healthplusint.com.au/hub">Documents</a> · <a href="https://hai-crm.connect-a63.workers.dev/">CRM Login</a></p>
+        <p>Copyright 2026 Westminster Green Solutions Pty Ltd trading as Health Plus International, ABN 13 155 901 723</p>
+        <p className="hpi-staff">Staff: <a href="https://staff.healthplusint.com.au/hub" rel="nofollow">Documents</a> · <a href="https://staff.healthplusint.com.au/" rel="nofollow">CRM Login</a></p>
       </div>
       <a className="hpi-whatsapp-float" href="https://wa.me/61411459755" target="_blank" rel="noopener noreferrer" aria-label="Chat with Health Plus International on WhatsApp">
         <span className="hpi-whatsapp-tooltip">Chat with HPI Now</span>

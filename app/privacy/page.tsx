@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
         <p className="eyebrow light">People · Care · Compliance</p>
         <h1>Privacy <em>policy</em></h1>
         <p>
-          Effective 28 July 2026 · Health Plus International Pty Ltd
+          Effective 2 November 2026 · Westminster Green Solutions Pty Ltd trading as Health Plus International
           (ABN 13 155 901 723)
         </p>
       </section>
@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
       <article className="policy-content">
         <div className="policy-summary">
           <p>
-            Health Plus International (HPI, we, us or our) respects your privacy.
+            Westminster Green Solutions Pty Ltd trading as Health Plus International (HPI, we, us or our) respects your privacy.
             This policy explains how we manage personal information when providing
             healthcare workforce, recruitment, readiness, deployment, support and
             related services. We aim to handle personal information consistently
@@ -71,6 +71,30 @@ export default function PrivacyPolicy() {
             also collect information from referees, employers, professional
             registers, screening services, education providers, government bodies,
             migration or recruitment partners and community-service partners.
+          </p>
+          <h3>Website forms and our CRM</h3>
+          <p>
+            We store workforce enquiries, registration details and uploaded résumés
+            in our website and recruitment systems. Relevant records are transferred
+            to our customer relationship management (CRM) system so authorised staff
+            can review enquiries, record communications, allocate follow-up tasks
+            and manage client and candidate relationships. Our systems use contracted
+            cloud storage and email services. Access is controlled according to staff
+            responsibilities, and the overseas-handling and retention provisions
+            below apply to these records.
+          </p>
+          <h3>WhatsApp</h3>
+          <p>
+            If you choose to contact HPI through WhatsApp, we receive the contact
+            details and messages you share with us and use them to respond and
+            manage your enquiry. WhatsApp is a third-party service provided by a
+            Meta company and handles information under its own{" "}
+            <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+            Information may be processed overseas. Relevant communications may be
+            recorded in our CRM. You can contact us by telephone or email instead.
+            Please do not send identity documents, banking details, police checks
+            or unnecessary health information through WhatsApp; ask us for an
+            appropriate channel if sensitive documents are required.
           </p>
           <p>
             If you provide personal information about another person, you should
@@ -233,7 +257,7 @@ export default function PrivacyPolicy() {
         <section className="policy-section policy-contact">
           <h2>Contact the privacy officer</h2>
           <p>
-            Health Plus International Pty Ltd<br />
+            Westminster Green Solutions Pty Ltd trading as Health Plus International<br />
             Helensburgh, NSW<br />
             <a href="mailto:info@healthplusint.com.au?subject=Privacy%20Enquiry">
               info@healthplusint.com.au

@@ -63,7 +63,7 @@ const structuredData = {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
       name: "Health Plus International",
-      legalName: "Health Plus International Pty Ltd",
+      legalName: "Westminster Green Solutions Pty Ltd",
       url: siteUrl,
       logo: `${siteUrl}/assets/logo-healthplus-transparent.webp`,
       image: `${siteUrl}/assets/hero-hpi-care.webp`,

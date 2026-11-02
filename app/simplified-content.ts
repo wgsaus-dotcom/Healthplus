@@ -11,7 +11,7 @@ export const roles = [
   },
   {
     slug: "aged-care-workers", name: "Aged Care Workers",
-    text: "For residential aged care and respite, home care and consumer-directed support, transition and restorative care, and regional services. HPI employs the worker; the approved provider keeps care governance and day-to-day supervision, and site induction is agreed in the start-date plan.",
+    text: "For residential aged care and respite, home care and consumer-directed support, transition and restorative care, and regional services. HPI employs the worker; the registered provider keeps care governance and day-to-day supervision, and site induction is agreed in the start-date plan.",
     checks: "Qualifications and experience, identity, work rights, screening, police check, vaccination and training evidence, and safeguarding awareness.",
   },
   {
