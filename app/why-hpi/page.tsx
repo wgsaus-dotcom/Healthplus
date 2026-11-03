@@ -40,7 +40,7 @@ export default function WhyHPIPage() {
       <p className="difference-eyebrow">PEOPLE · CARE · COMPLIANCE</p>
       <h2 id="difference-intro-heading">A different starting point</h2>
       <p>Conventional agency staffing can play an important role when healthcare services need additional workers. HPI's workforce-development approach extends beyond sourcing staff. We seek to understand the service, coordinate the right checks and prepare for a supported commencement and ongoing engagement.</p>
-      <p>Established following consultation with BIRO, HPI was shaped around workforce development as a bridge between employer needs and sustainable healthcare careers. Our aim is not simply to fill a position: it is to help build a dependable workforce relationship with clear expectations on both sides.</p>
+      <p>Established following consultation with <a href="https://birostrategy.com.au/" target="_blank" rel="noopener noreferrer" className="inner-link">BIRO Strategy</a>, HPI was shaped around workforce development as a bridge between employer needs and sustainable healthcare careers. Our aim is not simply to fill a position: it is to help build a dependable workforce relationship with clear expectations on both sides.</p>
     </section>
 
     <section className="difference-section" id="our-approach" aria-labelledby="difference-approach-heading">
