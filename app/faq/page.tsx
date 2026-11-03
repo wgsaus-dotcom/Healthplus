@@ -23,7 +23,7 @@ const faqGroups = [
       ["How does HPI verify Healthcare Workers?", "Checks are tailored to the role and may include relevant Ahpra registration, qualifications, work rights, identity, screening, references and required training or clearances. Requirements are confirmed against the role and service setting."],
       ["Who is responsible for clinical supervision?", "The host healthcare service is responsible for day-to-day clinical direction, supervision and its own site-specific clinical governance. HPI coordinates its agreed employment, workforce and compliance responsibilities."],
       ["Can HPI help with regional workforce requirements?", "Yes. HPI works with employers to understand regional and remote workforce requirements, including role scope, availability, compliance and practical commencement arrangements. We assess each request before confirming an approach."],
-      ["Where can government buyers find HPI?", "Our business profile is available on the NSW Government Buy NSW supplier platform. Visit the Buy NSW Supplier Profile link in the footer or the Employers page to view our listing."],
+      ["Where can government buyers find HPI?", "Our business profile is available on the NSW Government Buy NSW supplier platform. View HPI on Buy NSW to open our listing directly."],
     ],
   },
   {
@@ -93,7 +93,7 @@ export default function FaqPage() {
               {group.items.map(([question, answer]) => (
                 <details key={question}>
                   <summary>{question}</summary>
-                  <p>{answer}</p>
+                  <p>{question === "Where can government buyers find HPI?" ? <>Our business profile is available on the NSW Government Buy NSW supplier platform. <a className="inner-link" href="https://buy.nsw.gov.au/supplier/profile/12466498" target="_blank" rel="noopener noreferrer">View HPI on Buy NSW</a> to open our listing directly.</> : answer}</p>
                 </details>
               ))}
             </div>
