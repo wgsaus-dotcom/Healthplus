@@ -27,6 +27,11 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
     "title": "About HPI and Workforce Development",
     "description": "Meet Health Plus International, a healthcare workforce development business in Helensburgh, NSW. Read how we work and our service charter."
   },
+  "/why-hpi": {
+    "label": "Why HPI",
+    "title": "More Than Labour Hire | The HPI Difference",
+    "description": "HPI is the bridge connecting healthcare workforce needs with people, professional readiness and long-term workforce development across NSW."
+  },
   "/faq": {
     "label": "FAQ",
     "title": "Healthcare Workforce FAQs",
