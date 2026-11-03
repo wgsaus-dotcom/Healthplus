@@ -88,8 +88,12 @@ footer.hpi-footer { background:var(--ivory); border-top:1px solid #09243b20; col
 .hpi-whatsapp-float:hover .hpi-whatsapp-tooltip,.hpi-whatsapp-float:focus-visible .hpi-whatsapp-tooltip { opacity:1; visibility:visible; }
 @media(max-width:600px) { .hpi-footer .hpi-whatsapp-float { right:max(16px,env(safe-area-inset-right)); bottom:calc(16px + env(safe-area-inset-bottom)); } }
 
-/* Keep the approved five-item navigation together. */
-.hpi-desktop-nav { gap:16px; }
+/* AHPRA Support has its own top-level navigation item. Allow comfortable spacing without crowding the header. */
+.hpi-header { gap:clamp(12px,1.5vw,24px); }
+.hpi-desktop-nav { gap:clamp(14px,1.4vw,24px); }
+.hpi-desktop-nav a { font-size:clamp(13px,1.04vw,16px); line-height:1.4; }
+.hpi-desktop-nav a[href="/ahpra-registration-support"] { color:var(--teal-dark); font-weight:700; }
+.hpi-mobile-menu nav > a[href="/ahpra-registration-support"] { color:var(--teal-dark); font-weight:700; border-top:1px solid #09243b20; margin-top:4px; padding-top:18px; }
 .hpi-footer#contact { scroll-margin-top:110px; }
 
 .hpi-desktop-nav a, .hpi-mobile-menu nav > a, .hpi-action, .hpi-whatsapp-tooltip { font-weight:600; }

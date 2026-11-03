@@ -5,6 +5,7 @@ const navigation = [
   ["About HPI", "/about"],
   ["Employers", "/employers"],
   ["Healthcare Workers", "/work-with-us"],
+  ["AHPRA Support", "/ahpra-registration-support"],
   ["Positions", "/roles"],
   ["Contact Us", "#contact"],
 ] as const;
@@ -84,8 +85,10 @@ export function SiteFooter() {
         <nav className="hpi-footer-links" aria-label="Footer Navigation">
           <h2>Links</h2>
           {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
+          <a href="/ahpra-registration-support">Ahpra Registration Support</a>
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
+          <a href="https://buy.nsw.gov.au/supplier/profile/12466498" target="_blank" rel="noopener noreferrer">Buy NSW Supplier Profile</a>
           <a href="https://au.linkedin.com/company/health-plus-international-australia" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </nav>
       </div>

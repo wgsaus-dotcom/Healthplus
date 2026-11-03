@@ -1,0 +1,33 @@
+/* Scoped layout for the standalone AHPRA Registration Support page. */
+.registration-support-page .policy-hero {padding:clamp(48px,6vw,88px) clamp(24px,6vw,88px)}
+.registration-support-page .policy-hero h1 {max-width:1000px;font-size:clamp(2.8rem,6vw,5.8rem);line-height:1.04;letter-spacing:-.045em;margin:24px 0}
+.registration-support-page .policy-hero > p:last-child {font-size:clamp(17px,1.65vw,21px);line-height:1.7;max-width:740px}
+.registration-support-content {max-width:1120px;gap:clamp(44px,5vw,76px);padding:clamp(40px,5vw,72px) clamp(24px,5vw,64px) clamp(64px,6vw,96px)}
+.registration-support-content .policy-summary {padding:clamp(24px,3vw,40px);border-radius:8px}
+.registration-support-content .policy-summary h2 {color:var(--navy);font-size:clamp(23px,2.6vw,32px);line-height:1.25;max-width:32ch;margin:0 0 18px}
+.registration-support-content .policy-summary p {max-width:78ch}
+.registration-support-content .policy-section {padding-top:clamp(32px,4vw,52px)}
+.registration-support-content .policy-section h2 {margin-bottom:clamp(24px,3vw,36px)}
+.registration-support-services {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,4vw,56px);row-gap:clamp(26px,3vw,42px)}
+.registration-support-services > h2 {grid-column:1/-1}
+.registration-support-services > div {border-top:3px solid var(--teal);padding:18px 0 0;min-width:0}
+.registration-support-services h3 {margin:0 0 14px;line-height:1.35}
+.registration-support-services p {margin:0}
+.registration-support-process ol {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 36px;padding-left:26px;margin:0 0 24px}
+.registration-support-process li {padding-left:8px}
+.registration-support-process > p {max-width:76ch}
+.registration-support-boundaries ul {display:grid;gap:14px;padding-left:25px;margin:0 0 24px}
+.registration-support-boundaries > p {max-width:76ch}
+.registration-support-contact {border-radius:8px;padding:clamp(28px,4vw,48px)}
+.registration-support-contact h2 {font-size:clamp(25px,3vw,36px);line-height:1.2;margin-bottom:20px}
+.registration-support-contact p {max-width:75ch;line-height:1.7;margin-bottom:18px}
+.registration-support-contact p:last-child {margin-bottom:0}
+.registration-support-contact a {text-decoration:underline;text-underline-offset:4px}
+@media(max-width:700px) {
+ .registration-support-services,.registration-support-process ol {grid-template-columns:minmax(0,1fr)}
+ .registration-support-page .policy-hero h1 {overflow-wrap:break-word}
+ .registration-support-content {gap:42px;padding-inline:22px}
+ .registration-support-services {row-gap:24px}
+ .registration-support-content .policy-summary {padding:24px}
+ .registration-support-content .policy-section h2 {line-height:1.16}
+}

@@ -32,6 +32,11 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
     "title": "Healthcare Workforce FAQs",
     "description": "Answers about HPI healthcare staffing, worker registration, role checks, regional NSW coverage, privacy and how to contact our team."
   },
+  "/ahpra-registration-support": {
+    "label": "Ahpra Registration Support",
+    "title": "Ahpra Registration Support for International Nurses",
+    "description": "Explore administrative registration guidance, document coordination, examination preparation referrals and Australian professional readiness support with HPI."
+  },
   "/privacy": {
     "label": "Privacy Policy",
     "title": "Privacy Policy",
