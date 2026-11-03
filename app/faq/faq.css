@@ -1,0 +1,26 @@
+.hpi-faq-page{background:var(--paper);color:var(--navy);min-height:100vh}
+.hpi-faq-hero{background:var(--navy);color:#fff;padding:clamp(46px,6vw,92px) clamp(22px,5vw,80px)}
+.hpi-faq-eyebrow{color:#9be2d8;font-size:13px;font-weight:700;letter-spacing:.14em;margin:0 0 18px}
+.hpi-faq-hero h1{color:#fff;font-size:clamp(36px,5vw,64px);letter-spacing:-.045em;line-height:1.1;max-width:850px;margin:0 0 20px}
+.hpi-faq-hero>p:last-child{color:#d3e1e4;font-size:clamp(16px,1.6vw,20px);line-height:1.65;max-width:750px;margin:0}
+.hpi-faq-content{max-width:1160px;margin:0 auto;padding:clamp(32px,4vw,60px) clamp(22px,5vw,64px) clamp(64px,7vw,100px)}
+.hpi-faq-categories{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 50px}
+.hpi-faq-categories a{border:1px solid #09243b35;border-radius:999px;color:var(--navy);font-size:14px;font-weight:700;line-height:1.35;padding:11px 16px;text-decoration:none}
+.hpi-faq-categories a:hover,.hpi-faq-categories a:focus-visible{background:#e7f2ed;border-color:var(--teal)}
+.hpi-faq-group{border-top:1px solid #09243b30;padding:38px 0 44px;scroll-margin-top:120px}
+.hpi-faq-group-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:22px}
+.hpi-faq-group h2{font-size:clamp(25px,2.8vw,36px);line-height:1.2;letter-spacing:-.035em;color:var(--navy);margin:0}
+.hpi-faq-group-heading>a{color:var(--teal-dark);font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.hpi-faq-items{display:grid;gap:12px}
+.hpi-faq-items details{background:#fff;border:1px solid #09243b24;border-radius:8px;overflow:hidden}
+.hpi-faq-items details[open]{border-color:#087b7355;box-shadow:0 5px 20px #09243b0a}
+.hpi-faq-items summary{position:relative;padding:19px 52px 19px 22px;cursor:pointer;list-style:none;font-size:17px;font-weight:700;line-height:1.45;color:var(--navy)}
+.hpi-faq-items summary::-webkit-details-marker{display:none}
+.hpi-faq-items summary:after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:25px;line-height:1;color:var(--teal)}
+.hpi-faq-items details[open] summary:after{content:"−"}
+.hpi-faq-items details p{font-size:16px;line-height:1.75;color:#435a65;padding:0 22px 23px;margin:0;max-width:90ch}
+.hpi-faq-contact{background:var(--navy);border-radius:10px;color:#fff;padding:clamp(26px,4vw,46px);margin-top:20px}
+.hpi-faq-contact h2{color:#fff;font-size:clamp(25px,3vw,36px);line-height:1.2;margin:0 0 12px}
+.hpi-faq-contact p{color:#d3e1e4;line-height:1.7;max-width:65ch;margin:0 0 24px}
+.hpi-faq-contact a{display:inline-flex;min-height:46px;align-items:center;background:var(--gold);border-radius:4px;color:var(--navy);font-weight:700;padding:11px 20px;text-decoration:none}
+@media(max-width:650px){.hpi-faq-categories{gap:8px;margin-bottom:32px}.hpi-faq-categories a{font-size:13px;padding:9px 12px}.hpi-faq-group{padding:30px 0 36px}.hpi-faq-group-heading{align-items:flex-start;flex-direction:column;gap:10px}.hpi-faq-items summary{font-size:16px;padding:17px 43px 17px 17px}.hpi-faq-items summary:after{right:16px}.hpi-faq-items details p{padding:0 17px 20px}.hpi-faq-hero h1{overflow-wrap:break-word}}
