@@ -26,8 +26,8 @@ export default function WhyHPIPage() {
     <header className="difference-hero">
       <div className="difference-hero-copy">
         <p className="difference-eyebrow">THE HEALTH PLUS INTERNATIONAL APPROACH</p>
-        <h1>More than labour hire.<span>Workforce development that looks further.</span></h1>
-        <p>Filling a vacancy matters. Helping a healthcare workforce become ready, supported and sustainable matters too.</p>
+        <h1>We are the bridge.<span>More than labour hire. Workforce development that looks further.</span></h1>
+        <p>Connecting healthcare organisations with people, professional readiness and sustainable career pathways — because filling a vacancy is only the beginning.</p>
         <div className="difference-actions">
           <a className="hpi-action" href="/employers#request">Discuss Your Workforce Needs</a>
           <a className="difference-secondary" href="#our-approach">Explore Our Approach</a>
@@ -40,7 +40,7 @@ export default function WhyHPIPage() {
       <p className="difference-eyebrow">PEOPLE · CARE · COMPLIANCE</p>
       <h2 id="difference-intro-heading">A different starting point</h2>
       <p>Conventional agency staffing can play an important role when healthcare services need additional workers. HPI's workforce-development approach extends beyond sourcing staff. We seek to understand the service, coordinate the right checks and prepare for a supported commencement and ongoing engagement.</p>
-      <p>Our aim is not simply to fill a position. It is to help build a dependable workforce relationship with clear expectations on both sides.</p>
+      <p>Established following consultation with BIRO, HPI was shaped around workforce development as a bridge between employer needs and sustainable healthcare careers. Our aim is not simply to fill a position: it is to help build a dependable workforce relationship with clear expectations on both sides.</p>
     </section>
 
     <section className="difference-section" id="our-approach" aria-labelledby="difference-approach-heading">
