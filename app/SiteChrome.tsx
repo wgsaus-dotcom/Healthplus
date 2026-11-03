@@ -3,6 +3,7 @@ import "./atmos.css";
 
 const navigation = [
   ["About HPI", "/about"],
+  ["Why HPI", "/why-hpi"],
   ["Employers", "/employers"],
   ["Healthcare Workers", "/work-with-us"],
   ["AHPRA Support", "/ahpra-registration-support"],
