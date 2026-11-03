@@ -1,5 +1,6 @@
 import PageSeo from "../PageSeo";
 import { pageMetadata } from "../seo-pages";
+import "./registration-support.css";
 
 export const metadata = pageMetadata("/ahpra-registration-support");
 
@@ -39,20 +40,20 @@ const steps = [
 
 export default function AhpraRegistrationSupportPage() {
   return (
-    <main className="policy-page">
+    <main className="policy-page registration-support-page">
       <PageSeo path="/ahpra-registration-support" />
       <header className="policy-hero">
         <p className="eyebrow light">HEALTH PLUS INTERNATIONAL · PROFESSIONAL READINESS</p>
         <h1>Ahpra registration <em>support</em></h1>
         <p>Practical guidance and coordination for internationally qualified nurses exploring Australian registration and professional transition.</p>
       </header>
-      <div className="policy-content">
+      <div className="policy-content registration-support-content">
         <section className="policy-summary" aria-labelledby="support-intro">
           <h2 id="support-intro">Support through each stage, with you in control</h2>
           <p>Understanding Australia's nursing registration process can involve documents, assessments, examinations and unfamiliar requirements. Health Plus International can assist with administrative organisation and career-readiness planning while you use official Ahpra and NMBA guidance.</p>
         </section>
 
-        <section className="policy-section" aria-labelledby="support-areas">
+        <section className="policy-section registration-support-services" aria-labelledby="support-areas">
           <h2 id="support-areas">How we can support you</h2>
           {supportAreas.map(area => (
             <div key={area.title}>
@@ -62,7 +63,7 @@ export default function AhpraRegistrationSupportPage() {
           ))}
         </section>
 
-        <section className="policy-section" aria-labelledby="support-process">
+        <section className="policy-section registration-support-process" aria-labelledby="support-process">
           <h2 id="support-process">A clear, personalised process</h2>
           <ol>
             {steps.map(([title, description]) => <li key={title}><strong>{title}.</strong> {description}</li>)}
@@ -70,7 +71,7 @@ export default function AhpraRegistrationSupportPage() {
           <p>There is no single pathway that suits every applicant. The requirements depend on your qualifications, professional background and the regulator's assessment.</p>
         </section>
 
-        <section className="policy-section" aria-labelledby="support-boundaries">
+        <section className="policy-section registration-support-boundaries" aria-labelledby="support-boundaries">
           <h2 id="support-boundaries">Important information</h2>
           <ul>
             <li>Ahpra and the NMBA alone determine registration requirements, eligibility and outcomes. HPI cannot guarantee registration, assessment results or processing times.</li>
@@ -82,7 +83,7 @@ export default function AhpraRegistrationSupportPage() {
           <p>Check the current official requirements directly with <a href="https://www.ahpra.gov.au/Registration/International-practitioners.aspx" target="_blank" rel="noopener noreferrer">Ahpra</a> and the <a href="https://www.nursingmidwiferyboard.gov.au/Registration-and-Endorsement/International.aspx" target="_blank" rel="noopener noreferrer">NMBA</a>.</p>
         </section>
 
-        <section className="policy-contact" aria-labelledby="support-contact">
+        <section className="policy-contact registration-support-contact" aria-labelledby="support-contact">
           <h2 id="support-contact">Discuss your registration journey</h2>
           <p>Tell us your nursing qualification, country of qualification and where you are in the registration process. Please do not email identity documents, health records or other sensitive evidence with your first enquiry.</p>
           <p><a href="mailto:info@healthplusint.com.au?subject=Ahpra%20Registration%20Support%20Enquiry">Email HPI about registration support</a></p>
