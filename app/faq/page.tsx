@@ -93,7 +93,7 @@ export default function FaqPage() {
               {group.items.map(([question, answer]) => (
                 <details key={question}>
                   <summary>{question}</summary>
-                  <p>{question === "Where can government buyers find HPI?" ? <>Our business profile is available on the NSW Government Buy NSW supplier platform. <a className="inner-link" href="https://buy.nsw.gov.au/supplier/profile/12466498" target="_blank" rel="noopener noreferrer">View HPI on Buy NSW</a> to open our listing directly.</> : answer}</p>
+                  <p>{question === "Where can government buyers find HPI?" ? <>Our business profile is available on the NSW Government Buy NSW supplier platform. <a className="inner-link" href="https://buy.nsw.gov.au/supplier/profile/12466498" target="_blank" rel="noopener noreferrer">View HPI on Buy NSW</a> to open our listing directly.</> : question === "Can HPI assist me with my Ahpra Self-check and registration process?" ? <>Yes. HPI offers a <strong>fee-for-service registration support</strong> service, including guided Self-check preparation, qualification-information review, document coordination, milestone tracking and authorised communication support where permitted. You must personally complete and submit your Ahpra Self-check; Ahpra does not allow a third party or agent to complete it on your behalf. HPI cannot guarantee a registration outcome.</> : answer}</p>
                 </details>
               ))}
             </div>
