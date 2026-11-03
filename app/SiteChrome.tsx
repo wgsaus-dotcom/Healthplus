@@ -5,6 +5,7 @@ const navigation = [
   ["About HPI", "/about"],
   ["Employers", "/employers"],
   ["Healthcare Workers", "/work-with-us"],
+  ["AHPRA Support", "/ahpra-registration-support"],
   ["Positions", "/roles"],
   ["Contact Us", "#contact"],
 ] as const;
@@ -32,7 +33,6 @@ export function SiteHeader() {
           <a className="hpi-action" href="/employers#request">Request Workers</a>
           <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
           {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
-          <a href="/ahpra-registration-support">Ahpra Registration Support</a>
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
         </nav>
