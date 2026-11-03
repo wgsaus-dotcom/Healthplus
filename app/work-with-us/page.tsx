@@ -42,6 +42,7 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
       </article>)}</div>
     </section>
     <section className="inner-block worker-faq" aria-labelledby="worker-faq-heading"><h2 id="worker-faq-heading">A few things you might be wondering</h2><p><strong>If you can&apos;t find what you&apos;re looking for, please don&apos;t hesitate to <a className="inner-link" href="mailto:info@healthplusint.com.au">contact us directly</a>.</strong></p>{questions.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</section>
+    <section className="inner-block worker-faq" aria-labelledby="registration-support-heading"><h2 id="registration-support-heading">Internationally qualified nurse?</h2><p>Explore practical guidance for navigating Ahpra registration requirements, organising documents and preparing for Australian healthcare workplaces.</p><p><a className="inner-link" href="/ahpra-registration-support">Explore Ahpra registration support</a></p></section>
     <section className="worker-invitation"><h2>Let’s talk about where you want to work</h2><div className="inner-actions"><a className="hpi-action" href="#apply">Find Healthcare Work</a><a className="inner-link" href="https://wa.me/61411459755">Chat on WhatsApp</a></div></section>
   </main>;
 }
