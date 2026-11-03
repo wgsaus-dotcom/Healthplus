@@ -32,6 +32,7 @@ export function SiteHeader() {
           <a className="hpi-action" href="/employers#request">Request Workers</a>
           <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
           {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
+          <a href="/ahpra-registration-support">Ahpra Registration Support</a>
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
         </nav>
@@ -84,6 +85,7 @@ export function SiteFooter() {
         <nav className="hpi-footer-links" aria-label="Footer Navigation">
           <h2>Links</h2>
           {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
+          <a href="/ahpra-registration-support">Ahpra Registration Support</a>
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
           <a href="https://au.linkedin.com/company/health-plus-international-australia" target="_blank" rel="noopener noreferrer">LinkedIn</a>
