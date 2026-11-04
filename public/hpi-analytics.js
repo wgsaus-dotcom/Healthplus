@@ -7,12 +7,12 @@
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   window.gtag("js", new Date());
   // GA4 handles the initial view and enhanced-measurement history events.
-  window.gtag("config", "G-7KLWXBSFEK", {
+  window.gtag("config", "G-EZVR5R6CX8", {
     allow_google_signals: false,
     allow_ad_personalization_signals: false
   });
   var tag = document.createElement("script");
   tag.async = true;
-  tag.src = "https://www.googletagmanager.com/gtag/js?id=G-7KLWXBSFEK";
+  tag.src = "https://www.googletagmanager.com/gtag/js?id=G-EZVR5R6CX8";
   document.head.appendChild(tag);
 })();
