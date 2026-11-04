@@ -10,6 +10,8 @@ import { regions } from "../simplified-content";
 export const metadata = pageMetadata("/work-with-us");
 
 const questions = [
+  ["How often will I be paid?", "Healthcare Workers employed by Healthplus are paid weekly. Your employment and onboarding information will explain your pay arrangements."],
+  ["Does Healthplus fund training?", "Yes. Funding is available for selected, pre-approved courses relevant to your role. Speak with our team and agree the course and funding budget before enrolling; funding is not automatic for every course."],
   ["Do I need documents to register?", "Upload your résumé when you register. We accept PDF, DOC or DOCX files up to 5 MB. No compliance documents are needed at this stage. We ask for registration and role-specific checks after reviewing your details. Please do not send identity, banking, police-check or health information with your first details."],
   ["Can I tell you where I want to work?", "Yes. Choose your preferred region in the form and tell us your availability. We discuss opportunities in Sydney and regional NSW. Regional work is planned for each engagement; listing a region does not mean a vacancy is open."],
   ["Can I discuss sponsorship?", "Yes. Sponsorship may be considered for suitable candidates where an eligible role and applicable requirements align. Register your interest and discuss your circumstances with our team. An application does not guarantee sponsorship."],
@@ -29,10 +31,11 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
     <section className="worker-feature" aria-labelledby="worker-feature-heading">
       <img src="/assets/hpi-happy-healthcare-team.webp" alt="Illustrative image of healthcare colleagues sharing a relaxed moment at work" width="1536" height="1024" loading="lazy" />
       <div><p className="worker-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h2 id="worker-feature-heading">Why work with Healthplus?</h2><p>More than finding your next role: support for the career and working life you want to build.</p><dl>
+        <div><dt>Weekly pay</dt><dd>Healthcare Workers employed by Healthplus are paid weekly, helping you plan your everyday expenses with a regular pay cycle.</dd></div>
         <div><dt>Free uniforms for nursing and support staff</dt><dd>Start your role with a Healthplus uniform at no cost to you. We provide free uniforms for our nursing and support staff, helping you feel part of the team from day one.</dd></div>
-        <div><dt>Your work preferences matter</dt><dd>Tell us your preferred location, availability and career goals. We use your preferences to discuss roles and roster requirements that may suit your life.</dd></div>
+        <div><dt>Work that considers your availability</dt><dd>Tell us when and where you want to work. We match opportunities to your availability, preferred locations and career goals, subject to suitable roles and facility roster requirements.</dd></div>
         <div><dt>Support beyond your first day</dt><dd>Prepare for your commencement with clear expectations and practical guidance. Our approach includes early follow-up and ongoing communication as agreed for your placement.</dd></div>
-        <div><dt>Room to grow professionally</dt><dd>Discuss your development goals, workplace readiness and relevant learning pathways. We help you identify practical next steps towards your healthcare career goals.</dd></div>
+        <div><dt>Funded training and professional development</dt><dd>Build your skills with funding for selected, pre-approved courses relevant to your role. We agree the course and funding budget with you before enrolment, alongside practical guidance on your development goals.</dd></div>
         <div><dt>A regional career with preparation</dt><dd>Explore opportunities across NSW with guidance on regional living and transition considerations. Travel, accommodation and any role-specific assistance are discussed before you commit.</dd></div>
         <div><dt>Sponsorship considered for suitable candidates</dt><dd>Sponsorship may be considered for the right candidate, subject to eligibility, a suitable role and applicable requirements. Talk to our team about your circumstances; sponsorship is not guaranteed.</dd></div>
         <div><dt>A simpler start, with guidance along the way</dt><dd>Apply with your résumé and work preferences in two short steps. We guide you through the role-specific checks after reviewing your details, so you can focus on your next opportunity.</dd></div>
