@@ -44,7 +44,7 @@ export default function AhpraRegistrationSupportPage() {
       <PageSeo path="/ahpra-registration-support" />
       <header className="policy-hero">
         <p className="eyebrow light">HEALTH PLUS INTERNATIONAL · PROFESSIONAL READINESS</p>
-        <h1>Ahpra registration <em>support</em></h1>
+        <h1>AHPRA <em>Support</em></h1>
         <p>Practical guidance and coordination for internationally qualified nurses exploring Australian registration and professional transition.</p>
       </header>
       <div className="policy-content registration-support-content">
