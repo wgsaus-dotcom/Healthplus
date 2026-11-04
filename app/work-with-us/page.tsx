@@ -12,6 +12,8 @@ export const metadata = pageMetadata("/work-with-us");
 const questions = [
   ["Do I need documents to register?", "Upload your résumé when you register. We accept PDF, DOC or DOCX files up to 5 MB. No compliance documents are needed at this stage. We ask for registration and role-specific checks after reviewing your details. Please do not send identity, banking, police-check or health information with your first details."],
   ["Can I tell you where I want to work?", "Yes. Choose your preferred region in the form and tell us your availability. We discuss opportunities in Sydney and regional NSW. Regional work is planned for each engagement; listing a region does not mean a vacancy is open."],
+  ["Can I discuss sponsorship?", "Yes. Sponsorship may be considered for suitable candidates where an eligible role and applicable requirements align. Register your interest and discuss your circumstances with our team. An application does not guarantee sponsorship."],
+  ["Is travel or accommodation included?", "Arrangements vary by role and location. We discuss travel, accommodation and any available assistance for the specific opportunity before you commit."],
   ["What happens after I register?", "We review your details and contact you about roles that may suit you. We then discuss the documents and checks needed for a suitable role."],
   ["Which roles can I register for?", "Registered nurses, enrolled nurses, doctors, assistants in nursing, support workers and allied health professionals. Support workers provide community support, not NDIS."],
 ] as const;
@@ -22,16 +24,21 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
   const rawRegion = Array.isArray(params.region) ? params.region[0] : params.region;
   const initialRegion = regions.find(region => region.slug === rawRegion)?.name ?? (rawRegion === "sydney" ? "Sydney metropolitan area" : "");
   return <main className="hpi-inner worker-page"><PageSeo path="/work-with-us" />
-    <PageIntro title="Start Your Next Chapter in Healthcare Across NSW.">Tell us about your preferred role, where you’d like to work and when you’re available. Upload your résumé and complete your registration in just two simple steps. You can provide your compliance documents later.</PageIntro>
-    <div className="inner-form" id="apply"><WorkerApplicationForm initialRole={initialRole} initialRegion={initialRegion} /></div>
+    <PageIntro title="Build Your Healthcare Career with Healthplus.">Your skills, your goals and your next chapter. Explore Healthcare Worker opportunities across Sydney and regional NSW, with practical guidance to help you prepare, settle in and develop your career.</PageIntro>
+    <div className="inner-actions"><a className="hpi-action" href="#apply">Apply Now</a><a className="inner-link" href="https://wa.me/61411459755">Talk to Our Team</a></div>
     <section className="worker-feature" aria-labelledby="worker-feature-heading">
       <img src="/assets/hpi-happy-healthcare-team.webp" alt="Illustrative image of healthcare colleagues sharing a relaxed moment at work" width="1536" height="1024" loading="lazy" />
-      <div><p className="worker-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h2 id="worker-feature-heading">A conversation about what comes next</h2><dl>
-        <div><dt>Two-step registration</dt><dd>Start with your résumé, details and work preferences.</dd></div>
-        <div><dt>Compliance documents later</dt><dd>We ask for checks only for roles that fit.</dd></div>
-        <div><dt>Let’s talk about suitable roles</dt><dd>We review your details and get in touch.</dd></div>
+      <div><p className="worker-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h2 id="worker-feature-heading">Why work with Healthplus?</h2><p>More than finding your next role: support for the career and working life you want to build.</p><dl>
+        <div><dt>Your work preferences matter</dt><dd>Tell us your preferred location, availability and career goals. We use your preferences to discuss roles and roster requirements that may suit your life.</dd></div>
+        <div><dt>Support beyond your first day</dt><dd>Prepare for your commencement with clear expectations and practical guidance. Our approach includes early follow-up and ongoing communication as agreed for your placement.</dd></div>
+        <div><dt>Room to grow professionally</dt><dd>Discuss your development goals, workplace readiness and relevant learning pathways. We help you identify practical next steps towards your healthcare career goals.</dd></div>
+        <div><dt>A regional career with preparation</dt><dd>Explore opportunities across NSW with guidance on regional living and transition considerations. Travel, accommodation and any role-specific assistance are discussed before you commit.</dd></div>
+        <div><dt>Sponsorship considered for suitable candidates</dt><dd>Sponsorship may be considered for the right candidate, subject to eligibility, a suitable role and applicable requirements. Talk to our team about your circumstances; sponsorship is not guaranteed.</dd></div>
+        <div><dt>A simpler start, with guidance along the way</dt><dd>Apply with your résumé and work preferences in two short steps. We guide you through the role-specific checks after reviewing your details, so you can focus on your next opportunity.</dd></div>
       </dl></div>
     </section>
+    <section className="inner-block" aria-labelledby="worker-apply-heading"><h2 id="worker-apply-heading">Ready for your next chapter?</h2><p>Share your résumé, preferred role and availability. Let’s start with what matters to you.</p></section>
+    <div className="inner-form" id="apply"><WorkerApplicationForm initialRole={initialRole} initialRegion={initialRegion} /></div>
     <section className="inner-block worker-regions" aria-labelledby="worker-regions-heading">
       <h2 id="worker-regions-heading">Which Location Would You Prefer to Work In?</h2>
       <p>Explore healthcare opportunities across metropolitan and regional NSW.</p>
