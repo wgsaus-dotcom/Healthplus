@@ -29,6 +29,7 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
     <section className="worker-feature" aria-labelledby="worker-feature-heading">
       <img src="/assets/hpi-happy-healthcare-team.webp" alt="Illustrative image of healthcare colleagues sharing a relaxed moment at work" width="1536" height="1024" loading="lazy" />
       <div><p className="worker-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h2 id="worker-feature-heading">Why work with Healthplus?</h2><p>More than finding your next role: support for the career and working life you want to build.</p><dl>
+        <div><dt>Free uniforms for nursing and support staff</dt><dd>Start your role with a Healthplus uniform at no cost to you. We provide free uniforms for our nursing and support staff, helping you feel part of the team from day one.</dd></div>
         <div><dt>Your work preferences matter</dt><dd>Tell us your preferred location, availability and career goals. We use your preferences to discuss roles and roster requirements that may suit your life.</dd></div>
         <div><dt>Support beyond your first day</dt><dd>Prepare for your commencement with clear expectations and practical guidance. Our approach includes early follow-up and ongoing communication as agreed for your placement.</dd></div>
         <div><dt>Room to grow professionally</dt><dd>Discuss your development goals, workplace readiness and relevant learning pathways. We help you identify practical next steps towards your healthcare career goals.</dd></div>
