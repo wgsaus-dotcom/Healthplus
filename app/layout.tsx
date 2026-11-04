@@ -151,6 +151,7 @@ export default function RootLayout({
   return (
     <html lang="en-AU">
       <body>
+        <script src="/hpi-analytics.js" defer />
         <script src="/legacy-anchors.js" defer />
         <SiteHeader />
         {children}

@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
         <p className="eyebrow light">People · Care · Compliance</p>
         <h1>Privacy <em>policy</em></h1>
         <p>
-          Effective 2 November 2026 · Westminster Green Solutions Pty Ltd trading as Health Plus International
+          Effective 4 November 2026 · Westminster Green Solutions Pty Ltd trading as Health Plus International
           (ABN 13 155 901 723)
         </p>
       </section>
@@ -220,9 +220,13 @@ export default function PrivacyPolicy() {
             an active application, workforce request or service are not marketing.
           </p>
           <p>
-            Our website may use essential technical storage, security tools and
-            limited analytics. Third-party links are governed by the privacy
-            practices of those third parties.
+            Our website uses essential technical storage, security tools and Google Analytics
+            to understand website visits and usage. Google Analytics uses cookies and
+            processes technical and usage information through Google. We do not
+            deliberately send form contents, uploaded documents or contact details
+            to Google Analytics. Advertising personalisation is disabled in our
+            website tag. You can manage cookies through your browser settings.
+            Third-party links are governed by the privacy practices of those third parties.
           </p>
         </section>
 
