@@ -32,7 +32,7 @@ export default function Home() {
         <div className="home-hero-heading">
           <div>
             <p className="atmos-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h1 id="home-heading">We make care possible</h1>
-            <p className="home-subhead">Health Plus International recruits, employs and places healthcare workers in Sydney and Regional NSW.</p>
+            <p className="home-subhead">Healthplus International recruits, employs and places healthcare workers in Sydney and Regional NSW.</p>
           </div>
           <img className="home-hero-image" src="/assets/hero-hpi-care.webp" alt="Healthcare professional supporting an older woman" width="900" height="600" fetchPriority="high" />
         </div>

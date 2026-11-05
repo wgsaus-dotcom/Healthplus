@@ -7,7 +7,7 @@ export const metadata = pageMetadata("/roles");
 
 export default function RolesPage() {
   return <main className="hpi-inner"><PageSeo path="/roles" />
-    <PageIntro title="Positions" />
+    <PageIntro title="Nursing, Aged Care and Allied Health Roles in NSW">Explore the roles we support, including doctors and community support workers. Register your interest and we’ll contact you when a suitable vacancy arises.</PageIntro>
     <nav className="inner-actions" aria-label="Position Categories"><a className="inner-link" href="#allied-health">Allied Health</a><a className="inner-link" href="#nurses">Nurses</a><a className="inner-link" href="#doctors">Doctors</a></nav>
     <section className="inner-block" id="nurses"><h2>Nurses</h2><a className="inner-link" href="#registered-nurses">Registered Nurses</a> · <a className="inner-link" href="#enrolled-nurses">Enrolled Nurses</a></section>
     <section className="inner-block inner-role" id="enrolled-nurses"><h2>Enrolled Nurses</h2><div className="inner-actions"><a className="hpi-action" href="/employers?role=enrolled-nurses#request">Request Workers</a><a className="hpi-action hpi-action-outline" href="/work-with-us?profession=enrolled-nurses#apply">Find Healthcare Work</a></div></section>

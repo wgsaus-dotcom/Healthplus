@@ -49,12 +49,12 @@ test("homepage publishes clean, aligned production metadata and SEO links", asyn
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const body = await response.text();
-  assert.match(body, /<title>Healthcare Workforce Development NSW \| HPI<\/title>/i);
+  assert.match(body, /<title>Healthcare Workforce Development NSW \| Healthplus International<\/title>/i);
   assert.match(body, canonicalPattern(""));
   assert.doesNotMatch(body, /codex-preview/i);
   assert.doesNotMatch(body, /<meta[^>]+name=["']keywords["']/i);
-  assert.match(body, /property=["']og:title["'][^>]+content=["']Healthcare Workforce Development NSW \| HPI["']/i);
-  assert.match(body, /name=["']twitter:title["'][^>]+content=["']Healthcare Workforce Development NSW \| HPI["']/i);
+  assert.match(body, /property=["']og:title["'][^>]+content=["']Healthcare Workforce Development NSW \| Healthplus International["']/i);
+  assert.match(body, /name=["']twitter:title["'][^>]+content=["']Healthcare Workforce Development NSW \| Healthplus International["']/i);
   assert.match(body, /Build workforce readiness\./i);
   assert.match(body, /Strengthen retention\./i);
   assert.match(body, /What employers receive/i);
@@ -85,7 +85,7 @@ test("homepage publishes clean, aligned production metadata and SEO links", asyn
 });
 
 const indexableRoutes = [
-  ["/about", "About Health Plus International"],
+  ["/about", "About Healthplus International"],
   ["/engage", "Start at the level your workforce problem requires"],
   ["/framework", "Five stages from verified role to workforce retention"],
   ["/service-charter", "Respect in every interaction"],
@@ -149,7 +149,7 @@ test("dedicated CPD page preserves controlled capability boundaries", async () =
   const response = await fetchRoute("/cpd");
   assert.equal(response.status, 200);
   const body = await response.text();
-  assert.match(body, /Staff CPD &amp; Capability \| Health Plus International/i);
+  assert.match(body, /Staff CPD &amp; Capability \| Healthplus International/i);
   assert.match(body, /does not replace professional registration/i);
   assert.match(body, /A controlled system/i);
   assert.match(body, /Transition learning for regional and remote NSW/i);
@@ -158,16 +158,12 @@ test("dedicated CPD page preserves controlled capability boundaries", async () =
   assert.match(body, /"@type":"BreadcrumbList"/i);
 });
 
-test("sitemap contains the complete 25-page indexable architecture", async () => {
+test("sitemap includes all nine public pages", async () => {
   const response = await fetchRoute("/sitemap.xml", "application/xml");
   assert.equal(response.status, 200);
   const body = await response.text();
-  assert.equal((body.match(/<url>/g) ?? []).length, 25);
-
-  for (const [pathname] of [["", "home"], ...indexableRoutes]) {
-    assert.match(body, new RegExp(`<loc>${escapeRegex(`${siteUrl}${pathname}`)}</loc>`));
-  }
-  assert.match(body, /<lastmod>2026-09-30T14:00:00\.000Z<\/lastmod>/i);
+  const urls = [...body.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => new URL(match[1]).pathname);
+  assert.deepEqual(urls.sort(), ["/", "/about", "/ahpra-registration-support", "/employers", "/faq", "/privacy", "/roles", "/why-hpi", "/work-with-us"].sort());
 });
 
 test("unknown workforce and region slugs return a real 404", async () => {

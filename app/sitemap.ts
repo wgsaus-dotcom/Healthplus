@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/work-with-us", "monthly", 0.9],
     ["/roles", "monthly", 0.9],
     ["/about", "monthly", 0.8],
+    ["/why-hpi", "monthly", 0.8],
+    ["/ahpra-registration-support", "monthly", 0.8],
     ["/faq", "monthly", 0.8],
     ["/privacy", "yearly", 0.5],
   ] as const;

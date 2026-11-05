@@ -4,8 +4,8 @@ export const siteUrl = "https://healthplusint.com.au";
 export const seoPages: Record<string, { label: string; title: string; description: string }> = {
   "/": {
     "label": "Home",
-    "title": "Healthcare Workforce Development NSW | HPI",
-    "description": "Health Plus International recruits, employs and places healthcare workers across Sydney and regional NSW. Based in Helensburgh, NSW."
+    "title": "Healthcare Workforce Development NSW | Healthplus International",
+    "description": "Healthplus International recruits, employs and places healthcare workers across Sydney and regional NSW. Based in Helensburgh, NSW."
   },
   "/employers": {
     "label": "Employers",
@@ -25,7 +25,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/about": {
     "label": "About HPI",
     "title": "About HPI and Workforce Development",
-    "description": "Meet Health Plus International, a healthcare workforce development business in Helensburgh, NSW. Read how we work and our service charter."
+    "description": "Meet Healthplus International, a healthcare workforce development business in Helensburgh, NSW. Read how we work and our service charter."
   },
   "/why-hpi": {
     "label": "Why HPI",
@@ -45,7 +45,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/privacy": {
     "label": "Privacy Policy",
     "title": "Privacy Policy",
-    "description": "How Health Plus International collects, uses, stores and protects personal information supplied through healthcare workforce enquiries and registration."
+    "description": "How Healthplus International collects, uses, stores and protects personal information supplied through healthcare workforce enquiries and registration."
   }
 };
 
@@ -56,13 +56,13 @@ export function pageMetadata(path: string): Metadata {
     description: page.description,
     alternates: { canonical: `${siteUrl}${path}` },
     openGraph: {
-      type: "website", locale: "en_AU", siteName: "Health Plus International",
-      title: path === "/" ? page.title : `${page.title} | Health Plus International`,
+      type: "website", locale: "en_AU", siteName: "Healthplus International",
+      title: path === "/" ? page.title : `${page.title} | Healthplus International`,
       description: page.description, url: `${siteUrl}${path}`,
       images: [{ url: `${siteUrl}/assets/hero-hpi-care.webp`, width: 900, height: 600, alt: "Healthcare professional supporting an older woman" }],
     },
     twitter: {
-      card: "summary_large_image", title: path === "/" ? page.title : `${page.title} | Health Plus International`,
+      card: "summary_large_image", title: path === "/" ? page.title : `${page.title} | Healthplus International`,
       description: page.description, images: [`${siteUrl}/assets/hero-hpi-care.webp`],
     },
   };

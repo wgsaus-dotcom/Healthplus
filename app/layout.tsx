@@ -7,11 +7,11 @@ const siteUrl = "https://healthplusint.com.au";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Healthcare Workforce Development NSW | HPI",
-    template: "%s | Health Plus International",
+    default: "Healthcare Workforce Development NSW | Healthplus International",
+    template: "%s | Healthplus International",
   },
   description:
-    "Health Plus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
+    "Healthplus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
   alternates: {
     canonical: "/",
   },
@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_AU",
     url: siteUrl,
-    siteName: "Health Plus International",
-    title: "Healthcare Workforce Development NSW | HPI",
+    siteName: "Healthplus International",
+    title: "Healthcare Workforce Development NSW | Healthplus International",
     description:
-      "Health Plus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
+      "Healthplus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
     images: [
       {
         url: "/assets/hero-hpi-care.webp",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Healthcare Workforce Development NSW | HPI",
+    title: "Healthcare Workforce Development NSW | Healthplus International",
     description:
-      "Health Plus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
+      "Healthplus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
     images: ["/assets/hero-hpi-care.webp"],
   },
   robots: {
@@ -62,14 +62,14 @@ const structuredData = {
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      name: "Health Plus International",
+      name: "Healthplus International",
       legalName: "Westminster Green Solutions Pty Ltd",
       url: siteUrl,
       logo: `${siteUrl}/assets/logo-healthplus-transparent.webp`,
       image: `${siteUrl}/assets/hero-hpi-care.webp`,
       slogan: "People · Care · Compliance",
       description:
-        "Health Plus International is a healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers.",
+        "Healthplus International is a healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers.",
       identifier: {
         "@type": "PropertyValue",
         propertyID: "ABN",
@@ -119,7 +119,7 @@ const structuredData = {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: "Health Plus International",
+      name: "Healthplus International",
       inLanguage: "en-AU",
       publisher: { "@id": `${siteUrl}/#organization` },
     },

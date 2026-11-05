@@ -50,7 +50,7 @@ export default function AhpraRegistrationSupportPage() {
       <div className="policy-content registration-support-content">
         <section className="policy-summary" aria-labelledby="support-intro">
           <h2 id="support-intro">Support through each stage, with you in control</h2>
-          <p>Understanding Australia's nursing registration process can involve documents, assessments, examinations and unfamiliar requirements. Health Plus International can assist with administrative organisation and career-readiness planning while you use official Ahpra and NMBA guidance.</p>
+          <p>Understanding Australia's nursing registration process can involve documents, assessments, examinations and unfamiliar requirements. Healthplus International can assist with administrative organisation and career-readiness planning while you use official Ahpra and NMBA guidance.</p>
         </section>
 
         <section className="policy-section registration-support-services" aria-labelledby="support-areas">

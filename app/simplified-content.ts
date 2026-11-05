@@ -47,7 +47,7 @@ export const responseStandards = [
 ] as const;
 
 export const questions = [
-  ["What is Health Plus International?", "A healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers."],
+  ["What is Healthplus International?", "A healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers."],
   ["Do you train workers?", "No. We recruit, employ and place."],
   ["Who is responsible for clinical care and supervision?", "The facility or host service directs day-to-day work and clinical supervision. HPI employs the worker and checks them for the role."],
   ["Which roles do you place?", "Registered nurses, enrolled nurses, doctors, assistants in nursing, community support workers and allied health professionals."],

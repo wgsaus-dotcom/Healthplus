@@ -13,9 +13,9 @@ const navigation = [
 
 function Brand() {
   return (
-    <a className="hpi-brand" href="/" aria-label="Health Plus International Home">
+    <a className="hpi-brand" href="/" aria-label="Healthplus International Home">
       <img src="/assets/healthplus-mark.webp" alt="" width="180" height="190" />
-      <span><strong>Health Plus International</strong><small>People · Care · Compliance</small></span>
+      <span><strong>Healthplus International</strong><small>People · Care · Compliance</small></span>
     </a>
   );
 }
@@ -68,7 +68,7 @@ export function SiteFooter() {
     <footer className="hpi-footer" id="contact">
       <div className="hpi-footer-columns">
         <div>
-          <a href="/" aria-label="Health Plus International Home" className="hpi-footer-logo"><img src="/assets/logo-healthplus-transparent.webp" alt="Health Plus International" width="158" height="144" loading="lazy" /></a>
+          <a href="/" aria-label="Healthplus International Home" className="hpi-footer-logo"><img src="/assets/logo-healthplus-transparent.webp" alt="Healthplus International" width="158" height="144" loading="lazy" /></a>
           <p className="hpi-footer-tagline">People · Care · Compliance</p>
           <address>Helensburgh, NSW</address>
           <p>Sydney &amp; regional NSW · Australia</p>
@@ -98,13 +98,13 @@ export function SiteFooter() {
           <img src="/assets/aboriginal-flag.webp" alt="Australian Aboriginal flag" width="42" height="28" loading="lazy" />
           <img src="/assets/torres-strait-islander-flag.webp" alt="Torres Strait Islander flag" width="42" height="28" loading="lazy" />
         </div>
-        <div><h2 id="country-heading">Acknowledgement of Country</h2><p>Health Plus International acknowledges the Dharawal people, the Traditional Custodians of the land in Helensburgh where we are based. We pay our respects to Elders past and present, and extend that respect to Aboriginal and Torres Strait Islander peoples across the communities where we work.</p></div>
+        <div><h2 id="country-heading">Acknowledgement of Country</h2><p>Healthplus International acknowledges the Dharawal people, the Traditional Custodians of the land in Helensburgh where we are based. We pay our respects to Elders past and present, and extend that respect to Aboriginal and Torres Strait Islander peoples across the communities where we work.</p></div>
       </section>
       <div className="hpi-footer-bottom">
         <p>Copyright 2026 Westminster Green Solutions Pty Ltd trading as Health Plus International, ABN 13 155 901 723</p>
         <p className="hpi-staff">Staff: <a href="https://staff.healthplusint.com.au/hub" rel="nofollow">Documents</a> · <a href="https://staff.healthplusint.com.au/" rel="nofollow">CRM Login</a></p>
       </div>
-      <a className="hpi-whatsapp-float" href="https://wa.me/61411459755" target="_blank" rel="noopener noreferrer" aria-label="Chat with Health Plus International on WhatsApp">
+      <a className="hpi-whatsapp-float" href="https://wa.me/61411459755" target="_blank" rel="noopener noreferrer" aria-label="Chat with Healthplus International on WhatsApp">
         <span className="hpi-whatsapp-tooltip">Chat with HPI Now</span>
         <svg viewBox="0 0 32 32" width="30" height="30" fill="none" aria-hidden="true">
           <path d="M27 15.5a11 11 0 0 1-16.3 9.65L5 27l1.8-5.8A11 11 0 1 1 27 15.5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
