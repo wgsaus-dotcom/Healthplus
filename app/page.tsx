@@ -31,8 +31,8 @@ export default function Home() {
       <section className="home-hero" aria-labelledby="home-heading">
         <div className="home-hero-heading">
           <div>
-            <p className="atmos-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h1 id="home-heading">We make care possible</h1>
-            <p className="home-subhead">Healthplus International recruits, employs and places healthcare workers in Sydney and Regional NSW.</p>
+            <p className="atmos-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h1 id="home-heading">Healthcare Workforce Development in NSW</h1>
+            <p className="home-subhead">We make care possible. Healthplus International recruits, employs and places Healthcare Workers in Sydney and regional NSW.</p>
           </div>
           <img className="home-hero-image" src="/assets/hero-hpi-care.webp" alt="Healthcare professional supporting an older woman" width="900" height="600" fetchPriority="high" />
         </div>
@@ -76,15 +76,15 @@ export default function Home() {
       </section>
 
       <section className="home-section" aria-labelledby="home-roles-heading">
-        <h2 id="home-roles-heading">We Place</h2><ul className="home-placement-categories"><li><a className="home-text-link" href="/roles#allied-health">Allied Health</a></li><li><a className="home-text-link" href="/roles#nurses">Nurses</a></li><li><a className="home-text-link" href="/roles#doctors">Doctors</a></li></ul>
+        <h2 id="home-roles-heading">Nursing, Aged Care and Support Worker Roles</h2><ul className="home-placement-categories"><li><a className="home-text-link" href="/roles#allied-health">Allied Health</a></li><li><a className="home-text-link" href="/roles#nurses">Nurses</a></li><li><a className="home-text-link" href="/roles#doctors">Doctors</a></li></ul>
         <dl className="home-plain-list">{roles.map(([title, text]) => <div key={title}><dt>{title}</dt><dd>{text}</dd></div>)}</dl>
         <a className="home-text-link" href="/roles">See Positions and How We Check Them</a>
       </section>
 
       <section className="home-section home-coverage" aria-labelledby="home-coverage-heading">
         <h2 id="home-coverage-heading">Sydney and Regional NSW</h2>
-        <p>We operate across metropolitan and regional NSW, delivering services tailored to the needs of healthcare facilities and communities statewide.</p>
-        <a className="home-text-link" href="/employers#where-we-work">Explore Our Regions</a>
+        <p>Based in Helensburgh, we support healthcare employers and Healthcare Workers across Sydney, the Central Coast, Hunter, Riverina and regional NSW. Our workforce development approach connects role-specific readiness, compliance, placement and ongoing support.</p>
+        <a className="home-text-link" href="/employers#where-we-work">Explore Our Regions</a><p><a className="home-text-link" href="/why-hpi">Our workforce development approach</a> · <a className="home-text-link" href="/ahpra-registration-support">Ahpra registration support for overseas nurses</a></p>
       </section>
     </main>
   );

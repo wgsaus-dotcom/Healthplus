@@ -32,7 +32,7 @@ const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
-    if (url.protocol === "http:" && ["healthplusint.com.au", "www.healthplusint.com.au"].includes(url.hostname)) {
+    if (url.hostname === "www.healthplusint.com.au" || (url.protocol === "http:" && url.hostname === "healthplusint.com.au")) {
       url.protocol = "https:";
       url.hostname = "healthplusint.com.au";
       return Response.redirect(url.href, 308);

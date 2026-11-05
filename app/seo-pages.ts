@@ -5,21 +5,21 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/": {
     "label": "Home",
     "title": "Healthcare Workforce Development NSW | Healthplus International",
-    "description": "Healthplus International recruits, employs and places healthcare workers across Sydney and regional NSW. Based in Helensburgh, NSW."
+    "description": "Healthcare workforce development across Sydney and regional NSW. Connect with nurses, aged care and support workers, or register for work with Healthplus."
   },
   "/employers": {
     "label": "Employers",
-    "title": "Healthcare Staffing NSW",
-    "description": "Request healthcare workers for hospitals, aged care and community services across NSW. HPI acknowledges requests and contacts you within one business day."
+    "title": "Nursing & Aged Care Staffing NSW",
+    "description": "Request nurses, aged care and support workers for healthcare services across Sydney and regional NSW, with role-specific compliance and placement support."
   },
   "/work-with-us": {
     "label": "Healthcare Workers",
-    "title": "Healthcare Work in NSW",
-    "description": "Register for healthcare work across Sydney and regional NSW. Upload your r\u00e9sum\u00e9 and complete two short steps with HPI. Compliance documents come later."
+    "title": "Nursing & Support Worker Opportunities NSW",
+    "description": "Register for nursing, aged care and support worker opportunities across NSW. Healthplus employees receive weekly pay and approved training support."
   },
   "/roles": {
     "label": "Positions",
-    "title": "Healthcare Positions in NSW",
+    "title": "Nursing, Aged Care & Allied Health Roles NSW",
     "description": "Explore HPI positions for Nurses, Doctors, Allied Health, Assistants in Nursing, Aged Care Workers and Support Workers across NSW."
   },
   "/about": {
@@ -39,8 +39,8 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/ahpra-registration-support": {
     "label": "AHPRA Support",
-    "title": "AHPRA Support for International Nurses",
-    "description": "Explore administrative registration guidance, document coordination, examination preparation referrals and Australian professional readiness support with HPI."
+    "title": "Ahpra Registration Support for Overseas Nurses",
+    "description": "Fee-for-service Ahpra registration support for internationally qualified nurses: document coordination, pathway guidance and Australian workplace readiness."
   },
   "/privacy": {
     "label": "Privacy Policy",

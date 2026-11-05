@@ -5,11 +5,23 @@ export default function PageSeo({ path }: { path: string }) {
   const url = `${siteUrl}${path}`;
   const graph: Record<string, unknown>[] = [{
     "@type": path === "/about" ? "AboutPage" : path === "/roles" ? "CollectionPage" : "WebPage",
-    "@id": `${url}#webpage`, url, name: page.label, description: page.description,
-    inLanguage: "en-AU", isPartOf: { "@id": `${siteUrl}/#website` },
+    "@id": `${url}#webpage`, url, name: page.title, description: page.description,
+    inLanguage: "en-AU", publisher: { "@id": `${siteUrl}/#organization` }, isPartOf: { "@id": `${siteUrl}/#website` },
     about: { "@id": `${siteUrl}/#organization` },
     ...(path !== "/" ? { breadcrumb: { "@id": `${url}#breadcrumb` } } : {}),
   }];
+  if (path === "/employers" || path === "/ahpra-registration-support") {
+    const serviceId = `${url}#service`;
+    graph[0].mainEntity = { "@id": serviceId };
+    graph.push({
+      "@type": "Service", "@id": serviceId, url,
+      name: path === "/employers" ? "Healthcare workforce development and staffing in NSW" : "Ahpra registration administrative support for internationally qualified nurses",
+      description: page.description,
+      provider: { "@id": `${siteUrl}/#organization` },
+      ...(path === "/employers" ? { areaServed: { "@type": "State", name: "New South Wales" } } : {}),
+      serviceType: path === "/employers" ? "Healthcare workforce recruitment, compliance and placement" : "Administrative registration coordination and professional readiness support",
+    });
+  }
   if (path !== "/") graph.push({
     "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`,
     itemListElement: [
