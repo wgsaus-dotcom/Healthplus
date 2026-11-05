@@ -16,6 +16,9 @@ export default function RegionPhoto({ slug }: { slug: string }) {
     caption: `${photo.place}, NSW`,
     creator: { "@type": "Person", name: photo.author },
     creditText: `Photo: ${photo.author}. Cropped and resized.`,
+    copyrightNotice: photo.license === "CC0 1.0"
+      ? "Public domain (CC0 1.0)"
+      : `© ${photo.author}. Licensed under ${photo.license}.`,
     license: photo.licenseUrl,
     acquireLicensePage: photo.source,
     isBasedOn: photo.source,
