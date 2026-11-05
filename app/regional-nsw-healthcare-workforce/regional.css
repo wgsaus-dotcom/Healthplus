@@ -1,0 +1,31 @@
+.regional-page { --regional-navy:#1b3a6b; --regional-teal:#0b6b6e; color:var(--regional-navy); background:var(--ivory,#faf9f6); font-family:'Public Sans',Arial,sans-serif; line-height:1.65; }
+.regional-hero,.regional-section { padding:clamp(28px,4vw,56px) clamp(22px,5vw,80px); }
+.regional-hero { display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:center; }
+.regional-page h1,.regional-page h2,.regional-page h3 { color:var(--regional-navy); font-family:inherit; line-height:1.18; font-weight:700; letter-spacing:-.025em; }
+.regional-page h1 { font-size:clamp(32px,3.4vw,50px); margin:12px 0 20px; }
+.regional-page h2 { font-size:clamp(27px,2.8vw,38px); margin:0 0 20px; }
+.regional-page h3 { font-size:20px; margin:0 0 12px; }
+.regional-page p { font-size:16px; margin:0 0 16px; max-width:90ch; }
+.regional-page .regional-eyebrow { color:var(--regional-teal); font-size:12px; letter-spacing:.13em; font-weight:700; margin-bottom:12px; }
+.regional-hero figure { margin:0; }
+.regional-hero img { display:block; width:100%; height:auto; aspect-ratio:2/1; object-fit:cover; border-radius:3px; }
+.regional-hero figcaption { font-size:12px; line-height:1.5; margin-top:10px; }
+.regional-page a { color:inherit; text-underline-offset:4px; }
+.regional-text-link { font-weight:700; text-decoration:underline; }
+.regional-actions { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+.regional-page .hpi-action { background:var(--regional-teal); border-color:var(--regional-teal); color:#fff; text-decoration:none; }
+.regional-page .hpi-action:hover { background:#085558; }
+.regional-page .hpi-action-outline { color:var(--regional-teal); background:transparent; }
+.regional-page .hpi-action-outline:hover { background:#0b6b6e0a; }
+.regional-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; margin:28px 0 0; }
+.regional-grid article { border-top:2px solid #0b6b6e40; padding-top:20px; }
+.regional-pathway { background:#7b2d8e08; border-left:4px solid #7b2d8e; }
+.regional-pathway .regional-eyebrow { color:#7b2d8e; }
+.regional-locations { background:#0b6b6e08; }
+.regional-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; padding-left:22px; margin:28px 0; }
+.regional-steps li { padding-left:6px; }
+.regional-steps li::marker { color:var(--regional-teal); font-weight:700; }
+.regional-contact { border-top:1px solid #1b3a6b25; }
+.regional-page a:focus-visible { outline:3px solid var(--regional-teal); outline-offset:5px; }
+@media(max-width:900px) { .regional-hero { grid-template-columns:1fr; gap:24px; } .regional-hero figure { max-width:720px; } .regional-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .regional-steps { grid-template-columns:1fr; gap:12px; } }
+@media(max-width:600px) { .regional-grid { grid-template-columns:1fr; gap:20px; } .regional-actions { flex-direction:column; align-items:stretch; } .regional-page h1 { font-size:34px; } }

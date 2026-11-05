@@ -42,6 +42,11 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
     "title": "Ahpra Registration Support for Overseas Nurses",
     "description": "Fee-for-service Ahpra registration support for internationally qualified nurses: document coordination, pathway guidance and Australian workplace readiness."
   },
+  "/regional-nsw-healthcare-workforce": {
+    label: "Regional NSW",
+    title: "Healthcare Workforce Development & Staffing in Regional NSW",
+    description: "Regional NSW healthcare staffing and workforce development for nursing, aged care and allied health. Request workers or explore regional career pathways."
+  },
   "/privacy": {
     "label": "Privacy Policy",
     "title": "Privacy Policy",

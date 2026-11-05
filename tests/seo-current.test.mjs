@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import worker from '../dist/server/index.js';
-const routes=['/','/employers','/work-with-us','/roles','/about','/why-hpi','/ahpra-registration-support','/faq','/privacy'];
+const routes=['/','/employers','/work-with-us','/roles','/about','/why-hpi','/ahpra-registration-support','/faq','/privacy','/regional-nsw-healthcare-workforce'];
 const env={ASSETS:{fetch:async()=>new Response('Not found',{status:404})}};
 const ctx={waitUntil(){},passThroughOnException(){}};
 const fetchPage=(path)=>worker.fetch(new Request(`https://healthplusint.com.au${path}`),env,ctx);
@@ -22,8 +22,8 @@ test('all public pages have unique metadata, self canonicals and one H1',async()
   if(['/employers','/ahpra-registration-support'].includes(path))assert.ok(data.some(d=>d['@id']===`https://healthplusint.com.au${path}#service`));
  }
 });
-test('sitemap includes all nine canonical public routes and robots advertises it',async()=>{
- const xml=await(await fetchPage('/sitemap.xml')).text();assert.equal((xml.match(/<url>/g)??[]).length,9);
+test('sitemap includes all ten canonical public routes and robots advertises it',async()=>{
+ const xml=await(await fetchPage('/sitemap.xml')).text();assert.equal((xml.match(/<url>/g)??[]).length,10);
  for(const path of routes)assert.ok(xml.includes(`<loc>https://healthplusint.com.au${path==='/'?'':path}</loc>`),path);
  const robots=await(await fetchPage('/robots.txt')).text();assert.match(robots,/Sitemap: https:\/\/healthplusint.com.au\/sitemap.xml/);
 });
@@ -34,3 +34,14 @@ test('HTTP and www permanently consolidate on HTTPS apex preserving path and que
  }
 });
 test('unknown public URLs return 404',async()=>{assert.equal((await fetchPage('/not-a-real-page')).status,404);});
+
+test('regional landing page includes pathway, region links, working CTAs and licensed image', async()=>{
+ const html=await(await fetchPage('/regional-nsw-healthcare-workforce')).text();
+ assert.match(html,/Delivering Dedicated Healthcare Professionals to Regional NSW/);
+ assert.match(html,/href="https:\/\/mccsc.org.au"/);
+ assert.match(html,/href="\/employers#request"/);
+ assert.match(html,/href="\/work-with-us#apply"/);
+ assert.match(html,/Ahpra registration where required/);
+ assert.ok(schemas(html).some(d=>d['@type']==='ImageObject' && d.copyrightNotice && d.license));
+ assert.ok(schemas(html).some(d=>d['@id']==='https://healthplusint.com.au/regional-nsw-healthcare-workforce#service'));
+});

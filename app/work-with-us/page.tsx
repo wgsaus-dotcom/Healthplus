@@ -45,7 +45,7 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
     <div className="inner-form" id="apply"><WorkerApplicationForm initialRole={initialRole} initialRegion={initialRegion} /></div>
     <section className="inner-block worker-regions" aria-labelledby="worker-regions-heading">
       <h2 id="worker-regions-heading">Which Location Would You Prefer to Work In?</h2>
-      <p>Explore healthcare opportunities across metropolitan and regional NSW.</p>
+      <p>Explore healthcare opportunities across metropolitan and regional NSW. <a className="inner-link" href="/regional-nsw-healthcare-workforce">Learn about our regional healthcare employment pathway</a>.</p>
       <div className="worker-region-list">{[{ slug: "sydney", name: "Sydney", places: "Sydney metropolitan area" }, ...regions].map(region => <article key={region.slug}>
         <RegionPhoto slug={region.slug} />
         <h3>{region.name}</h3><p>{region.places}.</p>

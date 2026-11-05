@@ -84,7 +84,7 @@ export default function Home() {
       <section className="home-section home-coverage" aria-labelledby="home-coverage-heading">
         <h2 id="home-coverage-heading">Sydney and Regional NSW</h2>
         <p>Based in Helensburgh, we support healthcare employers and Healthcare Workers across Sydney, the Central Coast, Hunter, Riverina and regional NSW. Our workforce development approach connects role-specific readiness, compliance, placement and ongoing support.</p>
-        <a className="home-text-link" href="/employers#where-we-work">Explore Our Regions</a><p><a className="home-text-link" href="/why-hpi">Our workforce development approach</a> · <a className="home-text-link" href="/ahpra-registration-support">Ahpra registration support for overseas nurses</a></p>
+        <a className="home-text-link" href="/regional-nsw-healthcare-workforce">Explore Our Regional Workforce Pathways</a><p><a className="home-text-link" href="/why-hpi">Our workforce development approach</a> · <a className="home-text-link" href="/ahpra-registration-support">Ahpra registration support for overseas nurses</a></p>
       </section>
     </main>
   );

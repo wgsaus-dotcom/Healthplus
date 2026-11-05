@@ -35,6 +35,7 @@ export function SiteHeader() {
           <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
           {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
           <a href="/faq">FAQ</a>
+          <a href="/regional-nsw-healthcare-workforce">Regional NSW Workforce</a>
           <a href="/privacy">Privacy Policy</a>
         </nav>
       </details>
@@ -88,6 +89,7 @@ export function SiteFooter() {
           {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
           <a href="/ahpra-registration-support">AHPRA Support</a>
           <a href="/faq">FAQ</a>
+          <a href="/regional-nsw-healthcare-workforce">Regional NSW Workforce</a>
           <a href="/privacy">Privacy Policy</a>
           <a href="https://buy.nsw.gov.au/supplier/profile/12466498" target="_blank" rel="noopener noreferrer">Buy NSW Supplier Profile</a>
           <a href="https://au.linkedin.com/company/health-plus-international-australia" target="_blank" rel="noopener noreferrer">LinkedIn</a>

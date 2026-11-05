@@ -10,16 +10,17 @@ export default function PageSeo({ path }: { path: string }) {
     about: { "@id": `${siteUrl}/#organization` },
     ...(path !== "/" ? { breadcrumb: { "@id": `${url}#breadcrumb` } } : {}),
   }];
-  if (path === "/employers" || path === "/ahpra-registration-support") {
+  const workforceService = path === "/employers" || path === "/regional-nsw-healthcare-workforce";
+  if (workforceService || path === "/ahpra-registration-support") {
     const serviceId = `${url}#service`;
     graph[0].mainEntity = { "@id": serviceId };
     graph.push({
       "@type": "Service", "@id": serviceId, url,
-      name: path === "/employers" ? "Healthcare workforce development and staffing in NSW" : "Ahpra registration administrative support for internationally qualified nurses",
+      name: workforceService ? "Healthcare workforce development and staffing in NSW" : "Ahpra registration administrative support for internationally qualified nurses",
       description: page.description,
       provider: { "@id": `${siteUrl}/#organization` },
-      ...(path === "/employers" ? { areaServed: { "@type": "State", name: "New South Wales" } } : {}),
-      serviceType: path === "/employers" ? "Healthcare workforce recruitment, compliance and placement" : "Administrative registration coordination and professional readiness support",
+      ...(workforceService ? { areaServed: { "@type": "State", name: "New South Wales" } } : {}),
+      serviceType: workforceService ? "Healthcare workforce recruitment, compliance and placement" : "Administrative registration coordination and professional readiness support",
     });
   }
   if (path !== "/") graph.push({

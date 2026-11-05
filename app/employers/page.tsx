@@ -31,6 +31,7 @@ export default async function EmployersPage({ searchParams }: { searchParams?: P
         <a className="inner-link region-map-link" href={`https://www.openstreetmap.org/search?query=${encodeURIComponent(region.name + " Australia")}`} target="_blank" rel="noopener noreferrer">View {region.name} on a map<span aria-hidden="true"> ↗</span></a>
         <a className="inner-link region-map-link" href={`/work-with-us?region=${region.slug}#apply`} aria-label={`Find Healthcare Work in ${region.name}`}>Find Healthcare Work</a>
       </article>)}</div>
+      <p><a className="inner-link" href="/regional-nsw-healthcare-workforce">Explore our regional NSW healthcare workforce pathway</a></p>
       <NSWMap />
     </section>
   </main>;
