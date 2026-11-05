@@ -14,20 +14,21 @@ const strengths = [
 ] as const;
 
 const comparisons = [
-  ["Starting point","A request for available staff","A discussion about workforce needs, service context and continuity"],
-  ["Candidate assessment","Matching availability and basic requirements","Role-specific credential evidence, readiness and suitability coordination"],
-  ["Commencement","Filling an immediate shift or vacancy","Planned commencement, agreed expectations and induction coordination"],
-  ["After commencement","Support varies by agency and arrangement","Early follow-up, feedback and workforce-development support where agreed"],
-  ["Longer-term focus","Often centred on filling demand","Building workforce readiness, stability and retention"],
+  ["The question we address","Who can cover this shift or vacancy?","What people, preparation and support will help this service build a dependable workforce?"],
+  ["Before recruitment","Confirm the assignment, hours and required skills","Understand the care setting, role scope, roster, location and continuity needs before matching people"],
+  ["Readiness","Meet the requirements of the assignment","Coordinate role-specific checks and identify preparation or development needs before commencement"],
+  ["Starting work","Confirm the booking and start arrangements","Agree expectations, induction responsibilities, communication and practical regional arrangements"],
+  ["During the engagement","Manage the staffing assignment","Follow up early, address feedback and coordinate agreed workforce and development support"],
+  ["Longer-term purpose","Provide staff for a defined period","Support professional growth, workforce continuity and retention alongside the placement"],
 ] as const;
 
 export default function WhyHPIPage() {
   return <main className="difference-page"><PageSeo path="/why-hpi" />
     <header className="difference-hero">
       <div className="difference-hero-copy">
-        <p className="difference-eyebrow">THE HEALTH PLUS INTERNATIONAL APPROACH</p>
-        <h1>We are the bridge.<span>More than labour hire. Workforce development that looks further.</span></h1>
-        <p>Connecting healthcare organisations with people, professional readiness and sustainable career pathways — because filling a vacancy is only the beginning.</p>
+        <p className="difference-eyebrow">THE HEALTHPLUS INTERNATIONAL APPROACH</p>
+        <h1>We are the bridge.<span>From filling roles to developing a workforce.</span></h1>
+        <p>We recruit, employ and place Healthcare Workers. Our workforce development approach connects that placement with role readiness, planned onboarding, professional growth and ongoing support.</p>
         <div className="difference-actions">
           <a className="hpi-action" href="/employers#request">Discuss Your Workforce Needs</a>
           <a className="difference-secondary" href="#our-approach">Explore Our Approach</a>
@@ -38,8 +39,8 @@ export default function WhyHPIPage() {
 
     <section className="difference-intro" aria-labelledby="difference-intro-heading">
       <p className="difference-eyebrow">PEOPLE · CARE · COMPLIANCE</p>
-      <h2 id="difference-intro-heading">A different starting point</h2>
-      <p>Conventional agency staffing can play an important role when healthcare services need additional workers. HPI's workforce-development approach extends beyond sourcing staff. We seek to understand the service, coordinate the right checks and prepare for a supported commencement and ongoing engagement.</p>
+      <h2 id="difference-intro-heading">What is the difference between staffing and workforce development?</h2>
+      <p>Staffing meets a need for people to perform a role. Workforce development also considers what helps those people become ready, settle into the workplace, develop their capability and stay. HPI brings these activities together around the needs of a healthcare service and the people working within it.</p>
       <p>Established following consultation with <a href="https://immi.homeaffairs.gov.au/visas/employing-and-sponsoring-someone/business-industry-and-regional-outreach" target="_blank" rel="noopener noreferrer" className="inner-link">the Department of Home Affairs’ Business, Industry and Regional Outreach (BIRO) team</a>, HPI was shaped around workforce development as a bridge between employer needs and sustainable healthcare careers. Our aim is not simply to fill a position: it is to help build a dependable workforce relationship with clear expectations on both sides.</p>
     </section>
 
@@ -57,15 +58,37 @@ export default function WhyHPIPage() {
       </div>
     </section>
 
+    <section className="difference-section difference-outcomes" aria-labelledby="difference-outcomes-heading">
+      <div className="difference-section-heading"><p className="difference-eyebrow">WHAT THIS MEANS FOR YOU</p><h2 id="difference-outcomes-heading">Practical support on both sides of the placement</h2></div>
+      <div className="difference-audiences">
+        <article><h3>For healthcare employers</h3><ul>
+          <li><strong>A role understood in context:</strong> duties, care setting, required experience, roster, location and supervision arrangements.</li>
+          <li><strong>Role-specific readiness:</strong> registration where required, qualifications, work rights, relevant screening and suitability checks.</li>
+          <li><strong>A coordinated start:</strong> clear commencement arrangements and an agreed division of induction and workplace responsibilities.</li>
+          <li><strong>A contact beyond the booking:</strong> early follow-up and a route for raising feedback or changing workforce requirements.</li>
+        </ul><a className="difference-secondary" href="/employers#request">Discuss your service’s workforce needs</a></article>
+        <article><h3>For Healthcare Workers</h3><ul>
+          <li><strong>A pathway based on your goals:</strong> your experience, preferred location, availability and readiness guide the conversation.</li>
+          <li><strong>Clear preparation:</strong> guidance on the evidence and checks needed for a suitable role, followed by commencement planning.</li>
+          <li><strong>CPD and support to develop:</strong> guidance on continuing professional development and funding for selected, pre-approved role-relevant courses, with the course and budget agreed before enrolment.</li>
+          <li><strong>Support to settle in:</strong> early placement follow-up and discussion of practical regional arrangements before you commit.</li>
+        </ul><a className="difference-secondary" href="/work-with-us">Explore working with Healthplus</a></article>
+      </div><p className="difference-scope">The service scope, support arrangements and responsibilities are agreed for each engagement. Development funding is subject to prior approval.</p>
+    </section>
+
+    <section className="difference-section difference-example" aria-labelledby="difference-example-heading">
+      <div className="difference-section-heading"><p className="difference-eyebrow">AN ILLUSTRATIVE EXAMPLE</p><h2 id="difference-example-heading">A regional facility needs Registered Nurses</h2><p>The immediate need is to fill roles. The wider challenge may include continuity, suitable experience, regional relocation and helping new staff settle in.</p><p>HPI starts with the facility’s role and roster requirements, assesses candidate readiness and coordinates the agreed commencement arrangements. Before the start, the facility and worker clarify induction, supervision and any travel or accommodation arrangements. After commencement, early follow-up provides an opportunity to address feedback and discuss agreed development needs.</p><p><strong>That is the added value:</strong> connecting recruitment and placement with the preparation and support needed for a workable employment relationship.</p><a className="difference-secondary" href="/regional-nsw-healthcare-workforce">Explore our regional NSW workforce pathway</a></div>
+    </section>
+
     <section className="difference-section difference-compare" aria-labelledby="difference-compare-heading">
       <div className="difference-section-heading">
         <p className="difference-eyebrow">A PRACTICAL COMPARISON</p>
         <h2 id="difference-compare-heading">What makes our approach different?</h2>
-        <p>These are broad service-model comparisons, not claims that every labour hire provider operates in the same way.</p>
+        <p>Staffing providers can also offer development and retention services. This comparison explains the scope HPI brings to an engagement; it does not suggest that compliance or worker support is unique to us.</p>
       </div>
       <div className="difference-table-wrap">
         <table>
-          <thead><tr><th scope="col">Consideration</th><th scope="col">Conventional short-term staffing focus</th><th scope="col">HPI workforce-development focus</th></tr></thead>
+          <thead><tr><th scope="col">Consideration</th><th scope="col">Staffing assignment focus</th><th scope="col">HPI workforce-development focus</th></tr></thead>
           <tbody>{comparisons.map(([topic,traditional,hpi])=><tr key={topic}><th scope="row">{topic}</th><td>{traditional}</td><td>{hpi}</td></tr>)}</tbody>
         </table>
       </div>

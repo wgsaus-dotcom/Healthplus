@@ -29,8 +29,8 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/why-hpi": {
     "label": "Why HPI",
-    "title": "More Than Labour Hire | The HPI Difference",
-    "description": "HPI is the bridge connecting healthcare workforce needs with people, professional readiness and long-term workforce development across NSW."
+    "title": "Workforce Development & Labour Hire | The HPI Difference",
+    "description": "See how Healthplus connects healthcare staffing with role readiness, onboarding, professional development and ongoing workforce support across NSW."
   },
   "/faq": {
     "label": "FAQ",
