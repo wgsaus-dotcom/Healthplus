@@ -27,7 +27,10 @@ export default function PageSeo({ path }: { path: string }) {
     "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: page.label, item: url },
+      ...(path === "/regional-nsw-healthcare-workforce" ? [
+        { "@type": "ListItem", position: 2, name: "Healthcare Workers", item: `${siteUrl}/work-with-us` },
+        { "@type": "ListItem", position: 3, name: page.label, item: url },
+      ] : [{ "@type": "ListItem", position: 2, name: page.label, item: url }]),
     ],
   });
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c") }} />;

@@ -45,3 +45,11 @@ test('regional landing page includes pathway, region links, working CTAs and lic
  assert.ok(schemas(html).some(d=>d['@type']==='ImageObject' && d.copyrightNotice && d.license));
  assert.ok(schemas(html).some(d=>d['@id']==='https://healthplusint.com.au/regional-nsw-healthcare-workforce#service'));
 });
+
+test('regional SEO follows Healthcare Workers hierarchy and uses the regional social image',async()=>{
+ const html=await(await fetchPage('/regional-nsw-healthcare-workforce')).text();
+ const breadcrumb=schemas(html).find(d=>d['@type']==='BreadcrumbList');
+ assert.deepEqual(breadcrumb.itemListElement.map(i=>[i.position,i.item]),[[1,'https://healthplusint.com.au/'],[2,'https://healthplusint.com.au/work-with-us'],[3,'https://healthplusint.com.au/regional-nsw-healthcare-workforce']]);
+ assert.match(html,/<meta property="og:image" content="https:\/\/healthplusint.com.au\/assets\/regions\/murrumbidgee.webp"/);
+ assert.match(html,/<title>Regional NSW Healthcare Workforce \| Healthplus International<\/title>/);
+});

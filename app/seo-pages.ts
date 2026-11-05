@@ -15,7 +15,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/work-with-us": {
     "label": "Healthcare Workers",
     "title": "Nursing & Support Worker Opportunities NSW",
-    "description": "Register for nursing, aged care and support worker opportunities across NSW. Healthplus employees receive weekly pay and approved training support."
+    "description": "Explore nursing, aged care and support work across NSW with Healthplus. Weekly pay, free uniforms for nursing and support staff, plus CPD and training support."
   },
   "/roles": {
     "label": "Positions",
@@ -29,7 +29,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/why-hpi": {
     "label": "Why HPI",
-    "title": "Workforce Development & Labour Hire | The HPI Difference",
+    "title": "Workforce Development vs Labour Hire",
     "description": "See how Healthplus connects healthcare staffing with role readiness, onboarding, professional development and ongoing workforce support across NSW."
   },
   "/faq": {
@@ -44,7 +44,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/regional-nsw-healthcare-workforce": {
     label: "Regional NSW",
-    title: "Healthcare Workforce Development & Staffing in Regional NSW",
+    title: "Regional NSW Healthcare Workforce",
     description: "Regional NSW healthcare staffing and workforce development for nursing, aged care and allied health. Request workers or explore regional career pathways."
   },
   "/privacy": {
@@ -56,6 +56,9 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
 
 export function pageMetadata(path: string): Metadata {
   const page = seoPages[path];
+  const socialImage = path === "/regional-nsw-healthcare-workforce"
+    ? { url: `${siteUrl}/assets/regions/murrumbidgee.webp`, width: 960, height: 480, alt: "Wagga Wagga in the Riverina, regional New South Wales" }
+    : { url: `${siteUrl}/assets/hero-hpi-care.webp`, width: 900, height: 600, alt: "Healthcare professional supporting an older woman" };
   return {
     title: path === "/" ? { absolute: page.title } : page.title,
     description: page.description,
@@ -64,11 +67,11 @@ export function pageMetadata(path: string): Metadata {
       type: "website", locale: "en_AU", siteName: "Healthplus International",
       title: path === "/" ? page.title : `${page.title} | Healthplus International`,
       description: page.description, url: `${siteUrl}${path}`,
-      images: [{ url: `${siteUrl}/assets/hero-hpi-care.webp`, width: 900, height: 600, alt: "Healthcare professional supporting an older woman" }],
+      images: [socialImage],
     },
     twitter: {
       card: "summary_large_image", title: path === "/" ? page.title : `${page.title} | Healthplus International`,
-      description: page.description, images: [`${siteUrl}/assets/hero-hpi-care.webp`],
+      description: page.description, images: [socialImage.url],
     },
   };
 }
