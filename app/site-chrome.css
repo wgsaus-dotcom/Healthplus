@@ -97,3 +97,20 @@ footer.hpi-footer { background:var(--ivory); border-top:1px solid #09243b20; col
 .hpi-footer#contact { scroll-margin-top:110px; }
 
 .hpi-desktop-nav a, .hpi-mobile-menu nav > a, .hpi-action, .hpi-whatsapp-tooltip { font-weight:600; }
+
+/* Regional workforce content belongs to the Healthcare Workers menu. */
+.hpi-worker-menu { position:relative; }
+.hpi-worker-menu > summary { display:flex; align-items:center; gap:7px; color:var(--navy); cursor:pointer; list-style:none; white-space:nowrap; font-size:clamp(13px,1.04vw,16px); font-weight:600; line-height:1.4; padding:12px 0; }
+.hpi-worker-menu > summary::-webkit-details-marker { display:none; }
+.hpi-worker-menu > summary::after { content:""; width:6px; height:6px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg); margin-top:-3px; }
+.hpi-worker-menu[open] > summary::after { transform:rotate(225deg); margin-top:3px; }
+.hpi-worker-submenu { position:absolute; top:100%; left:0; min-width:245px; padding:10px; border:1px solid #09243b20; border-radius:10px; background:var(--ivory); box-shadow:0 8px 24px #09243b20; z-index:70; }
+.hpi-worker-submenu a { display:block; padding:12px; border-radius:5px; color:var(--navy); font-size:15px; font-weight:600; white-space:normal; }
+.hpi-worker-submenu a:hover { background:#09243b08; }
+.hpi-worker-menu > summary:focus-visible { outline:2px solid var(--navy); outline-offset:4px; }
+.hpi-footer-links .hpi-footer-sublink { padding-left:16px; border-left:2px solid #09243b30; }
+@media(max-width:1250px) {
+ .hpi-mobile-menu .hpi-worker-menu > summary { flex-direction:row; justify-content:space-between; width:auto; min-height:44px; padding:12px 14px; font-size:16px; gap:7px; }
+ .hpi-mobile-menu .hpi-worker-submenu { position:static; min-width:0; box-shadow:none; border:0; border-left:2px solid #09243b20; border-radius:0; padding:0 0 0 12px; margin:0 14px 10px; }
+ .hpi-mobile-menu .hpi-worker-submenu a { font-size:16px; }
+}

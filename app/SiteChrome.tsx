@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import "./site-chrome.css";
 import "./atmos.css";
 
@@ -5,12 +6,23 @@ const navigation = [
   ["About HPI", "/about"],
   ["Why HPI", "/why-hpi"],
   ["Employers", "/employers"],
-  ["Regional NSW", "/regional-nsw-healthcare-workforce"],
   ["Healthcare Workers", "/work-with-us"],
   ["AHPRA Support", "/ahpra-registration-support"],
   ["Positions", "/roles"],
   ["Contact Us", "#contact"],
 ] as const;
+
+function NavigationLinks() {
+  return navigation.map(([label, href]) => href === "/work-with-us" ? (
+    <details className="hpi-worker-menu" key={href}>
+      <summary>Healthcare Workers</summary>
+      <div className="hpi-worker-submenu">
+        <a href="/work-with-us">Why work with Healthplus?</a>
+        <a href="/regional-nsw-healthcare-workforce">Regional NSW Workforce</a>
+      </div>
+    </details>
+  ) : <a key={href} href={href}>{label}</a>);
+}
 
 function Brand() {
   return (
@@ -26,7 +38,7 @@ export function SiteHeader() {
     <header className="hpi-header">
       <Brand />
       <nav className="hpi-desktop-nav" aria-label="Primary Navigation">
-        {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
+        <NavigationLinks />
       </nav>
       <a className="hpi-action hpi-header-action" href="/employers#request">Request Workers</a>
       <details className="hpi-mobile-menu">
@@ -34,7 +46,7 @@ export function SiteHeader() {
         <nav aria-label="Mobile Navigation">
           <a className="hpi-action" href="/employers#request">Request Workers</a>
           <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
-          {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
+          <NavigationLinks />
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
         </nav>
@@ -86,7 +98,7 @@ export function SiteFooter() {
 
         <nav className="hpi-footer-links" aria-label="Footer Navigation">
           <h2>Links</h2>
-          {navigation.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
+          {navigation.map(([label, href]) => <Fragment key={href}><a href={href}>{label}</a>{href === "/work-with-us" && <a className="hpi-footer-sublink" href="/regional-nsw-healthcare-workforce">Regional NSW Workforce</a>}</Fragment>)}
           <a href="/ahpra-registration-support">AHPRA Support</a>
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
