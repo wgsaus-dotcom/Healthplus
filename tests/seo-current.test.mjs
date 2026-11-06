@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import worker from '../dist/server/index.js';
-const routes=['/','/employers','/work-with-us','/roles','/about','/why-hpi','/ahpra-registration-support','/faq','/privacy','/regional-nsw-healthcare-workforce'];
+const routes=['/','/employers','/work-with-us','/roles','/about','/why-hpi','/ahpra-registration-support','/faq','/privacy','/regional-nsw-healthcare-workforce','/aged-care-workforce-nsw'];
 const env={ASSETS:{fetch:async()=>new Response('Not found',{status:404})}};
 const ctx={waitUntil(){},passThroughOnException(){}};
 const fetchPage=(path)=>worker.fetch(new Request(`https://healthplusint.com.au${path}`),env,ctx);
@@ -22,8 +22,8 @@ test('all public pages have unique metadata, self canonicals and one H1',async()
   if(['/employers','/ahpra-registration-support'].includes(path))assert.ok(data.some(d=>d['@id']===`https://healthplusint.com.au${path}#service`));
  }
 });
-test('sitemap includes all ten canonical public routes and robots advertises it',async()=>{
- const xml=await(await fetchPage('/sitemap.xml')).text();assert.equal((xml.match(/<url>/g)??[]).length,10);
+test('sitemap includes all eleven canonical public routes and robots advertises it',async()=>{
+ const xml=await(await fetchPage('/sitemap.xml')).text();assert.equal((xml.match(/<url>/g)??[]).length,11);
  for(const path of routes)assert.ok(xml.includes(`<loc>https://healthplusint.com.au${path==='/'?'':path}</loc>`),path);
  const robots=await(await fetchPage('/robots.txt')).text();assert.match(robots,/Sitemap: https:\/\/healthplusint.com.au\/sitemap.xml/);
 });
@@ -82,4 +82,23 @@ test('retired static links and URL variants redirect once to working canonical p
  const unknown=await fetchPage('/not-a-real-page/');
  assert.equal(unknown.status,308);
  assert.equal((await fetchPage(new URL(unknown.headers.get('location'),'https://healthplusint.com.au').pathname)).status,404);
+});
+
+
+test('aged care page has matching FAQ, service, employer hierarchy and working conversion links',async()=>{
+ const html=await(await fetchPage('/aged-care-workforce-nsw')).text();
+ const data=schemas(html);
+ assert.match(html,/<title>Aged Care Workforce Providers NSW \| Healthplus International<\/title>/);
+ assert.ok(data.some(d=>d['@id']==='https://healthplusint.com.au/aged-care-workforce-nsw#service'));
+ const breadcrumb=data.find(d=>d['@type']==='BreadcrumbList');
+ assert.deepEqual(breadcrumb.itemListElement.map(i=>i.item),['https://healthplusint.com.au/','https://healthplusint.com.au/employers','https://healthplusint.com.au/aged-care-workforce-nsw']);
+ const faq=data.find(d=>d['@type']==='FAQPage');assert.equal(faq.mainEntity.length,6);
+ for(const q of faq.mainEntity){assert.ok(html.includes(q.name));assert.ok(html.includes(q.acceptedAnswer.text));}
+ assert.match(html,/href="\/employers#request"/);
+ assert.match(html,/href="\/regional-nsw-healthcare-workforce"/);
+ assert.doesNotMatch(html,/<form\b/);
+ assert.match(html,/1 November 2025/);
+ assert.match(html,/Your facility remains responsible/);
+ const employer=await(await fetchPage('/employers')).text();assert.match(employer,/href="\/aged-care-workforce-nsw"/);assert.match(employer,/id="request"/);
+ for(const link of [...html.matchAll(/href="(\/roles#[^"]+)"/g)]){const [path,id]=link[1].split('#');const target=await(await fetchPage(path)).text();assert.ok(target.includes(`id="${id}"`));}
 });

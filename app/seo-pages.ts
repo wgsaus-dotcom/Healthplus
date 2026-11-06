@@ -47,6 +47,11 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
     title: "Regional NSW Healthcare Workforce",
     description: "Regional NSW nursing recruitment, aged care staffing and allied health workforce development. Request Healthcare Workers or explore regional career pathways."
   },
+  "/aged-care-workforce-nsw": {
+    label: "Aged Care Workforce",
+    title: "Aged Care Workforce Providers NSW",
+    description: "Request RNs, ENs and care workers for NSW aged care facilities. Healthplus supports roster planning with role-specific checks and placement coordination."
+  },
   "/privacy": {
     "label": "Privacy Policy",
     "title": "Privacy Policy",

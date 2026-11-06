@@ -10,13 +10,14 @@ export default function PageSeo({ path }: { path: string }) {
     about: { "@id": `${siteUrl}/#organization` },
     ...(path !== "/" ? { breadcrumb: { "@id": `${url}#breadcrumb` } } : {}),
   }];
-  const workforceService = path === "/employers" || path === "/regional-nsw-healthcare-workforce";
+  const agedCare = path === "/aged-care-workforce-nsw";
+  const workforceService = agedCare || path === "/employers" || path === "/regional-nsw-healthcare-workforce";
   if (workforceService || path === "/ahpra-registration-support") {
     const serviceId = `${url}#service`;
     graph[0].mainEntity = { "@id": serviceId };
     graph.push({
       "@type": "Service", "@id": serviceId, url,
-      name: workforceService ? "Healthcare workforce development and staffing in NSW" : "Ahpra registration administrative support for internationally qualified nurses",
+      name: agedCare ? "Aged care workforce providers in NSW" : workforceService ? "Healthcare workforce development and staffing in NSW" : "Ahpra registration administrative support for internationally qualified nurses",
       description: page.description,
       provider: { "@id": `${siteUrl}/#organization` },
       ...(workforceService ? { areaServed: { "@type": "State", name: "New South Wales" } } : {}),
@@ -27,7 +28,10 @@ export default function PageSeo({ path }: { path: string }) {
     "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      ...(path === "/regional-nsw-healthcare-workforce" ? [
+      ...(agedCare ? [
+        { "@type": "ListItem", position: 2, name: "Employers", item: `${siteUrl}/employers` },
+        { "@type": "ListItem", position: 3, name: page.label, item: url },
+      ] : path === "/regional-nsw-healthcare-workforce" ? [
         { "@type": "ListItem", position: 2, name: "Healthcare Workers", item: `${siteUrl}/work-with-us` },
         { "@type": "ListItem", position: 3, name: page.label, item: url },
       ] : [{ "@type": "ListItem", position: 2, name: page.label, item: url }]),

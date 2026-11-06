@@ -1,0 +1,24 @@
+.aged-care-page { padding-top:20px; }
+.aged-breadcrumb { font-size:13px; margin-bottom:30px; color:var(--navy); }
+.aged-breadcrumb a { text-underline-offset:3px; }
+.aged-eyebrow { font-size:12px!important; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin:0 0 14px!important; }
+.aged-hero { display:grid; grid-template-columns:1.1fr 1fr; align-items:center; gap:clamp(24px,4vw,64px); }
+.aged-hero h1 { font-size:clamp(32px,4vw,58px); margin:0 0 20px; max-width:21ch; }
+.aged-hero p { max-width:65ch; }
+.aged-lead { font-size:21px; font-weight:600; }
+.aged-hero img { width:100%; height:auto; border-radius:3px; }
+.aged-response { font-size:13px; margin:18px 0 0; }
+.aged-trust { display:flex; flex-wrap:wrap; gap:14px 30px; list-style:none; padding:22px 0; margin:30px 0 0; border-block:1px solid #09243b25; font-size:14px; font-weight:600; }
+.aged-trust li::before { content:'✓'; margin-right:8px; color:#26745e; }
+.aged-intro { display:grid; grid-template-columns:1fr 1.6fr; gap:32px; }
+.aged-role-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.aged-role-grid article { padding:24px; border:1px solid #09243b25; background:var(--paper); }
+.aged-role-grid h3 { margin-top:0; }
+.aged-checks { background:#e8efea; padding:clamp(24px,4vw,44px); margin-block:18px; }
+.aged-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); list-style:none; gap:32px; padding:0!important; }
+.aged-steps li { border-top:2px solid #09243b30; padding-top:18px; }
+.aged-steps span { font-size:28px; color:#26745e; }
+.aged-contact { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; border-top:1px solid #09243b25; margin-top:24px; padding:32px 0; }
+.aged-contact h2 { font-size:30px; margin:0 0 14px; }
+.aged-contact p { max-width:70ch; }
+@media(max-width:760px) { .aged-hero,.aged-intro,.aged-role-grid,.aged-steps { grid-template-columns:1fr; } .aged-hero img { max-height:320px; object-fit:cover; } .aged-trust { gap:12px; flex-direction:column; } .aged-intro { gap:8px; } .aged-contact .hpi-action { width:100%; text-align:center; } }
