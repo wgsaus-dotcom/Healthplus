@@ -13,6 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "https://healthplusint.com.au/assets/hpi-happy-healthcare-team.webp",
         ...Object.keys(regionPhotos).map(slug => `https://healthplusint.com.au/assets/regions/${slug}.webp`),
       ],
-    } : path === "/regional-nsw-healthcare-workforce" ? { images: [`${siteUrl}/assets/regions/murrumbidgee.webp`] } : path === "/aged-care-workforce-nsw" ? { images: [`${siteUrl}/assets/aged-care-workforce-team.webp`] } : path === "/" ? { images: ["https://healthplusint.com.au/assets/hero-hpi-care.webp"] } : {}),
+    } : path === "/regional-nsw-healthcare-workforce" ? { images: [`${siteUrl}/assets/regions/murrumbidgee.webp`] } : path === "/aged-care-workforce-nsw" ? { images: [`${siteUrl}/assets/aged-care-workforce-community.webp`] } : path === "/" ? { images: ["https://healthplusint.com.au/assets/hero-hpi-care.webp"] } : {}),
   }));
 }
