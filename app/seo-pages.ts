@@ -61,7 +61,9 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
 
 export function pageMetadata(path: string): Metadata {
   const page = seoPages[path];
-  const socialImage = path === "/regional-nsw-healthcare-workforce"
+  const socialImage = path === "/aged-care-workforce-nsw"
+    ? { url: `${siteUrl}/assets/aged-care-workforce-team.webp`, width: 1440, height: 810, alt: "Healthcare workers forming two hands around a heart made of older adults" }
+    : path === "/regional-nsw-healthcare-workforce"
     ? { url: `${siteUrl}/assets/regions/murrumbidgee.webp`, width: 960, height: 480, alt: "Wagga Wagga in the Riverina, regional New South Wales" }
     : { url: `${siteUrl}/assets/hero-hpi-care.webp`, width: 900, height: 600, alt: "Healthcare professional supporting an older woman" };
   return {

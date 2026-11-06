@@ -38,7 +38,7 @@ export default function AgedCareWorkforcePage() {
         <div className="inner-actions"><a className="hpi-action" href="/employers#request">Request a Staffing Proposal</a><a className="inner-link" href="tel:+61411459755">Speak to Our Team</a></div>
         <p className="aged-response">Acknowledgement and initial contact within one business day.</p>
       </div>
-      <img src="/assets/hero-hpi-care.webp" alt="Healthcare professional sharing a warm moment with an older woman" width="900" height="600" fetchPriority="high" />
+      <img src="/assets/aged-care-workforce-team.webp" alt="Healthcare workers forming two hands around a heart made of older adults" width="1440" height="810" fetchPriority="high" />
     </header>
     <ul className="aged-trust" aria-label="Our workforce approach"><li>Registration checks for nurses</li><li>Role-specific screening</li><li>Planned onboarding</li><li>Early-placement follow-up</li></ul>
 
