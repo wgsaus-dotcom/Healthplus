@@ -9,13 +9,13 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/employers": {
     "label": "Employers",
-    "title": "Nursing & Aged Care Staffing NSW",
-    "description": "Request nurses, aged care and support workers for healthcare services across Sydney and regional NSW, with role-specific compliance and placement support."
+    "title": "Nursing Agency & Healthcare Labour Hire NSW",
+    "description": "Looking for a nursing agency or healthcare labour hire in Sydney or regional NSW? Request nurses, aged care and support workers with Healthplus."
   },
   "/work-with-us": {
     "label": "Healthcare Workers",
-    "title": "Nursing & Support Worker Opportunities NSW",
-    "description": "Explore nursing, aged care and support work across NSW with Healthplus. Weekly pay, free uniforms for nursing and support staff, plus CPD and training support."
+    "title": "Nursing Careers & Employer Sponsorship NSW",
+    "description": "Explore NSW nursing and support work. Ask about business sponsorship, including the Skills in Demand visa (subclass 482 / SC482), subject to eligibility."
   },
   "/roles": {
     "label": "Positions",
@@ -29,8 +29,8 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/why-hpi": {
     "label": "Why HPI",
-    "title": "Workforce Development vs Labour Hire",
-    "description": "See how Healthplus connects healthcare staffing with role readiness, onboarding, professional development and ongoing workforce support across NSW."
+    "title": "Nursing Agency, Labour Hire & Workforce Development",
+    "description": "Comparing nursing agencies and healthcare labour hire? Explore Healthplus’s NSW workforce development approach, from readiness and placement to ongoing support."
   },
   "/faq": {
     "label": "FAQ",
@@ -45,7 +45,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/regional-nsw-healthcare-workforce": {
     label: "Regional NSW",
     title: "Regional NSW Healthcare Workforce",
-    description: "Regional NSW healthcare staffing and workforce development for nursing, aged care and allied health. Request workers or explore regional career pathways."
+    description: "Regional NSW nursing recruitment, aged care staffing and allied health workforce development. Request Healthcare Workers or explore regional career pathways."
   },
   "/privacy": {
     "label": "Privacy Policy",

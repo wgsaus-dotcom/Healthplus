@@ -53,3 +53,33 @@ test('regional SEO follows Healthcare Workers hierarchy and uses the regional so
  assert.match(html,/<meta property="og:image" content="https:\/\/healthplusint.com.au\/assets\/regions\/murrumbidgee.webp"/);
  assert.match(html,/<title>Regional NSW Healthcare Workforce \| Healthplus International<\/title>/);
 });
+
+test('agency and sponsorship search metadata stays conditional and visible copy is preserved', async()=>{
+ const employers=await(await fetchPage('/employers')).text();
+ assert.match(employers,/<title>Nursing Agency &amp; Healthcare Labour Hire NSW/);
+ assert.match(employers,/<h1>Request Healthcare Workers for Your NSW Facility<\/h1>/);
+ const workers=await(await fetchPage('/work-with-us')).text();
+ const description=workers.match(/<meta name="description" content="([^"]*)"/)?.[1];
+ assert.match(description,/business sponsorship/);
+ assert.match(description,/Skills in Demand visa \(subclass 482 \/ SC482\), subject to eligibility/);
+ assert.match(workers,/Build Your Healthcare Career with Healthplus\./);
+ assert.match(workers,/sponsorship is not guaranteed/);
+});
+
+test('retired static links and URL variants redirect once to working canonical pages and anchors',async()=>{
+ const links=[['/index.html','/',''],['/about.html','/about',''],['/contact.html','/','#contact'],['/join.html','/work-with-us','#apply'],['/submit-a-request.html','/employers','#request'],['/aged-care.html','/roles','#aged-care-workers'],['/ain.html','/roles','#assistants-in-nursing'],['/allied-health.html','/roles','#allied-health'],['/how-we-work.html','/about','#how-we-work'],['/our-pillars.html','/why-hpi',''],['/workforce/enrolled-nurses','/roles','#enrolled-nurses']];
+ for(const [from,path,hash] of links){
+  const response=await worker.fetch(new Request(`http://www.healthplusint.com.au${from}?source=legacy`),env,ctx);
+  assert.equal(response.status,301,from);
+  const target=new URL(response.headers.get('location'));
+  assert.equal(target.origin,'https://healthplusint.com.au');
+  assert.equal(target.pathname,path);assert.equal(target.hash,hash);assert.equal(target.search,'?source=legacy');
+  const page=await fetchPage(target.pathname+target.search);assert.equal(page.status,200,from);
+  if(hash)assert.ok((await page.text()).includes(`id="${hash.slice(1)}"`),from);
+ }
+ const slash=await fetchPage('/employers/?role=registered-nurses');
+ assert.equal(slash.status,308);assert.equal(slash.headers.get('location'),'https://healthplusint.com.au/employers?role=registered-nurses');
+ const unknown=await fetchPage('/not-a-real-page/');
+ assert.equal(unknown.status,308);
+ assert.equal((await fetchPage(new URL(unknown.headers.get('location'),'https://healthplusint.com.au').pathname)).status,404);
+});

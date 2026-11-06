@@ -1,5 +1,7 @@
 /** Cloudflare Worker entry point for the vinext-starter template. */
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
+import { legacyDestination } from "../app/legacy-redirects";
+import { seoPages } from "../app/seo-pages";
 import handler from "vinext/server/app-router-entry";
 import { drainSafely } from '../lib/crm-bridge.mjs';
 
@@ -32,10 +34,23 @@ const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
-    if (url.hostname === "www.healthplusint.com.au" || (url.protocol === "http:" && url.hostname === "healthplusint.com.au")) {
-      url.protocol = "https:";
-      url.hostname = "healthplusint.com.au";
-      return Response.redirect(url.href, 308);
+    // Resolve retired URLs and canonical variants in one hop, keeping enquiry parameters.
+    if (request.method === "GET" || request.method === "HEAD") {
+      const path = url.pathname.replace(/\/+$/, "") || "/";
+      const legacy = legacyDestination(url.pathname);
+      const productionHost = ["healthplusint.com.au", "www.healthplusint.com.au"].includes(url.hostname);
+      const originChanged = productionHost && (url.protocol !== "https:" || url.hostname !== "healthplusint.com.au");
+      const trimSlash = path !== url.pathname && Object.hasOwn(seoPages, path);
+      if (legacy || originChanged || trimSlash) {
+        const target = new URL(legacy || (trimSlash ? path : url.pathname), url);
+        target.search = url.search;
+        if (productionHost) {
+          target.protocol = "https:";
+          target.hostname = "healthplusint.com.au";
+        }
+        if (legacy && !target.hash) target.hash = "#";
+        return Response.redirect(target.href, legacy ? 301 : 308);
+      }
     }
 
     if (url.pathname === "/_vinext/image") {

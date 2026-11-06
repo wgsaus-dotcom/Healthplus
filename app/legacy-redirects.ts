@@ -1,5 +1,16 @@
 // HPI-BRF-WEB-001 v02.01.26: permanent redirects for retired pages.
 export const legacyRedirects: Readonly<Record<string, string>> = {
+  // Retired static-site URLs retain their closest relevant destination.
+  "/index.html": "/",
+  "/about.html": "/about",
+  "/contact.html": "/#contact",
+  "/join.html": "/work-with-us#apply",
+  "/submit-a-request.html": "/employers#request",
+  "/aged-care.html": "/roles#aged-care-workers",
+  "/ain.html": "/roles#assistants-in-nursing",
+  "/allied-health.html": "/roles#allied-health",
+  "/how-we-work.html": "/about#how-we-work",
+  "/our-pillars.html": "/why-hpi",
   "/engage": "/employers",
   "/framework": "/employers",
   "/cpd": "/about#how-we-work",
@@ -9,7 +20,7 @@ export const legacyRedirects: Readonly<Record<string, string>> = {
   "/workforce/aged-care-workers": "/roles#aged-care-workers",
   "/workforce/support-workers": "/roles#support-workers",
   "/workforce/allied-health": "/roles#allied-health",
-  "/workforce/enrolled-nurses": "/roles",
+  "/workforce/enrolled-nurses": "/roles#enrolled-nurses",
   "/workforce/remote-site-health": "/roles",
   "/regions/far-west-nsw": "/employers#region-far-west-nsw",
   "/regions/western-nsw": "/employers#region-western-nsw",
