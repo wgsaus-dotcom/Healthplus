@@ -111,6 +111,7 @@ export function SiteFooter() {
           <a href="/privacy">Privacy Policy</a>
           <a href="https://buy.nsw.gov.au/supplier/profile/12466498" target="_blank" rel="noopener noreferrer">Buy NSW Supplier Profile</a>
           <a href="https://au.linkedin.com/company/health-plus-international-australia" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/healthplusint/" target="_blank" rel="noopener noreferrer">Instagram</a>
         </nav>
       </div>
       <section className="hpi-acknowledgement" aria-labelledby="country-heading">
