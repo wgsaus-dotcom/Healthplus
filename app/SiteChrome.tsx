@@ -13,7 +13,15 @@ const navigation = [
 ] as const;
 
 function NavigationLinks() {
-  return navigation.map(([label, href]) => href === "/work-with-us" ? (
+  return navigation.map(([label, href]) => href === "/employers" ? (
+    <details className="hpi-worker-menu" key={href}>
+      <summary>Employers</summary>
+      <div className="hpi-worker-submenu">
+        <a href="/employers">Employers and Facilities</a>
+        <a href="/aged-care-workforce-nsw">Aged Care Workforce</a>
+      </div>
+    </details>
+  ) : href === "/work-with-us" ? (
     <details className="hpi-worker-menu" key={href}>
       <summary>Healthcare Workers</summary>
       <div className="hpi-worker-submenu">
