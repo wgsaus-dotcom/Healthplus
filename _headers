@@ -7,3 +7,4 @@
 
 /images/*
   Cache-Control: public, max-age=86400
+  X-Robots-Tag: noindex, follow
