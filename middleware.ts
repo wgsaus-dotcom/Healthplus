@@ -12,5 +12,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/engage/:path*", "/framework/:path*", "/cpd/:path*", "/service-charter/:path*", "/workforce/:path*", "/regions/:path*", "/partnership/:path*"],
+  matcher: ["/ahpra-verify", "/ahpra-verify.html", "/engage/:path*", "/framework/:path*", "/cpd/:path*", "/service-charter/:path*", "/workforce/:path*", "/regions/:path*", "/partnership/:path*"],
 };

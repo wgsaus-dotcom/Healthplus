@@ -2,6 +2,8 @@
 export const legacyRedirects: Readonly<Record<string, string>> = {
   // Retired static-site URLs retain their closest relevant destination.
   "/index.html": "/",
+  "/ahpra-verify": "/ahpra-registration-support",
+  "/ahpra-verify.html": "/ahpra-registration-support",
   "/about.html": "/about",
   "/contact.html": "/#contact",
   "/join.html": "/work-with-us#apply",

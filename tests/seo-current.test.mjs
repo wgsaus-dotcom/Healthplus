@@ -54,9 +54,9 @@ test('regional SEO follows Healthcare Workers hierarchy and uses the regional so
  assert.match(html,/<title>Regional NSW Healthcare Workforce \| Healthplus International<\/title>/);
 });
 
-test('agency and sponsorship search metadata stays conditional and visible copy is preserved', async()=>{
+test('workforce and sponsorship metadata stays conditional and visible copy is preserved', async()=>{
  const employers=await(await fetchPage('/employers')).text();
- assert.match(employers,/<title>Nursing Agency &amp; Healthcare Labour Hire NSW/);
+ assert.match(employers,/<title>Healthcare Workforce Solutions for NSW Employers/);
  assert.match(employers,/<h1>Request Healthcare Workers for Your NSW Facility<\/h1>/);
  const workers=await(await fetchPage('/work-with-us')).text();
  const description=workers.match(/<meta name="description" content="([^"]*)"/)?.[1];
@@ -67,7 +67,7 @@ test('agency and sponsorship search metadata stays conditional and visible copy 
 });
 
 test('retired static links and URL variants redirect once to working canonical pages and anchors',async()=>{
- const links=[['/index.html','/',''],['/about.html','/about',''],['/contact.html','/','#contact'],['/join.html','/work-with-us','#apply'],['/submit-a-request.html','/employers','#request'],['/aged-care.html','/roles','#aged-care-workers'],['/ain.html','/roles','#assistants-in-nursing'],['/allied-health.html','/roles','#allied-health'],['/how-we-work.html','/about','#how-we-work'],['/our-pillars.html','/why-hpi',''],['/workforce/enrolled-nurses','/roles','#enrolled-nurses']];
+ const links=[['/ahpra-verify','/ahpra-registration-support',''],['/ahpra-verify.html','/ahpra-registration-support',''],['/index.html','/',''],['/about.html','/about',''],['/contact.html','/','#contact'],['/join.html','/work-with-us','#apply'],['/submit-a-request.html','/employers','#request'],['/aged-care.html','/roles','#aged-care-workers'],['/ain.html','/roles','#assistants-in-nursing'],['/allied-health.html','/roles','#allied-health'],['/how-we-work.html','/about','#how-we-work'],['/our-pillars.html','/why-hpi',''],['/workforce/enrolled-nurses','/roles','#enrolled-nurses']];
  for(const [from,path,hash] of links){
   const response=await worker.fetch(new Request(`http://www.healthplusint.com.au${from}?source=legacy`),env,ctx);
   assert.equal(response.status,301,from);

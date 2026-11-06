@@ -107,7 +107,6 @@ export function SiteFooter() {
         <nav className="hpi-footer-links" aria-label="Footer Navigation">
           <h2>Links</h2>
           {navigation.map(([label, href]) => <Fragment key={href}><a href={href}>{label}</a>{href === "/work-with-us" && <a className="hpi-footer-sublink" href="/regional-nsw-healthcare-workforce">Regional NSW Workforce</a>}</Fragment>)}
-          <a href="/ahpra-registration-support">AHPRA Support</a>
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
           <a href="https://buy.nsw.gov.au/supplier/profile/12466498" target="_blank" rel="noopener noreferrer">Buy NSW Supplier Profile</a>
@@ -122,8 +121,7 @@ export function SiteFooter() {
         <div><h2 id="country-heading">Acknowledgement of Country</h2><p>Healthplus International acknowledges the Dharawal people, the Traditional Custodians of the land in Helensburgh where we are based. We pay our respects to Elders past and present, and extend that respect to Aboriginal and Torres Strait Islander peoples across the communities where we work.</p></div>
       </section>
       <div className="hpi-footer-bottom">
-        <p>Copyright 2026 Westminster Green Solutions Pty Ltd trading as Health Plus International, ABN 13 155 901 723</p>
-        <p className="hpi-staff">Staff: <a href="https://staff.healthplusint.com.au/hub" rel="nofollow">Documents</a> · <a href="https://staff.healthplusint.com.au/" rel="nofollow">CRM Login</a></p>
+        <p>Copyright 2026 Westminster Green Solutions Pty Ltd trading as Healthplus International, ABN 13 155 901 723</p>
       </div>
       <a className="hpi-whatsapp-float" href="https://wa.me/61411459755" target="_blank" rel="noopener noreferrer" aria-label="Chat with Healthplus International on WhatsApp">
         <span className="hpi-whatsapp-tooltip">Chat with HPI Now</span>

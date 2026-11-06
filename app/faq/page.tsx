@@ -73,7 +73,7 @@ export default function FaqPage() {
       <PageSeo path="/faq" />
       <header className="hpi-faq-hero">
         <p className="hpi-faq-eyebrow">HELP &amp; INFORMATION</p>
-        <h1>Frequently asked questions</h1>
+        <h1>Healthcare Workforce FAQs</h1>
         <p>Clear answers for employers, Healthcare Workers and internationally qualified nurses exploring registration support.</p>
       </header>
 

@@ -9,8 +9,8 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/employers": {
     "label": "Employers",
-    "title": "Nursing Agency & Healthcare Labour Hire NSW",
-    "description": "Looking for a nursing agency or healthcare labour hire in Sydney or regional NSW? Request nurses, aged care and support workers with Healthplus."
+    "title": "Healthcare Workforce Solutions for NSW Employers",
+    "description": "Request nurses, aged care and support workers across NSW. Healthplus coordinates workforce readiness, compliance, rostering and ongoing placement support."
   },
   "/work-with-us": {
     "label": "Healthcare Workers",
@@ -29,7 +29,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/why-hpi": {
     "label": "Why HPI",
-    "title": "Nursing Agency, Labour Hire & Workforce Development",
+    "title": "Why Healthplus: Healthcare Workforce Development",
     "description": "Comparing nursing agencies and healthcare labour hire? Explore Healthplus’s NSW workforce development approach, from readiness and placement to ongoing support."
   },
   "/faq": {
