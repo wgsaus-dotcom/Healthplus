@@ -9,6 +9,7 @@ const navigation = [
   ["Healthcare Workers", "/work-with-us"],
   ["AHPRA Support", "/ahpra-registration-support"],
   ["Positions", "/roles"],
+  ["Blog", "/blog"],
   ["Contact Us", "#contact"],
 ] as const;
 
