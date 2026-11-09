@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import worker from '../dist/server/index.js';
 const routes=['/','/employers','/work-with-us','/roles','/about','/why-hpi','/ahpra-registration-support','/faq','/privacy','/regional-nsw-healthcare-workforce','/aged-care-workforce-nsw','/blog','/blog/nursing-registration-australia-overseas-nurses','/blog/life-in-rural-australia-healthcare-workers','/blog/first-regional-nursing-job-checklist'];
 const env={ASSETS:{fetch:async()=>new Response('Not found',{status:404})}};
@@ -103,12 +104,66 @@ test('retired static links and URL variants redirect once to working canonical p
 });
 
 test('unknown retired-looking routes stay 404 and HEAD redirects preserve enquiry parameters',async()=>{
- for(const path of ['/partnership/not-a-real-page','/regions/not-a-real-region','/workforce/not-a-real-role']){
+ for(const path of ['/partnership/not-a-real-page','/regions/not-a-real-region','/workforce/not-a-real-role','/regions/regions/not-a-real-page.html','/regions/regions/regions/regions/join.html']){
   assert.equal((await fetchPage(path)).status,404,path);
  }
  const response=await worker.fetch(new Request('http://www.healthplusint.com.au/allied-health/?source=search&role=allied-health',{method:'HEAD'}),env,ctx);
  assert.equal(response.status,301);
  assert.equal(response.headers.get('location'),'https://healthplusint.com.au/roles?source=search&role=allied-health#allied-health');
+});
+
+test('all 56 retired content URLs in the Search Console export redirect directly to working canonical pages',async()=>{
+ const reportedPaths=JSON.parse(readFileSync(new URL('./fixtures/search-console-404-paths.json',import.meta.url),'utf8'));
+ assert.equal(reportedPaths.length,57);
+ const pages=new Map();let redirected=0;
+ for(const path of reportedPaths){
+  const response=await fetchPage(`${path}?source=google&campaign=legacy`);
+  if(path==='/cdn-cgi/l/email-protection'){
+   // This Cloudflare utility is not website content and has no replacement page.
+   assert.equal(response.status,404,path);assert.equal(response.headers.get('location'),null);continue;
+  }
+  assert.equal(response.status,301,path);redirected++;
+  const target=new URL(response.headers.get('location'));
+  assert.equal(target.origin,'https://healthplusint.com.au',path);
+  assert.equal(target.search,'?source=google&campaign=legacy',path);
+  assert.ok(routes.includes(target.pathname),`${path} must land on a current canonical page`);
+  if(!pages.has(target.pathname)){
+   const page=await fetchPage(target.pathname);assert.equal(page.status,200,target.pathname);
+   pages.set(target.pathname,await page.text());
+  }
+  const html=pages.get(target.pathname);
+  assert.ok(html.includes(`rel="canonical" href="https://healthplusint.com.au${target.pathname}"`),path);
+  if(target.hash)assert.ok(html.includes(`id="${target.hash.slice(1)}"`),`${path} anchor must exist`);
+ }
+ assert.equal(redirected,56);
+ const expected=new Map([
+  ['/regions/regions/regions/join.html','/work-with-us#apply'],
+  ['/regions/regions/regions/far-west-nsw.html','/employers#region-far-west-nsw'],
+  ['/regions/regions/aged-care.html','/aged-care-workforce-nsw'],
+  ['/regions/northern-nsw.html','/employers#region-northern-nsw'],
+  ['/services.html','/employers'],['/nurses.html','/roles#nurses'],
+ ]);
+ for(const [path,destination] of expected){
+  const target=new URL((await fetchPage(path)).headers.get('location'));
+  assert.equal(target.pathname+target.hash,destination,path);
+ }
+});
+
+test('current navigation uses rooted links and never recreates the reported legacy URLs',async()=>{
+ const pages=new Map();
+ for(const path of routes)pages.set(path,await(await fetchPage(path)).text());
+ for(const [path,html] of pages){
+  for(const match of html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/g)){
+   const href=match[1].replaceAll('&amp;','&');
+   if(/^(?:https?:|mailto:|tel:)/i.test(href))continue;
+   assert.ok(href.startsWith('/')||href.startsWith('#'),`${path}: relative link ${href} can create nested paths`);
+   const target=new URL(href,`https://healthplusint.com.au${path}`);
+   assert.equal(target.origin,'https://healthplusint.com.au',href);
+   assert.ok(pages.has(target.pathname),`${path}: ${href} must point directly to a current page`);
+   if(target.hash)assert.ok(pages.get(target.pathname).includes(`id="${decodeURIComponent(target.hash.slice(1))}"`),`${path}: missing anchor ${href}`);
+  }
+  assert.doesNotMatch(html,/href="[^\"]*\/cdn-cgi\/l\/email-protection/);
+ }
 });
 
 test('search-focused content connects allied health, overseas nurse guidance and HPI Instagram',async()=>{
