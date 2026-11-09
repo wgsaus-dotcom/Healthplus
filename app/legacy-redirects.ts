@@ -81,6 +81,14 @@ export const legacyRedirects: Readonly<Record<string, string>> = {
   "/regions/regions/regions/ain.html": "/roles#assistants-in-nursing",
   "/regions/regions/regions/far-west-nsw.html": "/employers#region-far-west-nsw",
   "/regions/regions/regions/how-we-work.html": "/about#how-we-work",
+  // Additional retired URLs in the alternate-canonical export from the same report.
+  "/regions/regions/regions/services-remote.html": "/regional-nsw-healthcare-workforce",
+  "/regions/regions/regions/ahpra-verify.html": "/ahpra-registration-support",
+  "/regions/regions/regions/submit-a-request.html": "/employers#request",
+  "/regions/regions/regions/about.html": "/about",
+  "/regions/regions/regions/our-pillars.html": "/why-hpi",
+  "/regions/regions/regions/index.html": "/",
+  "/regions/regions/regions/aged-care.html": "/aged-care-workforce-nsw",
 };
 
 export function legacyDestination(pathname: string): string | undefined {
