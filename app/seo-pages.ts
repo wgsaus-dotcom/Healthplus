@@ -12,8 +12,8 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/employers": {
     "label": "Employers",
-    "title": "Healthcare Workforce Solutions for NSW Employers",
-    "description": "Request nurses, aged care and support workers across NSW. Healthplus coordinates workforce readiness, compliance, rostering and ongoing placement support."
+    "title": "Healthcare Recruitment & Staffing NSW",
+    "description": "Request nurses, aged care, support workers and allied health professionals across NSW. HPI coordinates recruitment, compliance, rostering and placement support."
   },
   "/work-with-us": {
     "label": "Healthcare Workers",
@@ -23,7 +23,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/roles": {
     "label": "Positions",
     "title": "Nursing, Aged Care & Allied Health Roles NSW",
-    "description": "Explore HPI positions for Nurses, Doctors, Allied Health, Assistants in Nursing, Aged Care Workers and Support Workers across NSW."
+    "description": "Explore nursing, aged care and allied health recruitment across Sydney and regional NSW. See role checks, request Healthcare Workers or register for work."
   },
   "/about": {
     "label": "About HPI",

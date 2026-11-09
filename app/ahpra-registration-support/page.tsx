@@ -44,13 +44,14 @@ export default function AhpraRegistrationSupportPage() {
       <PageSeo path="/ahpra-registration-support" />
       <header className="policy-hero">
         <p className="eyebrow light">HEALTH PLUS INTERNATIONAL · PROFESSIONAL READINESS</p>
-        <h1>AHPRA <em>Support</em></h1>
+        <h1>AHPRA Registration <em>Support for Overseas Nurses</em></h1>
         <p>Practical guidance and coordination for internationally qualified nurses exploring Australian registration and professional transition.</p>
       </header>
       <div className="policy-content registration-support-content">
         <section className="policy-summary" aria-labelledby="support-intro">
           <h2 id="support-intro">Support through each stage, with you in control</h2>
-          <p>Understanding Australia's nursing registration process can involve documents, assessments, examinations and unfamiliar requirements. Healthplus International can assist with administrative organisation and career-readiness planning while you use official Ahpra and NMBA guidance.</p>
+          <p>Understanding Australia’s nursing registration process can involve documents, assessments, examinations and unfamiliar requirements. Healthplus International can assist with administrative organisation and career-readiness planning while you use official Ahpra and NMBA guidance.</p>
+          <p>Start with our <a href="/blog/nursing-registration-australia-overseas-nurses">guide to nursing registration in Australia for overseas nurses</a>, then contact us if you need help organising your next steps.</p>
         </section>
 
         <section className="policy-section registration-support-services" aria-labelledby="support-areas">
@@ -68,7 +69,7 @@ export default function AhpraRegistrationSupportPage() {
           <ol>
             {steps.map(([title, description]) => <li key={title}><strong>{title}.</strong> {description}</li>)}
           </ol>
-          <p>There is no single pathway that suits every applicant. The requirements depend on your qualifications, professional background and the regulator's assessment.</p>
+          <p>There is no single pathway that suits every applicant. The requirements depend on your qualifications, professional background and the regulator’s assessment.</p>
         </section>
 
         <section className="policy-section registration-support-boundaries" aria-labelledby="support-boundaries">

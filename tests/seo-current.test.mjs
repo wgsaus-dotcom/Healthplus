@@ -56,7 +56,7 @@ test('regional SEO follows Healthcare Workers hierarchy and uses the regional so
 
 test('workforce and sponsorship metadata stays conditional and visible copy is preserved', async()=>{
  const employers=await(await fetchPage('/employers')).text();
- assert.match(employers,/<title>Healthcare Workforce Solutions for NSW Employers/);
+ assert.match(employers,/<title>Healthcare Recruitment &amp; Staffing NSW/);
  assert.match(employers,/<h1>Request Healthcare Workers for Your NSW Facility<\/h1>/);
  const workers=await(await fetchPage('/work-with-us')).text();
  const description=workers.match(/<meta name="description" content="([^"]*)"/)?.[1];
@@ -67,7 +67,25 @@ test('workforce and sponsorship metadata stays conditional and visible copy is p
 });
 
 test('retired static links and URL variants redirect once to working canonical pages and anchors',async()=>{
- const links=[['/ahpra-verify','/ahpra-registration-support',''],['/ahpra-verify.html','/ahpra-registration-support',''],['/index.html','/',''],['/about.html','/about',''],['/contact.html','/','#contact'],['/join.html','/work-with-us','#apply'],['/submit-a-request.html','/employers','#request'],['/aged-care.html','/roles','#aged-care-workers'],['/ain.html','/roles','#assistants-in-nursing'],['/allied-health.html','/roles','#allied-health'],['/how-we-work.html','/about','#how-we-work'],['/our-pillars.html','/why-hpi',''],['/workforce/enrolled-nurses','/roles','#enrolled-nurses']];
+ const links=[
+  ['/ahpra-verify','/ahpra-registration-support',''],['/ahpra-verify.html','/ahpra-registration-support',''],
+  ['/index.html','/',''],['/about.html','/about',''],
+  ['/contact','/','#contact'],['/contact.html','/','#contact'],
+  ['/join','/work-with-us','#apply'],['/join.html','/work-with-us','#apply'],
+  ['/submit-a-request','/employers','#request'],['/submit-a-request.html','/employers','#request'],
+  ['/aged-care','/aged-care-workforce-nsw',''],['/aged-care.html','/aged-care-workforce-nsw',''],
+  ['/ain','/roles','#assistants-in-nursing'],['/ain.html','/roles','#assistants-in-nursing'],
+  ['/allied-health','/roles','#allied-health'],['/allied-health.html','/roles','#allied-health'],
+  ['/services-remote','/regional-nsw-healthcare-workforce',''],['/services-remote.html','/regional-nsw-healthcare-workforce',''],
+  ['/how-we-work','/about','#how-we-work'],['/how-we-work.html','/about','#how-we-work'],
+  ['/our-pillars','/why-hpi',''],['/our-pillars.html','/why-hpi',''],
+  ['/workforce/enrolled-nurses','/roles','#enrolled-nurses'],['/workforce/allied-health','/roles','#allied-health'],
+  ['/regions/far-west-nsw.html','/employers','#region-far-west-nsw'],['/regions/northern-nsw','/employers','#region-northern-nsw'],
+  ['/partnership/employer-role-requirements','/employers','#request'],
+  ['/partnership/readiness-credential-controls','/employers',''],
+  ['/partnership/deployment-workforce-support','/employers',''],
+  ['/partnership/performance-retention-reporting','/employers',''],
+ ];
  for(const [from,path,hash] of links){
   const response=await worker.fetch(new Request(`http://www.healthplusint.com.au${from}?source=legacy`),env,ctx);
   assert.equal(response.status,301,from);
@@ -82,6 +100,42 @@ test('retired static links and URL variants redirect once to working canonical p
  const unknown=await fetchPage('/not-a-real-page/');
  assert.equal(unknown.status,308);
  assert.equal((await fetchPage(new URL(unknown.headers.get('location'),'https://healthplusint.com.au').pathname)).status,404);
+});
+
+test('unknown retired-looking routes stay 404 and HEAD redirects preserve enquiry parameters',async()=>{
+ for(const path of ['/partnership/not-a-real-page','/regions/not-a-real-region','/workforce/not-a-real-role']){
+  assert.equal((await fetchPage(path)).status,404,path);
+ }
+ const response=await worker.fetch(new Request('http://www.healthplusint.com.au/allied-health/?source=search&role=allied-health',{method:'HEAD'}),env,ctx);
+ assert.equal(response.status,301);
+ assert.equal(response.headers.get('location'),'https://healthplusint.com.au/roles?source=search&role=allied-health#allied-health');
+});
+
+test('search-focused content connects allied health, overseas nurse guidance and HPI Instagram',async()=>{
+ const roles=await(await fetchPage('/roles?source=search')).text();
+ assert.match(roles,/rel="canonical" href="https:\/\/healthplusint.com.au\/roles"/);
+ assert.match(roles,/Allied Health Recruitment in Sydney and Regional NSW/);
+ assert.match(roles,/Ahpra registration where the profession requires it/);
+ assert.match(roles,/href="\/employers\?role=allied-health#request"/);
+ assert.match(roles,/href="\/work-with-us\?profession=allied-health#apply"/);
+ const employers=await(await fetchPage('/employers')).text();
+ assert.match(employers,/href="\/roles#allied-health"/);
+ const support=await(await fetchPage('/ahpra-registration-support')).text();
+ assert.match(support,/<h1>AHPRA Registration <em>Support for Overseas Nurses<\/em><\/h1>/);
+ assert.match(support,/href="\/blog\/nursing-registration-australia-overseas-nurses"/);
+ const home=await(await fetchPage('/')).text();
+ const org=schemas(home).find(d=>d['@id']==='https://healthplusint.com.au/#organization');
+ assert.ok(org.sameAs.includes('https://www.instagram.com/healthplusint/'));
+ assert.match(home,/href="https:\/\/www.instagram.com\/healthplusint\/"/);
+});
+
+test('alternate Worker host remains excluded while canonical public pages stay indexable',async()=>{
+ const preview=await worker.fetch(new Request('https://hpi-website.example.workers.dev/roles'),env,ctx);
+ assert.equal(preview.status,200);
+ assert.equal(preview.headers.get('x-robots-tag'),'noindex, follow');
+ const production=await fetchPage('/roles');
+ assert.equal(production.status,200);
+ assert.doesNotMatch(production.headers.get('x-robots-tag')??'',/noindex/i);
 });
 
 
