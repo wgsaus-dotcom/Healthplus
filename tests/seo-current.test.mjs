@@ -217,6 +217,24 @@ test('seven obsolete paths from the canonical export redirect to their relevant 
  }
 });
 
+test('remaining public indexing reports resolve to canonical content without redirect chains',async()=>{
+ const report=JSON.parse(readFileSync(new URL('./fixtures/search-console-remaining-public-urls.json',import.meta.url),'utf8'));
+ assert.equal(report.redirected.length,21);assert.equal(report.notIndexed.length,2);
+ for(const url of [...report.redirected,...report.notIndexed]){
+  const original=new URL(url);
+  const response=await worker.fetch(new Request(url),env,ctx);
+  assert.equal(response.status,original.protocol==='http:'?308:301,url);
+  const target=new URL(response.headers.get('location'));
+  assert.equal(target.origin,'https://healthplusint.com.au',url);
+  assert.equal(target.search,original.search,url);
+  const page=await fetchPage(target.pathname+target.search);assert.equal(page.status,200,url);
+  const html=await page.text();
+  assert.ok(html.includes(`rel="canonical" href="https://healthplusint.com.au${target.pathname}"`),url);
+  if(target.hash)assert.ok(html.includes(`id="${target.hash.slice(1)}"`),url);
+  if(original.pathname.endsWith('/allied-health.html'))assert.equal(target.pathname+target.hash,'/roles#allied-health');
+ }
+});
+
 test('search-focused content connects allied health, overseas nurse guidance and HPI Instagram',async()=>{
  const roles=await(await fetchPage('/roles?source=search')).text();
  assert.match(roles,/rel="canonical" href="https:\/\/healthplusint.com.au\/roles"/);

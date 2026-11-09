@@ -89,6 +89,7 @@ export const legacyRedirects: Readonly<Record<string, string>> = {
   "/regions/regions/regions/our-pillars.html": "/why-hpi",
   "/regions/regions/regions/index.html": "/",
   "/regions/regions/regions/aged-care.html": "/aged-care-workforce-nsw",
+  "/regions/regions/regions/allied-health.html": "/roles#allied-health",
 };
 
 export function legacyDestination(pathname: string): string | undefined {
