@@ -21,8 +21,8 @@ export const roles = [
   },
   {
     slug: "allied-health", name: "Allied Health Professionals",
-    text: "For services that have a defined discipline, service model and scope. HPI employs the professional; the host service keeps clinical governance and professional supervision, and site induction is agreed in the start-date plan.",
-    checks: "Registration, qualifications, identity, work rights, scope, references, screening, licences and insurance, in proportion to the profession and setting.",
+    text: "HPI supports allied health recruitment for hospitals, aged care and community services across Sydney and regional NSW. We start with the professional discipline, duties, location and supervision your service needs. HPI employs the professional; the host service keeps clinical governance and professional supervision, and site induction is agreed in the start-date plan.",
+    checks: "Qualifications, Ahpra registration where the profession requires it, relevant professional credentials, identity, work rights, scope, references, screening, licences and insurance appropriate to the profession and setting.",
   },
 ] as const;
 

@@ -104,7 +104,10 @@ const structuredData = {
         "Northern NSW",
         "Mid North Coast",
       ],
-      sameAs: ["https://au.linkedin.com/company/health-plus-international-australia"],
+      sameAs: [
+        "https://au.linkedin.com/company/health-plus-international-australia",
+        "https://www.instagram.com/healthplusint/",
+      ],
       knowsAbout: [
         "Registered nurses",
         "Enrolled nurses",
