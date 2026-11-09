@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { preload } from "react-dom";
 import "./globals.css";
 import { SiteHeader, SiteFooter, ClosingPanel } from "./SiteChrome";
 
@@ -151,6 +152,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Resource hints avoid a CSS -> font request chain and React deduplicates them.
+  preload("/assets/fonts/public-sans-latin-400-90e9d401.woff2", { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
+  preload("/assets/fonts/public-sans-latin-700-f704aa5c.woff2", { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
   return (
     <html lang="en-AU">
       <body>

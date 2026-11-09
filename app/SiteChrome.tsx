@@ -36,7 +36,7 @@ function NavigationLinks() {
 function Brand() {
   return (
     <a className="hpi-brand" href="/" aria-label="Healthplus International Home">
-      <img src="/assets/healthplus-mark.webp" alt="" width="180" height="190" />
+      <img src="/assets/healthplus-mark-76-d5ac59f7.webp" alt="" width="76" height="80" decoding="async" />
       <span><strong>Healthplus International</strong><small>People · Care · Compliance</small></span>
     </a>
   );

@@ -5,6 +5,7 @@ import { roleFromSearch, type FormSearchParams } from "../form-options";
 import NSWMap from "../NSWMap";
 import EmployerRequestForm from "../EmployerRequestForm";
 import { regions } from "../simplified-content";
+import "../inner-pages.css";
 import "./employers.css";
 
 export const metadata = pageMetadata("/employers");
