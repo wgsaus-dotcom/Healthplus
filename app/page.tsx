@@ -1,8 +1,12 @@
 import PageSeo from "./PageSeo";
+import { preload } from "react-dom";
 import { pageMetadata } from "./seo-pages";
 import "./home.css";
 
 export const metadata = pageMetadata("/");
+
+const homeHeroSrcSet = "/assets/hero-hpi-care-480-f082e10a.webp 480w, /assets/hero-hpi-care-720-e20790a0.webp 720w, /assets/hero-hpi-care.webp 900w";
+const homeHeroSizes = "(max-width: 600px) calc(100vw - 44px), (max-width: 800px) 41vw, (max-width: 1378px) 42vw, 566px";
 
 const roles = [
   ["Registered Nurses", "Hospital, aged care, community and regional services."],
@@ -26,6 +30,11 @@ const pathways = [
 ] as const;
 
 export default function Home() {
+  // On mobile both audience buttons precede the photo, so prioritise text there.
+  preload("/assets/hero-hpi-care.webp", {
+    as: "image", imageSrcSet: homeHeroSrcSet, imageSizes: homeHeroSizes,
+    media: "(min-width: 601px)", fetchPriority: "high",
+  });
   return (
     <main className="hpi-home" id="top"><PageSeo path="/" />
       <section className="home-hero" aria-labelledby="home-heading">
@@ -34,7 +43,17 @@ export default function Home() {
             <p className="atmos-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h1 id="home-heading">Healthcare Workforce Development in NSW</h1>
             <p className="home-subhead">We make care possible. Healthplus International recruits, employs and places Healthcare Workers in Sydney and regional NSW.</p>
           </div>
-          <img className="home-hero-image" src="/assets/hero-hpi-care.webp" alt="Healthcare professional supporting an older woman" width="900" height="600" fetchPriority="high" />
+          <img
+            className="home-hero-image"
+            src="/assets/hero-hpi-care.webp"
+            srcSet={homeHeroSrcSet}
+            sizes={homeHeroSizes}
+            alt="Healthcare professional supporting an older woman"
+            width="900"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div className="home-audiences">
           <article>
