@@ -166,6 +166,57 @@ test('current navigation uses rooted links and never recreates the reported lega
  }
 });
 
+test('all 59 parameter URLs in the canonical export retain useful form choices and clean canonical URLs',async()=>{
+ const urls=JSON.parse(readFileSync(new URL('./fixtures/search-console-canonical-urls.json',import.meta.url),'utf8'));
+ const parameterUrls=urls.map(url=>new URL(url)).filter(url=>url.search);
+ assert.equal(parameterUrls.length,59);
+ const roleValues={'registered-nurses':'Registered Nurse','assistants-in-nursing':'Assistant in Nursing','aged-care-workers':'Aged Care Worker','support-workers':'Support Worker','allied-health':'Allied Health'};
+ const regionLabels={'sydney':'Sydney metropolitan area','far-west-nsw':'Far West NSW','western-nsw':'Western NSW','murrumbidgee':'Murrumbidgee','hunter-new-england':'Hunter New England','northern-nsw':'Northern NSW','mid-north-coast':'Mid North Coast','central-coast':'Central Coast'};
+ for(const url of parameterUrls){
+  const response=await fetchPage(url.pathname+url.search);assert.equal(response.status,200,url.href);
+  assert.equal(response.headers.get('location'),null,url.href);
+  const html=await response.text();
+  const canonicals=[...html.matchAll(/rel="canonical" href="([^"]+)"/g)].map(match=>match[1]);
+  assert.deepEqual(canonicals,[url.origin+url.pathname],url.href);
+  assert.doesNotMatch(html,/<meta[^>]+content="[^"]*noindex/);
+  const profession=url.searchParams.get('profession');
+  if(profession){
+   const select=html.match(/<select\b[^>]*name="profession"[^>]*>(.*?)<\/select>/s)?.[1];
+   assert.ok(select?.includes(`value="${roleValues[profession]}" selected=""`),url.href);
+  }
+  const region=url.searchParams.get('region');
+  if(region){
+   const select=html.match(/<select\b[^>]*name="preferredLocations"[^>]*>(.*?)<\/select>/s)?.[1];
+   assert.ok(select?.includes(`<option selected="">${regionLabels[region]}</option>`),url.href);
+  }
+  const role=url.searchParams.get('role');
+  if(role){
+   const checkboxes=[...html.matchAll(/<input\b[^>]*>/g)].map(match=>match[0]);
+   assert.ok(checkboxes.some(input=>input.includes('name="roles"')&&input.includes('checked=""')&&input.includes(`value="${roleValues[role]}"`)),url.href);
+  }
+ }
+ const sitemap=await(await fetchPage('/sitemap.xml')).text();
+ assert.doesNotMatch(sitemap,/<loc>[^<]*\?/);
+});
+
+test('seven obsolete paths from the canonical export redirect to their relevant current pages',async()=>{
+ const urls=JSON.parse(readFileSync(new URL('./fixtures/search-console-canonical-urls.json',import.meta.url),'utf8'));
+ const obsolete=urls.map(url=>new URL(url)).filter(url=>!url.search);
+ assert.equal(obsolete.length,7);
+ const destinations={'services-remote.html':'/regional-nsw-healthcare-workforce','ahpra-verify.html':'/ahpra-registration-support','submit-a-request.html':'/employers#request','about.html':'/about','our-pillars.html':'/why-hpi','index.html':'/','aged-care.html':'/aged-care-workforce-nsw'};
+ for(const url of obsolete){
+  const response=await fetchPage(url.pathname+'?source=legacy');assert.equal(response.status,301,url.href);
+  const target=new URL(response.headers.get('location'));
+  assert.equal(target.origin,'https://healthplusint.com.au');
+  assert.equal(target.pathname+target.hash,destinations[url.pathname.split('/').pop()],url.href);
+  assert.equal(target.search,'?source=legacy');
+  const page=await fetchPage(target.pathname);assert.equal(page.status,200,url.href);
+  const html=await page.text();
+  assert.ok(html.includes(`rel="canonical" href="https://healthplusint.com.au${target.pathname}"`),url.href);
+  if(target.hash)assert.ok(html.includes(`id="${target.hash.slice(1)}"`),url.href);
+ }
+});
+
 test('search-focused content connects allied health, overseas nurse guidance and HPI Instagram',async()=>{
  const roles=await(await fetchPage('/roles?source=search')).text();
  assert.match(roles,/rel="canonical" href="https:\/\/healthplusint.com.au\/roles"/);
