@@ -8,7 +8,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/": {
     "label": "Home",
     "title": "Healthcare Workforce Development NSW | Healthplus International",
-    "description": "Healthcare workforce development across Sydney and regional NSW. Connect with nurses, aged care and support workers, or register for work with Healthplus."
+    "description": "Healthplus International recruits, employs and places nurses, aged care and support workers across Sydney and regional NSW. Request workers or register for work."
   },
   "/employers": {
     "label": "Employers",

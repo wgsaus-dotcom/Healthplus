@@ -25,7 +25,7 @@ main.hpi-home { background:transparent; }
 .hpi-home .home-plain-list>div { padding:15px 0; margin:0; border-bottom:1px solid #102d3a16; }
 .hpi-home .home-process { gap:48px; }
 .hpi-closing { background:linear-gradient(120deg,#e4ebef,#f5f5ee 65%,#ece5d5); padding-block:36px; }
-.hpi-closing h2 { font-family:'Public Sans',Arial,sans-serif; font-weight:700; border-top:0; padding-top:0; }
+.hpi-closing .hpi-closing-title { font-family:'Public Sans',Arial,sans-serif; font-weight:700; border-top:0; padding-top:0; }
 main.hpi-inner { background:linear-gradient(160deg,#e7edf2 0,#f7f8f6 400px); padding-top:44px; }
 .hpi-inner .inner-intro h1 { font-family:'Public Sans',Arial,sans-serif; font-weight:700; font-size:clamp(36px,4vw,58px); }
 .hpi-inner input,.hpi-inner select,.hpi-inner textarea { border-radius:10px; }

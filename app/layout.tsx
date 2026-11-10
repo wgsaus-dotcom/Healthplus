@@ -64,6 +64,7 @@ const structuredData = {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
       name: "Healthplus International",
+      alternateName: "Health Plus International",
       legalName: "Westminster Green Solutions Pty Ltd",
       url: siteUrl,
       logo: `${siteUrl}/assets/logo-healthplus-transparent.webp`,
@@ -108,6 +109,7 @@ const structuredData = {
       sameAs: [
         "https://au.linkedin.com/company/health-plus-international-australia",
         "https://www.instagram.com/healthplusint/",
+        "https://buy.nsw.gov.au/supplier/profile/12466498",
       ],
       knowsAbout: [
         "Registered nurses",

@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
         <p className="eyebrow light">People · Care · Compliance</p>
         <h1>Privacy <em>policy</em></h1>
         <p>
-          Effective 4 November 2026 · Westminster Green Solutions Pty Ltd trading as Health Plus International
+          Effective 4 November 2026 · Westminster Green Solutions Pty Ltd trading as Healthplus International
           (ABN 13 155 901 723)
         </p>
       </section>
@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
       <article className="policy-content">
         <div className="policy-summary">
           <p>
-            Westminster Green Solutions Pty Ltd trading as Health Plus International (HPI, we, us or our) respects your privacy.
+            Westminster Green Solutions Pty Ltd trading as Healthplus International (HPI, we, us or our) respects your privacy.
             This policy explains how we manage personal information when providing
             healthcare workforce, recruitment, readiness, deployment, support and
             related services. We aim to handle personal information consistently
@@ -261,7 +261,7 @@ export default function PrivacyPolicy() {
         <section className="policy-section policy-contact">
           <h2>Contact the privacy officer</h2>
           <p>
-            Westminster Green Solutions Pty Ltd trading as Health Plus International<br />
+            Westminster Green Solutions Pty Ltd trading as Healthplus International<br />
             Helensburgh, NSW<br />
             <a href="mailto:info@healthplusint.com.au?subject=Privacy%20Enquiry">
               info@healthplusint.com.au
