@@ -67,15 +67,15 @@ export function SiteHeader() {
 export function ClosingPanel() {
   return (
     <section className="hpi-closing" id="start" aria-labelledby="hpi-start-heading">
-      <h2 id="hpi-start-heading">Start here</h2>
+      <p className="hpi-closing-title" id="hpi-start-heading">Start here</p>
       <div className="hpi-doors">
         <article>
-          <h3>Employers and Facilities</h3>
+          <p className="hpi-door-title">Employers and Facilities</p>
           <p>Tell us the roles, the location and when you need them.</p>
           <a className="hpi-action" href="/employers#request">Request Workers</a>
         </article>
         <article>
-          <h3>Healthcare Workers</h3>
+          <p className="hpi-door-title">Healthcare Workers</p>
           <p>Tell us your profession and where in NSW you want to work.</p>
           <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
         </article>
@@ -97,7 +97,7 @@ export function SiteFooter() {
 
         </div>
         <div>
-          <h2>Contact</h2>
+          <p className="hpi-footer-title">Contact</p>
           <a href="tel:+61411459755">+61 411 459 755</a>
           <a href="mailto:info@healthplusint.com.au">info@healthplusint.com.au</a>
           <a href="https://wa.me/61411459755">WhatsApp</a>
@@ -106,7 +106,7 @@ export function SiteFooter() {
         </div>
 
         <nav className="hpi-footer-links" aria-label="Footer Navigation">
-          <h2>Links</h2>
+          <p className="hpi-footer-title">Links</p>
           {navigation.map(([label, href]) => <Fragment key={href}><a href={href}>{label}</a>{href === "/work-with-us" && <a className="hpi-footer-sublink" href="/regional-nsw-healthcare-workforce">Regional NSW Workforce</a>}</Fragment>)}
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
@@ -120,7 +120,7 @@ export function SiteFooter() {
           <img src="/assets/aboriginal-flag.webp" alt="Australian Aboriginal flag" width="42" height="28" loading="lazy" />
           <img src="/assets/torres-strait-islander-flag.webp" alt="Torres Strait Islander flag" width="42" height="28" loading="lazy" />
         </div>
-        <div><h2 id="country-heading">Acknowledgement of Country</h2><p>Healthplus International acknowledges the Dharawal people, the Traditional Custodians of the land in Helensburgh where we are based. We pay our respects to Elders past and present, and extend that respect to Aboriginal and Torres Strait Islander peoples across the communities where we work.</p></div>
+        <div><p className="hpi-footer-title" id="country-heading">Acknowledgement of Country</p><p>Healthplus International acknowledges the Dharawal people, the Traditional Custodians of the land in Helensburgh where we are based. We pay our respects to Elders past and present, and extend that respect to Aboriginal and Torres Strait Islander peoples across the communities where we work.</p></div>
       </section>
       <div className="hpi-footer-bottom">
         <p>Copyright 2026 Westminster Green Solutions Pty Ltd trading as Healthplus International, ABN 13 155 901 723</p>

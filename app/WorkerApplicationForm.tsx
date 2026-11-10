@@ -111,7 +111,7 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
       </div><div className="form-navigation"><button className="hpi-action" type="button" onClick={nextStep}>Continue</button></div></fieldset>
       <fieldset className="form-step" data-form-step="2" hidden={step !== 2}><legend>Availability and Consent</legend>
         <label className="form-message"><span>Availability</span><textarea name="message" rows={3} maxLength={1200} /></label>
-        <label className="consent-check"><input name="privacy_consent" type="checkbox" value="yes" required /><span>I consent to Health Plus International securely storing and using my information, and résumé, to assess suitable workforce pathways, as explained in the <a href="/privacy">Privacy Policy</a>.</span></label>
+        <label className="consent-check"><input name="privacy_consent" type="checkbox" value="yes" required /><span>I consent to Healthplus International securely storing and using my information, and résumé, to assess suitable workforce pathways, as explained in the <a href="/privacy">Privacy Policy</a>.</span></label>
         <input type="hidden" name="source" value="hpi-website" />
         <div className="form-navigation"><button className="hpi-action hpi-action-outline" type="button" onClick={()=>setStep(1)}>Back</button><button className="hpi-action" type="submit" disabled={state.status === "submitting"}>{state.status === "submitting" ? "Submitting…" : "Register"}</button></div>
       </fieldset>
