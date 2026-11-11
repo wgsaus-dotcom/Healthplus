@@ -97,3 +97,30 @@ fieldset { min-width:0; }
 .policy-contact h2 { color: white; }
 .policy-contact p { color: #c3d2d7; }
 .policy-contact a { color: #8bdfd2; }
+
+/* Cookie choices: equal-weight actions, keyboard access and compact mobile layout. */
+.hpi-cookie-banner { position:fixed; z-index:10000; left:16px; right:16px; bottom:16px; max-width:1080px; margin:auto; padding:22px 24px; background:#fff; color:#142c3b; border:1px solid #bfd4cf; border-radius:16px; box-shadow:0 8px 44px #102d3840; font:400 15px/1.5 "Public Sans",sans-serif; }
+.hpi-cookie-banner[hidden] { display:none; }
+.hpi-cookie-banner strong { font-size:19px; }
+.hpi-cookie-banner p { margin:8px 0 16px; }
+.hpi-cookie-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.hpi-cookie-actions button { flex:1; padding:12px 16px; min-height:44px; border:1px solid #173c45; border-radius:8px; background:#fff; color:#173c45; font:600 14px/1.3 "Public Sans",sans-serif; cursor:pointer; }
+.hpi-cookie-actions button:hover { background:#e7f3ef; }
+.hpi-cookie-actions button:focus-visible,.hpi-cookie-dialog input:focus-visible { outline:3px solid #a35f21; outline-offset:3px; }
+.hpi-cookie-banner a,.hpi-cookie-dialog a { color:#1d5d60; text-decoration:underline; }
+.hpi-cookie-dialog { width:min(560px,calc(100% - 32px)); max-height:85dvh; overflow:auto; padding:26px; border:1px solid #bfd4cf; border-radius:16px; background:#fff; color:#142c3b; font:400 15px/1.5 "Public Sans",sans-serif; }
+.hpi-cookie-dialog::backdrop { background:#09253280; }
+.hpi-cookie-dialog h2 { font:700 24px/1.2 "Public Sans",sans-serif; margin:0 0 14px; }
+.hpi-cookie-option { border-top:1px solid #dae5e2; padding:16px 0 4px; }
+.hpi-cookie-option p { margin:7px 0 12px; }
+.hpi-cookie-option input { width:20px; height:20px; vertical-align:middle; accent-color:#245957; margin-right:8px; }
+@media(max-width:600px) { .hpi-cookie-banner { left:10px; right:10px; bottom:10px; padding:16px; max-height:65dvh; overflow:auto; } .hpi-cookie-actions button { flex:1 1 120px; } .hpi-cookie-dialog { padding:20px; } }
+
+/* Slim notice sits flush against the viewport; the preference dialog stays roomy. */
+.hpi-cookie-banner { left:0; right:0; bottom:0; max-width:none; border-radius:0; border:0; border-top:1px solid #bfd4cf; padding:12px 24px; display:flex; align-items:center; gap:24px; box-shadow:0 -3px 18px #102d3814; font-size:13px; }
+.hpi-cookie-banner > div:first-child { flex:1; }
+.hpi-cookie-banner strong { font-size:14px; }
+.hpi-cookie-banner p { margin:3px 0 0; }
+.hpi-cookie-banner .hpi-cookie-actions { flex-shrink:0; gap:8px; }
+.hpi-cookie-banner .hpi-cookie-actions button { flex:initial; padding:9px 13px; font-size:12px; min-height:40px; white-space:nowrap; }
+@media(max-width:760px) { .hpi-cookie-banner { padding:10px 14px max(10px,env(safe-area-inset-bottom)); display:block; } .hpi-cookie-banner .hpi-cookie-actions { margin-top:8px; display:flex; gap:6px; } .hpi-cookie-banner .hpi-cookie-actions button { flex:1; padding:8px 6px; white-space:normal; } }

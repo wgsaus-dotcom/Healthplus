@@ -110,6 +110,7 @@ export function SiteFooter() {
           {navigation.map(([label, href]) => <Fragment key={href}><a href={href}>{label}</a>{href === "/work-with-us" && <a className="hpi-footer-sublink" href="/regional-nsw-healthcare-workforce">Regional NSW Workforce</a>}</Fragment>)}
           <a href="/faq">FAQ</a>
           <a href="/privacy">Privacy Policy</a>
+          <a href="/privacy#cookies" data-cookie-settings="true">Cookie settings</a>
           <a href="https://buy.nsw.gov.au/supplier/profile/12466498" target="_blank" rel="noopener noreferrer">Buy NSW Supplier Profile</a>
           <a href="https://au.linkedin.com/company/health-plus-international-australia" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://www.instagram.com/healthplusint/" target="_blank" rel="noopener noreferrer">Instagram</a>
