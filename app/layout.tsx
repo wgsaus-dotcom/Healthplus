@@ -109,6 +109,7 @@ const structuredData = {
       sameAs: [
         "https://au.linkedin.com/company/health-plus-international-australia",
         "https://www.instagram.com/healthplusint/",
+        "https://www.facebook.com/1405834489281517",
         "https://buy.nsw.gov.au/supplier/profile/12466498",
       ],
       knowsAbout: [

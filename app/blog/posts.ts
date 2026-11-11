@@ -1,5 +1,62 @@
 export const posts = [
   {
+    "slug": "aged-care-staffing-checklist-nsw",
+    "title": "Aged care staffing in NSW: a practical employer checklist",
+    "seoTitle": "Aged Care Staffing Checklist NSW",
+    "category": "Employer guides",
+    "description": "Plan aged care staffing in NSW: define your roster, review worker checks, arrange onboarding and compare proposals before confirming a placement.",
+    "published": "2026-11-12",
+    "publishedLabel": "12 November 2026",
+    "sourcesChecked": "12 November 2026",
+    "intro": "A clear workforce brief helps an aged care provider discuss the right people, practical arrangements and costs before committing to a placement. Use this checklist when planning recruitment or requesting additional Healthcare Workers for a NSW service.",
+    "sections": [
+      [
+        "Start with the care setting and roster",
+        "Describe whether the work is in residential aged care, home care or another community setting. List the site address, roles, number of workers, shift times, expected hours, preferred start date and likely duration. Separate registered nurse, enrolled nurse and care worker requirements. Explain whether you need a direct hire or an HPI-employed placement so the proposal addresses the right arrangement."
+      ],
+      [
+        "Describe the skills your team needs",
+        "Provide a position description and identify the duties involved, such as dementia support, wound care or medication management. Explain which capabilities must be demonstrated before commencement and who will assess them. Describe care needs without including residents’ names or personal records in an initial enquiry. Share any site-specific requirements through an agreed secure process."
+      ],
+      [
+        "Agree the checks before confirming a start",
+        "Confirm which registration, qualifications, work-rights evidence, references and screening apply to the position. For nursing roles, check current Ahpra registration and any relevant conditions. The Commission’s workforce guidance explains that screening requirements depend on the care and person involved, and directs providers to check its banning order register. Agree who verifies each requirement, records the outcome and follows up outstanding evidence."
+      ],
+      [
+        "Plan induction and clinical support",
+        "Agree the first-shift contact, orientation time, access to systems and local procedures. Identify the person responsible for supervision, competency assessment and escalation on each shift. The Commission’s human resource guidance covers pre-employment validation, suitable staffing mix, induction and ongoing support. Using an external workforce provider does not replace your service’s clinical governance or responsibility for safe care."
+      ],
+      [
+        "Compare the full written proposal",
+        "Ask for the engagement type, rate basis, agreed hours and any minimum booking period. Clarify how nights, weekends, public holidays, overtime and cancellations are priced. Ask whether recruitment fees, travel, accommodation or other charges apply, and how GST is shown. Compare proposals using the same roster and assumptions; an hourly figure alone may not show the total expected cost. Resolve unclear terms before accepting."
+      ],
+      [
+        "Confirm regional travel and accommodation",
+        "For regional NSW placements, agree the actual workplace and accommodation addresses, travel dates, transport and who pays each cost. Confirm room availability and any sharing arrangements before discussing a firm start. Check the commute against early and late shifts. Identify a practical contact if travel arrangements change, and document any agreed amendments to the placement."
+      ],
+      [
+        "Review continuity after commencement",
+        "Schedule an early check-in with the worker and your site contact. Review orientation, roster fit and any outstanding practical issues. Ask how feedback, incidents and changes to requirements should be raised. Where additional workers are needed repeatedly, discuss a longer-term workforce plan and continuity of care rather than treating every roster gap as a separate request."
+      ],
+      [
+        "Send HPI a clear workforce brief",
+        "Include your organisation and contact details, facility location, roles and numbers, roster, intended start date and engagement preference. HPI recruits, employs and places Healthcare Workers, coordinating agreed checks, rostering and placement support. We will discuss suitability, availability and the next steps for your requirements. Use the employer enquiry form below to request a proposal."
+      ]
+    ],
+    "sources": [
+      [
+        "Aged Care Quality and Safety Commission: workforce obligations",
+        "https://www.agedcarequality.gov.au/providers/workforce-obligations/about-workforce-obligations"
+      ],
+      [
+        "Aged Care Quality and Safety Commission: human resource management",
+        "https://www.agedcarequality.gov.au/strengthened-quality-standards/organisation/human-resource-management"
+      ]
+    ],
+    "cta": "Request a staffing proposal",
+    "href": "/employers#request"
+  },
+  {
     "slug": "nursing-registration-australia-overseas-nurses",
     "title": "How to register as a nurse in Australia",
     "category": "Nursing registration",
@@ -50,7 +107,11 @@ export const posts = [
       ]
     ],
     "cta": "Explore HPI registration support",
-    "href": "/ahpra-registration-support"
+    "href": "/ahpra-registration-support",
+    "seoTitle": "Nursing Registration Australia",
+    "published": "2026-11-08",
+    "publishedLabel": "8 November 2026",
+    "sourcesChecked": "8 November 2026"
   },
   {
     "slug": "life-in-rural-australia-healthcare-workers",
@@ -95,7 +156,11 @@ export const posts = [
       ]
     ],
     "cta": "Explore regional NSW opportunities",
-    "href": "/regional-nsw-healthcare-workforce"
+    "href": "/regional-nsw-healthcare-workforce",
+    "seoTitle": "Rural Life for Healthcare Workers",
+    "published": "2026-11-08",
+    "publishedLabel": "8 November 2026",
+    "sourcesChecked": "8 November 2026"
   },
   {
     "slug": "first-regional-nursing-job-checklist",
@@ -140,6 +205,10 @@ export const posts = [
       ]
     ],
     "cta": "Register your interest with HPI",
-    "href": "/work-with-us#apply"
+    "href": "/work-with-us#apply",
+    "seoTitle": "Regional Nursing Job Checklist",
+    "published": "2026-11-08",
+    "publishedLabel": "8 November 2026",
+    "sourcesChecked": "8 November 2026"
   }
 ];

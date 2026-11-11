@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 
 export const siteUrl = "https://healthplusint.com.au";
 export const seoPages: Record<string, { label: string; title: string; description: string }> = {
-  "/blog": { label: "Blog & Guides", title: "Nursing & Regional Living Blog", description: "Practical guides to nursing registration in Australia, rural life and regional NSW healthcare careers from Healthplus International." },
-  ...Object.fromEntries(posts.map(post => [`/blog/${post.slug}`, { label: post.title, title: post.title, description: post.description }])),
+  "/blog": { label: "Blog & Guides", title: "Healthcare Workforce Guides", description: "Practical guides for NSW healthcare employers and workers: aged care staffing, nursing registration, regional careers and rural living." },
+  ...Object.fromEntries(posts.map(post => [`/blog/${post.slug}`, { label: post.title, title: post.seoTitle, description: post.description }])),
   "/": {
     "label": "Home",
     "title": "Healthcare Workforce Development NSW | Healthplus International",

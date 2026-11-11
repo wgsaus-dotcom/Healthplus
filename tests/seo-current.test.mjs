@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import worker from '../dist/server/index.js';
-const routes=['/','/employers','/work-with-us','/roles','/about','/why-hpi','/ahpra-registration-support','/faq','/privacy','/regional-nsw-healthcare-workforce','/aged-care-workforce-nsw','/blog','/blog/nursing-registration-australia-overseas-nurses','/blog/life-in-rural-australia-healthcare-workers','/blog/first-regional-nursing-job-checklist'];
+const routes=['/','/employers','/work-with-us','/roles','/about','/why-hpi','/ahpra-registration-support','/faq','/privacy','/regional-nsw-healthcare-workforce','/aged-care-workforce-nsw','/blog','/blog/nursing-registration-australia-overseas-nurses','/blog/life-in-rural-australia-healthcare-workers','/blog/first-regional-nursing-job-checklist','/blog/aged-care-staffing-checklist-nsw'];
 const env={ASSETS:{fetch:async()=>new Response('Not found',{status:404})}};
 const ctx={waitUntil(){},passThroughOnException(){}};
 const fetchPage=(path)=>worker.fetch(new Request(`https://healthplusint.com.au${path}`),env,ctx);
