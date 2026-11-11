@@ -43,6 +43,17 @@
     tag.async = true;
     tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
     document.head.appendChild(tag);
+    var metricool = document.createElement('script');
+    metricool.async = true;
+    metricool.src = 'https://tracker.metricool.com/resources/be.js';
+    var tracked = false;
+    metricool.onload = function () {
+      // Recheck permission in case it changed while the script downloaded.
+      if (tracked || !choice || !choice.analytics || !window.beTracker) return;
+      tracked = true;
+      window.beTracker.t({ hash: 'c8e5c8f57752e29b2baf29f4b8e3aa6c' });
+    };
+    document.head.appendChild(metricool);
   }
   function save(analytics) {
     var withdrawing = loaded && !analytics;
@@ -73,7 +84,7 @@
     dialog = document.createElement('dialog');
     dialog.className = 'hpi-cookie-dialog';
     dialog.setAttribute('aria-labelledby', 'hpi-cookie-title');
-    dialog.innerHTML = '<h2 id="hpi-cookie-title">Cookie preferences</h2><p>Choose what you allow. Optional cookies are off until you agree.</p><div class="hpi-cookie-option"><strong>Essential — always on</strong><p>Security and remembering your cookie choice for 180 days.</p></div><div class="hpi-cookie-option"><label><input id="hpi-allow-analytics" type="checkbox"> <strong>Analytics</strong></label><p>Allow Google Analytics to measure visits and website usage. Google may process this information overseas.</p></div><div class="hpi-cookie-option"><strong>Marketing — not in use</strong><p>Advertising cookies are not currently installed. We will ask for a separate choice before introducing them.</p></div><p><a href="/privacy#cookies">Read our cookie information</a>. Change your choice anytime using Cookie settings in the footer.</p><div class="hpi-cookie-actions"><button type="button" data-choice="save">Save preferences</button><button type="button" data-choice="reject">Reject optional</button><button type="button" data-choice="close">Close</button></div>';
+    dialog.innerHTML = '<h2 id="hpi-cookie-title">Cookie preferences</h2><p>Choose what you allow. Optional cookies are off until you agree.</p><div class="hpi-cookie-option"><strong>Essential — always on</strong><p>Security and remembering your cookie choice for 180 days.</p></div><div class="hpi-cookie-option"><label><input id="hpi-allow-analytics" type="checkbox"> <strong>Analytics</strong></label><p>Allow Google Analytics and Metricool to measure visits and website usage. These providers may process information overseas.</p></div><div class="hpi-cookie-option"><strong>Marketing — not in use</strong><p>Advertising cookies are not currently installed. We will ask for a separate choice before introducing them.</p></div><p><a href="/privacy#cookies">Read our cookie information</a>. Change your choice anytime using Cookie settings in the footer.</p><div class="hpi-cookie-actions"><button type="button" data-choice="save">Save preferences</button><button type="button" data-choice="reject">Reject optional</button><button type="button" data-choice="close">Close</button></div>';
     document.body.appendChild(banner);
     document.body.appendChild(dialog);
     document.addEventListener('click', function (event) {
