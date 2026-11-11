@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
         <p className="eyebrow light">People · Care · Compliance</p>
         <h1>Privacy <em>policy</em></h1>
         <p>
-          Effective 4 November 2026 · Westminster Green Solutions Pty Ltd trading as Healthplus International
+          Effective 11 November 2026 · Westminster Green Solutions Pty Ltd trading as Healthplus International
           (ABN 13 155 901 723)
         </p>
       </section>
@@ -219,15 +219,12 @@ export default function PrivacyPolicy() {
             marketing communications at any time. Operational communications about
             an active application, workforce request or service are not marketing.
           </p>
-          <p>
-            Our website uses essential technical storage, security tools and Google Analytics
-            to understand website visits and usage. Google Analytics uses cookies and
-            processes technical and usage information through Google. We do not
-            deliberately send form contents, uploaded documents or contact details
-            to Google Analytics. Advertising personalisation is disabled in our
-            website tag. You can manage cookies through your browser settings.
-            Third-party links are governed by the privacy practices of those third parties.
-          </p>
+          <h3 id="cookies">Cookies and your choices</h3>
+          <p>Essential storage supports website security and remembers your cookie choice in this browser for 180 days. Optional analytics is off until you accept it. Rejecting optional cookies does not prevent you from browsing or submitting our forms.</p>
+          <p>If you allow analytics, Google Analytics measures visits and website usage using technical information and cookies such as _ga and _ga_*. We set the analytics cookie lifetime to 180 days. Google may process information overseas, including in the United States. Advertising personalisation and Google Signals are disabled.</p>
+          <p>We do not deliberately send form contents, uploaded documents or contact details to Google Analytics. Our initial analytics configuration excludes URL query strings and fragments. Marketing cookies and advertising pixels are not currently installed.</p>
+          <p>Use <a href="/privacy#cookies" data-cookie-settings="true">Cookie settings</a> in the footer to accept, reject or change your analytics choice. Withdrawing permission stops analytics and removes its accessible cookies on this website; the page reloads to stop the previously loaded tracker. It does not erase information already received by Google. You can also delete or block cookies in your browser. If browser storage is unavailable, your choice may not be remembered on the next page.</p>
+          <p>For details of Google's processing, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">how Google uses information from sites that use its services</a>. Third-party links, including WhatsApp and Instagram, are governed by their own privacy practices.</p>
         </section>
 
         <section className="policy-section">
