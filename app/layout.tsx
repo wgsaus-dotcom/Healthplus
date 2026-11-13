@@ -8,8 +8,8 @@ const siteUrl = "https://healthplusint.com.au";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Healthcare Workforce Development NSW | Healthplus International",
-    template: "%s | Healthplus International",
+    default: "Healthcare Workforce Development NSW | Healthplus",
+    template: "%s | Healthplus",
   },
   description:
     "Healthplus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     locale: "en_AU",
     url: siteUrl,
     siteName: "Healthplus International",
-    title: "Healthcare Workforce Development NSW | Healthplus International",
+    title: "Healthcare Workforce Development NSW | Healthplus",
     description:
       "Healthplus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
     images: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Healthcare Workforce Development NSW | Healthplus International",
+    title: "Healthcare Workforce Development NSW | Healthplus",
     description:
       "Healthplus International recruits, employs and places healthcare workers in Sydney and regional NSW.",
     images: ["/assets/hero-hpi-care.webp"],
@@ -64,7 +64,7 @@ const structuredData = {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
       name: "Healthplus International",
-      alternateName: "Health Plus International",
+      alternateName: ["Healthplus", "Health Plus International"],
       legalName: "Westminster Green Solutions Pty Ltd",
       url: siteUrl,
       logo: `${siteUrl}/assets/logo-healthplus-transparent.webp`,
@@ -127,6 +127,7 @@ const structuredData = {
       "@id": `${siteUrl}/#website`,
       url: siteUrl,
       name: "Healthplus International",
+      alternateName: ["Healthplus", "Health Plus International"],
       inLanguage: "en-AU",
       publisher: { "@id": `${siteUrl}/#organization` },
     },

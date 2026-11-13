@@ -52,17 +52,18 @@ test('regional SEO follows Healthcare Workers hierarchy and uses the regional so
  const breadcrumb=schemas(html).find(d=>d['@type']==='BreadcrumbList');
  assert.deepEqual(breadcrumb.itemListElement.map(i=>[i.position,i.item]),[[1,'https://healthplusint.com.au/'],[2,'https://healthplusint.com.au/work-with-us'],[3,'https://healthplusint.com.au/regional-nsw-healthcare-workforce']]);
  assert.match(html,/<meta property="og:image" content="https:\/\/healthplusint.com.au\/assets\/regions\/murrumbidgee.webp"/);
- assert.match(html,/<title>Regional NSW Healthcare Workforce \| Healthplus International<\/title>/);
+ assert.match(html,/<title>Healthcare Recruitment in Regional NSW \| Healthplus<\/title>/);
 });
 
-test('workforce and sponsorship metadata stays conditional and visible copy is preserved', async()=>{
+test('worker metadata explains resume-first recruitment while visible sponsorship stays conditional', async()=>{
  const employers=await(await fetchPage('/employers')).text();
  assert.match(employers,/<title>Healthcare Recruitment &amp; Staffing NSW/);
  assert.match(employers,/<h1>Request Healthcare Workers for Your NSW Facility<\/h1>/);
  const workers=await(await fetchPage('/work-with-us')).text();
  const description=workers.match(/<meta name="description" content="([^"]*)"/)?.[1];
- assert.match(description,/business sponsorship/);
- assert.match(description,/Skills in Demand visa \(subclass 482 \/ SC482\), subject to eligibility/);
+ assert.match(description,/Upload your résumé and preferences/);
+ assert.match(description,/contact you about suitable opportunities/);
+ assert.doesNotMatch(description,/sponsorship|482/i);
  assert.match(workers,/Build Your Healthcare Career with Healthplus\./);
  assert.match(workers,/sponsorship is not guaranteed/);
 });
@@ -266,7 +267,7 @@ test('alternate Worker host remains excluded while canonical public pages stay i
 test('aged care page has matching FAQ, service, employer hierarchy and working conversion links',async()=>{
  const html=await(await fetchPage('/aged-care-workforce-nsw')).text();
  const data=schemas(html);
- assert.match(html,/<title>Aged Care Workforce Providers NSW \| Healthplus International<\/title>/);
+ assert.match(html,/<title>Aged Care Workforce Providers NSW \| Healthplus<\/title>/);
  assert.ok(data.some(d=>d['@id']==='https://healthplusint.com.au/aged-care-workforce-nsw#service'));
  const breadcrumb=data.find(d=>d['@type']==='BreadcrumbList');
  assert.deepEqual(breadcrumb.itemListElement.map(i=>i.item),['https://healthplusint.com.au/','https://healthplusint.com.au/employers','https://healthplusint.com.au/aged-care-workforce-nsw']);

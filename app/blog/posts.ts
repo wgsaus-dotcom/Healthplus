@@ -60,7 +60,7 @@ export const posts = [
     "slug": "nursing-registration-australia-overseas-nurses",
     "title": "How to register as a nurse in Australia",
     "category": "Nursing registration",
-    "description": "Understand Australian nursing registration pathways, Ahpra Self-check, documents and the difference between registration, work rights and employment.",
+    "description": "A guide for overseas nurses to Australian registration pathways, Ahpra Self-check and documents, with links to official NMBA guidance.",
     "intro": "Planning your nursing career in Australia starts with knowing which registration route applies to you. Your qualification, registration history and clinical experience matter more than a general promise that one pathway works for everyone.",
     "sections": [
       [
@@ -108,7 +108,7 @@ export const posts = [
     ],
     "cta": "Explore HPI registration support",
     "href": "/ahpra-registration-support",
-    "seoTitle": "Nursing Registration Australia",
+    "seoTitle": "How Overseas Nurses Register in Australia",
     "published": "2026-11-08",
     "publishedLabel": "8 November 2026",
     "sourcesChecked": "8 November 2026"
@@ -157,7 +157,7 @@ export const posts = [
     ],
     "cta": "Explore regional NSW opportunities",
     "href": "/regional-nsw-healthcare-workforce",
-    "seoTitle": "Rural Life for Healthcare Workers",
+    "seoTitle": "Rural NSW Living Guide for Healthcare Workers",
     "published": "2026-11-08",
     "publishedLabel": "8 November 2026",
     "sourcesChecked": "8 November 2026"
@@ -166,7 +166,7 @@ export const posts = [
     "slug": "first-regional-nursing-job-checklist",
     "title": "Your first regional nursing job: questions to ask before you accept",
     "category": "Career preparation",
-    "description": "A practical checklist for a regional NSW nursing role: clinical support, orientation, rosters, accommodation, employment terms and relocation planning.",
+    "description": "Before your first regional NSW nursing job, check clinical support, orientation, rosters, accommodation, employment terms and relocation arrangements.",
     "intro": "A good interview works both ways. It helps an employer understand your skills and helps you decide whether a regional nursing role offers the right responsibilities and support. Use these questions to turn an attractive opportunity into a clear, practical plan.",
     "sections": [
       [
@@ -206,7 +206,7 @@ export const posts = [
     ],
     "cta": "Register your interest with HPI",
     "href": "/work-with-us#apply",
-    "seoTitle": "Regional Nursing Job Checklist",
+    "seoTitle": "First Regional Nursing Job Checklist NSW",
     "published": "2026-11-08",
     "publishedLabel": "8 November 2026",
     "sourcesChecked": "8 November 2026"
