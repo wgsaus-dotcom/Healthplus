@@ -60,9 +60,13 @@ export const posts = [
     "slug": "nursing-registration-australia-overseas-nurses",
     "title": "How to register as a nurse in Australia",
     "category": "Nursing registration",
-    "description": "A guide for overseas nurses to Australian registration pathways, Ahpra Self-check and documents, with links to official NMBA guidance.",
-    "intro": "Planning your nursing career in Australia starts with knowing which registration route applies to you. Your qualification, registration history and clinical experience matter more than a general promise that one pathway works for everyone.",
+    "description": "How overseas nurses register in Australia: choose an Ahpra pathway, prepare documents and plan your next steps using official NMBA guidance.",
+    "intro": "To register as a nurse in Australia, identify the application route for your qualification and registration history, meet the applicable NMBA standards and complete the assessment and application steps required by Ahpra. This guide helps overseas nurses organise those steps before planning employment in NSW.",
     "sections": [
+      [
+        "How to become a nurse in Australia: where do you start?",
+        "If you are starting without a nursing qualification, look for an NMBA-approved program of study and check its entry requirements with the education provider. If you already qualified overseas, first check the internationally qualified nurse requirements rather than assuming you need to repeat your studies. Nurses currently registered in New Zealand have a separate application route. HPI provides administrative registration support for qualified nurses; it does not deliver nursing courses."
+      ],
       [
         "Start with your own qualification and registration history",
         "Write down where you qualified, the nursing qualification you hold, where you are registered now and where you have practised. Keep your intended division clear: registered nurse and enrolled nurse are different registration categories. An overseas nursing qualification does not automatically authorise you to work as a nurse in Australia."
@@ -82,6 +86,18 @@ export const posts = [
       [
         "Keep registration, work rights and recruitment separate",
         "Ahpra processes registration applications on behalf of the NMBA. Registration, a visa or other work rights, and an employment offer are separate matters. Approval in one does not guarantee another. The NMBA advises applicants to avoid irreversible decisions such as resigning or relocating before registration approval. Build your plan around confirmed milestones, and seek migration advice from an appropriately authorised professional when needed."
+      ],
+      [
+        "What should you organise before asking for registration support?",
+        "Prepare a summary of your qualification and country of study, current registration, recent practice and any instructions already received from Ahpra. List the steps you have completed and the questions you need answered. Start an enquiry with that summary; send identity documents or other sensitive evidence only through an agreed secure process. Your personalised checklist must follow the official requirements for your application route."
+      ],
+      [
+        "Can you work as a nurse while waiting for registration?",
+        "You must hold the appropriate Australian registration before undertaking regulated nursing duties. An overseas qualification or a pending application is not permission to practise as an RN or EN. Any application for a different care role requires its own assessment of duties, qualifications, work rights and employer requirements; it does not guarantee nursing registration or a later nursing position."
+      ],
+      [
+        "How long does nursing registration take?",
+        "There is no single completion date HPI can promise. Plan around the assessment steps and evidence requested for your individual application, and use Ahpra’s current guidance for processing information. Keep a progress record and follow up through the official channel when needed. Avoid committing to a relocation or a nursing start date based only on an estimated registration date."
       ],
       [
         "How Healthplus can help",
@@ -108,10 +124,12 @@ export const posts = [
     ],
     "cta": "Explore HPI registration support",
     "href": "/ahpra-registration-support",
-    "seoTitle": "How Overseas Nurses Register in Australia",
+    "seoTitle": "How to Register as a Nurse in Australia",
     "published": "2026-11-08",
     "publishedLabel": "8 November 2026",
-    "sourcesChecked": "8 November 2026"
+    "sourcesChecked": "16 November 2026",
+    "modified": "2026-11-16",
+    "modifiedLabel": "16 November 2026"
   },
   {
     "slug": "life-in-rural-australia-healthcare-workers",

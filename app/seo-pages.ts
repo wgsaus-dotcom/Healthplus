@@ -66,7 +66,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
 // Change only affected entries when those pages change, never on every build.
 export const pageLastModified: Record<string, string> = {
   "/": "2026-11-13",
-  "/employers": "2026-11-13",
+  "/employers": "2026-11-16",
   "/work-with-us": "2026-11-13",
   "/roles": "2026-11-13",
   "/about": "2026-11-13",
@@ -75,9 +75,9 @@ export const pageLastModified: Record<string, string> = {
   "/ahpra-registration-support": "2026-11-13",
   "/regional-nsw-healthcare-workforce": "2026-11-13",
   "/aged-care-workforce-nsw": "2026-11-13",
-  "/blog": "2026-11-13",
+  "/blog": "2026-11-16",
   "/blog/aged-care-staffing-checklist-nsw": "2026-11-13",
-  "/blog/nursing-registration-australia-overseas-nurses": "2026-11-13",
+  "/blog/nursing-registration-australia-overseas-nurses": "2026-11-16",
   "/blog/life-in-rural-australia-healthcare-workers": "2026-11-13",
   "/blog/first-regional-nursing-job-checklist": "2026-11-13",
   "/privacy": "2026-11-12",

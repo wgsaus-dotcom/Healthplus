@@ -58,7 +58,7 @@ test('regional SEO follows Healthcare Workers hierarchy and uses the regional so
 test('worker metadata explains resume-first recruitment while visible sponsorship stays conditional', async()=>{
  const employers=await(await fetchPage('/employers')).text();
  assert.match(employers,/<title>Healthcare Recruitment &amp; Staffing NSW/);
- assert.match(employers,/<h1>Request Healthcare Workers for Your NSW Facility<\/h1>/);
+ assert.match(employers,/<h1>Healthcare Recruitment for Sydney and Regional NSW<\/h1>/);
  const workers=await(await fetchPage('/work-with-us')).text();
  const description=workers.match(/<meta name="description" content="([^"]*)"/)?.[1];
  assert.match(description,/Upload your résumé and preferences/);
