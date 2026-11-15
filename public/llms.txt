@@ -1,43 +1,46 @@
 # Healthplus International
 
-> Healthplus International is a healthcare workforce development business in Helensburgh, NSW. HPI recruits, employs and places healthcare workers across Sydney and regional NSW.
+> Healthplus International is a healthcare workforce development organisation based in Helensburgh, New South Wales, Australia. HPI recruits, employs and places Healthcare Workers across Sydney and regional NSW. Its approach combines role-specific readiness checks, recruitment and matching, placement planning and ongoing workforce support.
 
-## Pages
+Website: https://healthplusint.com.au/
+Brand pillars: People · Care · Compliance
 
-- [Home](https://healthplusint.com.au/)
-- [Employers](https://healthplusint.com.au/employers)
-- [Healthcare Workers](https://healthplusint.com.au/work-with-us)
-- [Positions](https://healthplusint.com.au/roles)
+## What HPI does
+
+- Works with healthcare, aged care and community-service employers on workforce requirements in NSW.
+- Recruits, employs and places healthcare workers. HPI is not offering an employer-of-record (EOR) outsourcing product.
+- Coordinates relevant registration, qualification, identity, work-right and screening checks before commencement, according to the role.
+- Supports placement arrangements and follow-up. The host service retains day-to-day work direction and clinical governance.
+- Does not provide professional training, guarantee a placement, claim affiliation with NSW Health, or promise 24/7 staffing.
+
+## Roles and locations
+
+Roles discussed include Registered Nurses, Enrolled Nurses, Assistants in Nursing, Aged Care Workers, community Support Workers and Allied Health Professionals, subject to requirements and availability.
+
+Locations include Sydney, the Central Coast and regions of NSW such as Far West, Western NSW, Murrumbidgee/Riverina, Hunter New England, Northern NSW and Mid North Coast. A listed role or region is not a representation of a current vacancy or guaranteed supply.
+
+## Public information and services
+
+- [Employer workforce enquiries](https://healthplusint.com.au/employers)
+- [Aged care workforce in NSW](https://healthplusint.com.au/aged-care-workforce-nsw)
+- [Regional NSW workforce pathways](https://healthplusint.com.au/regional-nsw-healthcare-workforce)
+- [Healthcare roles and required checks](https://healthplusint.com.au/roles)
+- [Healthcare Worker registration](https://healthplusint.com.au/work-with-us)
+- [Ahpra registration support for overseas nurses](https://healthplusint.com.au/ahpra-registration-support)
+- [How HPI differs from staffing-only services](https://healthplusint.com.au/why-hpi)
 - [About HPI](https://healthplusint.com.au/about)
-- [FAQ](https://healthplusint.com.au/faq)
-- [Privacy Policy](https://healthplusint.com.au/privacy)
+- [Frequently asked questions](https://healthplusint.com.au/faq)
+- [Practical healthcare workforce guides](https://healthplusint.com.au/blog)
+- [Privacy policy](https://healthplusint.com.au/privacy)
 
-## Positions
+## Enquiries
 
-Registered Nurses; Enrolled Nurses; Doctors; Assistants in Nursing; Aged Care Workers; Support Workers (community and in-home support, not NDIS); Allied Health Professionals.
+Employers can submit a request at https://healthplusint.com.au/employers#request. HPI acknowledges enquiries and makes contact within one business day.
 
-## Employer enquiries
+Healthcare Workers can submit a résumé and preferred locations at https://healthplusint.com.au/work-with-us#apply. Employment opportunities are discussed individually; registration does not guarantee a job.
 
-HPI acknowledges requests and contacts employers within one business day to discuss staffing needs. Employment and supervision responsibilities are described on the website and confirmed for each engagement.
-
-## Worker registration
-
-Upload a résumé and register in two steps. Compliance documents are requested later. Registration records work preferences; it is not a list of advertised vacancies.
-
-## Coverage
-
-Sydney, Central Coast, Far West NSW, Western NSW, Murrumbidgee and the Riverina, Hunter New England, Northern NSW and Mid North Coast. Regional work is planned for each engagement.
-
-## Contact
-
-Helensburgh, NSW
 Phone: +61 411 459 755
 Email: info@healthplusint.com.au
-WhatsApp: https://wa.me/61411459755
-Mon-Fri 8:30am-5:00pm Sydney time, excluding NSW public holidays.
+Business hours: Monday–Friday, 8:30am–5:00pm Sydney time, excluding NSW public holidays.
 
-## Further information
-
-- [Full factual reference](https://healthplusint.com.au/llms-full.txt)
-- [Employer request](https://healthplusint.com.au/employers#request)
-- [Worker registration](https://healthplusint.com.au/work-with-us#apply)
+More details: https://healthplusint.com.au/llms-full.txt
