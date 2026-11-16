@@ -239,7 +239,7 @@ test('remaining public indexing reports resolve to canonical content without red
 test('search-focused content connects allied health, overseas nurse guidance and HPI Instagram',async()=>{
  const roles=await(await fetchPage('/roles?source=search')).text();
  assert.match(roles,/rel="canonical" href="https:\/\/healthplusint.com.au\/roles"/);
- assert.match(roles,/Allied Health Recruitment in Sydney and Regional NSW/);
+ assert.match(roles,/<h2>Selected Allied Health Placements<\/h2>/);
  assert.match(roles,/Ahpra registration where the profession requires it/);
  assert.match(roles,/href="\/employers\?role=allied-health#request"/);
  assert.match(roles,/href="\/work-with-us\?profession=allied-health#apply"/);

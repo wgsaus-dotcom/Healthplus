@@ -21,8 +21,8 @@ export const roles = [
   },
   {
     slug: "allied-health", name: "Allied Health Professionals",
-    text: "HPI supports allied health recruitment for hospitals, aged care and community services across Sydney and regional NSW. We start with the professional discipline, duties, location and supervision your service needs. HPI employs the professional; the host service keeps clinical governance and professional supervision, and site induction is agreed in the start-date plan.",
-    checks: "Qualifications, Ahpra registration where the profession requires it, relevant professional credentials, identity, work rights, scope, references, screening, licences and insurance appropriate to the profession and setting.",
+    text: "Healthplus International recruits, employs and places Allied Health Professionals across Sydney and regional NSW. We match professionals to defined clinical, outreach and home-based roles, considering the discipline, caseload, scope of practice and supervision required.",
+    checks: "Qualifications, Ahpra registration where the profession requires it, relevant professional credentials, experience, identity, work rights, scope, references, screening, licences and insurance appropriate to the profession and setting.",
   },
 ] as const;
 
