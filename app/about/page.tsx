@@ -1,6 +1,7 @@
 import "./about.css";
 import PageSeo from "../PageSeo";
-import { pageMetadata } from "../seo-pages";
+import { pageMetadata, pageLastModified } from "../seo-pages";
+import { businessRegistration, leadership } from "../business-profile";
 import { PageIntro } from "../InnerPage";
 import { responseStandards } from "../simplified-content";
 
@@ -9,7 +10,27 @@ export const metadata = pageMetadata("/about");
 export default function AboutPage() {
   return <main className="hpi-inner"><PageSeo path="/about" />
     <PageIntro title="About HPI" />
+    <p className="about-updated">Last updated <time dateTime={pageLastModified["/about"]}>16 November 2026</time></p>
     <section className="inner-block"><h2>Who we are</h2><p>Healthplus International is a healthcare workforce development business in Helensburgh, NSW. We recruit, employ and place healthcare workers.</p></section>
+    <section className="inner-block" id="business-details" aria-labelledby="business-details-heading">
+      <h2 id="business-details-heading">Our business details</h2>
+      <p>Healthplus International is the public brand of {businessRegistration.legalName}, trading under the registered business name {businessRegistration.businessName}.</p>
+      <div className="inner-table-wrap"><table><caption>Business identity and contact details</caption><tbody>
+        <tr><th scope="row">Legal entity</th><td>{businessRegistration.legalName}</td></tr>
+        <tr><th scope="row">ABN</th><td>{businessRegistration.abn}</td></tr>
+        <tr><th scope="row">HPI business name registered from</th><td><time dateTime={businessRegistration.registeredFrom}>{businessRegistration.registeredFromLabel}</time></td></tr>
+        <tr><th scope="row">Based in</th><td>Helensburgh, NSW 2508, Australia</td></tr>
+        <tr><th scope="row">Phone</th><td><a href="tel:+61411459755">+61 411 459 755</a></td></tr>
+        <tr><th scope="row">Email</th><td><a href="mailto:info@healthplusint.com.au">info@healthplusint.com.au</a></td></tr>
+      </tbody></table></div>
+      <p><a className="inner-link" href={businessRegistration.source} target="_blank" rel="noopener noreferrer">Verify our business details on ABN Lookup</a></p>
+    </section>
+    <section className="inner-block" id="abhay-kumar" aria-labelledby="leadership-heading">
+      <h2 id="leadership-heading">Leadership</h2>
+      <h3>{leadership.name}</h3>
+      <p>{leadership.jobTitle}</p>
+      <p>For operational or compliance enquiries, contact HPI on <a href="tel:+61411459755">+61 411 459 755</a> or <a href="mailto:info@healthplusint.com.au">info@healthplusint.com.au</a>.</p>
+    </section>
     <section className="inner-block"><h2>We are the bridge</h2><p>Healthplus International was established following consultation with <a href="https://immi.homeaffairs.gov.au/visas/employing-and-sponsoring-someone/business-industry-and-regional-outreach" target="_blank" rel="noopener noreferrer" className="inner-link">the Department of Home Affairs’ Business, Industry and Regional Outreach (BIRO) team</a>, placing healthcare workforce development at the centre of our purpose. We bridge the gap between healthcare organisations needing dependable workers and people seeking pathways into sustainable healthcare careers. Our approach brings together workforce planning, professional readiness, role-specific compliance, coordinated commencement and ongoing support.</p><a className="inner-link" href="/why-hpi">Discover why HPI is different</a></section>
     <section className="inner-block" id="how-we-work"><h2>How we work</h2><p>We confirm the role, check each worker’s credentials, plan their start and follow up to support them in the role. We check that workers hold current registration and the evidence their role requires. Staff CPD does not replace registration, induction or supervision.</p></section>
     <section className="inner-block" id="charter"><h2>Service charter</h2><ul>{["Respectful service", "Clear communication", "Fair access", "Compliance-led delivery", "Privacy and consent", "Honest expectations"].map(item=><li key={item}>{item}</li>)}</ul>

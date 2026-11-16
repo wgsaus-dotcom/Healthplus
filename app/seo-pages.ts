@@ -69,7 +69,7 @@ export const pageLastModified: Record<string, string> = {
   "/employers": "2026-11-16",
   "/work-with-us": "2026-11-13",
   "/roles": "2026-11-13",
-  "/about": "2026-11-13",
+  "/about": "2026-11-16",
   "/why-hpi": "2026-11-13",
   "/faq": "2026-11-13",
   "/ahpra-registration-support": "2026-11-13",

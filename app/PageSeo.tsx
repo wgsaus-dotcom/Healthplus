@@ -1,4 +1,5 @@
-import { seoPages, siteUrl } from "./seo-pages";
+import { seoPages, siteUrl, pageLastModified } from "./seo-pages";
+import { leadership } from "./business-profile";
 
 export default function PageSeo({ path }: { path: string }) {
   const page = seoPages[path];
@@ -8,8 +9,18 @@ export default function PageSeo({ path }: { path: string }) {
     "@id": `${url}#webpage`, url, name: page.title, description: page.description,
     inLanguage: "en-AU", publisher: { "@id": `${siteUrl}/#organization` }, isPartOf: { "@id": `${siteUrl}/#website` },
     about: { "@id": `${siteUrl}/#organization` },
+    ...(pageLastModified[path] ? { dateModified: pageLastModified[path] } : {}),
     ...(path !== "/" ? { breadcrumb: { "@id": `${url}#breadcrumb` } } : {}),
   }];
+  if (path === "/about") {
+    graph[0].mainEntity = { "@id": `${siteUrl}/#organization` };
+    graph[0].mentions = { "@id": leadership.id };
+    graph.push({
+      "@type": "Person", "@id": leadership.id,
+      name: leadership.name, jobTitle: leadership.jobTitle, url: leadership.id,
+      worksFor: { "@id": `${siteUrl}/#organization` },
+    });
+  }
   const agedCare = path === "/aged-care-workforce-nsw";
   const workforceService = agedCare || path === "/employers" || path === "/regional-nsw-healthcare-workforce";
   if (workforceService || path === "/ahpra-registration-support") {

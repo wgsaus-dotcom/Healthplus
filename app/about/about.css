@@ -6,3 +6,4 @@
 .buy-nsw-link:hover { color:#b81237; }
 .buy-nsw-link:focus-visible { outline:2px solid #b81237; outline-offset:4px; border-radius:2px; }
 @media(max-width:600px) { .buy-nsw-registration { padding:20px; } .hpi-inner .buy-nsw-registration h2 { font-size:28px; } }
+.hpi-inner .about-updated { margin:0 0 24px; color:#52636b; font-size:14px; }

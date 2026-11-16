@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { preload } from "react-dom";
 import "./globals.css";
 import { SiteHeader, SiteFooter, ClosingPanel } from "./SiteChrome";
+import { businessRegistration } from "./business-profile";
 
 const siteUrl = "https://healthplusint.com.au";
 
@@ -65,7 +66,7 @@ const structuredData = {
       "@id": `${siteUrl}/#organization`,
       name: "Healthplus International",
       alternateName: ["Healthplus", "Health Plus International"],
-      legalName: "Westminster Green Solutions Pty Ltd",
+      legalName: businessRegistration.legalName,
       url: siteUrl,
       logo: `${siteUrl}/assets/logo-healthplus-transparent.webp`,
       image: `${siteUrl}/assets/hero-hpi-care.webp`,
@@ -75,7 +76,7 @@ const structuredData = {
       identifier: {
         "@type": "PropertyValue",
         propertyID: "ABN",
-        value: "13 155 901 723",
+        value: businessRegistration.abn,
       },
       email: "info@healthplusint.com.au",
       telephone: "+61 411 459 755",
@@ -91,6 +92,7 @@ const structuredData = {
         "@type": "PostalAddress",
         addressLocality: "Helensburgh",
         addressRegion: "NSW",
+        postalCode: "2508",
         addressCountry: "AU",
       },
       areaServed: [
