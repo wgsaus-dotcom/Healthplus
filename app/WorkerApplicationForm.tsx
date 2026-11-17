@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 
 import { roleValue, workforceRoles } from "./form-options";
+import { readRegistrationResponse, unconfirmedMessage } from "../lib/registration-response.mjs";
 
 type SubmissionState =
   | { status: "idle" }
@@ -59,25 +60,22 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
     setState({ status: "submitting" });
 
     try {
-      const response = await fetch(
-        "/api/worker-applications",
-        { method: "POST", body: data }
-      );
-      const result = (await response.json()) as { error?: string; reference?: string; resumeReceived?: boolean };
-
-      if (!response.ok || !result.reference || !result.resumeReceived) {
-        throw new Error(result.error || "We could not submit your application.");
+      let response: Response;
+      try {
+        response = await fetch(new URL("/api/worker-applications", window.location.origin).href, {
+          method: "POST", body: data, headers: { Accept: "application/json" },
+        });
+      } catch {
+        throw new Error(unconfirmedMessage);
       }
-
-      setState({ status: "success", reference: result.reference });
-      formRef.current?.reset();
-      setFileName("");
-      setStep(1);
-      setProfession(roleValue(initialRole));
+      const reference = await readRegistrationResponse(response);
+      // The confirmation replaces the form. Do not let a file-input reset turn a
+      // successful server submission into a browser error on mobile.
+      setState({ status: "success", reference });
     } catch (error) {
       setState({
         status: "error",
-        message: error instanceof Error ? error.message : "We could not submit your application.",
+        message: error instanceof Error ? error.message : unconfirmedMessage,
       });
     } finally {
       inFlight.current = false;
@@ -115,7 +113,7 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
         <input type="hidden" name="source" value="hpi-website" />
         <div className="form-navigation"><button className="hpi-action hpi-action-outline" type="button" onClick={()=>setStep(1)}>Back</button><button className="hpi-action" type="submit" disabled={state.status === "submitting"}>{state.status === "submitting" ? "Submitting…" : "Register"}</button></div>
       </fieldset>
-      <div className="form-status" aria-live="polite">{state.status === "success" && <p className="form-success">Thank you. We will review your details and contact you.</p>}{state.status === "error" && <p className="form-error">{state.message}</p>}</div>
+      <div className="form-status" aria-live="polite">{state.status === "error" && <div role="alert"><p className="form-error">{state.message}</p><a href="https://wa.me/61411459755?text=Hello%20HPI%2C%20I%20need%20help%20checking%20my%20website%20registration." target="_blank" rel="noopener noreferrer">Get registration help on WhatsApp</a></div>}</div>
     </form>
   );
 }
