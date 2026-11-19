@@ -281,3 +281,19 @@ test('aged care page has matching FAQ, service, employer hierarchy and working c
  const employer=await(await fetchPage('/employers')).text();assert.match(employer,/href="\/aged-care-workforce-nsw"/);assert.match(employer,/id="request"/);
  for(const link of [...html.matchAll(/href="(\/roles#[^"]+)"/g)]){const [path,id]=link[1].split('#');const target=await(await fetchPage(path)).text();assert.ok(target.includes(`id="${id}"`));}
 });
+
+test('guide metadata connects articles, visible sources and their collection', async()=>{
+ const index=schemas(await(await fetchPage('/blog')).text()).find(d=>d['@type']==='CollectionPage');
+ assert.equal(index.mainEntity.itemListElement.length,4);
+ for(const item of index.mainEntity.itemListElement){
+  const html=await(await fetchPage(new URL(item.url).pathname)).text();
+  const graph=schemas(html),article=graph.find(d=>d['@type']==='BlogPosting'),page=graph.find(d=>d['@type']==='WebPage');
+  assert.match(html,/<meta property="og:type" content="article"/);
+  assert.ok(html.includes(`property="article:published_time" content="${article.datePublished}"`));
+  assert.equal(article.author['@id'],'https://healthplusint.com.au/#organization');
+  assert.equal(page.mainEntity['@id'],article['@id']);
+  assert.ok(graph.some(d=>d['@id']===page.breadcrumb['@id']));
+  assert.ok(article.citation.length>0);
+  for(const url of article.citation) assert.ok(html.includes(`href="${url.replaceAll('&','&amp;')}"`));
+ }
+});

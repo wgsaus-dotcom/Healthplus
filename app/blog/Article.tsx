@@ -5,9 +5,9 @@ export default function Article({ slug }: { slug: string }) {
  const post = posts.find(p => p.slug === slug)!;
  const url = `${siteUrl}/blog/${slug}`;
  const schema = { "@context": "https://schema.org", "@graph": [
- { "@type": "BlogPosting", "@id": `${url}#article`, headline: post.title, description: post.description, datePublished: post.published, dateModified: post.modified ?? post.published, author: { "@type": "Organization", name: "Healthplus International", url: siteUrl }, publisher: { "@id": `${siteUrl}/#organization` }, mainEntityOfPage: { "@id": `${url}#webpage` }, inLanguage: "en-AU" },
- { "@type": "WebPage", "@id": `${url}#webpage`, url, name: post.title },
- { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: siteUrl }, { "@type": "ListItem", position: 2, name: "Blog & Guides", item: `${siteUrl}/blog` }, { "@type": "ListItem", position: 3, name: post.title, item: url }] }
+ { "@type": "BlogPosting", "@id": `${url}#article`, headline: post.title, description: post.description, datePublished: post.published, dateModified: post.modified ?? post.published, author: { "@id": `${siteUrl}/#organization` }, publisher: { "@id": `${siteUrl}/#organization` }, mainEntityOfPage: { "@id": `${url}#webpage` }, inLanguage: "en-AU", url, articleSection: post.category, citation: post.sources.map(([, href]) => href), isPartOf: { "@id": `${siteUrl}/blog#webpage` } },
+ { "@type": "WebPage", "@id": `${url}#webpage`, url, name: post.title, description: post.description, inLanguage: "en-AU", isPartOf: { "@id": `${siteUrl}/#website` }, mainEntity: { "@id": `${url}#article` }, breadcrumb: { "@id": `${url}#breadcrumb` } },
+ { "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`, itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: siteUrl }, { "@type": "ListItem", position: 2, name: "Blog & Guides", item: `${siteUrl}/blog` }, { "@type": "ListItem", position: 3, name: post.title, item: url }] }
  ] };
  return <main className="hpi-blog"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
  <nav className="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog">Blog &amp; Guides</a></nav>

@@ -1,3 +1,4 @@
+import { posts } from "./blog/posts";
 import { seoPages, siteUrl, pageLastModified } from "./seo-pages";
 import { leadership } from "./business-profile";
 
@@ -5,13 +6,22 @@ export default function PageSeo({ path }: { path: string }) {
   const page = seoPages[path];
   const url = `${siteUrl}${path}`;
   const graph: Record<string, unknown>[] = [{
-    "@type": path === "/about" ? "AboutPage" : path === "/roles" ? "CollectionPage" : "WebPage",
+    "@type": path === "/about" ? "AboutPage" : ["/roles", "/blog"].includes(path) ? "CollectionPage" : "WebPage",
     "@id": `${url}#webpage`, url, name: page.title, description: page.description,
     inLanguage: "en-AU", publisher: { "@id": `${siteUrl}/#organization` }, isPartOf: { "@id": `${siteUrl}/#website` },
     about: { "@id": `${siteUrl}/#organization` },
     ...(pageLastModified[path] ? { dateModified: pageLastModified[path] } : {}),
     ...(path !== "/" ? { breadcrumb: { "@id": `${url}#breadcrumb` } } : {}),
   }];
+  if (path === "/blog") {
+    graph[0].mainEntity = {
+      "@type": "ItemList",
+      itemListElement: posts.map((post, index) => ({
+        "@type": "ListItem", position: index + 1,
+        name: post.title, url: `${siteUrl}/blog/${post.slug}`,
+      })),
+    };
+  }
   if (path === "/about") {
     graph[0].mainEntity = { "@id": `${siteUrl}/#organization` };
     graph[0].mentions = { "@id": leadership.id };
@@ -28,7 +38,7 @@ export default function PageSeo({ path }: { path: string }) {
     graph[0].mainEntity = { "@id": serviceId };
     graph.push({
       "@type": "Service", "@id": serviceId, url,
-      name: agedCare ? "Aged care workforce providers in NSW" : workforceService ? "Healthcare workforce development and staffing in NSW" : "Ahpra registration administrative support for internationally qualified nurses",
+      name: agedCare ? "Aged care workforce providers in NSW" : path === "/regional-nsw-healthcare-workforce" ? "Healthcare recruitment in regional NSW" : workforceService ? "Healthcare workforce development and staffing in NSW" : "Ahpra registration administrative support for internationally qualified nurses",
       description: page.description,
       provider: { "@id": `${siteUrl}/#organization` },
       ...(workforceService ? { areaServed: { "@type": "State", name: "New South Wales" } } : {}),

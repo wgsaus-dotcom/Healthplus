@@ -13,7 +13,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/employers": {
     "label": "Employers",
     "title": "Healthcare Recruitment & Staffing NSW",
-    "description": "Request nurses, aged care, support and allied health workers across NSW. We recruit, employ and place them, with checks and rostering support."
+    "description": "Healthcare recruitment and medical workforce solutions in NSW. HPI recruits, employs and places nurses, aged care, support and allied health workers."
   },
   "/work-with-us": {
     "label": "Healthcare Workers",
@@ -48,7 +48,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/regional-nsw-healthcare-workforce": {
     label: "Regional NSW",
     title: "Healthcare Recruitment in Regional NSW",
-    description: "Healthcare recruitment for regional NSW hospitals, aged care and community services. Request workers or explore regional employment pathways."
+    description: "Healthcare recruitment for regional NSW hospitals, aged care and community services. Request workers or explore nursing jobs in regional NSW."
   },
   "/aged-care-workforce-nsw": {
     label: "Aged Care Workforce",
@@ -66,14 +66,14 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
 // Change only affected entries when those pages change, never on every build.
 export const pageLastModified: Record<string, string> = {
   "/": "2026-11-13",
-  "/employers": "2026-11-16",
+  "/employers": "2026-11-20",
   "/work-with-us": "2026-11-13",
   "/roles": "2026-11-16",
   "/about": "2026-11-16",
   "/why-hpi": "2026-11-13",
   "/faq": "2026-11-13",
   "/ahpra-registration-support": "2026-11-13",
-  "/regional-nsw-healthcare-workforce": "2026-11-13",
+  "/regional-nsw-healthcare-workforce": "2026-11-20",
   "/aged-care-workforce-nsw": "2026-11-13",
   "/blog": "2026-11-16",
   "/blog/aged-care-staffing-checklist-nsw": "2026-11-13",
@@ -85,6 +85,7 @@ export const pageLastModified: Record<string, string> = {
 
 export function pageMetadata(path: string): Metadata {
   const page = seoPages[path];
+  const post = posts.find(post => path === `/blog/${post.slug}`);
   const title = path === "/" || path === "/about" ? page.title : `${page.title} | Healthplus`;
   const socialImage = path === "/aged-care-workforce-nsw"
     ? { url: `${siteUrl}/assets/aged-care-workforce-community.webp`, width: 1440, height: 810, alt: "Healthcare workers forming two hands around a heart made of older adults" }
@@ -96,7 +97,7 @@ export function pageMetadata(path: string): Metadata {
     description: page.description,
     alternates: { canonical: `${siteUrl}${path}` },
     openGraph: {
-      type: "website", locale: "en_AU", siteName: "Healthplus International",
+      ...(post ? { type: "article" as const, publishedTime: post.published, modifiedTime: post.modified ?? post.published, authors: [`${siteUrl}/about`], section: post.category } : { type: "website" as const }), locale: "en_AU", siteName: "Healthplus International",
       title,
       description: page.description, url: `${siteUrl}${path}`,
       images: [socialImage],
