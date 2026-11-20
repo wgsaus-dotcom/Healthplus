@@ -94,6 +94,22 @@ export function SiteFooter() {
           <p className="hpi-footer-tagline">People · Care · Compliance</p>
           <address>Helensburgh, NSW</address>
           <p>Sydney &amp; regional NSW · Australia</p>
+          <a
+            href="https://www.google.com/preferences/source?q=healthplusint.com.au"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Add HPI as a preferred source on Google (opens in a new tab)"
+            style={{ display: "inline-block", maxWidth: "100%", marginTop: "16px" }}
+          >
+            <img
+              src="/assets/google-preferred-source.png"
+              alt="Add as a preferred source on Google"
+              width="338"
+              height="107"
+              loading="lazy"
+              style={{ display: "block", maxWidth: "100%", height: "auto" }}
+            />
+          </a>
 
         </div>
         <div>
