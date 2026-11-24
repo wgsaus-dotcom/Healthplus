@@ -11,12 +11,12 @@ export const roles = [
   },
   {
     slug: "aged-care-workers", name: "Aged Care Workers",
-    text: "For residential aged care and respite, home care and consumer-directed support, transition and restorative care, and regional services. HPI employs the worker; the registered provider keeps care governance and day-to-day supervision, and site induction is agreed in the start-date plan.",
+    text: "HPI recruits, employs and places aged care workers across Sydney and regional NSW for residential aged care and respite, home care and consumer-directed support, transition and restorative care, and regional services. HPI employs the worker; the registered provider keeps care governance and day-to-day supervision, and site induction is agreed in the start-date plan.",
     checks: "Qualifications and experience, identity, work rights, screening, police check, vaccination and training evidence, and safeguarding awareness.",
   },
   {
     slug: "support-workers", name: "Support Workers",
-    text: "Community and in-home support, not NDIS. Matching starts from the duties, the setting and the safeguards of the role, not a list of certificates. HPI employs the worker; the provider keeps responsibility for service delivery and day-to-day supervision.",
+    text: "HPI recruits, employs and places support workers for community and in-home roles across Sydney and regional NSW, not NDIS services. If you have disability support worker experience, register your interest in community support roles and tell us about your skills and preferred setting. Matching starts from the duties, the setting and the safeguards of the role, not a list of certificates. HPI employs the worker; the provider keeps responsibility for service delivery and day-to-day supervision.",
     checks: "Identity, work rights, training and employment history, plus worker screening, a Working with Children Check, and licence and availability where the role needs them.",
   },
   {

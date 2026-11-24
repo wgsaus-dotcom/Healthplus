@@ -7,8 +7,8 @@ export const metadata = pageMetadata("/roles");
 
 export default function RolesPage() {
   return <main className="hpi-inner"><PageSeo path="/roles" />
-    <PageIntro title="Nursing, Aged Care and Allied Health Roles in NSW">Explore the roles we support, including doctors and community support workers. Register your interest and we’ll contact you when a suitable vacancy arises.</PageIntro>
-    <nav className="inner-actions" aria-label="Position Categories"><a className="inner-link" href="#allied-health">Allied Health</a><a className="inner-link" href="#nurses">Nurses</a><a className="inner-link" href="#doctors">Doctors</a></nav>
+    <PageIntro title="Nursing, Aged Care and Support Worker Roles in NSW">Explore roles for nurses, aged care workers, support workers, doctors and selected allied health professionals. Register your interest and we’ll contact you when a suitable vacancy arises.</PageIntro>
+    <nav className="inner-actions" aria-label="Position Categories"><a className="inner-link" href="#allied-health">Allied Health</a><a className="inner-link" href="#nurses">Nurses</a><a className="inner-link" href="#doctors">Doctors</a><a className="inner-link" href="#aged-care-workers">Aged Care Workers</a><a className="inner-link" href="#support-workers">Support Workers</a></nav>
     <section className="inner-block" id="nurses">
       <h2>Nursing and Care Placements</h2>
       <p>Healthplus International recruits, employs and places Registered Nurses, Enrolled Nurses and Assistants in Nursing for hospitals, residential aged care and community services across NSW. We coordinate role-specific compliance, rostering and commencement arrangements.</p>

@@ -8,22 +8,22 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/": {
     "label": "Home",
     "title": "Healthcare Workforce Development NSW | Healthplus",
-    "description": "Healthplus International recruits, employs and places nurses, aged care and support workers across Sydney and regional NSW. Request workers or apply."
+    "description": "Healthplus International recruits, employs and places nurses, aged care workers and support workers across Sydney and regional NSW. Request workers or apply."
   },
   "/employers": {
     "label": "Employers",
     "title": "Healthcare Recruitment & Staffing NSW",
-    "description": "Healthcare recruitment and medical workforce solutions in NSW. HPI recruits, employs and places nurses, aged care, support and allied health workers."
+    "description": "Healthcare recruitment in Sydney and regional NSW. HPI recruits, employs and places nurses, aged care workers, support workers and allied health professionals."
   },
   "/work-with-us": {
     "label": "Healthcare Workers",
     "title": "Nursing, Aged Care & Support Worker Jobs NSW",
-    "description": "Explore nursing, aged care and support work across NSW. Upload your résumé and preferences so HPI can contact you about suitable opportunities."
+    "description": "Nurses, aged care workers and support workers: Upload your résumé and preferences so HPI can contact you about suitable opportunities across NSW."
   },
   "/roles": {
     "label": "Positions",
-    "title": "Nursing, Aged Care & Allied Health Roles NSW",
-    "description": "Explore nursing, aged care and allied health roles across NSW, with role-specific registration, qualification and screening requirements."
+    "title": "Nursing, Aged Care & Support Worker Roles NSW",
+    "description": "Explore roles for nurses, aged care workers and support workers in NSW, including community roles for people with disability support worker experience."
   },
   "/about": {
     "label": "About HPI",
@@ -53,7 +53,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/aged-care-workforce-nsw": {
     label: "Aged Care Workforce",
     title: "Aged Care Workforce Providers NSW",
-    description: "Request RNs, ENs and care workers for NSW aged care facilities. We recruit, employ and place staff, with role-specific checks and rostering support."
+    description: "Request nurses and aged care workers for NSW aged care facilities. HPI recruits, employs and places workers, with role-specific checks and rostering support."
   },
   "/privacy": {
     "label": "Privacy Policy",
@@ -65,16 +65,16 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
 // Dates of meaningful page content or search-metadata updates, in Sydney time.
 // Change only affected entries when those pages change, never on every build.
 export const pageLastModified: Record<string, string> = {
-  "/": "2026-11-13",
-  "/employers": "2026-11-20",
-  "/work-with-us": "2026-11-13",
-  "/roles": "2026-11-16",
+  "/": "2026-11-24",
+  "/employers": "2026-11-24",
+  "/work-with-us": "2026-11-24",
+  "/roles": "2026-11-24",
   "/about": "2026-11-16",
   "/why-hpi": "2026-11-13",
   "/faq": "2026-11-13",
   "/ahpra-registration-support": "2026-11-13",
   "/regional-nsw-healthcare-workforce": "2026-11-20",
-  "/aged-care-workforce-nsw": "2026-11-13",
+  "/aged-care-workforce-nsw": "2026-11-24",
   "/blog": "2026-11-16",
   "/blog/aged-care-staffing-checklist-nsw": "2026-11-13",
   "/blog/nursing-registration-australia-overseas-nurses": "2026-11-16",

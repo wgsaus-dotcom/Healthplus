@@ -8,7 +8,7 @@ export const metadata = pageMetadata("/aged-care-workforce-nsw");
 const roles = [
   ["Registered Nurses", "Discuss temporary RNs for aged care, planned leave and ongoing roster needs. Registration, experience and clinical capabilities are checked against your role brief.", "registered-nurses"],
   ["Enrolled Nurses", "Match ENs to the required duties, registration conditions and supervision arrangements. Medication-related duties depend on individual education, competence and scope.", "enrolled-nurses"],
-  ["AINs and Personal Care Workers", "Build support for personal care, mobility and daily living. Relevant qualifications, experience and role-specific screening are reviewed before placement.", "aged-care-workers"],
+  ["AINs and Personal Care Workers", "Aged care workers support personal care, mobility and daily living. Relevant qualifications, experience and role-specific screening are reviewed before placement.", "aged-care-workers"],
   ["Allied Health Professionals", "Discuss defined physiotherapy, occupational therapy and other allied health requirements. Availability, professional credentials and service scope are confirmed for each request.", "allied-health"],
 ] as const;
 
@@ -48,7 +48,7 @@ export default function AgedCareWorkforcePage() {
       <a className="inner-link" href="https://www.agedcarequality.gov.au/providers/workforce-obligations/247-registered-nurse-and-care-minutes-obligations" target="_blank" rel="noopener noreferrer">Read the Commission’s workforce obligations guidance</a>
     </div></section>
 
-    <section className="inner-block" aria-labelledby="aged-roles"><h2 id="aged-roles">Nurses and care workers for your facility</h2><div className="aged-role-grid">{roles.map(([title, text, slug]) => <article key={slug}><h3>{title}</h3><p>{text}</p><a className="inner-link" href={`/roles#${slug}`}>View role checks<span className="hpi-sr-only"> for {title}</span></a></article>)}</div></section>
+    <section className="inner-block" aria-labelledby="aged-roles"><h2 id="aged-roles">Nurses and aged care workers for your facility</h2><div className="aged-role-grid">{roles.map(([title, text, slug]) => <article key={slug}><h3>{title}</h3><p>{text}</p><a className="inner-link" href={`/roles#${slug}`}>View role checks<span className="hpi-sr-only"> for {title}</span></a></article>)}</div></section>
 
     <section className="inner-block aged-checks" aria-labelledby="aged-readiness"><p className="aged-eyebrow">PEOPLE · CARE · COMPLIANCE</p><h2 id="aged-readiness">Make readiness visible before placement</h2>
       <p>We agree the required evidence for the role, including professional registration where relevant, qualifications, work rights, references and applicable screening. Police checks, NDIS worker screening and Working with Children Checks are assessed against the position and setting.</p>
