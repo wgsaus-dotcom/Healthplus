@@ -16,6 +16,26 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
   const [state, setState] = useState<SubmissionState>({ status: "idle" });
   const [fileName, setFileName] = useState("");
   const [step, setStep] = useState(1);
+  const stepHeading = useRef<HTMLLegendElement>(null);
+  const confirmationHeading = useRef<HTMLHeadingElement>(null);
+  const focusStep = useRef(false);
+  const succeeded = state.status === "success";
+
+  useEffect(() => {
+    if (!focusStep.current) return;
+    focusStep.current = false;
+    stepHeading.current?.focus();
+  }, [step]);
+
+  useEffect(() => {
+    if (succeeded) confirmationHeading.current?.focus();
+  }, [succeeded]);
+
+  function moveToStep(next: number) {
+    focusStep.current = true;
+    setState({ status: "idle" });
+    setStep(next);
+  }
 
   const inFlight = useRef(false);
   const [region, setRegion] = useState(initialRegion);
@@ -38,8 +58,7 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
       setState({ status: "error", message: "Upload a PDF, DOC or DOCX résumé no larger than 5 MB." });
       return;
     }
-    setState({ status: "idle" });
-    setStep((current) => Math.min(2, current + 1));
+    moveToStep(2);
   }
 
   async function submitApplication(event: FormEvent<HTMLFormElement>) {
@@ -84,7 +103,7 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
 
   if (state.status === "success") return (
     <section className="worker-confirmation" role="status" aria-live="polite">
-      <h2>Registration received</h2>
+      <h2 ref={confirmationHeading} tabIndex={-1}>Registration received</h2>
       <p>Your résumé and registration details have been received.</p>
       <p>Your Reference: <strong>{state.reference}</strong></p>
       <h3>What happens next</h3>
@@ -97,7 +116,7 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
     <form className="worker-form express-worker-form" ref={formRef} onSubmit={submitApplication} encType="multipart/form-data" noValidate>
       <div className="form-honeypot" aria-hidden="true"><label htmlFor="company">Company</label><input id="company" name="company" tabIndex={-1} autoComplete="off" /></div>
       <p className="form-progress" aria-live="polite">Step {step} of 2</p>
-      <fieldset className="form-step" data-form-step="1" hidden={step !== 1}><legend>Your Résumé and Details</legend><p className="form-security">We collect your résumé and registration details to review your application and contact you about suitable work. Our <a href="/privacy">Privacy Policy</a> explains how we store, use and share your information and how to request access or correction. Please leave identity documents, banking details and unnecessary health information out of your résumé.</p>        <label className="resume-upload"><span>Upload Your Résumé *</span><input name="resume" type="file" required accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={event=>setFileName(event.target.files?.[0]?.name ?? "")} /><small>{fileName || "PDF, DOC or DOCX · maximum 5 MB"}</small></label><div className="form-grid">
+      <fieldset className="form-step" data-form-step="1" hidden={step !== 1}><legend ref={step === 1 ? stepHeading : null} tabIndex={-1}>Your Résumé and Details</legend><p className="form-security">We collect your résumé and registration details to review your application and contact you about suitable work. Our <a href="/privacy">Privacy Policy</a> explains how we store, use and share your information and how to request access or correction. Please leave identity documents, banking details and unnecessary health information out of your résumé.</p>        <label className="resume-upload"><span>Upload Your Résumé *</span><input name="resume" type="file" required accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={event=>setFileName(event.target.files?.[0]?.name ?? "")} /><small>{fileName || "PDF, DOC or DOCX · maximum 5 MB"}</small></label><div className="form-grid">
         <label><span>First Name *</span><input name="firstName" autoComplete="given-name" required maxLength={100} /></label>
         <label><span>Last Name *</span><input name="lastName" autoComplete="family-name" required maxLength={100} /></label>
         <label><span>Email *</span><input name="email" type="email" autoComplete="email" required maxLength={180} /></label>
@@ -107,11 +126,11 @@ export default function WorkerApplicationForm({ initialRole = "", initialRegion 
         <label><span>AHPRA Number</span><input name="ahpraRegistrationNumber" maxLength={30} autoComplete="off" /></label>
         <label><span>Preferred NSW Region *</span><select name="preferredLocations" required value={region} onChange={event => setRegion(event.target.value)}><option value="" disabled>Choose a region</option><option>Sydney metropolitan area</option><option>Far West NSW</option><option>Western NSW</option><option>Murrumbidgee</option><option>Hunter New England</option><option>Northern NSW</option><option>Central Coast</option><option>Mid North Coast</option><option>Open to any regional NSW location</option><option>Open to any NSW location</option></select></label>
       </div><div className="form-navigation"><button className="hpi-action" type="button" onClick={nextStep}>Continue</button></div></fieldset>
-      <fieldset className="form-step" data-form-step="2" hidden={step !== 2}><legend>Availability and Consent</legend>
+      <fieldset className="form-step" data-form-step="2" hidden={step !== 2}><legend ref={step === 2 ? stepHeading : null} tabIndex={-1}>Availability and Consent</legend>
         <label className="form-message"><span>Availability</span><textarea name="message" rows={3} maxLength={1200} /></label>
         <label className="consent-check"><input name="privacy_consent" type="checkbox" value="yes" required /><span>I consent to Healthplus International securely storing and using my information, and résumé, to assess suitable workforce pathways, as explained in the <a href="/privacy">Privacy Policy</a>.</span></label>
         <input type="hidden" name="source" value="hpi-website" />
-        <div className="form-navigation"><button className="hpi-action hpi-action-outline" type="button" onClick={()=>setStep(1)}>Back</button><button className="hpi-action" type="submit" disabled={state.status === "submitting"}>{state.status === "submitting" ? "Submitting…" : "Register"}</button></div>
+        <div className="form-navigation"><button className="hpi-action hpi-action-outline" type="button" onClick={() => moveToStep(1)}>Back</button><button className="hpi-action" type="submit" disabled={state.status === "submitting"}>{state.status === "submitting" ? "Submitting…" : "Register your interest"}</button></div>
       </fieldset>
       <div className="form-status" aria-live="polite">{state.status === "error" && <div role="alert"><p className="form-error">{state.message}</p><a href="https://wa.me/61411459755?text=Hello%20HPI%2C%20I%20need%20help%20checking%20my%20website%20registration." target="_blank" rel="noopener noreferrer">Get registration help on WhatsApp</a></div>}</div>
     </form>

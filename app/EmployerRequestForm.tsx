@@ -138,7 +138,7 @@ export default function EmployerRequestForm({ initialRole = "" }: { initialRole?
       </div></details>
       <label className="consent-check"><input name="privacyConsent" type="checkbox" value="yes" required /><span>I confirm that I am authorised to submit this request and consent to Healthplus International securely storing and using the information provided to respond to my enquiry.</span></label>
       <div className="form-submit-row"><button className="hpi-action" type="submit" disabled={state.status === "submitting"}>{state.status === "submitting" ? "Submitting…" : "Submit Request"}</button><p className="form-security">Do not include patient information, identity documents or sensitive records.</p></div>
-      <div className="form-status" aria-live="polite">{state.status === "success" && <p className="form-success">Thank you. We will acknowledge your request within one business day. Your contact will be named in our reply.</p>}{state.status === "error" && <p className="form-error">{state.message}</p>}</div>
+      <div className="form-status" aria-live="polite">{state.status === "success" && <p className="form-success">Workforce request received. Your reference is <strong>{state.reference}</strong>. We’ll contact you within one business day.</p>}{state.status === "error" && <p className="form-error">{state.message}</p>}</div>
     </form>
   );
 }

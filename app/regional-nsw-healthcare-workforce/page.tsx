@@ -6,7 +6,7 @@ import "./regional.css";
 export const metadata = pageMetadata("/regional-nsw-healthcare-workforce");
 
 function RegionalActions() {
-  return <div className="regional-actions"><a className="hpi-action" href="/employers#request">Request Workers</a><a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Regional Healthcare Work</a></div>;
+  return <div className="regional-actions"><a className="hpi-action" href="/employers#request">Request Workers</a><a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Register for Regional Work</a></div>;
 }
 
 export default function RegionalWorkforcePage() {
@@ -29,6 +29,7 @@ export default function RegionalWorkforcePage() {
         <h1>Delivering Dedicated Healthcare Professionals to Regional NSW</h1>
         <p>Supporting regional communities through healthcare workforce development, role-specific readiness and planned placements across nursing, allied health and aged care. We recruit, employ and place Healthcare Workers where their skills match the needs of the service.</p>
         <RegionalActions />
+        <p><a className="regional-text-link" href="#regional-gap">How we help employers</a> · <a className="regional-text-link" href="#regional-journey">What to expect as a Healthcare Worker</a></p>
       </div>
       <figure><img src="/assets/regions/murrumbidgee.webp" alt="Panoramic view across Wagga Wagga in the Riverina, regional NSW" width="960" height="480" fetchPriority="high" /><figcaption>Wagga Wagga, Riverina · Photo: <a href="https://commons.wikimedia.org/wiki/File:Wagga_Wagga_WNW_panorama.jpg" target="_blank" rel="noopener noreferrer">Bidgee</a> · <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a> · Cropped and resized</figcaption></figure>
     </header>

@@ -27,8 +27,9 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
   const rawRegion = Array.isArray(params.region) ? params.region[0] : params.region;
   const initialRegion = regions.find(region => region.slug === rawRegion)?.name ?? (rawRegion === "sydney" ? "Sydney metropolitan area" : "");
   return <main className="hpi-inner worker-page"><PageSeo path="/work-with-us" />
-    <PageIntro title="Build Your Healthcare Career with Healthplus.">Your skills, your goals and your next chapter. Explore Healthcare Worker opportunities across Sydney and regional NSW, with practical guidance to help you prepare, settle in and develop your career.</PageIntro>
-    <div className="inner-actions"><a className="hpi-action" href="#apply">Apply Now</a><a className="inner-link" href="https://wa.me/61411459755">Talk to Our Team</a></div>
+    <PageIntro title="Build Your Healthcare Career with Healthplus.">Register your interest in nursing, aged care, support work and selected allied health roles across Sydney and regional NSW. Share your résumé and work preferences, and we’ll contact you if a suitable role comes up.</PageIntro>
+    <div className="inner-actions"><a className="hpi-action" href="#apply">Register your interest</a><a className="inner-link" href="https://wa.me/61411459755">Talk to Our Team</a></div>
+    <section className="inner-form worker-register" id="apply" aria-labelledby="worker-apply-heading"><h2 id="worker-apply-heading">Register your interest</h2><p>Have your résumé ready (PDF, DOC or DOCX, up to 5 MB). We’ll ask for your preferred NSW region and availability. You don’t need to upload compliance documents now.</p><WorkerApplicationForm initialRole={initialRole} initialRegion={initialRegion} /></section>
     <section className="inner-block"><h2>Opportunities for aged care workers and support workers</h2><p>Register your interest in aged care and community support work across Sydney and regional NSW. If you have disability support worker experience, tell us about your skills, preferred location and availability. Our support worker placements cover community and in-home roles, not NDIS services. We review each application against the duties and checks of a suitable role.</p><a className="inner-link" href="/roles#support-workers">Explore support worker roles and requirements</a></section>
     <section className="worker-feature" aria-labelledby="worker-feature-heading">
       <img src="/assets/hpi-happy-healthcare-team.webp" alt="Illustrative image of healthcare colleagues sharing a relaxed moment at work" width="1536" height="1024" loading="lazy" />
@@ -43,19 +44,17 @@ export default async function WorkWithUsPage({ searchParams }: { searchParams?: 
         <div><dt>A simpler start, with guidance along the way</dt><dd>Apply with your résumé and work preferences in two short steps. We guide you through the role-specific checks after reviewing your details, so you can focus on your next opportunity.</dd></div>
       </dl></div>
     </section>
-    <section className="inner-block" aria-labelledby="worker-apply-heading"><h2 id="worker-apply-heading">Ready for your next chapter?</h2><p>Share your résumé, preferred role and availability. Let’s start with what matters to you.</p></section>
-    <div className="inner-form" id="apply"><WorkerApplicationForm initialRole={initialRole} initialRegion={initialRegion} /></div>
     <section className="inner-block worker-regions" aria-labelledby="worker-regions-heading">
       <h2 id="worker-regions-heading">Which Location Would You Prefer to Work In?</h2>
       <p>Explore healthcare opportunities across metropolitan and regional NSW. <a className="inner-link" href="/regional-nsw-healthcare-workforce">Learn about our regional healthcare employment pathway</a>.</p>
       <div className="worker-region-list">{[{ slug: "sydney", name: "Sydney", places: "Sydney metropolitan area" }, ...regions].map(region => <article key={region.slug}>
         <RegionPhoto slug={region.slug} />
         <h3>{region.name}</h3><p>{region.places}.</p>
-        <a className="inner-link" href={`/work-with-us?region=${region.slug}${initialRole ? `&profession=${encodeURIComponent(initialRole)}` : ""}#apply`} aria-label={`Find Healthcare Work in ${region.name}`}>Find Healthcare Work</a>
+        <a className="inner-link" href={`/work-with-us?region=${region.slug}${initialRole ? `&profession=${encodeURIComponent(initialRole)}` : ""}#apply`} aria-label={`Register interest in ${region.name}`}>Register interest</a>
       </article>)}</div>
     </section>
     <section className="inner-block worker-faq" aria-labelledby="worker-faq-heading"><h2 id="worker-faq-heading">A few things you might be wondering</h2><p><strong>If you can&apos;t find what you&apos;re looking for, please don&apos;t hesitate to <a className="inner-link" href="mailto:info@healthplusint.com.au">contact us directly</a>.</strong></p>{questions.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</section>
     <section className="inner-block worker-faq" aria-labelledby="registration-support-heading"><h2 id="registration-support-heading">Internationally qualified nurse?</h2><p>Explore practical guidance for navigating Ahpra registration requirements, organising documents and preparing for Australian healthcare workplaces.</p><p><a className="inner-link" href="/ahpra-registration-support">Explore Ahpra registration support</a></p></section>
-    <section className="worker-invitation"><h2>Let’s talk about where you want to work</h2><div className="inner-actions"><a className="hpi-action" href="#apply">Find Healthcare Work</a><a className="inner-link" href="https://wa.me/61411459755">Chat on WhatsApp</a></div></section>
+    <section className="worker-invitation"><h2>Let’s talk about where you want to work</h2><div className="inner-actions"><a className="hpi-action" href="#apply">Register your interest</a><a className="inner-link" href="https://wa.me/61411459755">Chat on WhatsApp</a></div></section>
   </main>;
 }

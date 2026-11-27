@@ -61,8 +61,8 @@ test('worker metadata explains resume-first recruitment while visible sponsorshi
  assert.match(employers,/<h1>Healthcare Recruitment for Sydney and Regional NSW<\/h1>/);
  const workers=await(await fetchPage('/work-with-us')).text();
  const description=workers.match(/<meta name="description" content="([^"]*)"/)?.[1];
- assert.match(description,/Upload your résumé and preferences/);
- assert.match(description,/contact you about suitable opportunities/);
+ assert.match(description,/Upload your résumé/);
+ assert.match(description,/where and when you can work/);
  assert.doesNotMatch(description,/sponsorship|482/i);
  assert.match(workers,/Build Your Healthcare Career with Healthplus\./);
  assert.match(workers,/sponsorship is not guaranteed/);
@@ -295,5 +295,26 @@ test('guide metadata connects articles, visible sources and their collection', a
   assert.ok(graph.some(d=>d['@id']===page.breadcrumb['@id']));
   assert.ok(article.citation.length>0);
   for(const url of article.citation) assert.ok(html.includes(`href="${url.replaceAll('&','&amp;')}"`));
+ }
+});
+
+test('employer and candidate journeys land on clear, matching form targets', async()=>{
+ const employers=await(await fetchPage('/employers')).text();
+ assert.match(employers,/<header class="inner-intro employer-intro">.*?href="#request">Request Workers<\/a>/s);
+ assert.match(employers,/<section class="inner-form" id="request" aria-labelledby="request-heading"><h2 id="request-heading">Request Healthcare Workers<\/h2>/);
+ assert.match(employers,/hero-hpi-care-480-f082e10a\.webp 480w/);
+ assert.doesNotMatch(employers,/href="\/work-with-us\?region=/);
+ const workers=await(await fetchPage('/work-with-us?region=far-west-nsw&profession=aged-care-workers')).text();
+ assert.match(workers,/href="#apply">Register your interest<\/a>/);
+ assert.match(workers,/<section class="inner-form worker-register" id="apply" aria-labelledby="worker-apply-heading">/);
+ assert.ok(workers.indexOf('id="apply"') < workers.indexOf('id="worker-feature-heading"'));
+ assert.match(workers,/<option value="Aged Care Worker" selected="">/);
+ assert.match(workers,/<option selected="">Far West NSW<\/option>/);
+ assert.match(workers,/rel="canonical" href="https:\/\/healthplusint\.com\.au\/work-with-us"/);
+ assert.doesNotMatch(workers,/"@type":"JobPosting"/);
+ const region=await(await fetchPage('/regional-nsw-healthcare-workforce')).text();
+ for(const id of ['regional-gap','regional-journey']) {
+  assert.ok(region.includes('href="#'+id+'"'));
+  assert.ok(region.includes('id="'+id+'"'));
  }
 });

@@ -97,13 +97,13 @@ export default function Home() {
       <section className="home-section" aria-labelledby="home-roles-heading">
         <h2 id="home-roles-heading">Nursing, Aged Care and Support Worker Roles</h2><ul className="home-placement-categories"><li><a className="home-text-link" href="/roles#allied-health">Allied Health</a></li><li><a className="home-text-link" href="/roles#nurses">Nurses</a></li><li><a className="home-text-link" href="/roles#doctors">Doctors</a></li></ul>
         <dl className="home-plain-list">{roles.map(([title, text]) => <div key={title}><dt>{title}</dt><dd>{text}</dd></div>)}</dl>
-        <a className="home-text-link" href="/roles">See Positions and How We Check Them</a>
+        <a className="home-text-link" href="/roles">See the Roles We Support and How We Check Them</a>
       </section>
 
       <section className="home-section home-coverage" aria-labelledby="home-coverage-heading">
         <h2 id="home-coverage-heading">Sydney and Regional NSW</h2>
         <p>Based in Helensburgh, we support healthcare employers and Healthcare Workers across Sydney, the Central Coast, Hunter, Riverina and regional NSW. Our workforce development approach connects role-specific readiness, compliance, placement and ongoing support.</p>
-        <a className="home-text-link" href="/regional-nsw-healthcare-workforce">Explore Our Regional Workforce Pathways</a><p><a className="home-text-link" href="/why-hpi">Our workforce development approach</a> · <a className="home-text-link" href="/ahpra-registration-support">Ahpra registration support for overseas nurses</a></p>
+        <a className="home-text-link" href="/regional-nsw-healthcare-workforce">Explore Our Regional Workforce Pathways</a> · <a className="home-text-link" href="/aged-care-workforce-nsw">Aged care workforce support</a><p><a className="home-text-link" href="/why-hpi">Our workforce development approach</a> · <a className="home-text-link" href="/ahpra-registration-support">Ahpra registration support for overseas nurses</a></p>
       </section>
     </main>
   );

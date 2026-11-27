@@ -8,7 +8,7 @@ const navigation = [
   ["Employers", "/employers"],
   ["Healthcare Workers", "/work-with-us"],
   ["AHPRA Support", "/ahpra-registration-support"],
-  ["Positions", "/roles"],
+  ["Roles We Support", "/roles"],
   ["Blog", "/blog"],
   ["Contact Us", "#contact"],
 ] as const;
@@ -26,7 +26,7 @@ function NavigationLinks() {
     <details className="hpi-worker-menu" key={href}>
       <summary>Healthcare Workers</summary>
       <div className="hpi-worker-submenu">
-        <a href="/work-with-us">Why work with Healthplus?</a>
+        <a href="/work-with-us">Register for Healthcare Work</a>
         <a href="/regional-nsw-healthcare-workforce">Regional NSW Workforce</a>
       </div>
     </details>

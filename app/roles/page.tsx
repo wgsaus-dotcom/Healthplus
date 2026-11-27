@@ -7,7 +7,7 @@ export const metadata = pageMetadata("/roles");
 
 export default function RolesPage() {
   return <main className="hpi-inner"><PageSeo path="/roles" />
-    <PageIntro title="Nursing, Aged Care and Support Worker Roles in NSW">Explore roles for nurses, aged care workers, support workers, doctors and selected allied health professionals. Register your interest and we’ll contact you when a suitable vacancy arises.</PageIntro>
+    <PageIntro title="Nursing, Aged Care and Support Worker Roles in NSW">Explore the roles and checks HPI supports across NSW. This is a role guide, not a list of current vacancies. Register your interest and we’ll contact you if a suitable role comes up.</PageIntro>
     <nav className="inner-actions" aria-label="Position Categories"><a className="inner-link" href="#allied-health">Allied Health</a><a className="inner-link" href="#nurses">Nurses</a><a className="inner-link" href="#doctors">Doctors</a><a className="inner-link" href="#aged-care-workers">Aged Care Workers</a><a className="inner-link" href="#support-workers">Support Workers</a></nav>
     <section className="inner-block" id="nurses">
       <h2>Nursing and Care Placements</h2>
@@ -16,7 +16,7 @@ export default function RolesPage() {
         <li><strong>Placement settings:</strong> Hospital wards, residential aged care, respite, community and regional services.</li>
         <li><strong>Simple registration:</strong> Healthcare Workers register in two steps, providing their résumé, contact details, profession, preferred locations and availability. Compliance documents are requested after the initial review for a suitable role.</li>
         <li><strong>Employer readiness:</strong> We confirm the role brief, present suitable candidates and provide readiness information to support placement decisions.</li>
-        <li><strong>Clear responsibilities:</strong> HPI employs the worker. The host facility retains clinical governance, delegation and day-to-day supervision.</li>
+        <li><strong>Clear responsibilities:</strong> For an HPI-employed placement, HPI employs the worker and the host retains clinical governance, delegation and day-to-day supervision. For direct hire, the hiring organisation employs the worker.</li>
         <li><strong>Ongoing support:</strong> Start-date planning and early-placement follow-up support workers and facilities as the placement settles.</li>
       </ul>
       <a className="inner-link" href="#registered-nurses">Registered Nurses</a> · <a className="inner-link" href="#enrolled-nurses">Enrolled Nurses</a> · <a className="inner-link" href="#assistants-in-nursing">Assistants in Nursing</a>

@@ -8,20 +8,20 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/": {
     "label": "Home",
     "title": "Healthcare Workforce Development NSW | Healthplus",
-    "description": "Healthplus International recruits, employs and places nurses, aged care workers and support workers across Sydney and regional NSW. Request workers or apply."
+    "description": "Healthplus International recruits, employs and places nurses, aged care workers and support workers across Sydney and regional NSW. Request workers or register your interest."
   },
   "/employers": {
     "label": "Employers",
     "title": "Healthcare Recruitment & Staffing NSW",
-    "description": "Healthcare recruitment in Sydney and regional NSW. HPI recruits, employs and places nurses, aged care workers, support workers and allied health professionals."
+    "description": "Request nurses, aged care workers, support workers or selected allied health staff in Sydney and regional NSW. We’ll contact you within one business day."
   },
   "/work-with-us": {
     "label": "Healthcare Workers",
-    "title": "Nursing, Aged Care & Support Worker Jobs NSW",
-    "description": "Nurses, aged care workers and support workers: Upload your résumé and preferences so HPI can contact you about suitable opportunities across NSW."
+    "title": "Nursing, Aged Care & Support Work NSW",
+    "description": "Register for nursing, aged care or community support work in Sydney and regional NSW. Upload your résumé and tell us where and when you can work."
   },
   "/roles": {
-    "label": "Positions",
+    "label": "Roles We Support",
     "title": "Nursing, Aged Care & Support Worker Roles NSW",
     "description": "Explore roles for nurses, aged care workers and support workers in NSW, including community roles for people with disability support worker experience."
   },
@@ -48,7 +48,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/regional-nsw-healthcare-workforce": {
     label: "Regional NSW",
     title: "Healthcare Recruitment in Regional NSW",
-    description: "Healthcare recruitment for regional NSW hospitals, aged care and community services. Request workers or explore nursing jobs in regional NSW."
+    description: "Recruitment for regional NSW hospitals, aged care and community services. Find out what to prepare as an employer or register for regional work."
   },
   "/aged-care-workforce-nsw": {
     label: "Aged Care Workforce",
@@ -65,15 +65,15 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
 // Dates of meaningful page content or search-metadata updates, in Sydney time.
 // Change only affected entries when those pages change, never on every build.
 export const pageLastModified: Record<string, string> = {
-  "/": "2026-11-24",
-  "/employers": "2026-11-24",
-  "/work-with-us": "2026-11-24",
-  "/roles": "2026-11-24",
+  "/": "2026-11-27",
+  "/employers": "2026-11-27",
+  "/work-with-us": "2026-11-27",
+  "/roles": "2026-11-27",
   "/about": "2026-11-16",
   "/why-hpi": "2026-11-13",
   "/faq": "2026-11-13",
   "/ahpra-registration-support": "2026-11-13",
-  "/regional-nsw-healthcare-workforce": "2026-11-20",
+  "/regional-nsw-healthcare-workforce": "2026-11-27",
   "/aged-care-workforce-nsw": "2026-11-24",
   "/blog": "2026-11-16",
   "/blog/aged-care-staffing-checklist-nsw": "2026-11-13",

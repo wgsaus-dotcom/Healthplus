@@ -70,3 +70,10 @@
 .inner-map { margin:24px 0; max-width:1100px; }
 .inner-map iframe { background:var(--paper); border:1px solid #09243b25; display:block; width:100%; }
 .inner-map figcaption { font-size:16px; margin-top:8px; }
+
+/* Keep form targets and the newly focused wizard step below the sticky header. */
+.inner-form > h2 { font-size:clamp(24px, 3vw, 32px); margin:0 0 8px; }
+.inner-form > p { max-width:68ch; margin:0 0 16px; }
+.inner-form legend[tabindex], .worker-confirmation h2[tabindex] { scroll-margin-top:110px; }
+.inner-form legend[tabindex]:focus-visible, .worker-confirmation h2[tabindex]:focus-visible { outline:2px solid var(--navy); outline-offset:4px; }
+.employer-intro .inner-actions { align-items:center; }
