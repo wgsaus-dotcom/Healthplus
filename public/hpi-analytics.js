@@ -4,19 +4,24 @@
   var KEY = 'hpi-cookie-choice-v1', MAX_AGE = 180 * 86400000;
   var ID = 'G-EZVR5R6CX8';
   var production = ['healthplusint.com.au', 'www.healthplusint.com.au'].includes(location.hostname);
-  var loaded = false, choice = readChoice(), banner, dialog;
+  var CLARITY_ID = 'zk2c9x902o';
+  var replayPages = ['/', '/about', '/roles', '/why-hpi', '/aged-care-workforce-nsw', '/regional-nsw-healthcare-workforce'];
+  var loaded = false, replayLoaded = false, choice = readChoice(), banner, dialog;
   function readChoice() {
     try {
       var value = JSON.parse(localStorage.getItem(KEY));
       if (value && value.version === 1 && typeof value.analytics === 'boolean' &&
-          typeof value.time === 'number' && value.time <= Date.now() && Date.now() - value.time < MAX_AGE) return value;
+          typeof value.time === 'number' && value.time <= Date.now() && Date.now() - value.time < MAX_AGE) {
+        // Existing analytics consent did not include replays.
+        return { version: 1, analytics: value.analytics, replay: value.replay === true, time: value.time };
+      }
     } catch (_) {}
     return null;
   }
-  function clearAnalyticsCookies() {
+  function clearCookies(pattern) {
     document.cookie.split(';').forEach(function (item) {
       var name = item.split('=')[0].trim();
-      if (!/^_ga(?:_|$)|^_gid$|^_gat(?:_|$)/.test(name)) return;
+      if (!pattern.test(name)) return;
       ['', location.hostname, 'healthplusint.com.au', '.healthplusint.com.au'].forEach(function (domain) {
         document.cookie = name + '=; Max-Age=0; path=/; SameSite=Lax' + (domain ? '; domain=' + domain : '');
       });
@@ -55,36 +60,82 @@
     };
     document.head.appendChild(metricool);
   }
-  function save(analytics) {
-    var withdrawing = loaded && !analytics;
-    choice = { version: 1, analytics: !!analytics, time: Date.now() };
+  function allowsReplay() {
+    var path = location.pathname.replace(/\/$/, '') || '/';
+    if (!production || !replayPages.includes(path) || location.search ||
+        document.querySelector('form, input[type="file"], [contenteditable="true"]')) return false;
+    try {
+      if (document.referrer) {
+        var source = new URL(document.referrer);
+        if (source.search || source.hash) return false;
+        if (source.origin === location.origin &&
+            !replayPages.includes(source.pathname.replace(/\/$/, '') || '/')) return false;
+      }
+    } catch (_) { return false; }
+    return true;
+  }
+  function replayConsent(allowed) {
+    if (!window.clarity) return;
+    window.clarity('consentv2', {
+      ad_Storage: 'denied', analytics_Storage: allowed ? 'granted' : 'denied'
+    });
+  }
+  function startReplay() {
+    if (replayLoaded || !choice || !choice.replay || !allowsReplay()) return;
+    replayLoaded = true;
+    window.clarity = window.clarity || function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+    replayConsent(true);
+    var tag = document.createElement('script');
+    tag.async = true;
+    tag.referrerPolicy = 'no-referrer';
+    tag.src = 'https://www.clarity.ms/tag/' + CLARITY_ID;
+    document.head.appendChild(tag);
+  }
+  function applyChoice() {
+    var optInAnalytics = !!(choice && choice.analytics);
+    var optInReplay = !!(choice && choice.replay);
+    if (!optInAnalytics) {
+      window['ga-disable-' + ID] = true;
+      clearCookies(/^_ga(?:_|$)|^_gid$|^_gat(?:_|$)/);
+    }
+    if (!optInReplay) {
+      if (replayLoaded) replayConsent(false);
+      clearCookies(/^_cl(?:ck|sk)$/);
+    }
+    // Reload to stop trackers already attached to this document.
+    if ((loaded && !optInAnalytics) || (replayLoaded && !optInReplay)) {
+      location.reload();
+      return;
+    }
+    startAnalytics();
+    startReplay();
+  }
+  function save(analytics, replay) {
+    choice = { version: 1, analytics: !!analytics, replay: !!replay, time: Date.now() };
     try { localStorage.setItem(KEY, JSON.stringify(choice)); } catch (_) {}
     if (banner) banner.hidden = true;
     if (dialog && dialog.open) dialog.close();
-    if (!analytics) {
-      window['ga-disable-' + ID] = true;
-      clearAnalyticsCookies();
-      // A fresh document removes the already-loaded tracker and its listeners.
-      if (withdrawing) { location.reload(); return; }
-    } else startAnalytics();
+    applyChoice();
   }
   function preferences() {
     dialog.querySelector('#hpi-allow-analytics').checked = !!(choice && choice.analytics);
+    dialog.querySelector('#hpi-allow-replay').checked = !!(choice && choice.replay);
     dialog.showModal();
   }
   window.HPIConsent = { open: preferences, save: save };
   window['ga-disable-' + ID] = !(choice && choice.analytics);
-  if (!choice || !choice.analytics) clearAnalyticsCookies();
   function mount() {
     banner = document.createElement('section');
     banner.className = 'hpi-cookie-banner';
     banner.setAttribute('aria-label', 'Cookie choices');
     banner.hidden = !!choice;
-    banner.innerHTML = '<div><strong>Your privacy, your choice</strong><p>We use essential cookies to keep this site working. Accept all to allow visitor analytics and help us improve your experience. <a href="/privacy#cookies">Cookie information</a></p></div><div class="hpi-cookie-actions"><button type="button" data-choice="accept">Accept all</button><button type="button" data-choice="reject">Essentials only</button></div>';
+    banner.innerHTML = '<div><strong>Your privacy, your choice</strong><p>We use essential cookies to keep this site working. Accept all to allow visitor analytics and Microsoft Clarity session replays on selected public pages. <a href="/privacy#cookies">Cookie information</a></p></div><div class="hpi-cookie-actions"><button type="button" data-choice="accept">Accept all</button><button type="button" data-choice="reject">Essentials only</button></div>';
     dialog = document.createElement('dialog');
     dialog.className = 'hpi-cookie-dialog';
     dialog.setAttribute('aria-labelledby', 'hpi-cookie-title');
-    dialog.innerHTML = '<h2 id="hpi-cookie-title">Cookie preferences</h2><p>Choose what you allow. Optional cookies are off until you agree.</p><div class="hpi-cookie-option"><strong>Essential — always on</strong><p>Security and remembering your cookie choice for 180 days.</p></div><div class="hpi-cookie-option"><label><input id="hpi-allow-analytics" type="checkbox"> <strong>Analytics</strong></label><p>Allow Google Analytics and Metricool to measure visits and website usage. These providers may process information overseas.</p></div><div class="hpi-cookie-option"><strong>Marketing — not in use</strong><p>Advertising cookies are not currently installed. We will ask for a separate choice before introducing them.</p></div><p><a href="/privacy#cookies">Read our cookie information</a>. Change your choice anytime using Cookie settings in the footer.</p><div class="hpi-cookie-actions"><button type="button" data-choice="save">Save preferences</button><button type="button" data-choice="reject">Essentials only</button><button type="button" data-choice="close">Close</button></div>';
+    dialog.innerHTML = '<h2 id="hpi-cookie-title">Cookie preferences</h2><p>Choose what you allow. Optional cookies are off until you agree.</p><div class="hpi-cookie-option"><strong>Essential — always on</strong><p>Security and remembering your cookie choice for 180 days.</p></div><div class="hpi-cookie-option"><label><input id="hpi-allow-analytics" type="checkbox"> <strong>Analytics</strong></label><p>Allow Google Analytics and Metricool to measure visits and website usage. These providers may process information overseas.</p></div><div class="hpi-cookie-option"><label><input id="hpi-allow-replay" type="checkbox"> <strong>Session replay</strong></label><p>Allow Microsoft Clarity to record clicks, scrolling and page interactions on selected public pages. We exclude forms and use strict text masking. Microsoft may process information overseas.</p></div><div class="hpi-cookie-option"><strong>Marketing — not in use</strong><p>Advertising cookies are not currently installed. We will ask for a separate choice before introducing them.</p></div><p><a href="/privacy#cookies">Read our cookie information</a>. Change your choice anytime using Cookie settings in the footer.</p><div class="hpi-cookie-actions"><button type="button" data-choice="save">Save preferences</button><button type="button" data-choice="reject">Essentials only</button><button type="button" data-choice="close">Close</button></div>';
     document.body.appendChild(banner);
     document.body.appendChild(dialog);
     document.addEventListener('click', function (event) {
@@ -92,23 +143,24 @@
       if (!target) return;
       if (target.hasAttribute('data-cookie-settings')) { event.preventDefault(); preferences(); return; }
       var action = target.getAttribute('data-choice');
-      if (action === 'accept') save(true);
+      if (action === 'accept') save(true, true);
       if (action === 'reject') save(false);
       if (action === 'manage') preferences();
-      if (action === 'save') save(dialog.querySelector('#hpi-allow-analytics').checked);
+      if (action === 'save') save(dialog.querySelector('#hpi-allow-analytics').checked, dialog.querySelector('#hpi-allow-replay').checked);
       if (action === 'close') dialog.close();
     });
-    startAnalytics();
+    applyChoice();
+  }
+  function refreshChoice() {
+    choice = readChoice();
+    if (banner) banner.hidden = !!choice;
+    if (dialog) applyChoice();
   }
   window.addEventListener('storage', function (event) {
-    if (event.key !== KEY && event.key !== null) return;
-    choice = readChoice();
-    if (!choice || !choice.analytics) {
-      window['ga-disable-' + ID] = true;
-      clearAnalyticsCookies();
-      if (loaded) { location.reload(); return; }
-    } else startAnalytics();
-    if (banner) banner.hidden = !!choice;
+    if (event.key === KEY || event.key === null) refreshChoice();
+  });
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) refreshChoice();
   });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, { once: true });
   else mount();
