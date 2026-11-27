@@ -6,7 +6,7 @@
   var production = ['healthplusint.com.au', 'www.healthplusint.com.au'].includes(location.hostname);
   var CLARITY_ID = 'zk2c9x902o';
   var replayPages = ['/', '/about', '/roles', '/why-hpi', '/aged-care-workforce-nsw', '/regional-nsw-healthcare-workforce'];
-  var loaded = false, replayLoaded = false, choice = readChoice(), banner, dialog;
+  var loaded = false, replayLoaded = false, replaySuspended = false, replayReloading = false, replayTag, choice = readChoice(), banner, dialog;
   function readChoice() {
     try {
       var value = JSON.parse(localStorage.getItem(KEY));
@@ -62,7 +62,7 @@
   }
   function allowsReplay() {
     var path = location.pathname.replace(/\/$/, '') || '/';
-    if (!production || !replayPages.includes(path) || location.search ||
+    if (!production || !replayPages.includes(path) || location.search || location.hash ||
         document.querySelector('form, input[type="file"], [contenteditable="true"]')) return false;
     try {
       if (document.referrer) {
@@ -81,18 +81,47 @@
     });
   }
   function startReplay() {
-    if (replayLoaded || !choice || !choice.replay || !allowsReplay()) return;
+    if (replayLoaded || replaySuspended || !choice || !choice.replay || !allowsReplay()) return;
     replayLoaded = true;
     window.clarity = window.clarity || function () {
       (window.clarity.q = window.clarity.q || []).push(arguments);
     };
     replayConsent(true);
-    var tag = document.createElement('script');
-    tag.async = true;
-    tag.referrerPolicy = 'no-referrer';
-    tag.src = 'https://www.clarity.ms/tag/' + CLARITY_ID;
-    document.head.appendChild(tag);
+    replayTag = document.createElement('script');
+    replayTag.async = true;
+    replayTag.referrerPolicy = 'no-referrer';
+    replayTag.src = 'https://www.clarity.ms/tag/' + CLARITY_ID;
+    document.head.appendChild(replayTag);
   }
+  function suspendReplay() {
+    if (!replayLoaded || replaySuspended) return;
+    replaySuspended = true;
+    // Stop before a same-document navigation where the browser exposes it.
+    // If the tag is still loading, drop the queued consent and detach it.
+    try {
+      if (window.clarity && window.clarity.v) window.clarity('stop');
+      else if (window.clarity) window.clarity.q = [];
+    } catch (_) {}
+    if (replayTag) replayTag.remove();
+  }
+  function onAddressChange() {
+    if (!replayLoaded || replayReloading || allowsReplay()) return;
+    replayReloading = true;
+    suspendReplay();
+    // Leave the visitor's choice intact. The new document will fail the URL guard.
+    location.reload();
+  }
+  if (window.navigation && typeof window.navigation.addEventListener === 'function') {
+    window.navigation.addEventListener('navigate', function (event) {
+      if (!replayLoaded || !event.destination || !event.destination.sameDocument) return;
+      try {
+        var target = new URL(event.destination.url);
+        if (target.hash || target.search || target.pathname !== location.pathname) suspendReplay();
+      } catch (_) { suspendReplay(); }
+    });
+  }
+  window.addEventListener('hashchange', onAddressChange, { capture: true });
+  window.addEventListener('popstate', onAddressChange, { capture: true });
   function applyChoice() {
     var optInAnalytics = !!(choice && choice.analytics);
     var optInReplay = !!(choice && choice.replay);

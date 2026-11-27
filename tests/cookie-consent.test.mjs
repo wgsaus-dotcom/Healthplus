@@ -2,20 +2,20 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
-const source = readFileSync('public/hpi-analytics.js','utf8');
-function page(stored, hostname='healthplusint.com.au', brokenStorage=false, {pathname='/', search='', referrer='', hasForm=false}={}) {
+const source = readFileSync(process.env.HPI_ANALYTICS_TEST_ASSET || 'public/hpi-analytics.js','utf8');
+function page(stored, hostname='healthplusint.com.au', brokenStorage=false, {pathname='/', search='', hash='', referrer='', hasForm=false}={}) {
  const inserted=[], nodes=[], events={}, deletes=[]; let reloads=0, value=stored;
  const checkbox={checked:false}, replayBox={checked:false};
  const document={readyState:'complete', head:{appendChild:x=>inserted.push(x)}, body:{appendChild:x=>nodes.push(x)},
  referrer, querySelector:()=>hasForm ? {} : null,
- createElement:()=>({setAttribute(){},querySelector:(selector)=>selector==='#hpi-allow-replay' ? replayBox : checkbox,showModal(){this.open=true},close(){this.open=false}}),
+ createElement:()=>({setAttribute(){},remove(){this.removed=true;},querySelector:(selector)=>selector==='#hpi-allow-replay' ? replayBox : checkbox,showModal(){this.open=true},close(){this.open=false}}),
  addEventListener:(n,f)=>events[n]=f};
  Object.defineProperty(document,'cookie',{get:()=> '_ga=old; _ga_EZVR5R6CX8=old; _clck=old; _clsk=old; necessary=keep',set:x=>deletes.push(x)});
- const window={addEventListener:(n,f)=>events[n]=f};
- const location={hostname,origin:'https://'+hostname,pathname,search,reload:()=>reloads++};
+ const window={navigation:{addEventListener:(n,f)=>events[n]=f},addEventListener:(n,f)=>events[n]=f};
+ const location={hostname,origin:'https://'+hostname,pathname,search,hash,reload:()=>reloads++};
  const localStorage={getItem:()=>{if(brokenStorage) throw Error();return value},setItem:(k,v)=>{if(brokenStorage)throw Error();value=v}};
  const ctx=vm.createContext({window,document,location,localStorage,URL});vm.runInContext(source,ctx);
- return {window,inserted,nodes,deletes,events,checkbox,replayBox,get value(){return value}, get reloads(){return reloads},rerun:()=>vm.runInContext(source,ctx),setValue:v=>value=v};
+ return {window,location,inserted,nodes,deletes,events,checkbox,replayBox,get value(){return value}, get reloads(){return reloads},rerun:()=>vm.runInContext(source,ctx),setValue:v=>value=v};
 }
 const stored=(analytics,time=Date.now())=>JSON.stringify({version:1,analytics,time});
 test('new visitors never load Google, and legacy analytics cookies are removed',()=>{const p=page();assert.equal(p.inserted.length,0);assert.equal(p.nodes[0].hidden,false);assert.ok(p.deletes.length);assert.ok(p.deletes.every(x=>!x.startsWith('necessary=')));});
@@ -87,4 +87,34 @@ test('reopening a cached page after replay withdrawal reloads tracking-free',()=
  p.setValue(stored(false));
  p.events.pageshow({persisted:true});
  assert.equal(p.reloads,1);
+});
+
+test('fragment landing pages never request the replay tag even when opted in',()=>{
+ const p=page(JSON.stringify(replayChoice),'healthplusint.com.au',false,{hash:'#qa-inert'});
+ assert.equal(hasClarity(p),false);
+ assert.equal(p.inserted.length,2);
+});
+test('same-document fragment navigation stops replay before the URL commits',()=>{
+ const p=page(JSON.stringify(replayChoice));
+ const calls=[];
+ p.window.clarity=(...args)=>calls.push(args);
+ p.window.clarity.v='test';
+ p.events.navigate({destination:{sameDocument:true,url:'https://healthplusint.com.au/#qa-inert'}});
+ assert.deepEqual(calls,[['stop']]);
+ assert.equal(p.location.hash,'');
+ assert.equal(p.inserted.find(t=>t.src===clarityURL).removed,true);
+ p.location.hash='#qa-inert';
+ p.events.hashchange();
+ p.events.popstate();
+ assert.equal(p.reloads,1);
+ assert.equal(JSON.parse(p.value).replay,true);
+});
+test('hashchange fallback clears queued consent and reloads without toggling preference',()=>{
+ const p=page(JSON.stringify(replayChoice));
+ p.location.hash='#qa-inert';
+ p.events.hashchange();
+ assert.equal(p.window.clarity.q.length,0);
+ assert.equal(p.inserted.find(t=>t.src===clarityURL).removed,true);
+ assert.equal(p.reloads,1);
+ assert.equal(JSON.parse(p.value).replay,true);
 });
