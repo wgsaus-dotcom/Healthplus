@@ -337,3 +337,18 @@ test('homepage leads with both actions and forms give audience-specific expectat
   assert.match(guide,/href="\/employers#request"/);
  }
 });
+
+test('FAQ reflects the current employer and candidate form journeys',async()=>{
+ const html=await(await fetchPage('/faq')).text();
+ for(const path of ['/employers#request','/work-with-us#apply','/privacy']) assert.ok(html.includes('href="'+path+'"'));
+ const faq=schemas(html).find(d=>d['@type']==='FAQPage');
+ for(const [name,expected] of [
+  ['What happens after I request workers?', 'within one business day'],
+  ['What happens after I register?', 'if a suitable role comes up'],
+  ['Which documents are needed when I first register?', 'PDF, DOC or DOCX up to 5 MB'],
+ ]){
+  const question=faq.mainEntity.find(x=>x.name===name);
+  assert.ok(question?.acceptedAnswer.text.includes(expected));
+  assert.ok(html.includes('<summary>'+name+'</summary>'));
+ }
+});

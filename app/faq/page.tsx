@@ -19,7 +19,8 @@ const faqGroups = [
     title: "Employers and Facilities",
     id: "employers",
     items: [
-      ["How do I request Healthcare Workers?", "Use the Request Workers form on our Employers page. Tell us the role, location, work setting, anticipated start date and your contact details. We acknowledge requests and make initial contact within one business day."],
+      ["How do I request Healthcare Workers?", "Use Request Workers to give us your organisation and contact details, service location, roles, number of workers and when you need them. You can add roster and screening details if you have them."],
+      ["What happens after I request workers?", "When we receive your request, the form shows a reference. We’ll acknowledge your request and contact you within one business day to discuss availability, checks and next steps. This does not confirm a placement or start date."],
       ["How does HPI verify Healthcare Workers?", "Checks are tailored to the role and may include relevant Ahpra registration, qualifications, work rights, identity, screening, references and required training or clearances. Requirements are confirmed against the role and service setting."],
       ["Who is responsible for clinical supervision?", "The host healthcare service is responsible for day-to-day clinical direction, supervision and its own site-specific clinical governance. HPI coordinates its agreed employment, workforce and compliance responsibilities."],
       ["Can HPI help with regional workforce requirements?", "Yes. HPI works with employers to understand regional and remote workforce requirements, including role scope, availability, compliance and practical commencement arrangements. We assess each request before confirming an approach."],
@@ -30,10 +31,11 @@ const faqGroups = [
     title: "Healthcare Workers and Applications",
     id: "workers",
     items: [
-      ["How do I register for work?", "Visit Healthcare Workers and complete the registration form. You can upload your résumé and provide your contact information, profession, preferred location and availability."],
-      ["Which documents are needed when I first register?", "Start with your résumé and the information requested in the form. We will explain role-specific registration and compliance documents after reviewing your details. Please do not submit identity, banking, police-check or health documents unless requested through an appropriate secure process."],
+      ["How do I register for work?", "Choose Register your interest. Upload your résumé, enter your contact details, profession and preferred NSW region, then tell us your availability."],
+      ["Which documents are needed when I first register?", "Upload your résumé as a PDF, DOC or DOCX up to 5 MB. You don’t need to upload compliance documents at this stage. Please don’t include identity documents, banking details, police checks or health records in your initial registration."],
+      ["What happens after I register?", "If we receive your registration, the confirmation screen shows a reference. Keep it for follow-up. We review your résumé and contact you if a suitable role comes up. If you don’t see a reference and are unsure whether your registration went through, contact HPI before submitting again."],
       ["Can I choose where I want to work?", "Yes. Tell us your preferred NSW location and availability. We discuss relevant opportunities when available, but selecting a region does not mean a vacancy exists."],
-      ["Does registering with HPI guarantee employment?", "Registration is an expression of interest. Employment and placement decisions depend on available roles, employer requirements, candidate eligibility and applicable checks."],
+      ["Does registering with HPI guarantee employment?", "No. Registration lets us know you’re interested in work. Our roles guide explains the types of work we support; it does not list current vacancies. Any placement depends on a suitable opening, employer requirements and the checks for that role."],
       ["Does HPI deliver NDIS services?", "HPI does not currently provide NDIS supports as an NDIS service provider. Community and in-home support workforce opportunities are assessed within the scope of an individual engagement."],
     ],
   },
@@ -87,7 +89,8 @@ export default function FaqPage() {
               <h2 id={`faq-heading-${group.id}`}>{group.title}</h2>
               {group.id === "ahpra" && <a href="/ahpra-registration-support">Explore AHPRA Support</a>}
               {group.id === "employers" && <a href="/employers#request">Request Workers</a>}
-              {group.id === "workers" && <a href="/work-with-us#apply">Register for work</a>}
+              {group.id === "workers" && <a href="/work-with-us#apply">Register your interest</a>}
+              {group.id === "general" && <a href="/privacy">Read our Privacy Policy</a>}
             </div>
             <div className="hpi-faq-items">
               {group.items.map(([question, answer]) => (

@@ -38,7 +38,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/faq": {
     "label": "FAQ",
     "title": "Healthcare Recruitment & Job FAQs",
-    "description": "Answers about healthcare recruitment, job applications, role checks, regional NSW coverage, Ahpra support and contacting Healthplus."
+    "description": "How to request healthcare workers or register for work in NSW. Find out what to submit, what happens next and how HPI handles role checks."
   },
   "/ahpra-registration-support": {
     "label": "AHPRA Support",
@@ -71,7 +71,7 @@ export const pageLastModified: Record<string, string> = {
   "/roles": "2026-11-27",
   "/about": "2026-11-27",
   "/why-hpi": "2026-11-13",
-  "/faq": "2026-11-13",
+  "/faq": "2026-11-27",
   "/ahpra-registration-support": "2026-11-13",
   "/regional-nsw-healthcare-workforce": "2026-11-27",
   "/aged-care-workforce-nsw": "2026-11-27",
