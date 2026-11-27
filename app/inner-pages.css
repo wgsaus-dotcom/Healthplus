@@ -77,3 +77,12 @@
 .inner-form legend[tabindex], .worker-confirmation h2[tabindex] { scroll-margin-top:110px; }
 .inner-form legend[tabindex]:focus-visible, .worker-confirmation h2[tabindex]:focus-visible { outline:2px solid var(--navy); outline-offset:4px; }
 .employer-intro .inner-actions { align-items:center; }
+
+.inner-form > .form-trust { border-left:3px solid #a77a37; padding:4px 0 4px 12px; }
+.hpi-inner .worker-form .form-optional summary { min-height:44px; padding-block:10px; }
+@media (max-width:650px) {
+  .hpi-inner .worker-form .resume-upload { padding:12px; }
+  .hpi-inner .worker-form .resume-upload input { min-height:44px; padding:8px; }
+  .hpi-inner .worker-form .form-navigation .hpi-action,
+  .hpi-inner .worker-form .form-submit-row .hpi-action { min-height:44px; }
+}

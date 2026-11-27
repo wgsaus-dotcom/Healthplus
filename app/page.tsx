@@ -6,7 +6,7 @@ import "./home.css";
 export const metadata = pageMetadata("/");
 
 const homeHeroSrcSet = "/assets/hero-hpi-care-480-f082e10a.webp 480w, /assets/hero-hpi-care-720-e20790a0.webp 720w, /assets/hero-hpi-care.webp 900w";
-const homeHeroSizes = "(max-width: 600px) calc(100vw - 44px), (max-width: 800px) 41vw, (max-width: 1378px) 42vw, 566px";
+const homeHeroSizes = "(max-width: 600px) calc(100vw - 44px), (max-width: 800px) 31vw, 35vw";
 
 const roles = [
   ["Registered Nurses", "Hospital, aged care, community and regional services."],
@@ -39,10 +39,21 @@ export default function Home() {
     <main className="hpi-home" id="top"><PageSeo path="/" />
       <section className="home-hero" aria-labelledby="home-heading">
         <div className="home-hero-heading">
-          <div>
             <p className="atmos-eyebrow">PEOPLE. CARE. COMPLIANCE.</p><h1 id="home-heading">Healthcare Workforce Development in NSW</h1>
-            <p className="home-subhead">We make care possible. Healthplus International recruits, employs and places Healthcare Workers in Sydney and regional NSW.</p>
-          </div>
+            <p className="home-subhead"><strong>We make care possible.</strong> Healthplus International recruits, employs and places Healthcare Workers in Sydney and regional NSW.</p>
+        </div>
+        <div className="home-audiences">
+          <article>
+            <h2>Employers and Facilities</h2>
+            <p>Need nurses, aged care or support workers? Tell us the roles, location and timing.</p>
+            <a className="hpi-action" href="/employers#request">Request Workers</a>
+          </article>
+          <article>
+            <h2>Healthcare Workers</h2>
+            <p>Looking for work? Start with your résumé and tell us where you’d like to work.</p>
+            <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Register your interest</a>
+          </article>
+        </div>
           <img
             className="home-hero-image"
             src="/assets/hero-hpi-care.webp"
@@ -54,20 +65,7 @@ export default function Home() {
             loading="lazy"
             decoding="async"
           />
-        </div>
-        <div className="home-audiences">
-          <article>
-            <h2>Employers and Facilities</h2>
-            <p>Tell us the role and the location. We acknowledge your request within one business day.</p>
-            <a className="hpi-action" href="/employers#request">Request Workers</a>
-          </article>
-          <article>
-            <h2>Healthcare Workers</h2>
-            <p>Upload your résumé and register in two short steps. Compliance documents come later.</p>
-            <a className="hpi-action hpi-action-outline" href="/work-with-us#apply">Find Healthcare Work</a>
-          </article>
-        </div>
-        <p className="home-response-line">Acknowledgement and contact within one business day · Sydney and regional NSW</p>
+        <p className="home-response-line">Employer enquiries: acknowledgement and initial contact within one business day.</p>
       </section>
 
       <section className="home-section" aria-labelledby="home-assurance-heading">

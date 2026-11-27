@@ -8,7 +8,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/": {
     "label": "Home",
     "title": "Healthcare Workforce Development NSW | Healthplus",
-    "description": "Healthplus International recruits, employs and places nurses, aged care workers and support workers across Sydney and regional NSW. Request workers or register your interest."
+    "description": "HPI recruits and places nurses, aged care workers and support workers in Sydney and regional NSW. Request staff or register for work."
   },
   "/employers": {
     "label": "Employers",
@@ -27,7 +27,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   },
   "/about": {
     "label": "About HPI",
-    "title": "About Healthplus International | Healthcare Workforce NSW",
+    "title": "About Healthplus International | NSW Healthcare Workforce",
     "description": "Meet Healthplus International, a healthcare workforce development business in Helensburgh, NSW. Read how we work and our service charter."
   },
   "/why-hpi": {
@@ -48,7 +48,7 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
   "/regional-nsw-healthcare-workforce": {
     label: "Regional NSW",
     title: "Healthcare Recruitment in Regional NSW",
-    description: "Recruitment for regional NSW hospitals, aged care and community services. Find out what to prepare as an employer or register for regional work."
+    description: "Regional NSW workforce support for hospitals, aged care and community services. Plan a placement or register for regional work."
   },
   "/aged-care-workforce-nsw": {
     label: "Aged Care Workforce",
@@ -69,13 +69,15 @@ export const pageLastModified: Record<string, string> = {
   "/employers": "2026-11-27",
   "/work-with-us": "2026-11-27",
   "/roles": "2026-11-27",
-  "/about": "2026-11-16",
+  "/about": "2026-11-27",
   "/why-hpi": "2026-11-13",
   "/faq": "2026-11-13",
   "/ahpra-registration-support": "2026-11-13",
   "/regional-nsw-healthcare-workforce": "2026-11-27",
-  "/aged-care-workforce-nsw": "2026-11-24",
-  "/blog": "2026-11-16",
+  "/aged-care-workforce-nsw": "2026-11-27",
+  "/blog": "2026-11-27",
+  "/blog/regional-healthcare-staffing-brief-nsw": "2026-11-27",
+  "/blog/regional-healthcare-first-shift-onboarding": "2026-11-27",
   "/blog/aged-care-staffing-checklist-nsw": "2026-11-13",
   "/blog/nursing-registration-australia-overseas-nurses": "2026-11-16",
   "/blog/life-in-rural-australia-healthcare-workers": "2026-11-13",

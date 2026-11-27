@@ -1,4 +1,94 @@
 export const posts = [
+{
+  "slug": "regional-healthcare-staffing-brief-nsw",
+  "title": "What to put in a regional NSW healthcare staffing brief",
+  "seoTitle": "Regional NSW Healthcare Staffing Brief",
+  "category": "Employer guides",
+  "description": "Build a staffing brief for a regional NSW facility. Define shifts, travel, accommodation and supervision before comparing workforce proposals.",
+  "intro": "A good regional staffing brief makes it possible to assess whether a placement can work before anyone commits to travel or a start date. Use these five steps for an upcoming roster gap or a longer-term workforce need.",
+  "sections": [
+    [
+      "Name the site and the shift",
+      "List the actual facility and town, not just the health district. Give the role, headcount, shift times, expected hours, start window and duration. If coverage is spread across sites, identify any travel between facilities and which shifts genuinely need cover."
+    ],
+    [
+      "Separate essential skills from preferences",
+      "Name the duties the worker will perform on the first shift. Mark which credentials or experience are essential and what the host can teach during induction. Describe the setting and responsibilities without including names or records of patients or residents."
+    ],
+    [
+      "Check travel against the roster",
+      "Work backwards from the first handover. Confirm how the worker will reach the town and the service, who arranges accommodation and how late or early travel will work. Put travel, accommodation and any change costs in writing before comparing prices."
+    ],
+    [
+      "Agree who does what on site",
+      "Name the host contact responsible for induction, access, escalation and day-to-day supervision. Ask which checks the workforce partner can complete and which the facility must verify. Note what would prevent a safe start."
+    ],
+    [
+      "Compare proposals on the same basis",
+      "Use the same role, shift pattern and travel assumptions for each quote. Clarify employment arrangements, the hours included, when the placement can be confirmed, and how a change or cancellation is handled."
+    ]
+  ],
+  "sources": [
+    [
+      "NSW Health: Imagine Rural, regional health settings",
+      "https://www.health.nsw.gov.au/careers/imagine-rural/Pages/default.aspx"
+    ],
+    [
+      "SafeWork NSW: safety induction",
+      "https://www.safework.nsw.gov.au/safety-starts-here/safety-support/training-and-orienting-workers/safety-induction"
+    ]
+  ],
+  "cta": "Discuss a regional staffing brief",
+  "href": "/employers#request",
+  "published": "2026-11-27",
+  "publishedLabel": "27 November 2026",
+  "sourcesChecked": "27 November 2026"
+},
+{
+  "slug": "regional-healthcare-first-shift-onboarding",
+  "title": "Regional healthcare onboarding: a first-shift checklist",
+  "seoTitle": "Regional Healthcare First-Shift Onboarding",
+  "category": "Employer guides",
+  "description": "Prepare a safe first shift for a regional NSW healthcare placement: agree checks, site induction, supervision and escalation before commencement.",
+  "intro": "You can reduce avoidable start-date delays by assigning the checks and site arrangements early. This checklist helps an employer and workforce partner agree what must be ready before a new Healthcare Worker starts.",
+  "sections": [
+    [
+      "Agree who verifies each requirement",
+      "Record the role, work setting and any checks the duties require. For a regulated practitioner, verify current registration and any relevant conditions using the Ahpra register. Agree who checks work rights, qualifications and screening, and who records the result. Do not share sensitive evidence through an ordinary website enquiry."
+    ],
+    [
+      "Set a clear go/no-go check",
+      "Before confirming the start, ask whether the worker is ready for the actual duties, the site can provide the agreed supervision and induction, access can be arranged, and travel and accommodation are confirmed. If anything essential is missing, agree a revised start or another way to cover the roster."
+    ],
+    [
+      "Prepare local induction",
+      "Send arrival instructions, the first-shift contact and the time set aside for induction. Cover site access, local policies, safety procedures and how to report incidents. The host should identify any site-specific competency assessment and who will supervise the first shift."
+    ],
+    [
+      "Plan the handover and escalation",
+      "Identify where the worker reports, who provides clinical direction and who answers questions if the original contact is unavailable. Make it clear how changes to duties or scope will be reviewed before the worker takes them on."
+    ],
+    [
+      "Review after the first shift",
+      "Ask the worker and host whether the induction, roster and supervision worked as intended. Record any corrective actions with an owner and time to complete them. Use that feedback before confirming additional shifts."
+    ]
+  ],
+  "sources": [
+    [
+      "Ahpra: register of practitioners",
+      "https://www.ahpra.gov.au/Registration/Registers-of-Practitioners.aspx"
+    ],
+    [
+      "SafeWork NSW: safety induction",
+      "https://www.safework.nsw.gov.au/safety-starts-here/safety-support/training-and-orienting-workers/safety-induction"
+    ]
+  ],
+  "cta": "Discuss regional workforce requirements",
+  "href": "/employers#request",
+  "published": "2026-11-27",
+  "publishedLabel": "27 November 2026",
+  "sourcesChecked": "27 November 2026"
+},
   {
     "slug": "aged-care-staffing-checklist-nsw",
     "title": "Aged care staffing in NSW: a practical employer checklist",

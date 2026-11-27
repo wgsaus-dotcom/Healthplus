@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import worker from '../dist/server/index.js';
-const routes=['/','/employers','/work-with-us','/roles','/about','/why-hpi','/ahpra-registration-support','/faq','/privacy','/regional-nsw-healthcare-workforce','/aged-care-workforce-nsw','/blog','/blog/nursing-registration-australia-overseas-nurses','/blog/life-in-rural-australia-healthcare-workers','/blog/first-regional-nursing-job-checklist','/blog/aged-care-staffing-checklist-nsw'];
+const routes=['/','/employers','/work-with-us','/roles','/about','/why-hpi','/ahpra-registration-support','/faq','/privacy','/regional-nsw-healthcare-workforce','/aged-care-workforce-nsw','/blog','/blog/nursing-registration-australia-overseas-nurses','/blog/life-in-rural-australia-healthcare-workers','/blog/first-regional-nursing-job-checklist','/blog/aged-care-staffing-checklist-nsw','/blog/regional-healthcare-staffing-brief-nsw','/blog/regional-healthcare-first-shift-onboarding'];
 const env={ASSETS:{fetch:async()=>new Response('Not found',{status:404})}};
 const ctx={waitUntil(){},passThroughOnException(){}};
 const fetchPage=(path)=>worker.fetch(new Request(`https://healthplusint.com.au${path}`),env,ctx);
@@ -284,7 +284,7 @@ test('aged care page has matching FAQ, service, employer hierarchy and working c
 
 test('guide metadata connects articles, visible sources and their collection', async()=>{
  const index=schemas(await(await fetchPage('/blog')).text()).find(d=>d['@type']==='CollectionPage');
- assert.equal(index.mainEntity.itemListElement.length,4);
+ assert.equal(index.mainEntity.itemListElement.length,routes.filter(path=>path.startsWith("/blog/")).length);
  for(const item of index.mainEntity.itemListElement){
   const html=await(await fetchPage(new URL(item.url).pathname)).text();
   const graph=schemas(html),article=graph.find(d=>d['@type']==='BlogPosting'),page=graph.find(d=>d['@type']==='WebPage');
@@ -316,5 +316,24 @@ test('employer and candidate journeys land on clear, matching form targets', asy
  for(const id of ['regional-gap','regional-journey']) {
   assert.ok(region.includes('href="#'+id+'"'));
   assert.ok(region.includes('id="'+id+'"'));
+ }
+});
+
+test('homepage leads with both actions and forms give audience-specific expectations',async()=>{
+ const home=await(await fetchPage('/')).text();
+ const hero=home.match(/<section class="home-hero"[^>]*>(.*?)<\/section>/s)?.[1];
+ assert.ok(hero);
+ for(const anchor of ['/employers#request','/work-with-us#apply'])
+  assert.ok(hero.indexOf('href="'+anchor+'"')>=0&&hero.indexOf('href="'+anchor+'"')<hero.indexOf('class="home-hero-image"'));
+ const employer=await(await fetchPage('/employers')).text();
+ assert.match(employer,/class="form-trust">.*?one business day.*?\/about#charter.*?tel:\+61411459755/s);
+ assert.match(employer,/<details class="form-optional"><summary>Add roster or other details \(optional\)<\/summary>.*?name="notes"/s);
+ const workerPage=await(await fetchPage('/work-with-us')).text();
+ assert.match(workerPage,/class="form-trust">.*?get a reference.*?contact you if a suitable role comes up.*?href="\/privacy"/s);
+ const region=await(await fetchPage('/regional-nsw-healthcare-workforce')).text();
+ for(const slug of ['regional-healthcare-staffing-brief-nsw','regional-healthcare-first-shift-onboarding']) {
+  assert.ok(region.includes('href="/blog/'+slug+'"'));
+  const guide=await(await fetchPage('/blog/'+slug)).text();
+  assert.match(guide,/href="\/employers#request"/);
  }
 });

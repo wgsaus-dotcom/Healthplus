@@ -1,11 +1,14 @@
 .hpi-home { background:var(--ivory); color:var(--navy); font-family:'Public Sans',Arial,sans-serif; font-size:16px; font-weight:400; line-height:1.6; }
 .hpi-home h1, .hpi-home h2, .hpi-home h3 { color:var(--navy); font-family:inherit; font-weight:700; letter-spacing:-.035em; }
 .home-hero, .home-section { padding-inline:clamp(22px,5vw,80px); }
-.home-hero { padding-block:28px 24px; }
-.home-hero-heading { align-items:center; display:grid; gap:32px; grid-template-columns:1.3fr 1fr; }
+.home-hero { display:grid; column-gap:clamp(24px,4vw,64px); grid-template-columns:minmax(0,1.65fr) minmax(0,1fr); align-items:start; padding-block:28px 24px; }
+.home-hero-heading { grid-column:1; }
 .home-hero h1 { font-size:clamp(32px,3.5vw,52px); line-height:1.12; margin:0 0 18px; }
 .home-subhead { font-size:16px; line-height:1.6; margin:0; max-width:56ch; }
 .home-hero-image {
+  grid-column:2;
+  grid-row:1 / span 2;
+  align-self:center;
   aspect-ratio:3/2;
   filter:saturate(.78) contrast(.94) brightness(1.03);
   height:auto;
@@ -17,12 +20,12 @@
   mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent),linear-gradient(0deg,transparent,#000 10%,#000 98%,transparent);
   mask-composite:intersect;
 }
-.home-audiences { display:grid; gap:32px; grid-template-columns:1fr 1fr; margin-top:24px; }
-.home-audiences article { align-items:flex-start; display:flex; flex-direction:column; }
-.home-audiences h2 { font-size:20px; letter-spacing:0; line-height:1.35; margin:0 0 12px; }
-.home-audiences p { font-size:16px; margin:0 0 18px; max-width:52ch; }
-.home-audiences .hpi-action { margin-top:auto; }
-.home-response-line { font-size:16px; line-height:1.6; margin:22px 0 0; }
+.home-audiences { grid-column:1; display:grid; gap:16px; grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:20px; }
+.home-audiences article { align-items:flex-start; background:var(--paper); border:1px solid #09243b22; border-radius:12px; display:flex; flex-direction:column; padding:14px; }
+.home-audiences h2 { font-size:18px; letter-spacing:0; line-height:1.35; margin:0 0 6px; }
+.home-audiences p { font-size:15px; line-height:1.4; margin:0 0 12px; max-width:37ch; }
+.home-audiences .hpi-action { margin-top:auto; min-height:44px; padding:9px 14px; }
+.home-response-line { grid-column:1 / -1; font-size:15px; line-height:1.5; margin:16px 0 0; }
 .home-section { padding-block:30px; }
 .home-section > h2 { font-size:clamp(28px,3vw,40px); line-height:1.2; margin:0 0 16px; }
 .home-plain-list { margin:0; }
@@ -42,29 +45,25 @@
 .home-process .home-registration-note { font-size:16px; line-height:1.6; margin:18px 0 0; }
 .home-coverage > p { font-size:16px; margin:0; max-width:75ch; }
 @media (max-width:800px) {
-  .home-hero-heading { gap:28px; grid-template-columns:1.2fr 1fr; }
+  .home-hero { grid-template-columns:minmax(0,1.9fr) minmax(0,1fr); gap:12px 18px; }
   .home-hero h1 { font-size:32px; }
-  .home-audiences, .home-process { gap:32px; }
+  .home-process { gap:24px; }
+  .home-audiences { gap:10px; }
 }
 @media (max-width:600px) {
   .home-hero { padding-block:22px 24px; }
-  .home-hero-heading { gap:24px; grid-template-columns:minmax(0,1fr); }
+  .home-hero { display:flex; flex-direction:column; gap:0; }
+  .home-hero-heading { width:100%; }
   .home-hero h1 { font-size:clamp(29px,7.5vw,40px); margin-bottom:16px; }
   .home-hero-image { max-height:220px; object-position:center; }
-  .home-audiences { gap:24px; grid-template-columns:minmax(0,1fr); margin-top:22px; }
+  .home-audiences { gap:10px; grid-template-columns:minmax(0,1fr); margin-top:14px; width:100%; }
+  .home-audiences article { padding:9px 11px; }
+  .home-audiences p { margin-bottom:8px; }
   .home-audiences .hpi-action { width:100%; }
-  .home-response-line { margin-top:20px; }
+  .home-response-line { margin-top:12px; order:3; }
+  .home-hero-image { margin-top:16px; order:4; }
   .home-section { padding-block:24px; }
   .home-section > h2 { margin-bottom:18px; }
   .home-plain-list > div { gap:4px; grid-template-columns:minmax(0,1fr); margin-bottom:16px; }
   .home-process { grid-template-columns:minmax(0,1fr); }
-}
-@media (max-width:600px) {
-  /* Put both visitor routes before the photo on small screens. */
-  .home-hero { display:flex; flex-direction:column; }
-  .home-hero-heading { display:contents; }
-  .home-hero-heading > div { order:1; }
-  .home-audiences { order:2; }
-  .home-hero-image { margin-top:24px; order:3; }
-  .home-response-line { order:4; }
 }

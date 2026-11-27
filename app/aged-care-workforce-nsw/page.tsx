@@ -34,7 +34,7 @@ export default function AgedCareWorkforcePage() {
       <div><p className="aged-eyebrow">FACILITY PARTNERSHIPS · SYDNEY &amp; REGIONAL NSW</p>
         <h1>Aged Care Workforce Providers in NSW</h1>
         <p className="aged-lead">The right people. Clear checks. A considered start.</p>
-        <p>Healthplus International supports aged care facilities with nursing recruitment, healthcare labour hire and workforce development. Plan for roster gaps, leave coverage and continuity of resident care with role-specific readiness and placement support.</p>
+        <p>Healthplus International helps aged care facilities in Sydney and regional NSW recruit and place nurses, assistants in nursing and personal care workers. Plan for roster gaps, leave coverage and continuity of resident care with role-specific readiness and placement support.</p>
         <div className="inner-actions"><a className="hpi-action" href="/employers#request">Request a Staffing Proposal</a><a className="inner-link" href="tel:+61411459755">Speak to Our Team</a></div>
         <p className="aged-response">Acknowledgement and initial contact within one business day.</p>
       </div>
@@ -43,7 +43,7 @@ export default function AgedCareWorkforcePage() {
     <ul className="aged-trust" aria-label="Our workforce approach"><li>Registration checks for nurses</li><li>Role-specific screening</li><li>Planned onboarding</li><li>Early-placement follow-up</li></ul>
 
     <section className="inner-block aged-intro" aria-labelledby="aged-roster"><div><p className="aged-eyebrow">WORKFORCE PLANNING</p><h2 id="aged-roster">Support your roster and care delivery</h2></div><div>
-      <p>Whether you are comparing a nursing agency in Sydney or a clinical staffing agency for regional NSW, start with the care your residents need. We discuss the clinical mix, roster, experience and practical requirements before matching Healthcare Workers.</p>
+      <p>Start with the care your residents need and the shifts your team needs to cover. We discuss the clinical mix, roster, experience and practical requirements before matching Healthcare Workers.</p>
       <p>RN, EN and AIN or personal care staffing can support your care-minute planning. Residential providers retain responsibility for their home’s targets, applicable 24/7 RN obligations, reporting and clinical governance.</p>
       <a className="inner-link" href="https://www.agedcarequality.gov.au/providers/workforce-obligations/247-registered-nurse-and-care-minutes-obligations" target="_blank" rel="noopener noreferrer">Read the Commission’s workforce obligations guidance</a>
     </div></section>
