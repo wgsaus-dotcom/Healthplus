@@ -45,13 +45,21 @@ export default function AhpraRegistrationSupportPage() {
       <header className="policy-hero">
         <p className="eyebrow light">HEALTH PLUS INTERNATIONAL · PROFESSIONAL READINESS</p>
         <h1>AHPRA Registration <em>Support for Overseas Nurses</em></h1>
-        <p>Practical guidance and coordination for internationally qualified nurses exploring Australian registration and professional transition.</p>
+        <p><strong>Fee-for-service registration support</strong> for internationally qualified nurses exploring Australian registration and professional transition.</p>
       </header>
       <div className="policy-content registration-support-content">
         <section className="policy-summary" aria-labelledby="support-intro">
           <h2 id="support-intro">Support through each stage, with you in control</h2>
           <p>Understanding Australia’s nursing registration process can involve documents, assessments, examinations and unfamiliar requirements. Healthplus International can assist with administrative organisation and career-readiness planning while you use official Ahpra and NMBA guidance.</p>
           <p>Start with our <a href="/blog/nursing-registration-australia-overseas-nurses">guide to nursing registration in Australia for overseas nurses</a>, then contact us if you need help organising your next steps.</p>
+        </section>
+
+        <section className="policy-section" aria-labelledby="support-fees">
+          <h2 id="support-fees">Fees, quotes and what is included</h2>
+          <p>HPI charges for agreed registration support. Tell us your qualification, current registration status and the assistance you need so we can discuss a suitable scope and provide a written quote before paid work begins.</p>
+          <p>Your quote sets out the support fee, payment terms and agreed deliverables. These may include a personalised document checklist, document organisation, pathway orientation and milestone tracking. The scope depends on your circumstances and does not include a guaranteed registration outcome.</p>
+          <p>Ahpra application and registration charges, English tests, examinations, translations, certification and external preparation courses are separate third-party costs where required. They are not included in HPI’s support fee unless expressly itemised in the written quote.</p>
+          <p>You must personally complete and submit your Ahpra Self-check. Paid support is separate from recruitment and does not secure a job, sponsorship or registration approval.</p>
         </section>
 
         <section className="policy-section registration-support-services" aria-labelledby="support-areas">

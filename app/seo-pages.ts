@@ -72,7 +72,7 @@ export const pageLastModified: Record<string, string> = {
   "/about": "2026-11-27",
   "/why-hpi": "2026-11-13",
   "/faq": "2026-11-27",
-  "/ahpra-registration-support": "2026-11-13",
+  "/ahpra-registration-support": "2026-11-27",
   "/regional-nsw-healthcare-workforce": "2026-11-27",
   "/aged-care-workforce-nsw": "2026-11-27",
   "/blog": "2026-11-27",

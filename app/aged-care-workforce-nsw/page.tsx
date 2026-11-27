@@ -14,7 +14,7 @@ const roles = [
 
 const questions = [
   ["How quickly can you arrange aged care shift cover?", "We acknowledge your request and make initial contact within one business day. Tell us the required start time and roster gap. We assess availability, role-specific checks and commencement arrangements before confirming a placement; immediate or 24/7 dispatch is not promised."],
-  ["How do you verify agency nurses and care workers?", "Checks are matched to the role and may include Ahpra registration and conditions for nurses, qualifications, work rights, employment history, references and applicable screening. We clarify evidence gaps and agreed readiness requirements before a worker progresses."],
+  ["How do you verify aged care nurses and care workers?", "Checks are matched to the role and may include Ahpra registration and conditions for nurses, qualifications, work rights, employment history, references and applicable screening. We clarify evidence gaps and agreed readiness requirements before a worker progresses."],
   ["Can staffing support our care minutes and 24/7 RN requirements?", "We can discuss RN, EN and AIN or personal care workforce needs as part of your roster planning. Your facility remains responsible for its care-minute targets, 24/7 RN obligations where applicable, reporting and clinical governance. A staffing request does not establish compliance."],
   ["Do you support regional and remote NSW facilities?", "Yes. We assess regional and remote requests individually, including role scope, availability, travel, accommodation and practical commencement arrangements. Regional coverage describes where we consider engagements, rather than a confirmed pool of available workers."],
   ["How are infection control, manual handling and SIRS readiness checked?", "Tell us the training and competencies your facility requires. We review relevant evidence and identify gaps as part of readiness checks. Site-specific induction, infection prevention procedures, safe handling requirements and incident escalation arrangements must be agreed before commencement."],
@@ -34,7 +34,7 @@ export default function AgedCareWorkforcePage() {
       <div><p className="aged-eyebrow">FACILITY PARTNERSHIPS · SYDNEY &amp; REGIONAL NSW</p>
         <h1>Aged Care Workforce Providers in NSW</h1>
         <p className="aged-lead">The right people. Clear checks. A considered start.</p>
-        <p>Healthplus International helps aged care facilities in Sydney and regional NSW recruit and place nurses, assistants in nursing and personal care workers. Plan for roster gaps, leave coverage and continuity of resident care with role-specific readiness and placement support.</p>
+        <p>Healthplus International recruits, employs and places Registered Nurses, Enrolled Nurses, Assistants in Nursing and Aged Care Workers for aged care facilities across Sydney and regional NSW. Plan for roster gaps, leave coverage and continuity of resident care with role-specific readiness and placement support.</p>
         <div className="inner-actions"><a className="hpi-action" href="/employers#request">Request a Staffing Proposal</a><a className="inner-link" href="tel:+61411459755">Speak to Our Team</a></div>
         <p className="aged-response">Acknowledgement and initial contact within one business day.</p>
       </div>
