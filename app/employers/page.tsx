@@ -40,5 +40,6 @@ export default async function EmployersPage({ searchParams }: { searchParams?: P
       <p><a className="inner-link" href="/regional-nsw-healthcare-workforce">Explore our regional NSW healthcare workforce pathway</a></p>
       <NSWMap />
     </section>
+    <section className="inner-block"><h2>Healthcare staffing in Orange</h2><p>Planning nursing, aged care or community support staffing in Orange, NSW? <a href="/healthcare-staffing-orange-nsw">Explore our Orange workforce support and prepare your local staffing brief</a>.</p></section>
   </main>;
 }

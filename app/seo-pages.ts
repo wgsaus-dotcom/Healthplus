@@ -55,6 +55,11 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
     title: "Aged Care Workforce Providers NSW",
     description: "Request nurses and aged care workers for NSW aged care facilities. HPI recruits, employs and places workers, with role-specific checks and rostering support."
   },
+  "/healthcare-staffing-orange-nsw": {
+    label: "Orange NSW",
+    title: "Healthcare Staffing & Nursing Recruitment Orange NSW",
+    description: "Request nurses, aged care workers and community support workers in Orange, NSW. HPI coordinates recruitment, role-specific checks and placement planning."
+  },
   "/privacy": {
     "label": "Privacy Policy",
     "title": "Privacy Policy",
@@ -65,16 +70,17 @@ export const seoPages: Record<string, { label: string; title: string; descriptio
 // Dates of meaningful page content or search-metadata updates, in Sydney time.
 // Change only affected entries when those pages change, never on every build.
 export const pageLastModified: Record<string, string> = {
+  "/healthcare-staffing-orange-nsw": "2026-11-28",
   "/": "2026-11-27",
-  "/employers": "2026-11-27",
+  "/employers": "2026-11-28",
   "/work-with-us": "2026-11-27",
   "/roles": "2026-11-27",
   "/about": "2026-11-27",
   "/why-hpi": "2026-11-13",
   "/faq": "2026-11-27",
   "/ahpra-registration-support": "2026-11-27",
-  "/regional-nsw-healthcare-workforce": "2026-11-27",
-  "/aged-care-workforce-nsw": "2026-11-27",
+  "/regional-nsw-healthcare-workforce": "2026-11-28",
+  "/aged-care-workforce-nsw": "2026-11-28",
   "/blog": "2026-11-27",
   "/blog/regional-healthcare-staffing-brief-nsw": "2026-11-27",
   "/blog/regional-healthcare-first-shift-onboarding": "2026-11-27",

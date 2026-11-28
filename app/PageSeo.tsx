@@ -31,17 +31,18 @@ export default function PageSeo({ path }: { path: string }) {
       worksFor: { "@id": `${siteUrl}/#organization` },
     });
   }
+  const orange = path === "/healthcare-staffing-orange-nsw";
   const agedCare = path === "/aged-care-workforce-nsw";
-  const workforceService = agedCare || path === "/employers" || path === "/regional-nsw-healthcare-workforce";
+  const workforceService = orange || agedCare || path === "/employers" || path === "/regional-nsw-healthcare-workforce";
   if (workforceService || path === "/ahpra-registration-support") {
     const serviceId = `${url}#service`;
     graph[0].mainEntity = { "@id": serviceId };
     graph.push({
       "@type": "Service", "@id": serviceId, url,
-      name: agedCare ? "Aged care workforce providers in NSW" : path === "/regional-nsw-healthcare-workforce" ? "Healthcare recruitment in regional NSW" : workforceService ? "Healthcare workforce development and staffing in NSW" : "Ahpra registration administrative support for internationally qualified nurses",
+      name: orange ? "Healthcare staffing and recruitment in Orange NSW" : agedCare ? "Aged care workforce providers in NSW" : path === "/regional-nsw-healthcare-workforce" ? "Healthcare recruitment in regional NSW" : workforceService ? "Healthcare workforce development and staffing in NSW" : "Ahpra registration administrative support for internationally qualified nurses",
       description: page.description,
       provider: { "@id": `${siteUrl}/#organization` },
-      ...(workforceService ? { areaServed: { "@type": "State", name: "New South Wales" } } : {}),
+      ...(workforceService ? { areaServed: orange ? { "@type": "City", name: "Orange", containedInPlace: { "@type": "State", name: "New South Wales" } } : { "@type": "State", name: "New South Wales" } } : {}),
       serviceType: workforceService ? "Healthcare workforce recruitment, compliance and placement" : "Administrative registration coordination and professional readiness support",
     });
   }
@@ -49,7 +50,7 @@ export default function PageSeo({ path }: { path: string }) {
     "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      ...(agedCare ? [
+      ...((agedCare || orange) ? [
         { "@type": "ListItem", position: 2, name: "Employers", item: `${siteUrl}/employers` },
         { "@type": "ListItem", position: 3, name: page.label, item: url },
       ] : path === "/regional-nsw-healthcare-workforce" ? [
